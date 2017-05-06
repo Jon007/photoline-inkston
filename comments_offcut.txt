@@ -1,0 +1,67 @@
+foreach ( $comments as $comment) {
+
+				$output .= '<li>';
+
+				$output .= '<div class="comment">';
+
+				if ( $show_avatar ) {
+					$output .= '<span class="comment-avatar">';
+					$comment_author_url = get_comment_author_url( $comment->comment_ID );
+					if ( !empty( $comment_author_url ) && $link_author ) {
+						$output .= '<a href="'. $comment_author_url . '" rel="external">';
+					}
+					$output .= get_avatar( $comment->comment_author_email, $avatar_size );
+					if ( !empty( $comment_author_url ) ) {
+						$output .= '</a>';
+					}
+					$output .= '</span>'; // .comment-avatar
+				}
+
+				if ( $show_author ) {
+					$output .= '<span class="comment-author">';
+					if ( $link_author ) {
+						$output .= get_comment_author_link( $comment->comment_ID );
+					} else {
+						$output .= get_comment_author( $comment->comment_ID );
+					}
+					$output .= '</span>'; // .comment-author
+				}
+
+				if ( $show_date ) {
+					$output .= '<span class="comment-date">';
+					$output .= sprintf(
+						' %1$s at %2$s', // translators : the first argument is the date of the comment, the second is the time
+						mysql2date( get_option( 'date_format' ), $comment->comment_date ),
+						mysql2date( get_option( 'time_format' ), $comment->comment_date, true )
+					);
+					$output .= '</span>'; // .comment-date
+				}
+
+				if ( $show_link ) {
+					$output .= '<span class="comment-link">';
+					$output .= sprintf(
+						_x( ' on %s', 'comment-link', DC_PLUGIN_DOMAIN ),
+						'<a href="' . esc_url( get_comment_link( $comment->comment_ID ) ) . '">' . get_the_title( $comment->comment_post_ID ) . '</a>'
+					);
+					$output .= '</span>'; // .comment-link
+				}
+
+				if ( $show_comment ) {
+					$output .= '<span class="comment-' . ( $excerpt ? "excerpt" : "body" ) . '">';
+					$output .= self::get_comment(
+						$comment,
+						array(
+							'ellipsis' => $ellipsis,
+							'excerpt' => $excerpt,
+							'max_excerpt_words' => $max_excerpt_words,
+							'max_excerpt_characters' => $max_excerpt_characters,
+							'strip_tags' => $strip_tags
+						)
+					);
+					$output .= '</span>'; // .comment-body or .comment-excerpt
+				}
+
+				$output .= '</div>'; // .comment
+
+				$output .= '</li>';
+			}

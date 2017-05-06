@@ -1,0 +1,804 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: inkston\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
+"POT-Creation-Date: 2017-03-06 15:40+0000\n"
+"POT-Revision-Date: Mon Aug 01 2016 11:35:09 GMT+0800 (CST)\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: dinevthemes <post@makewp.ru>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Loco - https://localise.biz/\n"
+"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
+"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
+"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
+"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
+"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .."
+
+#: 404BAD.php:15
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404BAD.php:16
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: comments.php:16
+msgid "Comments: "
+msgstr ""
+
+#: comments.php:16
+msgid "0"
+msgstr ""
+
+#: comments.php:16
+msgid "1"
+msgstr ""
+
+#: comments.php:16
+msgid "%"
+msgstr ""
+
+#: comments.php:21 comments.php:36
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:22 comments.php:37
+msgid "&larr; Older Comments"
+msgstr ""
+
+#: comments.php:23 comments.php:38
+msgid "Newer Comments &rarr;"
+msgstr ""
+
+#: comments.php:48
+msgid "No Comments"
+msgstr ""
+
+#: comments.php:55
+msgid "Leave a Comment"
+msgstr ""
+
+#: comments.php:56
+msgid " or "
+msgstr ""
+
+#: comments.php:61
+msgid "Post Comment"
+msgstr ""
+
+#: content-gallery.php:22
+msgid "Leave a comment"
+msgstr ""
+
+#: content-gallery.php:22
+msgid "1 Comment"
+msgstr ""
+
+#: content-gallery.php:22
+msgid "Comments: %"
+msgstr ""
+
+#: content-gallery.php:25 content-home-main.php:24 content-page-full.php:45
+#: content-page.php:37 content-single.php:31 content.php:31 image.php:48
+msgid "Edit"
+msgstr ""
+
+#: content-page-full.php:30 content-page.php:21 content-single.php:15
+#: content.php:16
+msgid "Pages:"
+msgstr ""
+
+#: functions.php:43
+msgid "Buy"
+msgstr ""
+
+#: functions.php:46
+msgid "View"
+msgstr ""
+
+#: functions.php:49
+msgid "Add"
+msgstr ""
+
+#: functions.php:52
+msgid "Choose"
+msgstr ""
+
+#: functions.php:55
+msgid "Read"
+msgstr ""
+
+#: functions.php:130 inc/contextual-help.php:65
+msgid "Top Menu"
+msgstr ""
+
+#: functions.php:131
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:132 inc/contextual-help.php:60
+msgid "Social Menu"
+msgstr ""
+
+#: functions.php:166
+msgid "Sidebar Posts"
+msgstr ""
+
+#: functions.php:174
+msgid "Sidebar Pages"
+msgstr ""
+
+#: functions.php:182
+msgid "Footer1"
+msgstr ""
+
+#: functions.php:183
+msgid "Located in the footer left."
+msgstr ""
+
+#: functions.php:191
+msgid "Footer2"
+msgstr ""
+
+#: functions.php:192
+msgid "Located in the footer center."
+msgstr ""
+
+#: functions.php:200
+msgid "Footer3"
+msgstr ""
+
+#: functions.php:201
+msgid "Located in the footer right."
+msgstr ""
+
+#: functions.php:220
+msgctxt "Open Sans font: on or off"
+msgid "on"
+msgstr ""
+
+#: functions.php:565
+msgid "Store Sidebar"
+msgstr ""
+
+#: functions.php:566
+msgid "Located in the sidebar woocommerce page."
+msgstr ""
+
+#: functions.php:781
+msgid "Recent discussions in: "
+msgstr ""
+
+#: header.php:79
+msgid "Menu"
+msgstr ""
+
+#: image.php:34
+#, php-format
+msgid ""
+"Published <span class=\"entry-date\"><time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time></span> at <a href=\"%3$s\">%4$s &times; "
+"%5$s</a> in <a href=\"%6$s\" rel=\"gallery\">%7$s</a>"
+msgstr ""
+
+#: no-results.php:14
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: no-results.php:18
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: no-results.php:24
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: searchBAD.php:52
+msgid "Nothing Found"
+msgstr ""
+
+#: searchform.php:17
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:18
+msgid "Search"
+msgstr ""
+
+#: searchform.php:20
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#. Name of the template
+msgid "FullPage"
+msgstr ""
+
+#. Name of the template
+msgid "PostTiles"
+msgstr ""
+
+#: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
+#, php-format
+msgid ""
+"inkston requires at least WordPress version 4.1. You are running version %s. "
+"Please upgrade and try again."
+msgstr ""
+
+#: inc/breadcrumbs.php:22
+msgid "Home"
+msgstr ""
+
+#: inc/breadcrumbs.php:23
+#, php-format
+msgid "Archive for %s"
+msgstr ""
+
+#: inc/breadcrumbs.php:24
+#, php-format
+msgid "Search results for: %s"
+msgstr ""
+
+#: inc/breadcrumbs.php:25
+#, php-format
+msgid "Posts tagged %s"
+msgstr ""
+
+#: inc/breadcrumbs.php:26
+#, php-format
+msgid "View all posts by %s"
+msgstr ""
+
+#: inc/breadcrumbs.php:27
+msgid "Error 404"
+msgstr ""
+
+#: inc/breadcrumbs.php:171 inc/extras.php:76
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: inc/contextual-help.php:16 inc/welcome.php:47 inc/welcome.php:48
+msgid "inkston Theme"
+msgstr ""
+
+#: inc/contextual-help.php:17
+msgid "Thank you for choosing this Theme!"
+msgstr ""
+
+#: inc/contextual-help.php:17
+msgid ""
+"The Theme has a contextual help for some admin screens. More information, "
+"help and support you will find on the website inkston.net."
+msgstr ""
+
+#: inc/contextual-help.php:17
+msgid "Quick Start"
+msgstr ""
+
+#: inc/contextual-help.php:17
+msgid ""
+"Using Customizer set your color, upload a logo (avatar - for personal) image,"
+" upload a background image (or select any color), upload the image (or "
+"select any color) header and other settings."
+msgstr ""
+
+#: inc/contextual-help.php:17
+msgid ""
+"The theme has page templates for the Home Page. Home Mosaic Tiles and Home "
+"Square Tiles Templates show 4 (or more) posts image format. Into Home "
+"Tagline section can be used plugins shortcode."
+msgstr ""
+
+#: inc/contextual-help.php:17
+msgid "Note"
+msgstr ""
+
+#: inc/contextual-help.php:17
+msgid ""
+"If you want to display the posts without the sidebar just leave blank "
+"Sidebar posts."
+msgstr ""
+
+#: inc/contextual-help.php:26 inc/contextual-help.php:27
+#: inc/contextual-help.php:40 inc/contextual-help.php:41
+msgid "Theme Features"
+msgstr ""
+
+#: inc/contextual-help.php:28 inc/contextual-help.php:41
+msgid "Use Featured image"
+msgstr ""
+
+#: inc/contextual-help.php:29
+msgid ""
+"Featured image used for the cover of the post formats. Upload the image that "
+"will be displayed header on single post formats standard and image."
+msgstr ""
+
+#: inc/contextual-help.php:30 inc/contextual-help.php:41
+msgid "Use Excerpt"
+msgstr ""
+
+#: inc/contextual-help.php:31 inc/contextual-help.php:41
+msgid "Enter text in field Excerpt to display announcement of the post."
+msgstr ""
+
+#: inc/contextual-help.php:41
+msgid "Upload the image that will be displayed header on page."
+msgstr ""
+
+#: inc/contextual-help.php:41
+msgid "Templates"
+msgstr ""
+
+#: inc/contextual-help.php:41
+msgid ""
+"The theme has several page templates. Use metabox Page Attributes > dropdown "
+"Template."
+msgstr ""
+
+#: inc/contextual-help.php:50
+msgid "Recommend"
+msgstr ""
+
+#: inc/contextual-help.php:51
+msgid "Recommended plugins for inkston Theme"
+msgstr ""
+
+#: inc/contextual-help.php:51
+msgid "Jetpack By WordPress.com"
+msgstr ""
+
+#: inc/contextual-help.php:51
+msgid "Contact Form 7 By Takayuki Miyoshi"
+msgstr ""
+
+#: inc/contextual-help.php:51
+msgid "Shortcodes Ultimate By Vladimir Anokhin."
+msgstr ""
+
+#: inc/contextual-help.php:61
+msgid "Custom widgets"
+msgstr ""
+
+#: inc/contextual-help.php:61
+msgid ""
+"Menu icons social media is displayed in the footer. Included all popular "
+"icons of social media, and Feedburner. To create a menu item, use the tab "
+"Links (Edit Menus). And select Social Menu as Theme locations."
+msgstr ""
+
+#: inc/contextual-help.php:61
+msgid ""
+"Example:<br />tab <strong>Links</strong><br /><em>URL</em> http://twitter."
+"com/your<br /><em>Navigation Label</em> Twitter"
+msgstr ""
+
+#: inc/contextual-help.php:66
+msgid ""
+"<p><strong>Top Menu</strong></p><p>The theme has an additional top menu bar."
+"</p><p>If you create a menu item using Links tab (Edit Menus) and links will "
+"be http://tel: OR http://mailto: OR https://goo.gl (short link google map) "
+"it will be displayed icons Font Awesome.</p><p>Example:<br />tab <strong>"
+"Links</strong><br /><em>URL</em> http://tel:+1916000000<br /><em>Navigation "
+"Label</em> +1 916 00.00.00</p>"
+msgstr ""
+
+#: inc/customizer.php:156
+msgid "Main Color"
+msgstr ""
+
+#: inc/customizer.php:168
+msgid "Secondary Color"
+msgstr ""
+
+#: inc/customizer.php:180
+msgid "Header BG Color"
+msgstr ""
+
+#: inc/customizer.php:192
+msgid "Link Color"
+msgstr ""
+
+#: inc/customizer.php:204
+msgid "Hover Color"
+msgstr ""
+
+#: inc/customizer.php:216
+msgid "Hover Menu"
+msgstr ""
+
+#: inc/customizer.php:228
+msgid "Menu Bar Color"
+msgstr ""
+
+#: inc/customizer.php:240
+msgid "Menu Bar Current"
+msgstr ""
+
+#: inc/customizer.php:252
+msgid "Menu Link"
+msgstr ""
+
+#: inc/customizer.php:264
+msgid "Menu Link Hover"
+msgstr ""
+
+#: inc/customizer.php:276
+msgid "Border Bold"
+msgstr ""
+
+#: inc/customizer.php:288
+msgid "Border Thin"
+msgstr ""
+
+#: inc/customizer.php:300
+msgid "Additional Color"
+msgstr ""
+
+#: inc/customizer.php:312
+msgid "Footer Text"
+msgstr ""
+
+#: inc/customizer.php:324
+msgid "Footer BG"
+msgstr ""
+
+#: inc/customizer.php:338
+msgid "Logo Options"
+msgstr ""
+
+#: inc/customizer.php:339
+msgid ""
+"For the option of a round frame best suited a image square size is 400px and "
+"more."
+msgstr ""
+
+#: inc/customizer.php:354
+msgid "No Frame logo"
+msgstr ""
+
+#: inc/customizer.php:367
+msgid "Logo Image"
+msgstr ""
+
+#: inc/customizer.php:378
+msgid "Home Tagline"
+msgstr ""
+
+#: inc/customizer.php:379
+msgid ""
+"Located in the templates Home page: Home One, Home Mosaic and Home Square. "
+"Type the text or insert the shortcode."
+msgstr ""
+
+#: inc/customizer.php:414
+msgid "Tagline Text"
+msgstr ""
+
+#: inc/customizer.php:425
+msgid "Background Color"
+msgstr ""
+
+#: inc/customizer.php:432
+msgid "Background Image"
+msgstr ""
+
+#: inc/customizer.php:440
+msgid "Show header of front page"
+msgstr ""
+
+#: inc/customizer.php:441
+msgid "Show header of front page instead Home of Tagline."
+msgstr ""
+
+#: inc/customizer.php:452
+msgid "Footer Copyright"
+msgstr ""
+
+#: inc/customizer.php:469
+msgid "Copyright"
+msgstr ""
+
+#: inc/customizer.php:479
+msgid "Display Options"
+msgstr ""
+
+#: inc/customizer.php:493
+msgid "Transparent menu bar"
+msgstr ""
+
+#: inc/customizer.php:507
+msgid "No border menu bar"
+msgstr ""
+
+#: inc/customizer.php:521
+msgid "Hide page header"
+msgstr ""
+
+#: inc/customizer.php:535
+msgid "Hide Submenu pages"
+msgstr ""
+
+#: inc/customizer.php:549
+msgid "Numbered navigation"
+msgstr ""
+
+#: inc/customizer.php:563
+msgid "Disable lightbox image"
+msgstr ""
+
+#: inc/customizer.php:578
+msgid "Post format image on Home"
+msgstr ""
+
+#: inc/excerpts.php:15
+msgid "reading"
+msgstr ""
+
+#: inc/excerpts.php:15
+msgid "Read more"
+msgstr ""
+
+#: inc/pagination.php:46
+msgid "Posts navigation"
+msgstr ""
+
+#: inc/template-tags.php:34
+msgid "Post navigation"
+msgstr ""
+
+#: inc/template-tags.php:38
+msgctxt "Previous post link"
+msgid "<i class=\"fa fa-arrow-left\"></i>"
+msgstr ""
+
+#: inc/template-tags.php:39
+msgctxt "Next post link"
+msgid "<i class=\"fa fa-arrow-right\"></i>"
+msgstr ""
+
+#: inc/template-tags.php:44
+msgid "Back"
+msgstr ""
+
+#: inc/template-tags.php:48
+msgid "More"
+msgstr ""
+
+#: inc/template-tags.php:126
+#, php-format
+msgid ""
+"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>by</i> "
+"%2$s</span>"
+msgstr ""
+
+#: inc/template-tags.php:145 inc/template-tags.php:146
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:150
+msgid "Category: "
+msgstr ""
+
+#: inc/template-tags.php:155
+msgid "Tag: "
+msgstr ""
+
+#: inc/template-tags.php:298
+#, php-format
+msgid "design %s"
+msgstr ""
+
+#: inc/template-tags.php:379
+msgid "View Cart"
+msgstr ""
+
+#: inc/template-tags.php:385
+msgid "Checkout"
+msgstr ""
+
+#: inc/welcome.php:34
+msgid "Thanks for choosing inkston!"
+msgstr ""
+
+#: inc/welcome.php:35
+msgid "This theme has built-in Contextual Help for most admin screens."
+msgstr ""
+
+#: inc/welcome.php:35
+msgid "To get Help right now, click on the tab Help on the top admin bar."
+msgstr ""
+
+#: inc/welcome.php:35
+#, php-format
+msgid "Get a brief setup instructions on the %swelcome screen%s."
+msgstr ""
+
+#: inc/welcome.php:36
+msgid "Welcome!"
+msgstr ""
+
+#: inc/welcome.php:66
+msgid "Theme"
+msgstr ""
+
+#: inc/welcome.php:67
+msgid "Thank you for choosing inkston WordPress theme for your website!"
+msgstr ""
+
+#: inc/welcome.php:72
+msgid "Welcome to"
+msgstr ""
+
+#: inc/welcome.php:75
+msgid "Here are some links to get you started and optional theme-setup tasks:"
+msgstr ""
+
+#: inc/welcome.php:82
+msgid "Get Started"
+msgstr ""
+
+#: inc/welcome.php:85
+#, php-format
+msgid ""
+"inkston theme uses large tiles for post pages and a special post-tiles "
+"template for front page of small tiles showing both posts and products - "
+"%sfront page%s."
+msgstr ""
+
+#: inc/welcome.php:89 inc/welcome.php:97
+msgid "Set your Front page, go to"
+msgstr ""
+
+#: inc/welcome.php:89 inc/welcome.php:93 inc/welcome.php:97
+msgid "Front page displays"
+msgstr ""
+
+#: inc/welcome.php:93
+msgid "Set you Posts page, go to"
+msgstr ""
+
+#: inc/welcome.php:101
+msgid "To select page as Front page you will need to create a new page, go to "
+msgstr ""
+
+#: inc/welcome.php:101
+msgid "Add New Page"
+msgstr ""
+
+#: inc/welcome.php:105
+msgid "Set you "
+msgstr ""
+
+#: inc/welcome.php:105
+msgid "main Menu"
+msgstr ""
+
+#: inc/welcome.php:112
+msgid "Next Steps"
+msgstr ""
+
+#: inc/welcome.php:114
+msgid "inkston includes a custom widgets, go to "
+msgstr ""
+
+#: inc/welcome.php:114
+msgid "Manage widgets"
+msgstr ""
+
+#: inc/welcome.php:118
+msgid "Using the WordPress Customizer you can tweak appearance."
+msgstr ""
+
+#: inc/welcome.php:119
+msgid "Customize"
+msgstr ""
+
+#: inc/welcome.php:126
+msgid "Plugins"
+msgstr ""
+
+#: inc/welcome.php:128
+msgid ""
+"Below you will find links to plugins we recommend. None of these plugins are "
+"required for theme to work, they add additional functionality."
+msgstr ""
+
+#: template-parts/header.php:14
+msgid "results"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:13
+msgid "Icons"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:16
+msgid "Custom Text Widget with Icons"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:92
+msgid "Title:"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:95
+msgid "Icon:"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:97
+msgid "View Icons"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:97
+msgid "Remove"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:101
+msgid "URL:"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:104
+msgid "Button Text:"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:107
+msgid "Icon and Button Color:"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:111
+msgid "Default"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:112
+msgid "Blue"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:113
+msgid "Red"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:114
+msgid "Green"
+msgstr ""
+
+#: inc/widgets/widget-icontext.php:124
+msgid "Automatically add paragraphs"
+msgstr ""
+
+#. Name of the theme
+msgid "Photoline Inkston"
+msgstr ""
+
+#. Description of the theme
+msgid "Minimalistic theme for rich image photo and shop based sites."
+msgstr ""
+
+#. Theme URI of the theme
+msgid "http://www.inkston.com"
+msgstr ""
+
+#. Author of the theme
+msgid "MoQiao"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://jonmoblog.wordpress.com/"
+msgstr ""

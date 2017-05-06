@@ -1,0 +1,790 @@
+/*
+Theme Name: Photoline Inkston
+Offcuts of unused CSS cut in optimization
+*/
+
+
+/*= Tiles Layout
+-----------------------------------*/
+.box {
+       width: 25%;
+       height: auto;
+       padding-top: 25%;
+      color: #FFF;
+      position: relative;
+      float: left;
+      overflow: hidden;
+      margin: 0;
+}
+.innerBox {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 2px;
+    bottom: 2px;
+    overflow: hidden;
+    background: #FFF;
+    padding: 10px;
+    border: 2px solid white;
+}
+.titleBox {
+       position: absolute;
+       bottom: 0;
+       left: 0;
+       right: 0;
+       top: 0;
+       background: #000;
+       background: rgba(0, 0, 0, 0);
+       color: #FFF;
+       padding: 10px;
+       text-align: center;
+       -webkit-transition: all 0.3s ease-out;
+       -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+       transition: all 0.3s ease-out;
+    }
+
+.titleBox article a {
+    color: #FFF;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 1px;
+    font-size: 16px;
+    text-decoration: none;
+    visibility: hidden;
+    top:0;
+}
+
+.titleBox article a:hover *, .titleBox article a:active * {
+    color:white;
+}
+
+.titleBox h3:after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-left: 40%;
+  margin-top: 10px;
+  width: 20%;
+  background-color: #fff;
+}
+.innerBox:focus .titleBox a,
+.innerBox:hover .titleBox a, .innerBox:active .titleBox a{
+  top: 40px;
+  visibility: visible;
+  -webkit-transition: 0.3s ease-out;
+  -moz-transition: 0.3s ease-out;
+  -ms-transition: 0.3s ease-out;
+  -o-transition: 0.3s ease-out;
+  transition: 0.3s ease-out;
+}
+.innerBox[title]:hover:after{
+    content: attr(title);
+    padding: 8px 12px;
+    color: #85003a;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    white-space: nowrap;
+    z-index: 20;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: 0px 0px 2px #c0c1c2;
+    -webkit-box-shadow: 0px 0px 2px #c0c1c2;
+    box-shadow: 0px 0px 2px #c0c1c2;
+    background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ffffff),color-stop(1, #eeeeee));
+    background-image: -webkit-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: -moz-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: -ms-linear-gradient(top, #ffffff, #eeeeee);
+    background-image: -o-linear-gradient(top, #ffffff, #eeeeee);
+}
+/*
+.innerBox .titleBox a:hover{
+    color: white;
+}
+*/
+.innerBox .titleBox * {
+    text-transform: none;
+}
+.innerBox .titleBox a p, .innerBox .titleBox a h3, .innerBox .titleBox a h3::after{
+    background-color: rgba(26, 25, 25, 0.4);
+}
+/*alternative box where there is no picture*/
+.nopic .titleBox a h3{
+    text-transform: uppercase;
+}
+.nopic .titleBox a p, .nopic .titleBox a h3, .nopic .titleBox a h3::after{
+    visibility: visible;
+    color:#1a1919;
+    background-color: white;
+}
+.nopic:hover .titleBox a p, .nopic:hover .titleBox a h3, .nopic:hover .titleBox a h3::after,
+.nopic .titleBox a:hover p, .nopic .titleBox a:hover h3, .nopic .titleBox a:hover h3::after,
+.nopic:active .titleBox a p, .nopic:active .titleBox a h3, .nopic:active .titleBox a h3::after,
+.nopic .titleBox a:active p, .nopic .titleBox a:active h3, .nopic .titleBox a:active h3::after{
+    color:#1a1919;
+    background-color: rgba(26, 25, 25, 0.1);
+}
+.nopic div.titleBox{
+    /* border:1px solid #1a1919;*/
+       border:4px double #1a1919;
+}
+.nopic:hover, .nopic:active {
+    background-color: rgba(26, 25, 25, 0.2);
+}
+
+
+body.no-touch .innerBox:hover .titleBox,
+body.touch .innerBox.touchFocus .titleBox {
+       top:0px;
+}
+
+.box.big-square {
+  width: 40%;
+  height: auto;
+  padding-top: 40%;
+}
+
+.box.big-rectangle {
+  width: 60%;
+  height: auto;
+  padding-top: 40%;
+}
+
+.box.rectangle {
+  width: 40%;
+  height: auto;
+  padding-top: 20%;
+}
+
+.box.vertical {
+  width: 20%;
+  height: auto;
+  padding-top: 40%;
+}
+
+/* = Plugins
+--------------------------------------*/
+
+/*= JetPack
+ -------------------------*/
+#content #infinite-handle {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+#infinite-handle span {
+    text-transform: uppercase;
+}
+
+span.infinite-loader {
+    margin: 15px 45%;
+}
+
+.format-quote .sharedaddy {
+    background: #FFF;
+    color: #404040;
+    padding-top: 20px;
+}
+
+.format-quote div.sharedaddy h3.sd-title:before {
+    border-color: #ddd;
+}
+
+.format-link .sharedaddy {
+    color: #FFF;
+}
+
+.format-link div.sharedaddy h3.sd-title:before {
+    border-color: #FFF;
+}
+/*= WooCommerce  */
+.woocommerce .woocommerce-breadcrumb,
+.woocommerce-breadcrumb {
+    font-size: 13px;
+    margin: 0;
+}
+
+.wooshop-title {
+    float: left;
+    max-width: 70%;
+}
+
+.single-product .page-header {
+    min-height: 85px;
+}
+/* float breadcrumb to the left so add to cart can float right on same line */
+.breadcrumb-list {
+    float:left;
+}
+
+/*=Post Format
+-----------------------------------*/
+.status {
+    float: left;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.entry-meta .genericon {
+    background: #444;
+    color: #FFF;
+    font: normal 24px/1.5 'Genericons';
+    width: 36px;
+    height: 36px;
+}
+
+.entry-title .genericon {
+    font: normal 32px/1 'Genericons';
+}
+
+.home-posts-description iframe,
+.home-posts-description embed,
+.home-posts-description object {
+    width: 100%;
+}
+
+.home-posts-description .wp-caption-text {
+    display: none;
+}
+
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+    display: none;
+}
+
+.format-link p a:before {
+    font-family: "FontAwesome";
+    content: '\f0c1';
+    display: inline-block;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-right: 10px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.format-aside .entry-content,
+.format-status .entry-content,
+.format-link .entry-content {
+    padding: 20px 0;
+}
+
+.format-status .entry-content,
+.format-aside .entry-content {
+    border: solid 3px #dddddd;
+    padding: 20px 12px 0 12px;
+}
+
+.format-link .entry-content {
+    text-align: center;
+}
+
+.format-link .entry-content div[class*="genericon-link"]::before {
+    color: #FFF;
+}
+
+.format-link p a {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+.single .format-link .entry-content a {
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.single .format-link .entry-content div.metka.genericon.genericon-link,
+.single .format-link .entry-content a {
+    padding-top: 40px;
+}
+
+.single .format-link .entry-content {
+    border: none;
+}
+
+.mejs-container {
+    margin-bottom: 20px;
+}
+
+div.metka.genericon {
+    background: #444;
+    color: #FFF;
+    padding: 0 5px;
+    width: 26px;
+}
+
+div.metka.genericon.genericon-status,
+div.metka.genericon.genericon-link,
+div.metka.genericon.genericon-aside {
+    background: none;
+    padding: 0;
+}
+
+div[class*="genericon-link"]::before,
+div[class*="genericon-aside"]::before,
+div[class*="genericon-status"]::before {
+    font-family: "FontAwesome";
+    display: inline-block;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '';
+    color: #404040;
+}
+
+div[class*="genericon-link"]::before {
+    content: '\f0c1';
+}
+
+div[class*="genericon-aside"]::before {
+    content: '\f069';
+}
+
+div[class*="genericon-status"]::before {
+    content: '\f024';
+}
+
+.entry-content span.genericon.genericon-quote {
+    font-size: 24px;
+}
+
+/*=Post Format Icons
+---------------------------------*/
+.post-image-icon .fa {
+        border: 2px solid #404040;
+        border-radius: 100%;
+        color: #404040;
+        padding: 6px 0 0 1px;
+        width: 30px; height: 30px;
+}
+
+a.widget-format-link::before {
+    font-family: "FontAwesome";
+    display: inline-block;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: '';
+}
+
+
+/* alternative smaller box sizing.... get more on the screen */
+@media (max-width : 1400px) { .box.smallbox { width:20%; height:auto; padding-top:20%; } }
+@media (max-width: 1051px) { .box.smallbox { width:25%; height:auto; padding-top:25%; } }
+@media (max-width: 959px) { .box.smallbox { width:33.333%; height:auto; padding-top:33.333%; } }
+@media (max-width: 650px) { .box.smallbox { width:50%; height:auto; padding-top:50%; float:left; } }
+@media (max-width: 450px) { .box.smallbox { width:100%; height:auto; padding-top:100%; } }
+@media (min-width : 1401px) { .box.smallbox { width:16.666%; height:auto; padding-top:16.666%; } }
+
+@media (max-width : 1400px) {#smallbox .box { width:20%; height:auto; padding-top:20%; } }
+@media (max-width: 1051px) { #smallbox .box { width:25%; height:auto; padding-top:25%; } }
+@media (max-width: 959px) {  #smallbox .box { width:33.333%; height:auto; padding-top:33.333%; } }
+@media (max-width: 650px) {  #smallbox .box { width:50%; height:auto; padding-top:50%; float:left; } }
+@media (max-width: 450px) {  #smallbox .box { width:100%; height:auto; padding-top:100%; } }
+@media (min-width : 1401px){  #smallbox .box { width:16.666%; height:auto; padding-top:16.666%; } }
+
+
+/* alternative fixed box for longer listings */
+#smallbox-fixed .alm-btn-wrap, #smallbox-fixed .box, .box.smallbox-fixed { width:180px; padding-top:180px; float:left; }
+#smallbox-fixed div.box .titleBox article a h3, .titleBox article a .inkston-excerpt, .box.smallbox-fixed h3 {font-size:13px}
+#smallbox-fixed div.box .titleBox  article a p, #smallbox-fixed div.box .titleBox  article a p.inkston-excerpt, .box.smallbox-fixed p {font-size:11px}
+#smallbox-fixed div.box .titleBox article a, .box.smallbox-fixed a {overflow:hidden;}
+#smallbox-fixed div.box .innerBox:hover .titleBox a, 
+#smallbox-fixed .box .innerBox:active .titleBox a,
+.box.smallbox-fixed .innerBox:hover .titleBox a, 
+.box.smallbox-fixed .innerBox:active .titleBox a
+{
+    top: 20px;
+}
+/*but if on a very low resolution device, has to stay in 1 column so may as well expand to fill it
+Note: this is correct but would never get called, if width is 180 the page is always big enough to show 2 cols..*/
+
+@media (max-width: 380px) {
+    #smallbox-fixed .box, .box.smallbox-fixed { width:100%; padding-top:100%;  float:left;}
+}
+/*expand clickable article preview area to 100%*/
+/*
+@media screen{
+}
+div.box.smallbox div.innerBox .titleBox{height:100%;background-color:blue;}
+.innerBox article{height:100%;}
+.innerBox article a{display:block;height:100%;}
+*/
+/*
+.home pre {
+    background: inherit;
+    font-family:inherit;
+    font-size: inherit;
+    line-height: inherit;
+    margin-bottom: inherit;
+    max-width: inherit;
+    overflow: inherit;
+    padding: inherit;
+}
+*/
+/* delete more unused styles TODO: unreleased change
+.format-aside .entry-content,
+.colgrid .format-aside .entry-content {
+    border: solid 3px #dddddd;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.colgrid .format-image .entry-content,
+.colgrid .format-gallery .entry-content,
+.colgrid .format-audio .entry-content,
+.colgrid .format-video .entry-content,
+.colgrid .format-link .entry-content,
+.colgrid .format-status .entry-content,
+.colgrid .format-quote .entry-content,
+.colgrid .format-aside .entry-content {
+    height: 480px;
+    text-align: center;
+}
+
+.colgrid .format-status .entry-content,
+.colgrid .format-quote .entry-content,
+.colgrid .format-aside .entry-content {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 20px;
+}
+
+.colgrid .format-gallery .entry-content,
+.colgrid .format-audio .entry-content,
+.colgrid .format-video .entry-content,
+.colgrid .format-link .entry-content {
+    padding-top: 50%;
+}
+
+.format-link .entry-content {
+    margin-bottom: 10px;
+    padding-top: 60px;
+}
+
+.colgrid .format-image .entry-content,
+.colgrid .format-gallery .entry-content,
+.colgrid .format-link .entry-content,
+.colgrid .format-quote .entry-content,
+.colgrid .format-audio .entry-content,
+.colgrid .format-video .entry-content {
+    color: #FFF;
+}
+
+.colgrid .entry-content h1 {
+    margin: 0 0 20px 0;
+}
+
+.colgrid .format-image .entry-content {
+    padding-top: 100%;
+}
+
+.colgrid .format-image:hover .entry-content {
+       padding-top: 50%;
+       -webkit-transition: all 0.3s ease-out;
+       -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+       transition: all 0.3s ease-out;
+}
+
+.colgrid .format-image a .fa,
+.colgrid .format-image h1 {
+    opacity: 0;
+}
+
+.colgrid .format-image:hover a .fa,
+.colgrid .format-image:hover h1 {
+    opacity: 1;
+    color: #FFF;
+       -webkit-transition: all 0.3s ease-out;
+       -moz-transition: all 0.3s ease-out;
+       -o-transition: all 0.3s ease-out;
+       transition: all 0.3s ease-out;
+}
+
+.colgrid .format-image h1,
+.colgrid .format-gallery h1,
+.colgrid.format-link h1,
+.colgrid .format-audio h1,
+.colgrid .format-video h1 {
+    padding: 10px 20px;
+    font-size: 24px;
+    color: #FFF;
+}
+
+.colgrid .format-image a .fa,
+.colgrid .format-gallery a .fa,
+.colgrid .format-quote a .fa,
+.colgrid .format-link a .fa,
+.colgrid .format-audio a .fa,
+.colgrid .format-video a .fa,
+.colgrid .format-image a,
+.colgrid .format-gallery a,
+.colgrid .format-quote a,
+.colgrid .format-link a,
+.colgrid .format-audio a,
+.colgrid .format-video a {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.colgrid .format-image i.fa,
+.colgrid .format-gallery i.fa,
+.colgrid .format-quote i.fa,
+.colgrid .format-link i.fa {
+    font-size: 32px;
+}
+
+.colgrid .format-audio i.fa,
+.colgrid .format-video i.fa {
+    font-size: 48px;
+}
+*/
+
+
+
+/*
+button:hover,
+html input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background: #4d914d;
+}
+*/
+
+
+
+
+
+
+
+/*--widget calendar--*/
+/*  UNUSED
+#wp-calendar {
+    width: 100%;
+    font-size: 11px;
+}
+
+#wp-calendar thead th {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-top: none;
+    font-size: 11px;
+}
+
+#wp-calendar tbody td {
+    text-align: center;
+    border: 1px solid #ddd;
+    line-height: 2.5em;
+    transition: background 0.15s ease;
+    -webkit-transition: background 0.15s ease;
+    -o-transition: background 0.15s ease;
+    -moz-transition: background 0.15s ease;
+}
+
+#wp-calendar caption {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+td#next {
+    text-align: right;
+}
+
+#wp-calendar tbody td a,
+#wp-calendar tbody td a:hover {
+    color: #00a5e7;
+    text-decoration: underline;
+}
+
+#wp-calendar tfoot td {
+    padding: 4px;
+    padding-top: 1px;
+}
+
+#wp-calendar caption {
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 12px;
+    outline: 0 none !important;
+    background: #000;
+    color: #fff;
+}
+
+#wp-calendar tbody a {
+    display: block;
+    text-decoration: underline;
+}
+
+#wp-calendar th {
+    text-align: center;
+    border: 1px solid transparent;
+    border-top: none;
+    padding: 2px 0;
+    color: #a7a7a7;
+}
+
+#wp-calendar tfoot td#next {
+    text-align: right;
+}
+
+#footer #wp-calendar thead th {
+    background: #232323;
+}
+
+#footer #wp-calendar thead th,
+#footer #wp-calendar tbody td {
+    border-color: #333;
+}
+*/
+
+
+
+/* fixed header section: TODO: debug fixed small header bar */
+/*
+@media (max-height:999px) {
+    /*
+    .top-menu{
+        position:fixed;top:0;left:0;width:100%;
+        z-index:2;
+        background:transparent;
+    }
+    .top-menu *{
+        z-index:1;
+    }
+    #wrap-header{
+        margin-top:30px;
+    }
+    ul#menu-top .current-menu-item a {
+        color: #c3a068;
+        font-weight: bold;
+    }
+    ul#menu-top li {
+        border: 1px solid #1a1919;
+    }
+    ul#menu-top li:hover {
+        border: 1px solid #c3a068;
+    }
+    .top-menu .top-menu.header-cart {
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin-top: -1px;
+        width:100px;
+        border:0;
+    }
+}
+*/
+/*indent first line for chinese text*/
+html[lang=zh-CN] article p{
+    text-indent: 2em;
+}
+
+/* prettyPhoto styling for small screens */
+/*
+@media (max-width: 500px)
+{
+    .pp_pic_holder.pp_default
+    {
+        width: 100%!important;
+        margin-top:-100px !important;
+        left: 0!important;
+        overflow: hidden;
+    }
+    div.pp_default .pp_content_container .pp_left
+    {
+        padding-left: 0!important;
+    }
+    div.pp_default .pp_content_container .pp_right
+    {
+        padding-right: 0!important;
+    }
+    .pp_content
+    {
+        width: 100%!important;
+        height: auto!important;
+    }
+    .pp_fade
+    {
+        width: 100%!important;
+        height: 100%!important;
+    }
+    a.pp_expand,
+    a.pp_contract,
+    .pp_hoverContainer,
+    .pp_gallery,
+    .pp_top,
+    .pp_bottom
+    {
+        display: none!important;
+    }
+    #pp_full_res img
+    {
+        width: 100%!important;
+        height: auto!important;
+    }
+    .pp_details
+    {
+        box-sizing: border-box;
+        width: 100%!important;
+        padding-left: 3%;
+        padding-right: 4%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background-color: #fff;
+        margin-top: -2px!important;
+    }
+    a.pp_close
+    {
+        right: 10px!important;
+        top: 10px!important;
+    }
+}
+*/
+
+/*float fix to avoid dangling floats*/
+/*
+figure{margin:0 0 0 -20px;}
+
+.table {
+  notdisplay:table;
+    margin: 0 0 1em;
+	padding: 0;
+    clear: both;
+}
+.table figure {
+  notdisplay:table-cell;
+    float: left;
+    margin: 0 3.8% 2.992em 0;
+    padding: 0;
+    position: relative;
+    width: 22.05%;
+}
+figcaption.wp-caption-text{overflow:hidden;}
+*/
+
+/*fix excerpt text coming out bigger in the picture hover: ideally the text could also change size as the image size changes according to the screen size..*/
+#smallbox-fixed .titleBox article a, #smallbox-fixed .titleBox article a .inkston-excerpt{line-height:17px;}
+.titleBox article a, .titleBox article a .inkston-excerpt{line-height:1.5em;}
+.titleBox article a .inkston-excerpt {font-size:16px;font-weight: normal;}
+/*alter tile hover so starts off and slides into place with max text showing*/
+#smallbox-fixed .titleBox article a, .titleBox article a{top:-40px}
+#smallbox-fixed div.box .innerBox:hover .titleBox a,  .innerBox:hover .titleBox a{top:0px}

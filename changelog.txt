@@ -1,0 +1,91 @@
+== inkston WordPress Theme ==
+
+= 2.7 - 13.4.2017
+- Enhanced: improved comment display and login redirection for disabling of anonymous comments.
+
+= 2.6 - 15.3.2017
+- Enhanced: new "page" style display applied to wide screen mode. Page title moved to content area.
+
+= 2.5 - 09.3.2017
+- Fixed: consistent and improved comment listing display formats
+
+= 2.4 - 06.3.2017
+- Fixed: fixes to search form and comment form show/hide:  main.js, comments.php, searchform.php
+- Fixed: Relevanssi search highlighting improvements in tiles: functions.php, inkston.css etc
+
+= 2.3 - 05.3.2017
+* Enhancements: cross-language comments merging on Posts, and Product Category comment listing on Product pages
+* Enhancements: formatting for images, search results highlighting, comments etc
+
+22.2.2017
+* Removed: template-tags.php remove inkston_comment function, comments.php now calls standard function
+* Removed: comments.php removed inkston_comment  callback from wp_list_comments();
+* Enhancements: CSS: image hover effects, pagination buttons and header line wrap layout improvements
+* plus comments section formatting enhancements
+
+= 2.1 - 18.2.2017
+* Optimization: rewrite/optimization of tiles html/css and generators
+* Fixed: packaging of minor fixes through Jan-Feb eg menu resizing and header layouts
+
+= 2.0.6 - 30.12.2016
+* Fixed: updated post tiles front page to show featured products first and then initial products without delay for Ajax Load More
+* Fixed: minor css fixes and minified css 
+
+= 2.0.5 - 10.12.2016
+* Fixed: minor SEO issues, replace prettyPhoto with photo swipe (except for wooCommerce)
+
+= 2.0.4 - 10.11.2016
+* Fixed: various minor CSS issues and implemented new post tiles page template showing posts and then products, intended for front page
+
+= 2.0.3 - 05.08.2016
+* Removed: project references
+* Removed: Post types
+* Fixed: hentry meta and other html issues
+
+= 2.0.2 - 01.08.2016
+* Added: support for WP SuperCache - AJAX cart button update and DONOTCACHEPAGE when items in cart
+* Added: number of items in cart is now displayed on cart button
+* Updated: screenshot, links
+
+= 2.0.1 - 30.07.2016
+* Fixed: various listing issues including tags listing page etc
+* Removed page templates Page Mosaic Tiles and Page Square Tiles
+
+= 2.0.0 - 21.07.2016
+* Added: wooCommerce compatibility, cart buttons
+* Changed: inkston design elements
+
+== Photoline Lite WordPress Theme ==
+
+= 1.0.6 - 12.04.2016
+* Fixed: conditions of the counter of posts in the layout mosaic tiles - php
+* Added: new mobile menu - script & style
+* Changed: font size of header, mobile menu, other minor changes css
+* Added: license information in README
+
+= 1.0.5 - 16.11.2015
+* Minor change css: added .search-list with a centered alignment
+* Minor change search template: replacing <p> tag to <h3>
+* Change header.php: do not show main menu (Primary location) if it is not assigned
+* Updated Font Awesome to 4.4.0 and Genericons to 3.4
+
+= 1.0.4 - 12.10.2015
+* Removed not used files
+
+= 1.0.3 - 12.10.2015
+* Removed page templates Page Mosaic Tiles and Page Square Tiles
+* Added option Customizer section Home Tagline
+* Added option to disable the lightbox images
+* Some small changes and improvements
+* Replacement screenshot (new size)
+
+= 1.0.2 - 9.07.2015
+* Removed unnecessary script
+* Esc home_url() in breadcrump func.
+
+= 1.0.1 - 25.06.2015
+* Removed unnecessary functions
+* Few fixes and minor changes
+
+= 1.0 - 19.06.2015
+* Initial release.
