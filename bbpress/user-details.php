@@ -87,6 +87,12 @@
 						</span>
 					</li>
 
+					<li>
+						<span class="bbp-user-edit-link">
+							<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e( "Shop Account", 'woocommerce' ); ?>"><?php _e( "My Account", 'woocommerce' ); ?></a>
+						</span>
+					</li>
+                    
 				<?php endif; ?>
 
 			</ul>
