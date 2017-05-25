@@ -211,7 +211,9 @@ if ( ! ( $thumbnail_img )  ) {
 	if (! ($thumbnail_img)){ $thumbnail_img = '<img ' . $img_attr . ' src="' . inkston_catch_image() . '" alt="thumbnail" />';}
   //only get the link for single pages as the photoswipe won't do the single posts page links at the moment
   //if (is_single()){
-    if (! (is_product()) ){
+    if (is_woocommerce_activated() && is_product()){
+      $fullsize = 0;
+    }else{
       $fullsize = wp_get_attachment_url($thumbnail_id);
     }
   //}

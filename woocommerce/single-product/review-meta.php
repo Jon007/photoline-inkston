@@ -13,7 +13,7 @@
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.6.0
+ * @version 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -25,12 +25,12 @@ $verified = wc_review_is_from_verified_owner( $comment->comment_ID );
 
 if ( '0' === $comment->comment_approved ) { ?>
 
-	<p class="meta"><em><?php esc_attr_e( 'Your comment is awaiting approval', 'woocommerce' ); ?></em></p>
+	<p class="meta"><em class="woocommerce-review__awaiting-approval"><?php esc_attr_e( 'Your comments are awaiting approval', 'photoline-inkston' ); ?></em></p>
 
 <?php } else { ?>
 
 	<p class="meta">
-    <strong itemprop="author"><?php 
+    <strong itemprop="author" class="woocommerce-review__author" ><?php 
 	$url     = get_comment_author_url( $comment );
 	$author  = get_comment_author( $comment );
 	if ( empty( $url ) || 'http://' == $url ){
@@ -45,7 +45,7 @@ if ( '0' === $comment->comment_approved ) { ?>
     echo("class='url'>$author</a>");
   }
   if ( 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) {
-    echo '<em class="verified">(' . esc_attr__( 'verified owner', 'woocommerce' ) . ')</em> ';
+    echo '<em class="woocommerce-review__verified verified">(' . esc_attr__( 'verified owner', 'woocommerce' ) . ')</em> ';
   }
   ?></strong>
     <span class="comment-metadata">

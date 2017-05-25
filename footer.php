@@ -39,8 +39,8 @@
 		<div class="site-info">
 <div class="clearfix">
  	<div class="col"><?php 
-  $tr_id = pll_get_post(17); // translate the About page in the current language
-  $about = get_page_link($tr_id); // displays the link
+    $page_id = inkGetPageID(17);
+    $about = get_page_link($page_id);
   echo '<a href="' . $about . '">&copy; '.date('Y'); ?> <span id="footer-copyright"><?php echo esc_html( get_theme_mod( 'copyright_txt', 'All rights reserved' ) ); ?></a></span><span class="sep"> &middot; </span>
 		<?php do_action( 'inkston_credits' ); ?>
 	</div>

@@ -123,13 +123,22 @@ function inkston_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
+    $author_url = getAuthorURL(get_the_author_meta( 'ID' ));
+    /*
+    if (  function_exists( 'bbp_get_user_profile_url' ) ){
+        $author_url = bbp_get_user_profile_url( get_the_author_meta( 'ID' ) );
+    } else {
+        $author_url = esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) );
+    }
+    */
+
 	printf( __( '<span class="posted-on">%1$s</span><span class="byline"> <i>by</i> %2$s</span>', 'photoline-inkston' ),
 		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
 			esc_url( get_permalink() ),
 			$time_string
 		),
 		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+			$author_url,
 			esc_html( get_the_author() )
 		)
 	);

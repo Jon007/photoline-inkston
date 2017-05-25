@@ -16,10 +16,27 @@ jQuery(document).ready(function($) {
 		} else {
 			//like if you click on a link (it will be saved in the session history, 
 			//so the back button will work as expected)
-			window.location.href = window.loginurl + "?redirect_to=" + encodeURI(window.location.href + "#comment");
+			//#comment not encoded by encodeURI so replace with %23
+			window.location.href = window.loginurl + "?redirect_to=" + encodeURI(window.location.href) + "%23comment";
 		}
 	});
 
+	function expandCommentForm(){
+		if (jQuery('body').hasClass('logged-in')){
+			if ($(".comment-form").is(":hidden")) {
+				$(this).toggleClass('active');
+				$(".comment-form").slideDown();
+				$(".comment-form #comment").focus();
+				$('html, body').animate({ scrollTop: $(document).height() }, 1200);
+			}
+		}
+	}
+	thishref=window.location.href;
+//if (window.location.href.substring(window.location.href.length - 8, window.location.href.length)  )
+	if (thishref.substring(thishref.length - 8, thishref.length) == '#comment' ){
+		expandCommentForm();
+	}
+	
 	// Toggle Search Form on Footer
 	$(".search-footer").on("click", function(){
 

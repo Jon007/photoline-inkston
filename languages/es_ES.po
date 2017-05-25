@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-03-06 15:40+0000\n"
-"PO-Revision-Date: 2017-03-06 15:41+0000\n"
+"POT-Creation-Date: 2017-05-25 08:05+0000\n"
+"PO-Revision-Date: 2017-05-25 08:08+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
@@ -21,6 +21,10 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: .."
 
+#. Name of the template
+msgid "commentspage"
+msgstr ""
+
 #: comments.php:16
 msgid "0"
 msgstr ""
@@ -33,61 +37,64 @@ msgstr ""
 msgid "%"
 msgstr ""
 
-#: comments.php:55
-msgid "Leave a Comment"
-msgstr "Dejar un comentario"
+#: comments.php:48
+msgid "Comments Closed"
+msgstr "Comentarios cerrados"
 
-#: comments.php:56
-msgid " or "
-msgstr "o"
-
-#: functions.php:132 inc/contextual-help.php:60
+#: functions.php:107 inc/contextual-help.php:60
 msgid "Social Menu"
-msgstr ""
+msgstr "Menu Social"
 
-#: functions.php:166
+#: functions.php:142
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:174
+#: functions.php:150
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:182
+#: functions.php:158
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:183
+#: functions.php:159
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:191
+#: functions.php:167
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:192
+#: functions.php:168
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:200
+#: functions.php:176
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:201
+#: functions.php:177
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:220
-msgctxt "Open Sans font: on or off"
-msgid "on"
-msgstr ""
-
-#: functions.php:565
+#: functions.php:427
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:566
+#: functions.php:428
 msgid "Located in the sidebar woocommerce page."
+msgstr ""
+
+#: functions.php:809
+#, php-format
+msgid ""
+"If you do not have an account <a target=\"_blank\" href=\"%s\">please "
+"register</a> (will open in new window)"
+msgstr ""
+
+#: functions.php:810
+#, php-format
+msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr ""
 
 #: header.php:79
@@ -100,6 +107,10 @@ msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
+#: no-results.php:18 template-parts/header.php:14
+msgid "Search Inkston."
+msgstr ""
+
 #. Name of the template
 msgid "FullPage"
 msgstr ""
@@ -108,6 +119,10 @@ msgstr ""
 msgid "PostTiles"
 msgstr ""
 
+#: bbpress/user-details.php:35
+msgid "Articles"
+msgstr "Historias"
+
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
 #, php-format
 msgid ""
@@ -115,7 +130,7 @@ msgid ""
 "Please upgrade and try again."
 msgstr ""
 
-#: inc/breadcrumbs.php:27
+#: inc/breadcrumbs.php:33
 msgid "Error 404"
 msgstr ""
 
@@ -135,7 +150,7 @@ msgstr ""
 
 #: inc/contextual-help.php:17
 msgid "Quick Start"
-msgstr ""
+msgstr "Inicio Rápido"
 
 #: inc/contextual-help.php:17
 msgid ""
@@ -407,7 +422,7 @@ msgctxt "Next post link"
 msgid "<i class=\"fa fa-arrow-right\"></i>"
 msgstr ""
 
-#: inc/template-tags.php:145 inc/template-tags.php:146
+#: inc/template-tags.php:154 inc/template-tags.php:155
 msgid ", "
 msgstr ""
 
@@ -434,7 +449,7 @@ msgstr ""
 
 #: inc/welcome.php:72
 msgid "Welcome to"
-msgstr ""
+msgstr "Benvenido a"
 
 #: inc/welcome.php:75
 msgid "Here are some links to get you started and optional theme-setup tasks:"
@@ -494,7 +509,7 @@ msgstr ""
 
 #: inc/welcome.php:119
 msgid "Customize"
-msgstr ""
+msgstr "Customizar"
 
 #: inc/welcome.php:126
 msgid "Plugins"
@@ -506,9 +521,9 @@ msgid ""
 "required for theme to work, they add additional functionality."
 msgstr ""
 
-#: template-parts/header.php:14
+#: template-parts/header.php:18
 msgid "results"
-msgstr ""
+msgstr "resultados"
 
 #: inc/widgets/widget-icontext.php:13
 msgid "Icons"
@@ -540,11 +555,19 @@ msgstr ""
 
 #: inc/widgets/widget-icontext.php:111
 msgid "Default"
-msgstr ""
+msgstr "por defecto"
 
 #: inc/widgets/widget-icontext.php:124
 msgid "Automatically add paragraphs"
 msgstr ""
+
+#: woocommerce/myaccount/navigation.php:35
+msgid "My Profile"
+msgstr "Mi Perfil"
+
+#: woocommerce/single-product/review-meta.php:28
+msgid "Your comments are awaiting approval"
+msgstr "Su comentario queda a la espera de aprobación"
 
 #. Name of the theme
 msgid "Photoline Inkston"
@@ -557,18 +580,6 @@ msgstr ""
 #. Author URI of the theme
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
-
-#: 404BAD.php:15
-msgid "Oops! That page can&rsquo;t be found."
-msgstr "Desgraciadamente no se encuentra este pagina"
-
-#: 404BAD.php:16
-msgid ""
-"It looks like nothing was found at this location. Maybe try one of the links "
-"below or a search?"
-msgstr ""
-"Parece que no tenemos nada en este lugar, por favor intenta uno de los "
-"vínculos debajo o una nueva búsqueda."
 
 #: comments.php:16
 msgid "Comments: "
@@ -586,11 +597,15 @@ msgstr "&larr; Mas"
 msgid "Newer Comments &rarr;"
 msgstr "Volver&rarr;"
 
-#: comments.php:48
-msgid "No Comments"
-msgstr "No hay comentarios"
+#: comments.php:54
+msgid "Leave a Comment"
+msgstr "Dejar un comentario"
 
-#: comments.php:61
+#: comments.php:55
+msgid " or "
+msgstr "o"
+
+#: comments.php:60
 msgid "Post Comment"
 msgstr "Añadir comentario"
 
@@ -606,45 +621,45 @@ msgstr "Un Comentario"
 msgid "Comments: %"
 msgstr "Comentarios: %"
 
-#: content-gallery.php:25 content-home-main.php:24 content-page-full.php:45
-#: content-page.php:37 content-single.php:31 content.php:31 image.php:48
+#: content-gallery.php:25 content-home-main.php:26 content-page-full.php:45
+#: content-page.php:49 content-single.php:33 content.php:31 image.php:48
 msgid "Edit"
 msgstr "Editar"
 
-#: content-page-full.php:30 content-page.php:21 content-single.php:15
+#: content-page-full.php:30 content-page.php:33 content-single.php:17
 #: content.php:16
 msgid "Pages:"
 msgstr "Paginas:"
 
-#: functions.php:43
+#: functions.php:40
 msgid "Buy"
 msgstr "Comprar"
 
-#: functions.php:46
+#: functions.php:43
 msgid "View"
 msgstr "Ver"
 
-#: functions.php:49
+#: functions.php:46
 msgid "Add"
 msgstr "Añadir"
 
-#: functions.php:52
+#: functions.php:49
 msgid "Choose"
 msgstr "Elegir"
 
-#: functions.php:55
+#: functions.php:52
 msgid "Read"
 msgstr "Leer"
 
-#: functions.php:130 inc/contextual-help.php:65
+#: functions.php:105 inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr "Menu Top"
 
-#: functions.php:131
+#: functions.php:106
 msgid "Primary Menu"
 msgstr "Menu Principal"
 
-#: functions.php:781
+#: functions.php:582
 msgid "Recent discussions in: "
 msgstr "Discusiones recientes en:"
 
@@ -659,7 +674,7 @@ msgstr ""
 "datetime=\"%1$s\">%2$s</time></span> a <a href=\"%3$s\">%4$s &times; %5$s</a>"
 " in <a href=\"%6$s\" rel=\"gallery\">%7$s</a>"
 
-#: no-results.php:18
+#: no-results.php:21
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
@@ -667,7 +682,7 @@ msgstr ""
 "Sentimos pero no hay nada para vuestra búsqueda. Por favor intenta otra vez "
 "con otras palabras."
 
-#: no-results.php:24
+#: no-results.php:28
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
@@ -693,31 +708,31 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "Buscar"
 
-#: inc/breadcrumbs.php:22
+#: inc/breadcrumbs.php:28
 msgid "Home"
 msgstr "Portada"
 
-#: inc/breadcrumbs.php:23
+#: inc/breadcrumbs.php:29
 #, php-format
 msgid "Archive for %s"
 msgstr "Archivos para %s"
 
-#: inc/breadcrumbs.php:24
+#: inc/breadcrumbs.php:30
 #, php-format
 msgid "Search results for: %s"
 msgstr "Resultados de búsqueda para: %s"
 
-#: inc/breadcrumbs.php:25
+#: inc/breadcrumbs.php:31
 #, php-format
 msgid "Posts tagged %s"
 msgstr "Tag %s"
 
-#: inc/breadcrumbs.php:26
+#: inc/breadcrumbs.php:32
 #, php-format
 msgid "View all posts by %s"
 msgstr "Ver todo escrito por %s"
 
-#: inc/breadcrumbs.php:171 inc/extras.php:76
+#: inc/breadcrumbs.php:177 inc/extras.php:76
 #, php-format
 msgid "Page %s"
 msgstr "Pagina %s"
@@ -742,7 +757,7 @@ msgstr "Volver"
 msgid "More"
 msgstr "Mas"
 
-#: inc/template-tags.php:126
+#: inc/template-tags.php:135
 #, php-format
 msgid ""
 "<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>by</i> "
@@ -751,24 +766,24 @@ msgstr ""
 "<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>por</i> "
 "%2$s</span>"
 
-#: inc/template-tags.php:150
+#: inc/template-tags.php:159
 msgid "Category: "
 msgstr "Categoria:"
 
-#: inc/template-tags.php:155
+#: inc/template-tags.php:164
 msgid "Tag: "
 msgstr "Tag: "
 
-#: inc/template-tags.php:298
+#: inc/template-tags.php:307
 #, php-format
 msgid "design %s"
 msgstr "diseño %s"
 
-#: inc/template-tags.php:379
+#: inc/template-tags.php:388
 msgid "View Cart"
 msgstr "Ver Carrito"
 
-#: inc/template-tags.php:385
+#: inc/template-tags.php:394
 msgid "Checkout"
 msgstr "Caja"
 

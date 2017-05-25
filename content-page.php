@@ -4,6 +4,18 @@
  *
  * @package Inkston
  */
+ 
+/*
+ *TODO: bbPress calls this file out of context so theme functions are not available (not sure why)
+ * this is temporary code to avoid repetitive errors
+ */
+if (!(function_exists('inkston_title'))) {
+		
+    /* Redirect browser */
+    header("Location: https://" . $_SERVER['HTTP_HOST'] . "/index.php");
+    exit;
+}
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

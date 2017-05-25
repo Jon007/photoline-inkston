@@ -48,9 +48,9 @@ if ( post_password_required() )
 		<p class="no-comments"><?php _e( 'Comments Closed', 'photoline-inkston' ); ?></p>
 	<?php endif; ?>
 <?php
-  $tr_id = pll_get_post(2756); // translate the About page in the current language
-  $contact_link = get_page_link($tr_id); // displays the link
-  $contact_title = get_the_title( $tr_id );
+  $page_id = inkGetPageID(2756);  // get Contact page in the current language
+  $contact_link = get_page_link($page_id); 
+  $contact_title = get_the_title( $page_id );
   $comment_title = '<a href="#comment" id="comment" name="comment">' . __( 'Leave a Comment', 'photoline-inkston' ) . '</a> ' . 
            __(' or ', 'photoline-inkston' ) . 
           ' <a href="' . $contact_link . '" onclick="javascript:return true;">' . $contact_title . '</a>';
