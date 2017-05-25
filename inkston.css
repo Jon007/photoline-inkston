@@ -2887,7 +2887,7 @@ img#header-thumbnail{
 }
 */
 
-@media (min-height:1000px){
+@media (min-height:900px){
 #head-wrap {
     position:fixed;top:0;left:0;
     z-index:2;
@@ -3092,7 +3092,7 @@ html {
 .page-header span{z-index:2}
 
 /*top menu stretch, above normal items and logos but below eg cart button*/
-.top-menu{position:absolute;width:100%;top:0px;left:0px;z-index:2;}
+.top-menu{position:fixed;width:100%;top:0px;left:0px;z-index:2;}
 
 /*cart buttons*/
 /*consistently float to right, allow to float over normal items don't wrap text in cart as cart value increases*/

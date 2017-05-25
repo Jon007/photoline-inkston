@@ -551,7 +551,7 @@ img#header-thumbnail{position:absolute;right:0;top:30px;width:auto;height:150px}
 @media (min-width:800px) {
 .inline-sidebar{padding-left:10px;float:right;width:50%}
 }
-@media (min-height:1000px) {
+@media (min-height:900px) {
 #head-wrap{position:fixed;top:0;left:0;z-index:2}
 #head-wrap *{z-index:2}
 #wrap-content{position:relative;margin-top:215px}
@@ -609,7 +609,7 @@ img#header-thumbnail{top:26px}
 html{box-sizing:border-box}
 *,:before,:after{box-sizing:inherit}
 .page-header span{z-index:2}
-.top-menu{position:absolute;width:100%;top:0;left:0;z-index:2}
+.top-menu{position:fixed;width:100%;top:0;left:0;z-index:2}
 .header-cart{float:right;right:3px;z-index:3;white-space:nowrap}
 .page-header .header-cart{position:absolute;top:210px}
 .top-menu .header-cart{position:absolute;top:0}
