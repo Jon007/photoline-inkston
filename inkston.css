@@ -3584,3 +3584,6 @@ button, button[disabled]:hover, button[disabled]:focus, input[type="button"], in
 @media (max-width: 1000px){
 #topsearch input{display:none;}
 }
+@media (max-width: 600px){
+#topsearch{right:60px;}
+}

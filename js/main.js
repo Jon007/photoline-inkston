@@ -39,20 +39,15 @@ jQuery(document).ready(function($) {
 	
 	//Handle search Form on Header
 	$("#topsearchanchor").on("click", function(){
-		if ($(window).width()<1000){
 			if ($("#topsearch-input").is(":hidden")) {
 				$("#topsearch-input").slideDown("slow");
 				$("#topsearch-input").focus();
-			}
-			else{
+		} else{
 				if ($("#topsearch-input").val()==''){
+				if ($(window).width()<1000){
 					$("#topsearch-input").slideUp();
-				}else{
-					$("#topsearch").submit();
-				}
 			}
 		}else{
-			if ($("#topsearch-input").val()!=''){
 				$("#topsearch").submit();
 			}
 		}

@@ -794,3 +794,4 @@ button,button[disabled]:hover,button[disabled]:focus,input[type="button"],input[
 #topsearch input{border:0}
 #topsearch .fa{color:white}
 @media (max-width: 1000px){#topsearch input{display:none}}
+@media (max-width: 600px){#topsearch{right:60px;}}
