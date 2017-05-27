@@ -3537,7 +3537,7 @@ li.pingback div.reply, li.pingback div.vortex-container-vote-comment{display:non
 span.search-highlight{font-weight:bold;background-color:rgba(104,153,195,0.5);}
 .tile span.search-highlight{background-color:inherit;}
 .tile:active a span.search-highlight, .tile:hover a span.search-highlight, 
-.tile a:focus span.search-highlight{background-color:rgba(57,115,170,1);color:white;}
+.tile a:focus span.search-highlight{background-color: yellow;color: rgb(57,115,170);}
 .comment_container p {margin-bottom:0px;margin-top:8px;font-size:14px;line-height:1.4em;}
 .comment_container p.meta, .comment_container a.comment-reply-link {font-size:12px;}
 div.comments-area li{list-style:none;margin-top:0.5em;}
