@@ -790,3 +790,7 @@ body.logged-in .hide-if-logged-out{display:block}
 #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current span.vcard a{opacity:1}
 .bbp-author-avatar img.avatar-14{width:40px!important;border:0!important}
 button,button[disabled]:hover,button[disabled]:focus,input[type="button"],input[type="button"][disabled]:hover,input[type="button"][disabled]:focus,input[type="reset"],input[type="reset"][disabled]:hover,input[type="reset"][disabled]:focus,input[type="submit"],input[type="submit"][disabled]:hover,input[type="submit"][disabled]:focus{text-transform:none}
+#topsearch{position:absolute;top:2px;right:100px}
+#topsearch input{border:0}
+#topsearch .fa{color:white}
+@media (max-width: 1000px){#topsearch input{display:none}}

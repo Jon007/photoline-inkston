@@ -47,6 +47,7 @@
 			'fallback_cb'     => '',
 			)
 		);
+?><form id="topsearch" action="<?php echo(trailingslashit( get_site_url() ) )?>"><input id="topsearch-input" name="s" /> <a id="topsearchanchor" class="fa fa-search"></a></form><?php
 		inkston_cart_link("top-menu header-cart") ?>
 	</div>
 <?php } ?>

@@ -37,6 +37,27 @@ jQuery(document).ready(function($) {
 		expandCommentForm();
 	}
 	
+	//Handle search Form on Header
+	$("#topsearchanchor").on("click", function(){
+		if ($(window).width()<1000){
+			if ($("#topsearch-input").is(":hidden")) {
+				$("#topsearch-input").slideDown("slow");
+				$("#topsearch-input").focus();
+			}
+			else{
+				if ($("#topsearch-input").val()==''){
+					$("#topsearch-input").slideUp();
+				}else{
+					$("#topsearch").submit();
+				}
+			}
+		}else{
+			if ($("#topsearch-input").val()!=''){
+				$("#topsearch").submit();
+			}
+		}
+	});
+	
 	// Toggle Search Form on Footer
 	$(".search-footer").on("click", function(){
 
