@@ -379,7 +379,10 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 if ( ! function_exists( 'inkston_cart_link' ) ) {
 	function inkston_cart_link( $wrapper_class = 'header-cart' ) {
 		if ( ! is_woocommerce_activated() ) {return false;}
-		//update: turn off wrapper class override:
+        
+      
+		//update: turn off wrapper class override since this is called by ajax 
+        //with no parameters for all cart buttons:
 		$wrapper_class = 'header-cart';
 		/**
 		 * is_cart - Returns true when viewing the cart page so hide the cart button.
@@ -422,11 +425,29 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
 		}else{
 			$wrapper_class = 'cart-contents ' . $wrapper_class;
 		}
-		echo ('<ul class="' . $wrapper_class . '"><li class="' . $button_class . '"><a href="' . $button_url . '" title="'.
-		$button_title . '">' . $button_text . '</a></li></ul>');
+		echo ('<ul class="' . $wrapper_class . '">');
+        echo ('<li class="' . $button_class . '"><a href="' . $button_url . '" title="'.
+    		$button_title . '">' . $button_text . '</a>');
+        echo('</li></ul>');
 	}
 }
 
+/*
+ * Improved number format according to standards for locale and currency
+ * 
+ * @param number    $value current cart value
+ *
+ * @return string  formatted number
+ */
+function format_number($value, $ccy){
+    
+    $retval=WC()->cart->get_cart_total();
+    $formatter = new NumberFormatter(pll_current_language('locale'),  NumberFormatter::CURRENCY);
+    if ($formatter){
+        $retval=$formatter->formatCurrency($amount, $ccy);
+    }
+    return $retval;
+}
 
 
 /**

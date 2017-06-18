@@ -690,7 +690,7 @@ div#content li.product a:hover img{transform:translate3d(3px,-3px,-10px) scale(1
 div.images{overflow:hidden}
 div#content div.images a:hover img{transform:translate3d(3px,-3px,-10px) scale(1.1)}
 div#content a:focus,div#content a:hover,div#content a:active{border:none;border-color:#fff}
-.handheld.zls-tprht.zls-small.zls-btnmn{top:256px!important;right:3px!important;position:absolute!important}
+.handheld.zls-tprht.zls-small.zls-btnmn{top:264px!important;right:3px!important;position:absolute!important}
 .offline_mobtxt #zlstxtcnt,.handheld #zlstxtcnt,.zls-small.handheld{display:none!important}
 .comment-list form#commentform{display:block}
 form#commentform{display:none}
@@ -795,3 +795,7 @@ button,button[disabled]:hover,button[disabled]:focus,input[type="button"],input[
 #topsearch .fa{color:white}
 @media (max-width: 1000px){#topsearch input{display:none}}
 @media (max-width: 600px){#topsearch{right:60px;}}
+.variations .tawcvs-swatches .swatch {width:75px;height:75px;}
+.woocommerce div.product form.cart{margin-bottom:0px;}
+div.product form.woocommerce-currency-switcher-form{margin-bottom:2em;} 
+.page-header .header-cart.ccy {position: absolute;top:238px;right:7px;}

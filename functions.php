@@ -25,10 +25,88 @@ if (!isset($content_width)) {
 //try to add additional cart button BEFORE product descriptions
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 6);
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 7);
+add_action('woocommerce_single_product_summary', 'output_ccy_switcher', 8);
 add_action('woocommerce_after_single_product_summary', 'inkston_woocommerce_after_single_product', 90);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 
+add_action('woocommerce_cart_totals_after_order_total', 'output_ccy_switcher', 10);
+add_action('woocommerce_checkout_order_review', 'output_ccy_switcher', 10);
+
+add_filter( 'woocs_currency_description', 'localize_currency_description', 10, 2);
+add_filter( 'woocs_currency_data_manipulation', 'localize_currency_switcher', 10, 1);
+
+/*Currency switcher iniitialization parameters */
+/*
+ * Localise initialization parameters for WooCommerce Currency Switcher, if installed:
+ *  
+ * 	    'USD' => array(
+ *		'name' => 'USD',
+ *		'rate' => 1,
+ *		'symbol' => '&#36;',
+ *		'position' => 'right',
+ *		'is_etalon' => 1,
+ *		'description' => 'USA dollar',
+ *		'hide_cents' => 0,
+ *		'flag' => '',
+ */
+function localize_currency_switcher($currencies){
+    $woo_localized_descriptions = get_woocommerce_currencies();
+    foreach ($currencies as $currency){
+        $code = $currency['name'];
+
+        //use preset description
+        $description = $woo_localized_descriptions[$code];
+        if ($description){
+            $currencies[$code]['description']=$description . ' (' . $code . ')';
+        }
+
+        //localize position and hide_cents where possible
+        $locale = pll_current_language('locale'); 
+        $formatter = new \NumberFormatter($locale.'@currency='.$code,  \NumberFormatter::CURRENCY);
+        if ($formatter){
+            $symbol=$formatter->getTextAttribute(\NumberFormatter::CURRENCY_SYMBOL);
+            if ($symbol){
+                $currencies[$code]['symbol'] = $symbol;
+            }
+            
+            $prefix=$formatter->getTextAttribute(\NumberFormatter::POSITIVE_PREFIX);
+            $currencies[$code]['position'] = (strlen($prefix)) ? 'left' : 'right';
+
+            $decimals = $formatter->getAttribute(\NumberFormatter::FRACTION_DIGITS);
+            $currencies[$code]['hide_cents'] = ($decimals) ? false : true;
+        }
+        
+    }
+    return $currencies;
+}
+function localize_currency_description($description, $currency){
+    $retval = $description;
+    $currencies = get_woocommerce_currencies();
+    if (isset($currencies[$currency])){
+        $retval = $currencies[$currency];
+    }
+    return $retval;
+}
+function output_ccy_switcher(){
+    if (isWoocs()){
+        echo do_shortcode("[woocs width='300px' txt_type='desc']");
+    }
+}
+function output_ccy_switcher_button(){
+    if (isWoocs()){
+        $wrapper_class = 'header-cart ccy';
+        $button_class='menu-item';
+        echo ('<ul class="' . $wrapper_class . '">');
+        echo ('<li class="' . $button_class . '">');
+            echo do_shortcode('[woocs]');
+        echo('</li></ul>');
+    }
+}
+function isWoocs(){
+    global $WOOCS;
+    return ($WOOCS) ? true : false;
+}
 
 /* customize cart buttons on archive screens _template_loop_add_to_cart */
 function custom_woocommerce_product_add_to_cart_text()
@@ -923,3 +1001,22 @@ function inkGetPageID($page)
     return $page; // returns the link
 }
 
+/**
+ * Polylang meta filter, if true meta item will not be synchronized.
+ *
+ *
+ * @param string      $meta_key Meta key
+ * @param string|null $meta_type
+ * @return bool True if the key is protected, false otherwise.
+ */
+function allowSyncCurrencyMeta($protected, $meta_key, $meta_type)
+{
+    $meta_prefix = '_alg_currency_switcher_per_product_';
+    $length = strlen($meta_prefix);
+    if (substr($meta_key, 0, $length) === $meta_prefix){
+        return false;
+    } else {
+        return $protected;
+    }
+}
+add_filter( 'is_protected_meta', 'allowSyncCurrencyMeta', 10, 3);

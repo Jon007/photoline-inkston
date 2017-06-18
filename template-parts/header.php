@@ -155,18 +155,18 @@ if ($display_title!=''){
 	}
 	else{
 		echo('<h1 class="page-title" title="' . $display_title . '">' . $display_title);
-		if ($do_cart!=false){inkston_cart_link();}
+		if ($do_cart!=false){inkston_cart_link();output_ccy_switcher_button();}
 		inkston_output_paging();
 		echo('</h1>');
 	}
 }
 elseif ( $do_breadcrumb != false){
 	inkston_breadcrumb();
-	if ($do_cart!=false){inkston_cart_link();}
+	if ($do_cart!=false){inkston_cart_link();output_ccy_switcher_button();}
 	inkston_output_paging();
 }
 else{
-	if ($do_cart!=false){inkston_cart_link();}
+	if ($do_cart!=false){inkston_cart_link();output_ccy_switcher_button();}
 	inkston_output_paging();
 }
 
