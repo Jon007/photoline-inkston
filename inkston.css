@@ -3591,3 +3591,5 @@ button, button[disabled]:hover, button[disabled]:focus, input[type="button"], in
 .woocommerce div.product form.cart{margin-bottom:0px;}
 div.product form.woocommerce-currency-switcher-form{margin-bottom:2em;} 
 .page-header .header-cart.ccy {position: absolute;top:238px;right:7px;}
+div.product_meta>span{display:block;}
+.woocommerce table.shop_attributes tr.archive-attributes td p{padding:0;}

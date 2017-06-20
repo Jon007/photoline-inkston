@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-05-25 08:05+0000\n"
-"PO-Revision-Date: 2017-05-25 08:08+0000\n"
-"Last-Translator: moqiao <moqiao@inkston.com>\n"
+"POT-Creation-Date: 2017-06-19 14:26+0000\n"
+"PO-Revision-Date: 2017-06-19 14:27+0000\n"
+"Last-Translator: Jon Moore <moqiao@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
 "Plural-Forms: nplurals=2; plural=n != 1\n"
@@ -37,67 +37,59 @@ msgstr ""
 msgid "%"
 msgstr ""
 
-#: comments.php:48
-msgid "Comments Closed"
-msgstr "Comentarios cerrados"
-
-#: functions.php:107 inc/contextual-help.php:60
-msgid "Social Menu"
-msgstr "Menu Social"
-
-#: functions.php:142
+#: functions.php:239
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:150
+#: functions.php:247
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:158
+#: functions.php:255
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:159
+#: functions.php:256
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:167
+#: functions.php:264
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:168
+#: functions.php:265
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:176
+#: functions.php:273
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:177
+#: functions.php:274
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:427
+#: functions.php:524
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:428
+#: functions.php:525
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:809
+#: functions.php:906
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
 
-#: functions.php:810
+#: functions.php:907
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr ""
 
-#: header.php:79
+#: header.php:80
 msgid "Menu"
 msgstr ""
 
@@ -118,10 +110,6 @@ msgstr ""
 #. Name of the template
 msgid "PostTiles"
 msgstr ""
-
-#: bbpress/user-details.php:35
-msgid "Articles"
-msgstr "Historias"
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
 #, php-format
@@ -147,10 +135,6 @@ msgid ""
 "The Theme has a contextual help for some admin screens. More information, "
 "help and support you will find on the website inkston.net."
 msgstr ""
-
-#: inc/contextual-help.php:17
-msgid "Quick Start"
-msgstr "Inicio Rápido"
 
 #: inc/contextual-help.php:17
 msgid ""
@@ -447,10 +431,6 @@ msgstr ""
 msgid "Thank you for choosing inkston WordPress theme for your website!"
 msgstr ""
 
-#: inc/welcome.php:72
-msgid "Welcome to"
-msgstr "Benvenido a"
-
 #: inc/welcome.php:75
 msgid "Here are some links to get you started and optional theme-setup tasks:"
 msgstr ""
@@ -507,10 +487,6 @@ msgstr ""
 msgid "Using the WordPress Customizer you can tweak appearance."
 msgstr ""
 
-#: inc/welcome.php:119
-msgid "Customize"
-msgstr "Customizar"
-
 #: inc/welcome.php:126
 msgid "Plugins"
 msgstr ""
@@ -520,10 +496,6 @@ msgid ""
 "Below you will find links to plugins we recommend. None of these plugins are "
 "required for theme to work, they add additional functionality."
 msgstr ""
-
-#: template-parts/header.php:18
-msgid "results"
-msgstr "resultados"
 
 #: inc/widgets/widget-icontext.php:13
 msgid "Icons"
@@ -553,21 +525,14 @@ msgstr ""
 msgid "Icon and Button Color:"
 msgstr ""
 
-#: inc/widgets/widget-icontext.php:111
-msgid "Default"
-msgstr "por defecto"
-
 #: inc/widgets/widget-icontext.php:124
 msgid "Automatically add paragraphs"
 msgstr ""
 
-#: woocommerce/myaccount/navigation.php:35
-msgid "My Profile"
-msgstr "Mi Perfil"
-
-#: woocommerce/single-product/review-meta.php:28
-msgid "Your comments are awaiting approval"
-msgstr "Su comentario queda a la espera de aprobación"
+#: woocommerce/single-product/product-attributes.php:102
+#: woocommerce/single-product/product-attributes.php:108
+msgid "[depending on variation]"
+msgstr "[dependiendo de variación]"
 
 #. Name of the theme
 msgid "Photoline Inkston"
@@ -596,6 +561,10 @@ msgstr "&larr; Mas"
 #: comments.php:23 comments.php:38
 msgid "Newer Comments &rarr;"
 msgstr "Volver&rarr;"
+
+#: comments.php:48
+msgid "Comments Closed"
+msgstr "Comentarios cerrados"
 
 #: comments.php:54
 msgid "Leave a Comment"
@@ -631,35 +600,39 @@ msgstr "Editar"
 msgid "Pages:"
 msgstr "Paginas:"
 
-#: functions.php:40
+#: functions.php:137
 msgid "Buy"
 msgstr "Comprar"
 
-#: functions.php:43
+#: functions.php:140
 msgid "View"
 msgstr "Ver"
 
-#: functions.php:46
+#: functions.php:143
 msgid "Add"
 msgstr "Añadir"
 
-#: functions.php:49
+#: functions.php:146
 msgid "Choose"
 msgstr "Elegir"
 
-#: functions.php:52
+#: functions.php:149
 msgid "Read"
 msgstr "Leer"
 
-#: functions.php:105 inc/contextual-help.php:65
+#: functions.php:202 inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr "Menu Top"
 
-#: functions.php:106
+#: functions.php:203
 msgid "Primary Menu"
 msgstr "Menu Principal"
 
-#: functions.php:582
+#: functions.php:204 inc/contextual-help.php:60
+msgid "Social Menu"
+msgstr "Menu Social"
+
+#: functions.php:679
 msgid "Recent discussions in: "
 msgstr "Discusiones recientes en:"
 
@@ -708,6 +681,10 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "Buscar"
 
+#: bbpress/user-details.php:35
+msgid "Articles"
+msgstr "Historias"
+
 #: inc/breadcrumbs.php:28
 msgid "Home"
 msgstr "Portada"
@@ -736,6 +713,10 @@ msgstr "Ver todo escrito por %s"
 #, php-format
 msgid "Page %s"
 msgstr "Pagina %s"
+
+#: inc/contextual-help.php:17
+msgid "Quick Start"
+msgstr "Inicio Rápido"
 
 #: inc/contextual-help.php:17
 msgid "Note"
@@ -779,11 +760,11 @@ msgstr "Tag: "
 msgid "design %s"
 msgstr "diseño %s"
 
-#: inc/template-tags.php:388
+#: inc/template-tags.php:391
 msgid "View Cart"
 msgstr "Ver Carrito"
 
-#: inc/template-tags.php:394
+#: inc/template-tags.php:397
 msgid "Checkout"
 msgstr "Caja"
 
@@ -795,9 +776,21 @@ msgstr "Gracias para confiar en nosotros!"
 msgid "Welcome!"
 msgstr "Bienvenido!"
 
+#: inc/welcome.php:72
+msgid "Welcome to"
+msgstr "Benvenido a"
+
 #: inc/welcome.php:105
 msgid "main Menu"
 msgstr "menu Principal"
+
+#: inc/welcome.php:119
+msgid "Customize"
+msgstr "Customizar"
+
+#: template-parts/header.php:18
+msgid "results"
+msgstr "resultados"
 
 #: inc/widgets/widget-icontext.php:92
 msgid "Title:"
@@ -806,6 +799,10 @@ msgstr "Titulo:"
 #: inc/widgets/widget-icontext.php:97
 msgid "Remove"
 msgstr "Quitar"
+
+#: inc/widgets/widget-icontext.php:111
+msgid "Default"
+msgstr "por defecto"
 
 #: inc/widgets/widget-icontext.php:112
 msgid "Blue"
@@ -818,6 +815,14 @@ msgstr "Rojo"
 #: inc/widgets/widget-icontext.php:114
 msgid "Green"
 msgstr "Verde"
+
+#: woocommerce/myaccount/navigation.php:35
+msgid "My Profile"
+msgstr "Mi Perfil"
+
+#: woocommerce/single-product/review-meta.php:28
+msgid "Your comments are awaiting approval"
+msgstr "Su comentario queda a la espera de aprobación"
 
 #. Theme URI of the theme
 msgid "http://www.inkston.com"

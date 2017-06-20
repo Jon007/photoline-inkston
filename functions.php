@@ -26,17 +26,36 @@ if (!isset($content_width)) {
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 6);
 add_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 7);
 add_action('woocommerce_single_product_summary', 'output_ccy_switcher', 8);
+add_action('woocommerce_single_product_summary', 'inkston_display_product_attributes', 45);
 add_action('woocommerce_after_single_product_summary', 'inkston_woocommerce_after_single_product', 90);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_price', 10);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
 
+/*
+ * Move additional information up to main product information area and suppress additional title
+ */
+remove_action('woocommerce_product_additional_information', 'wc_display_product_attributes', 10);
+add_filter( 'woocommerce_product_additional_information_heading', 'inkston_suppress_additional_information_heading', 10, 1);
+add_filter( 'woocommerce_product_tabs', 'inkston_suppress_additional_info_tab' );
+function inkston_suppress_additional_info_tab($tabs){
+    unset($tabs['additional_information']);
+    return $tabs;
+}
+function inkston_display_product_attributes(){
+    global $product;
+    wc_display_product_attributes($product);
+}
+function inkston_suppress_additional_information_heading($product){
+    return false;
+}
+
+/*Add currency switcher to cart and checkout screens */
 add_action('woocommerce_cart_totals_after_order_total', 'output_ccy_switcher', 10);
 add_action('woocommerce_checkout_order_review', 'output_ccy_switcher', 10);
 
+/*localise Currency switcher initialization parameters */
 add_filter( 'woocs_currency_description', 'localize_currency_description', 10, 2);
 add_filter( 'woocs_currency_data_manipulation', 'localize_currency_switcher', 10, 1);
-
-/*Currency switcher iniitialization parameters */
 /*
  * Localise initialization parameters for WooCommerce Currency Switcher, if installed:
  *  
@@ -51,6 +70,52 @@ add_filter( 'woocs_currency_data_manipulation', 'localize_currency_switcher', 10
  *		'flag' => '',
  */
 function localize_currency_switcher($currencies){
+    
+    if (! isset($currencies['GBP']) )
+    {
+        $currencies['GBP'] = array(
+		'name' => 'GBP',
+ 		'rate' => 0.78,
+ 		'symbol' => '&#163;',
+ 		'position' => 'left',
+ 		'is_etalon' => 0,
+ 		'description' => 'UK Pound Sterling (GBP)',
+ 		'hide_cents' => 0,
+ 		'flag' => '',
+ 		'decimals' => 2,
+        );
+    }    
+    if (! isset($currencies['AUD']) )
+    {
+        $currencies['AUD'] = array(
+		'name' => 'AUD',
+ 		'rate' => 1.31,
+ 		'symbol' => 'A&#36;',
+ 		'position' => 'left',
+ 		'is_etalon' => 0,
+ 		'description' => 'Australian Dollar (AUD)',
+ 		'hide_cents' => 0,
+ 		'flag' => '',
+ 		'decimals' => 2,
+        );
+    }        
+/*
+    if (! isset($currencies['CAD']) )
+    {
+        $currencies['CAD'] = array(
+		'name' => 'CAD',
+ 		'rate' => 1.32,
+ 		'symbol' => 'C&#36;',
+ 		'position' => 'left',
+ 		'is_etalon' => 0,
+ 		'description' => 'Canadian Dollar (CAD)',
+ 		'hide_cents' => 0,
+ 		'flag' => '',
+ 		'decimals' => 2,
+        );
+    }        
+  */
+    
     $woo_localized_descriptions = get_woocommerce_currencies();
     foreach ($currencies as $currency){
         $code = $currency['name'];
@@ -78,6 +143,7 @@ function localize_currency_switcher($currencies){
         }
         
     }
+    
     return $currencies;
 }
 function localize_currency_description($description, $currency){
@@ -1020,3 +1086,121 @@ function allowSyncCurrencyMeta($protected, $meta_key, $meta_type)
     }
 }
 add_filter( 'is_protected_meta', 'allowSyncCurrencyMeta', 10, 3);
+
+/*
+function shortcode_Term($params = array(), $content) {
+
+  // default parameters
+  extract(shortcode_atts(array(
+    'id' => 0,
+    'slug' => '',
+    'name' => '',
+  ), $params));
+
+  // parse parameters and generate html
+  return '';
+}
+add_shortcode('termtag', 'shortcode_Term');
+ * 
+ */
+/*
+ *  note syntax if want to use template style
+ *  ob_start();
+ *  echo etc
+ *  return ob_get_clean();
+ */
+/*
+function msk_add_loves_hates_fields_to_product(WC_Product $prod) {
+    global $product;   
+    include( 'html-product-attribute.php' );
+
+    $prod->set_attributes($raw_attributes);
+	woocommerce_wp_text_input(
+		array(
+			'id' => 'pa_size', 
+			'data_type' => 'select', 
+			'label' => __('Loves', 'msk'),
+			'placeholder' => __('Amount of love', 'msk'),
+			'description' => __('Love this product has received.', 'msk'),
+			'desc_tip' => true
+		)
+	);
+
+	woocommerce_wp_text_input(
+		array(
+			'id' => 'hates', 
+			'data_type' => 'decimal', 
+			'label' => __('Hates', 'msk'),
+			'placeholder' => __('Amount of hate', 'msk'),
+			'description' => __('Hatred this product has received.', 'msk'),
+			'desc_tip' => true
+		)
+	);
+}
+//add_action('woocommerce_product_options_advanced', 'msk_add_loves_hates_fields_to_product');
+add_action('woocommerce_product_options_attributes', 'msk_add_loves_hates_fields_to_product');
+*/
+
+/*
+ * Maka 
+ */
+function inkston_make_product_attribute($name)
+{
+    global $wc_product_attributes;
+    if ( isset($wc_product_attributes[$name]) ){
+        $newattr = new WC_Product_Attribute();
+        $newattr->set_id(1);  //any positive value is interpreted as should be taxonomy
+        $newattr->set_name($name);
+        $newattr->set_visible(true);
+        $newattr->set_variation(false);
+        if ($name=='brand'){
+            $newattr->set_options('inkston');
+        }
+        return $newattr;
+    } else {
+        return false;
+    }
+}
+/*
+ * Add default attributes
+ * last hook before starting rendering of Product Edit screen
+ */
+function inkston_default_product_attributes()
+{
+    global $product;
+    if (! $product) {
+        $product = $GLOBALS['product_object'];
+    }
+    if (! $product) {
+        return;
+    }
+    $attributes = $product->get_attributes();
+    
+    $defaultAttributes = array(
+        'pa_brand',
+        'pa_maker',
+        'pa_materials',
+        'pa_asin',
+        'pa_upc',
+        'pa_packaging',
+        'pa_recommend-to',
+        'pa_suitable-for',
+        'product-size',
+        'net-weight',
+    );
+    
+    $changed=false;
+    foreach ($defaultAttributes as $key){
+        if (! isset($attributes[$key])){
+            $newattr = inkston_make_product_attribute($key);
+            if ($newattr){
+                $attributes[$key] = $newattr;
+            }
+            $changed = true;
+        }
+    }
+    if ($changed){
+        $product->set_attributes($attributes);
+    }
+}
+add_action('woocommerce_product_write_panel_tabs', 'inkston_default_product_attributes');

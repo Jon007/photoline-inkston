@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-05-25 08:05+0000\n"
+"POT-Creation-Date: 2017-06-19 14:24+0000\n"
 "POT-Revision-Date: Mon Aug 01 2016 11:35:09 GMT+0800 (CST)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: dinevthemes <post@makewp.ru>\n"
@@ -93,95 +93,95 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: functions.php:40
+#: functions.php:137
 msgid "Buy"
 msgstr ""
 
-#: functions.php:43
+#: functions.php:140
 msgid "View"
 msgstr ""
 
-#: functions.php:46
+#: functions.php:143
 msgid "Add"
 msgstr ""
 
-#: functions.php:49
+#: functions.php:146
 msgid "Choose"
 msgstr ""
 
-#: functions.php:52
+#: functions.php:149
 msgid "Read"
 msgstr ""
 
-#: functions.php:105 inc/contextual-help.php:65
+#: functions.php:202 inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr ""
 
-#: functions.php:106
+#: functions.php:203
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:107 inc/contextual-help.php:60
+#: functions.php:204 inc/contextual-help.php:60
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:142
+#: functions.php:239
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:150
+#: functions.php:247
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:158
+#: functions.php:255
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:159
+#: functions.php:256
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:167
+#: functions.php:264
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:168
+#: functions.php:265
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:176
+#: functions.php:273
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:177
+#: functions.php:274
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:427
+#: functions.php:524
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:428
+#: functions.php:525
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:582
+#: functions.php:679
 msgid "Recent discussions in: "
 msgstr ""
 
-#: functions.php:809
+#: functions.php:906
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
 
-#: functions.php:810
+#: functions.php:907
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr ""
 
-#: header.php:79
+#: header.php:80
 msgid "Menu"
 msgstr ""
 
@@ -617,11 +617,11 @@ msgstr ""
 msgid "design %s"
 msgstr ""
 
-#: inc/template-tags.php:388
+#: inc/template-tags.php:391
 msgid "View Cart"
 msgstr ""
 
-#: inc/template-tags.php:394
+#: inc/template-tags.php:397
 msgid "Checkout"
 msgstr ""
 
@@ -794,6 +794,11 @@ msgstr ""
 
 #: woocommerce/myaccount/navigation.php:35
 msgid "My Profile"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:102
+#: woocommerce/single-product/product-attributes.php:108
+msgid "[depending on variation]"
 msgstr ""
 
 #: woocommerce/single-product/review-meta.php:28
