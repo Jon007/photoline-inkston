@@ -99,6 +99,9 @@ function outputAttributes($attrKeyValues, $type, $variable)
     global $product;
     foreach ($attrKeyValues as $key => $value ) {
         $cellclass='';
+        if ( is_array($value) ){
+            $value = implode(', ', $value);
+        }
         if ($type=='codes'){ 
             switch ($key){
                 case "_sku":
@@ -122,14 +125,14 @@ function outputAttributes($attrKeyValues, $type, $variable)
                 case "product_weight":
             $cellclass = $key;
             $key = __( 'Weight', 'woocommerce' );
-            if (($value=='N/A') && ( $product->get_type()=='variable') ){
+                    if (($value==__( 'N/A', 'woocommerce' )) && ( $product->get_type()=='variable') ){
                 $value=__('[depending on variation]', 'photoline-inkston');
             }
                     break;
                 case "product_dimensions":
             $cellclass = $key;
             $key= __( 'Dimensions', 'woocommerce' );
-            if (($value=='N/A') && ( $product->get_type()=='variable') ){
+                    if (($value==__( 'N/A', 'woocommerce' )) && ( $product->get_type()=='variable') ){
                 $value=__('[depending on variation]', 'photoline-inkston');
             }
                     break;
@@ -150,17 +153,28 @@ if ( $display_dimensions ) {
     }
     
 }
-$net_weight = get_post_meta($product->get_id(), 'net_weight', true);
+$net_weight = get_post_meta($product->get_id(), 'net_weight', false);
 if ($net_weight){
+    if ( is_array($net_weight) ){
+        $net_weight = implode(', ', $net_weight);        
+        $dimensionattributes['net_weight'] = $net_weight;
+    } else {
     $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
+}
 }
 $net_size = get_post_meta($product->get_id(), 'net_size', true);
 if ($net_size){
     $value = esc_html( wc_format_dimensions( $net_size ));
-    if (($value!='N/A') && ( $product->get_type()=='variable') ){
+    if ($value==__( 'N/A', 'woocommerce' )){
+       if ( $product->get_type()=='variable' ){
         $value=__('[depending on variation]', 'photoline-inkston');
+            $dimensionattributes['net_size'] = $value;
+        } else {
+            $value='';
+        }
+    } else {
+        $dimensionattributes['net_size'] = $value;
     }    
-    $dimensionattributes['net_size'] = esc_html( wc_format_dimensions( $net_size ));
 }
 
 

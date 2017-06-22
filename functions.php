@@ -440,6 +440,8 @@ function inkston_body_class_filter($classes)
 
     if ( WC() ){
        $classes[] = (sizeof(WC()->cart->cart_contents) == 0) ? 'cart-empty' : 'cart-show';
+       $classes[] = 'woocommerce-page';
+       $classes[] = 'columns-5';
     }
         
     
@@ -1268,9 +1270,8 @@ function inkston_add_asin_upc()
     );
     
     $value = get_post_meta( $thepostid, 'upc', true );
-    if (is_array($value)){
-        $value=reset($value);
-    }
+    if (is_array($value)){$value=implode(', ', $value);}
+    
     woocommerce_wp_text_input( 
         array( 
             'id'                => 'upc', 
@@ -1290,6 +1291,12 @@ function inkston_add_asin_upc()
 }
 add_action('woocommerce_product_options_sku', 'inkston_add_asin_upc');
 function inkston_net_dimensions(){
+	global $thepostid, $post;
+	$thepostid              = empty( $thepostid ) ? $post->ID : $thepostid;
+    
+    $value = get_post_meta( $thepostid, 'net_weight', true );
+    if (is_array($value)){$value=implode(', ', $value);}
+    
     woocommerce_wp_text_input( 
         array( 
             'id'                => 'net_weight', 
@@ -1300,11 +1307,16 @@ function inkston_net_dimensions(){
             'desc_tip'    => 'true',
             'description'       => __( 'Unpacked net product weight.', 
                                     'photoline-inkston' ),
+            'value'       => $value,
+            /*
+             * numeric type doesn't handle variation with multiple values..
             'type'              => 'number', 
             'custom_attributes' => array(
                     'step' 	=> 'any',
                     'min'	=> '0'
                 ) 
+             * 
+             */ 
         )
     );
     // net size, copying structure of Shipping size
@@ -1339,9 +1351,9 @@ add_action('woocommerce_product_options_dimensions', 'inkston_net_dimensions');
  */
 function inkston_meta_save( $post_id, $post )
 {
-    inkston_meta_save_item($post_id, 'asin');
-    inkston_meta_save_item($post_id, 'upc');
-    inkston_meta_save_item($post_id, 'net_weight');
+    inkston_meta_save_item($post_id, 'asin', null);
+    inkston_meta_save_item($post_id, 'upc', null);
+    inkston_meta_save_item($post_id, 'net_weight', null);
     $netsize = array( esc_attr( $_POST['_netlength'] ), esc_attr( $_POST['_netwidth'] ), esc_attr( $_POST['_netheight'] )  );
     inkston_meta_save_item($post_id, 'net_size', $netsize);
 }
@@ -1534,3 +1546,260 @@ $urls = array_diff( $urls, array( $emoji_svg_url ) );
 
 return $urls;
 }
+
+/**
+ * Filter the custom field woosb_ids for WooCommerce Product Bundle 
+ * to get the translated products in the bundle
+ *  '10330/1,10328/1,6382/1'
+ *
+ * @param array  $keys list of custom fields names
+ * @param bool   $sync true if it is synchronization, false if it is a copy
+ * @param int    $from id of the post from which we copy informations
+ * @param int    $to   id of the post to which we paste informations
+ * @param string $lang language slug
+ */
+
+//$keys = array_unique( apply_filters( 'pll_copy_post_metas', $keys, $sync, $from, $to, $lang ) );
+
+
+/**
+ * Polylang meta filter, return true to exclude meta item from synchronization.
+ * (we translated it later in the pll_save_post action)
+ *
+ * @param string      $meta_key Meta key
+ * @param string|null $meta_type
+ * 
+ * @return bool True if the key is protected, false otherwise.
+ */
+function nosync_woosb_ids($protected, $meta_key, $meta_type)
+{
+    if ($meta_key == 'woosb_ids'){
+        return true;
+    } else {
+        return $protected;
+    }
+}
+add_filter( 'is_protected_meta', 'nosync_woosb_ids', 10, 3);
+/**
+ * translate the custom field woosb_ids for WooCommerce Product Bundle 
+ * to get the translated products in the bundle saved in postmeta in the format 
+ *  {id}/{quantity},{id}/{quantity}
+ * eg:
+ *  '10330/1,10328/1,6382/1'
+ * [Polylang only supports sync or no sync so we exclude from sync and save here]
+ *
+ * Hooks pll_save_post Fires after the post language and translations are saved
+ *
+ * @param int    $post_id      Post id
+ * @param object $post         Post object
+ * @param array  $translations The list of translations post ids
+ */
+function translate_woosb_ids($post_id, $post, $translations){
+    
+    //if creating a new translation, we need to reverse the logic and copy from the original
+    //the original is not included in the translations array as not linked yet
+    //and the new post has no woosb_ids to check
+    if ( isset($_GET['new_lang']) && isset($_GET['from_post']) ){
+        $post_id= $_GET['from_post'];
+    }
+
+    //get woosb_ids and exit if none
+    $woosb_ids = get_post_meta( $post_id, 'woosb_ids', true );
+    if (! ($woosb_ids) ){return false;}
+    
+    //parse $woosb_ids {id}/{quantity},{id}/{quantity} format
+    $woosb_items = explode( ',',  $woosb_ids);
+    if ( is_array( $woosb_items ) && count( $woosb_items ) > 0 ) {        
+        $lang = pll_get_post_language($post_id);
+        $translations[$lang]=$post_id;
+        //loop through translations
+        foreach ($translations as $translation){
+            //ignore source item, which should already be in correct lang?
+            //or process anyway just to check and add missing upsells?
+            if (! $translation) { // || ($post_id == $translation) ){
+                continue;                
+            }
+            $targetlang = pll_get_post_language($translation);
+            $translateditems = array();
+
+            foreach ( $woosb_items as $woosb_item ) {
+                $woosb_item_arr = explode( '/', $woosb_item );
+                $woosb_product  = get_translated_variation( $woosb_item_arr[0], $targetlang);                
+                if ($woosb_product){
+                    //item found, make sure it is an upsell on the translation
+                    $translateditems[] = $woosb_product . '/' . $woosb_item_arr[1];
+                    add_upsell($woosb_product, $post_id);
+                } else {
+                    //if item not found there was a problem in get_translated_variation()
+                    //and item cannot be added
+                    //$translateditems[] = $woosb_item_arr[0] . '/' . $woosb_item_arr[1];                    
+                }
+            }
+            if ($lang!=$targetlang){
+                update_metadata('post', $translation, 'woosb_ids', implode(',', $translateditems)) ;
+            }
+        }
+    }    
+}
+add_action('pll_save_post', 'translate_woosb_ids', 99, 3);
+
+/*
+ * Automatically add bundles as an upsell to the component items
+ * 
+ * @param int $addto        Product to add upsell to
+ * @param int $upselltoadd  the Product to add as the upsell
+ * 
+ */
+function add_upsell($addto, $upselltoadd)
+{
+    //get the parent product if it is a variation (upsells only valid on parent)
+    $product = get_product_or_parent($addto);
+    $upsells = $product->get_upsell_ids();
+    if (!in_array($upselltoadd, $upsells)){
+        $upsells[] = $upselltoadd;
+        //set_upsell_ids doesn't save product.. 
+        $product->set_upsell_ids($upsells);
+        //we don't want to get in event loop saving whole product again to update meta
+        update_post_meta($product->get_id(), '_upsell_ids', $upsells);
+    }
+}
+/*
+ * get the product, if it is a variable product, get the parent
+ * 
+ * @param int $product_id   Product 
+ *
+ * @return WC_Product|null the Product 
+ */
+function get_product_or_parent($product_id)
+{
+    $product = wc_get_product($product_id);
+    if ($product && 'variation' === $product->get_type()) {
+        //ok, find translated variation
+        $product = wc_get_product($product->get_parent_id());
+    }
+    return $product;
+}
+/*
+ * get the translated product, including if it is a variation product, get the translated variation
+ * if there is no translation, return the original product
+ * 
+ * @param int $product_id   Product 
+ *
+ * @return int    translated product or variation (or original if no translation)
+ * 
+ */
+function get_translated_variation($product_id, $lang)
+{
+    //if input is already in correct language just return it
+    $sourcelang = pll_get_post_language($product_id);
+    if ($sourcelang == $lang){
+        return $product_id;
+    }
+    //if a translated item is found, return it
+    $translated_id = pll_get_post( $product_id, $lang);
+    if ( ( $translated_id ) && ( $translated_id != $product_id ) ){
+        return $translated_id;
+    }
+    //ok no linked Polylang translation so maybe it's a variation
+    $product = wc_get_product($product_id);
+    if ($product && 'variation' === $product->get_type()) {
+        //it's a variation, so let's get the parent and translate that
+        $parent_id = $product->get_parent_id();
+        $translated_id = pll_get_post( $parent_id, $lang);
+        //if no translation return the original product variation id
+        if ((! $translated_id) || ($translated_id == $parent_id) ) {
+            return $product_id;
+        }
+        //ok, it's a variation and the parent product is translated, so here's what to do:
+        //find the master link for this variation using the Hyyan '_point_to_variation' key
+        $variationmaster = get_post_meta($product_id, '_point_to_variation');
+        if (! $variationmaster){
+            return $product_id;
+        }
+        //and now the related variation for the translation
+        $posts = get_posts(array(
+            'meta_key' => '_point_to_variation',
+            'meta_value' => $variationmaster,
+            'post_type' => 'product_variation',
+            'post_parent' => $translated_id,
+        ));        
+        
+        if ( count($posts) ){
+            return $posts[0]->ID;
+        }
+    }
+}
+
+/* fixes for 5 items per row, 25 items per page etc */
+add_filter( 'loop_shop_per_page', function ( $cols ) {
+return 25;
+}, 20 );
+// Number or products per row ex 4
+add_filter('loop_shop_columns', 'loop_columns');
+if (!function_exists('loop_columns')) {
+function loop_columns() {
+    return 5; // 5 products per row
+}
+}
+
+add_filter ( 'woocommerce_product_thumbnails_columns', 'xx_thumb_cols' );
+ function xx_thumb_cols() {
+     return 5; // .last class applied to every 4th thumbnail
+ }
+ 
+/*
+ * filter for adding on sale notices for bundles
+ * 
+ * @param bool  $on_sale     calculated by wooCommerce and overridden with high priority by currency switcher
+ * @param WC_Product $product
+ * 
+ * @return bool     on sale or not
+ */ 
+function bundle_is_on_sale($on_sale, $product) 
+{
+    if ($product && 'woosb' === $product->get_type()) {
+        $woosb_pct = intval(get_post_meta( $product->get_id(), 'woosb_price_percent', true ));
+        if ( ($woosb_pct) && ($woosb_pct<100) ){
+            return true;
+        }
+    }
+    return $on_sale;
+}
+//
+add_filter( 'woocommerce_product_is_on_sale', 'bundle_is_on_sale', 10000, 2);
+
+
+/*
+ * filter for adding on sale flash notices 
+ * 
+ * @param string  $output     WooCommerce output
+ * @param Post       $post
+ * @param WC_Product $product
+ * 
+ * @return bool     on sale or not
+ */ 
+function custom_product_sale_flash( $output, $post, $product ) {
+    
+    if (! $product){
+        return $output;
+    }
+    
+    $woosb_pct=100;
+    if ($product && 'woosb' === $product->get_type()) {
+        $woosb_pct = intval(get_post_meta( $product->get_id(), 'woosb_price_percent', true ));
+        if ( ($woosb_pct) && ($woosb_pct<100) ){
+            return '<span class="onsale">-' .  round( 100 - $woosb_pct ) . '% ' . '</span>';
+        }
+    }
+
+    
+}
+add_filter( 'woocommerce_sale_flash', 'custom_product_sale_flash', 11, 3 );
+/*
+function woocommerce_saved_sales_price( $price, $product ) {
+    $percentage = round( ( ( $product->regular_price - $product->sale_price ) / $product->regular_price ) * 100 );
+    return $price . sprintf( __('-%s', 'woocommerce' ), $percentage . '%' );
+}
+add_filter( 'woocommerce_get_price_html', 'woocommerce_saved_sales_price', 10, 2 );
+ * 
+ */

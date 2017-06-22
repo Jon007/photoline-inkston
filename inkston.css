@@ -3597,3 +3597,5 @@ div.product_meta>span{display:block;}
 body.cart-empty .page-header .header-cart{display:none;}
 body.woocommerce.cart-empty .page-header .header-cart{display:block;}
 body.cart-show .page-header .header-cart{display:block;}
+/*no longer needed sku meta display since added to attributes display*/
+span.sku_wrapper{display:none;}

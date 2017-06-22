@@ -804,3 +804,4 @@ div.product_meta>span{display:block;}
 body.cart-empty .page-header .header-cart{display:none;}
 body.woocommerce.cart-empty .page-header .header-cart{display:block;}
 body.cart-show .page-header .header-cart{display:block;}
+span.sku_wrapper{display:none;}
