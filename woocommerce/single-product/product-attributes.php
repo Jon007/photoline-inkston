@@ -35,6 +35,7 @@ $variationattributes=array();
 $archiveattributes=array();
 $dimensionattributes=array();
 $otherattributes=array();
+$variable = ( $product->get_type()=='variable') ? true : false;
 
 
 /*
@@ -93,23 +94,46 @@ function getAttrValueString($attribute)
  * @param Array     values keyed by display name
  * @return string   formatted string
  */
-function outputAttributes($attrKeyValues, $type)
+function outputAttributes($attrKeyValues, $type, $variable)
 {
     global $product;
     foreach ($attrKeyValues as $key => $value ) {
         $cellclass='';
-        if ($key=='product_weight'){
+        if ($type=='codes'){ 
+            switch ($key){
+                case "_sku":
+                    $cellclass = 'woocommerce-variation-custom-' . $key;
+                    $key='SKU';
+                    break;
+                default:
+                    $cellclass = 'woocommerce-variation-custom-' . $key;
+                    $key = strtoupper($key);         
+            }
+        } else {
+            switch ($key){
+                case "net_weight":
+                    $cellclass = 'woocommerce-variation-custom-' . $key;
+                    $key=__('Product Weight', 'photoline-inkston');
+                    break;
+                case "net_size":
+                    $cellclass = 'woocommerce-variation-custom-' . $key;
+                    $key=__('Product Size', 'photoline-inkston');
+                    break;
+                case "product_weight":
             $cellclass = $key;
             $key = __( 'Weight', 'woocommerce' );
             if (($value=='N/A') && ( $product->get_type()=='variable') ){
                 $value=__('[depending on variation]', 'photoline-inkston');
             }
-        } elseif ($key=='product_dimensions'){
+                    break;
+                case "product_dimensions":
             $cellclass = $key;
             $key= __( 'Dimensions', 'woocommerce' );
             if (($value=='N/A') && ( $product->get_type()=='variable') ){
                 $value=__('[depending on variation]', 'photoline-inkston');
             }
+                    break;
+            }            
         }
         echo('<tr class="'.$type.'"><th>' . $key . '</th>');
         echo('<td class="' . $cellclass .'">' . $value . '</td></tr>');        
@@ -124,7 +148,22 @@ if ( $display_dimensions ) {
     if ( $product->has_dimensions() ){
         $dimensionattributes['product_dimensions'] = esc_html( wc_format_dimensions( $product->get_dimensions( false ) ) );
     }
+    
 }
+$net_weight = get_post_meta($product->get_id(), 'net_weight', true);
+if ($net_weight){
+    $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
+}
+$net_size = get_post_meta($product->get_id(), 'net_size', true);
+if ($net_size){
+    $value = esc_html( wc_format_dimensions( $net_size ));
+    if (($value!='N/A') && ( $product->get_type()=='variable') ){
+        $value=__('[depending on variation]', 'photoline-inkston');
+    }    
+    $dimensionattributes['net_size'] = esc_html( wc_format_dimensions( $net_size ));
+}
+
+
 
 
 foreach ( $attributes as $attribute ){
@@ -146,6 +185,15 @@ foreach ( $attributes as $attribute ){
     }
 }
     
+$idfields = array();
+$idkeys = array('asin', '_sku', 'upc');
+foreach ($idkeys as $key){
+    $value = get_post_meta( $product->get_id(), $key, true );
+    if ($value || $variable){
+        $idfields[$key] = $value;
+    }
+}
+
 ?>
 <table class="shop_attributes">
 <?php
@@ -153,9 +201,11 @@ foreach ( $attributes as $attribute ){
     ksort($variationattributes);
     ksort($archiveattributes);
     ksort($otherattributes);
-    outputAttributes($variationattributes, 'variations');
-    outputAttributes($archiveattributes, 'archive-attributes');
-    outputAttributes($otherattributes, 'attributes');
-    outputAttributes($dimensionattributes, 'dimensions');
+    outputAttributes($variationattributes, 'variations', false);
+    outputAttributes($archiveattributes, 'archive-attributes', false);
+    outputAttributes($otherattributes, 'attributes', false);
+    outputAttributes($dimensionattributes, 'dimensions', true);
+    outputAttributes($idfields, 'codes', true);    
+    
 ?>
 </table>

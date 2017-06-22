@@ -109,8 +109,13 @@ $display_title=$title;
 if ( is_woocommerce_activated() ) {
 		$do_cart = true;
 	if ( is_woocommerce() && !is_product() ) {
-		if (is_shop()) {$do_breadcrumb = false;}
+		if (is_shop()) {
+            $do_breadcrumb = false;
 		$do_cart = true;
+        //finally cart must always be there on woocommerce page since the pate will be cached..
+        //} elseif (sizeof(WC()->cart->cart_contents) == 0){
+        //    $do_cart = false;        
+        }
 	}
 	elseif ( is_product() ) {
 		/* product page title omitted and shown below header, cart link should show on same line as breadcrumb */
@@ -119,6 +124,8 @@ if ( is_woocommerce_activated() ) {
 	elseif ( is_cart()){
 		$do_cart = true;   /* cart link auto switches to checkout link if on cart page */
 		$do_breadcrumb = false;
+//	} elseif (sizeof(WC()->cart->cart_contents) == 0){
+//		$do_cart = false;
 	}
   if (is_checkout() && (is_checkout_pay_page()) ){$do_cart = false;}
 }	/* if ( is_woocommerce_activated() ) */

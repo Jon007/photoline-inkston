@@ -99,6 +99,7 @@ function localize_currency_switcher($currencies){
  		'decimals' => 2,
         );
     }        
+    //$currencies['AUD']['symbol']='A&#36;';
 /*
     if (! isset($currencies['CAD']) )
     {
@@ -160,7 +161,8 @@ function output_ccy_switcher(){
     }
 }
 function output_ccy_switcher_button(){
-    if (isWoocs()){
+    //always output button due to caching, hide via css if not needed..
+    if (isWoocs() ){ // && ( (is_shop() ) || (sizeof(WC()->cart->cart_contents) > 0) ) ){
         $wrapper_class = 'header-cart ccy';
         $button_class='menu-item';
         echo ('<ul class="' . $wrapper_class . '">');
@@ -355,17 +357,37 @@ function inkston_scripts()
         wp_enqueue_script('keyboard-image-navigation', $template_uri . '/js/keyboard-image-navigation.js', array('jquery'), '25062015');
     }
 
+    if ((is_woocommerce_activated()) && (is_product())) {
+
+        wp_deregister_script( 'add-to-cart-variation' );
+        $scriptname = '/js/add-to-cart-variation.js';
+        wp_register_script('add-to-cart-variation', $template_uri . $scriptname, array('jquery'),
+                 filemtime(get_stylesheet_directory() . $scriptname), true );
+        wp_enqueue_script('add-to-cart-variation');
+    
+        
+//        $scriptname = '/js/variation-buttons' . $suffix . '.js';
+//        wp_enqueue_script('variation-buttons', $template_uri . $scriptname, array('jquery'), filemtime(get_stylesheet_directory() . $scriptname), true);
+    }
+        
     ?><script type="text/javascript">window.loginurl = '<?php echo(wp_login_url()) ?>';</script><?php
 }
 add_action('wp_enqueue_scripts', 'inkston_scripts');
 
-/* TODO: test and remove stripe from pages where not needed */
+function inkston_dequeue_script() {
+    wp_dequeue_script( 'wc-add-to-cart-variation' );
+    wp_deregister_script( 'wc-add-to-cart-variation' );
 
-function i_suppress_scripts()
-{
-    wp_dequeue_script('wpla_product_matcher');
+    $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+    $template_uri = get_template_directory_uri();    
+    $scriptname = '/js/add-to-cart-variation.js';
+    wp_register_script('wc-add-to-cart-variation', $template_uri . $scriptname, array('jquery', 'wp-util' ),
+             filemtime(get_stylesheet_directory() . $scriptname), true );
+    wp_enqueue_script('wc-add-to-cart-variation');
+//    wp_dequeue_script('wpla_product_matcher');
 }
-add_action('wp_print_scripts', 'i_suppress_scripts');
+add_action( 'wp_print_scripts', 'inkston_dequeue_script', 1000 );
+
 
 /**
  * Extracting the first's image of post
@@ -416,6 +438,11 @@ function inkston_body_class_filter($classes)
     if (!is_page() && !is_single() && !is_search())
         $classes[] = sanitize_html_class('colgrid');
 
+    if ( WC() ){
+       $classes[] = (sizeof(WC()->cart->cart_contents) == 0) ? 'cart-empty' : 'cart-show';
+    }
+        
+    
     return $classes;
 }
 add_filter('body_class', 'inkston_body_class_filter');
@@ -1142,19 +1169,28 @@ add_action('woocommerce_product_options_attributes', 'msk_add_loves_hates_fields
 */
 
 /*
- * Maka 
+ * Create a default Product Attribute object for the supplied name
+ * 
+ * @param  string   name        Product Attribute taxonomy name
+ * 
+ * @return WC_Product_Attribute/bool  new Attribute or false if named Attribute is not found
+ * 
  */
 function inkston_make_product_attribute($name)
 {
     global $wc_product_attributes;
     if ( isset($wc_product_attributes[$name]) ){
         $newattr = new WC_Product_Attribute();
-        $newattr->set_id(1);  //any positive value is interpreted as should be taxonomy
+        $newattr->set_id(1);  //any positive value is interpreted as is_taxonomy=true
         $newattr->set_name($name);
         $newattr->set_visible(true);
         $newattr->set_variation(false);
-        if ($name=='brand'){
-            $newattr->set_options('inkston');
+        //example of setting default value for item
+        if ($name=='pa_brand'){
+            $term = get_term_by('slug', 'inkston', $name);
+            if ($term){
+                $newattr->set_options(array($term->term_id));
+            }
         }
         return $newattr;
     } else {
@@ -1162,8 +1198,7 @@ function inkston_make_product_attribute($name)
     }
 }
 /*
- * Add default attributes
- * last hook before starting rendering of Product Edit screen
+ * Add default attributes to a product
  */
 function inkston_default_product_attributes()
 {
@@ -1180,13 +1215,13 @@ function inkston_default_product_attributes()
         'pa_brand',
         'pa_maker',
         'pa_materials',
-        'pa_asin',
-        'pa_upc',
+//        'pa_asin',
+//        'pa_upc',
         'pa_packaging',
         'pa_recommend-to',
         'pa_suitable-for',
-        'product-size',
-        'net-weight',
+//        'pa_product-size',
+//        'pa_net-weight',
     );
     
     $changed=false;
@@ -1203,4 +1238,299 @@ function inkston_default_product_attributes()
         $product->set_attributes($attributes);
     }
 }
+/*
+ * added to last hook before rendering of Product Edit screen
+ */
 add_action('woocommerce_product_write_panel_tabs', 'inkston_default_product_attributes');
+
+/*
+ * add ASIN and UPC fields directly to the Inventory tab underneath SKU
+ */
+function inkston_add_asin_upc()
+{
+	global $thepostid, $post;
+	$thepostid              = empty( $thepostid ) ? $post->ID : $thepostid;
+    
+    $value = get_post_meta( $thepostid, 'asin', true );
+    if (is_array($value)){
+        $value=reset($value);
+    }
+    
+    woocommerce_wp_text_input( 
+        array( 
+            'id'          => 'asin', 
+            'label'       => __( 'ASIN', 'photoline-inkston' ), 
+            'placeholder' => 'A01MA02ZON',
+            'desc_tip'    => 'true',
+            'value'       => $value,
+            'description' => __( 'Amazon alphanumeric 10 character inventory code.', 'woocommerce' ) 
+        )
+    );
+    
+    $value = get_post_meta( $thepostid, 'upc', true );
+    if (is_array($value)){
+        $value=reset($value);
+    }
+    woocommerce_wp_text_input( 
+        array( 
+            'id'                => 'upc', 
+            'label'             => __( 'UPC', 'photoline-inkston' ), 
+            'placeholder'       => '012345678901', 
+            'desc_tip'    => 'true',
+            'value'       => $value,
+            'description'       => __( '12 digits international standard Universal Product Code.', 
+                                    'photoline-inkston' ),
+            'type'              => 'number', 
+            'custom_attributes' => array(
+                    'step' 	=> 'any',
+                    'min'	=> '0'
+                ) 
+        )
+    );
+}
+add_action('woocommerce_product_options_sku', 'inkston_add_asin_upc');
+function inkston_net_dimensions(){
+    woocommerce_wp_text_input( 
+        array( 
+            'id'                => 'net_weight', 
+            'label'             => __( 'Product weight', 'photoline-inkston' ) . 
+                                    ' (' . get_option( 'woocommerce_weight_unit' ) . ')', 
+            'placeholder'       => __( 'Unpacked net product weight.', 
+                                    'photoline-inkston' ), 
+            'desc_tip'    => 'true',
+            'description'       => __( 'Unpacked net product weight.', 
+                                    'photoline-inkston' ),
+            'type'              => 'number', 
+            'custom_attributes' => array(
+                    'step' 	=> 'any',
+                    'min'	=> '0'
+                ) 
+        )
+    );
+    // net size, copying structure of Shipping size
+    global $product;
+    if (! $product) {
+        $product = $GLOBALS['product_object'];
+    }
+    if (! $product) {
+        return;
+    }
+    $net_size = get_post_meta( $product->get_id(), 'net_size', true ); 
+    if (! $net_size){$net_size=array('','','');}
+    ?>
+    <p class="form-field dimensions_field net_size">
+        <label for="Product Size"><?php echo __( 'Product size ', 'photoline-inkston' ) . 
+                                    ' (' . get_option( 'woocommerce_dimension_unit' ) . ')'; 
+        ?></label>
+        <span class="wrap">
+            <input id="net_length" placeholder="<?php esc_attr_e( 'Length', 'woocommerce' ); ?>" class="input-text wc_input_decimal" size="6" type="text" name="_netlength" value="<?php echo esc_attr( wc_format_localized_decimal( $net_size[0] ) ); ?>" />
+            <input placeholder="<?php esc_attr_e( 'Width', 'woocommerce' ); ?>" class="input-text wc_input_decimal" size="6" type="text" name="_netwidth" value="<?php echo esc_attr( wc_format_localized_decimal( $net_size[1] ) ); ?>" />
+            <input placeholder="<?php esc_attr_e( 'Height', 'woocommerce' ); ?>" class="input-text wc_input_decimal last" size="6" type="text" name="_netheight" value="<?php echo esc_attr( wc_format_localized_decimal( $net_size[2] ) ); ?>" />
+        </span>
+        <?php echo wc_help_tip( __( 'Unpacked product size LxWxH in decimal form', 'photoline-inkston' ) ); ?>
+    </p><?php
+}
+add_action('woocommerce_product_options_dimensions', 'inkston_net_dimensions');
+/*
+ * Save custom fields
+ * 
+ * @param int   $post_id    product id
+ * @param object $post      the product
+ */
+function inkston_meta_save( $post_id, $post )
+{
+    inkston_meta_save_item($post_id, 'asin');
+    inkston_meta_save_item($post_id, 'upc');
+    inkston_meta_save_item($post_id, 'net_weight');
+    $netsize = array( esc_attr( $_POST['_netlength'] ), esc_attr( $_POST['_netwidth'] ), esc_attr( $_POST['_netheight'] )  );
+    inkston_meta_save_item($post_id, 'net_size', $netsize);
+}
+/*
+ * Save individual custom field
+ * 
+ * @param int   $post_id    product id
+ * @param object $key       parameter name
+ */
+function inkston_meta_save_item($post_id, $key, $value)
+{
+    if (empty($value)){
+        if (isset($_POST[$key])){
+            $value = $_POST[$key];
+        }
+    }
+    if( !empty( $value ) ){
+        update_post_meta( $post_id, $key, $value);
+    }
+}
+add_action( 'woocommerce_process_product_meta', 'inkston_meta_save', 10, 2 );
+
+
+// Add Variation Settings
+function inkston_variation_asin_upc($loop, $variation_data, $variation)
+{
+    $value = get_post_meta( $variation->ID, 'asin', true );
+    woocommerce_wp_text_input( 
+        array( 
+            'id'          => 'asin[' . $variation->ID . ']', 
+            'label'       => __( 'ASIN', 'photoline-inkston' ), 
+            'placeholder' => 'A01MA02ZON',
+            'desc_tip'    => 'true',
+            'description' => __( 'Amazon alphanumeric 10 character inventory code.', 'woocommerce' ), 
+            'value'       => get_post_meta( $variation->ID, 'asin', true ),
+            'wrapper_class'       => 'form-row form-row-first'
+        )
+    );
+    
+    woocommerce_wp_text_input( 
+        array( 
+            'id'                => 'upc[' . $variation->ID . ']', 
+            'label'             => __( 'UPC', 'photoline-inkston' ), 
+            'placeholder'       => '012345678901', 
+            'desc_tip'    => 'true',
+            'description'       => __( 'Unpacked product size LxWxH in decimal form', 'photoline-inkston' ),
+            'type'              => 'number', 
+            'custom_attributes' => array(
+                    'step' 	=> 'any',
+                    'min'	=> '0'
+                ) ,
+            'value'       => get_post_meta( $variation->ID, 'upc', true ),
+            'wrapper_class'       => 'form-row form-row-last'
+        )
+    );
+}
+add_action( 'woocommerce_variation_options', 'inkston_variation_asin_upc', 10, 3 );
+// Add Variation Settings
+function inkston_variation_net_dimensions($loop, $variation_data, $variation)
+{
+    $value = get_post_meta( $variation->ID, 'net_weight', true );
+    woocommerce_wp_text_input( 
+        array( 
+            'id'          => 'net_weight[' . $variation->ID . ']', 
+            'label'             => __( 'Product weight', 'photoline-inkston' ) . 
+                                    ' (' . get_option( 'woocommerce_weight_unit' ) . ')', 
+            'placeholder'       => __( 'Unpacked net product weight.', 
+                                    'photoline-inkston' ), 
+            'desc_tip'    => 'true',
+            'description'       => __( 'Unpacked net product weight.', 
+                                    'photoline-inkston' ),
+            'type'              => 'number', 
+            'custom_attributes' => array(
+                    'step' 	=> 'any',
+                    'min'	=> '0'
+                ), 
+            'value'       => get_post_meta( $variation->ID, 'net_weight', true ),
+            'wrapper_class'       => 'form-row form-row-first'
+        )
+    );
+    
+    $value = get_post_meta( $variation->ID, 'net_size', true );
+    woocommerce_wp_text_input( 
+        array( 
+            'id'                => 'net_size[' . $variation->ID . ']', 
+            'label'             => __( 'Product size ', 'photoline-inkston' ) . 
+                                    ' (' . get_option( 'woocommerce_dimension_unit' ) . ')', 
+            'placeholder'       => '0x0x0', 
+            'desc_tip'    => 'true',
+            'description'       =>  __( 'Unpacked product size LxWxH in decimal form', 'photoline-inkston' ),
+            'value'       => get_post_meta( $variation->ID, 'net_size', true ),
+            'wrapper_class'       => 'form-row form-row-last'
+        )
+    );
+}
+add_action('woocommerce_variation_options_dimensions', 'inkston_variation_net_dimensions', 10, 3 );
+
+// Save Variation Settings
+function inkston_save_variation_meta( $post_id ) {
+    inkston_variation_meta_save_item($post_id, 'asin');
+    inkston_variation_meta_save_item($post_id, 'upc');
+    inkston_variation_meta_save_item($post_id, 'net_weight');
+    inkston_variation_meta_save_item($post_id, 'net_size');
+}
+add_action( 'woocommerce_save_product_variation', 'inkston_save_variation_meta', 10, 1 );
+/*
+ * Save individual custom field
+ * 
+ * @param int   $post_id    product id
+ * @param object $key       parameter name
+ */
+function inkston_variation_meta_save_item($post_id, $key, $value)
+{
+    if (empty($value)){
+        if (isset($_POST[$key][ $post_id ])){
+            $value = $_POST[$key][ $post_id ];
+        }
+    }
+    if( !empty( $value ) ){
+        update_post_meta( $post_id, $key, $value);
+    }
+}
+add_action( 'woocommerce_process_product_meta', 'inkston_meta_save', 10, 2 );
+
+
+/**
+ * Add custom fields for variations
+ *
+*/
+function inkston_load_variation_settings_fields( $variations ) {
+	
+	// duplicate the line for each field
+	$variations['asin'] = get_post_meta( $variations[ 'variation_id' ], 'asin', true );
+	$variations['upc'] = get_post_meta( $variations[ 'variation_id' ], 'upc', true );
+	$variations['net_weight'] = get_post_meta( $variations[ 'variation_id' ], 'net_weight', true );
+	$variations['net_size'] = get_post_meta( $variations[ 'variation_id' ], 'net_size', true );
+	
+	return $variations;
+}
+// Add New Variation Settings
+add_filter( 'woocommerce_available_variation', 'inkston_load_variation_settings_fields' );
+
+
+
+
+/**
+* Disable the emoji's
+*/
+function disable_emojis() {
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' ); 
+remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+remove_filter( 'comment_text_rss', 'wp_staticize_emoji' ); 
+remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
+}
+add_action( 'init', 'disable_emojis' );
+
+/**
+* Filter function used to remove the tinymce emoji plugin.
+* 
+* @param array $plugins 
+* @return array Difference betwen the two arrays
+*/
+function disable_emojis_tinymce( $plugins ) {
+if ( is_array( $plugins ) ) {
+return array_diff( $plugins, array( 'wpemoji' ) );
+} else {
+return array();
+}
+}
+
+/**
+* Remove emoji CDN hostname from DNS prefetching hints.
+*
+* @param array $urls URLs to print for resource hints.
+* @param string $relation_type The relation type the URLs are printed for.
+* @return array Difference betwen the two arrays.
+*/
+function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+if ( 'dns-prefetch' == $relation_type ) {
+/** This filter is documented in wp-includes/formatting.php */
+$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+
+$urls = array_diff( $urls, array( $emoji_svg_url ) );
+}
+
+return $urls;
+}

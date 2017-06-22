@@ -3590,6 +3590,10 @@ button, button[disabled]:hover, button[disabled]:focus, input[type="button"], in
 .variations .tawcvs-swatches .swatch {width:75px;height:75px;}
 .woocommerce div.product form.cart{margin-bottom:0px;}
 div.product form.woocommerce-currency-switcher-form{margin-bottom:2em;} 
-.page-header .header-cart.ccy {position: absolute;top:238px;right:7px;}
+.page-header .header-cart.ccy {position: absolute;top:238px;right:3px;}
 div.product_meta>span{display:block;}
 .woocommerce table.shop_attributes tr.archive-attributes td p{padding:0;}
+/* hide some screen distractions if no shopping cart and not shop page */
+body.cart-empty .page-header .header-cart{display:none;}
+body.woocommerce.cart-empty .page-header .header-cart{display:block;}
+body.cart-show .page-header .header-cart{display:block;}

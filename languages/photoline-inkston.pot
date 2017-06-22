@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-06-19 14:24+0000\n"
+"POT-Creation-Date: 2017-06-22 02:58+0000\n"
 "POT-Revision-Date: Mon Aug 01 2016 11:35:09 GMT+0800 (CST)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: dinevthemes <post@makewp.ru>\n"
@@ -93,92 +93,120 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: functions.php:137
+#: functions.php:186
 msgid "Buy"
 msgstr ""
 
-#: functions.php:140
+#: functions.php:189
 msgid "View"
 msgstr ""
 
-#: functions.php:143
+#: functions.php:192
 msgid "Add"
 msgstr ""
 
-#: functions.php:146
+#: functions.php:195
 msgid "Choose"
 msgstr ""
 
-#: functions.php:149
+#: functions.php:198
 msgid "Read"
 msgstr ""
 
-#: functions.php:202 inc/contextual-help.php:65
+#: functions.php:251 inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr ""
 
-#: functions.php:203
+#: functions.php:252
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:204 inc/contextual-help.php:60
+#: functions.php:253 inc/contextual-help.php:60
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:239
+#: functions.php:288
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:247
+#: functions.php:296
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:255
+#: functions.php:304
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:256
+#: functions.php:305
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:264
+#: functions.php:313
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:265
+#: functions.php:314
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:273
+#: functions.php:322
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:274
+#: functions.php:323
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:524
+#: functions.php:598
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:525
+#: functions.php:599
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:679
+#: functions.php:753
 msgid "Recent discussions in: "
 msgstr ""
 
-#: functions.php:906
+#: functions.php:980
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
 
-#: functions.php:907
+#: functions.php:981
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
+msgstr ""
+
+#: functions.php:1262 functions.php:1375
+msgid "ASIN"
+msgstr ""
+
+#: functions.php:1277 functions.php:1387
+msgid "UPC"
+msgstr ""
+
+#: functions.php:1281
+msgid "12 digits international standard Universal Product Code."
+msgstr ""
+
+#: functions.php:1296 functions.php:1409
+msgid "Product weight"
+msgstr ""
+
+#: functions.php:1298 functions.php:1301 functions.php:1411 functions.php:1414
+msgid "Unpacked net product weight."
+msgstr ""
+
+#: functions.php:1322 functions.php:1430
+msgid "Product size "
+msgstr ""
+
+#: functions.php:1330 functions.php:1390 functions.php:1434
+msgid "Unpacked product size LxWxH in decimal form"
 msgstr ""
 
 #: header.php:80
@@ -796,8 +824,17 @@ msgstr ""
 msgid "My Profile"
 msgstr ""
 
-#: woocommerce/single-product/product-attributes.php:102
-#: woocommerce/single-product/product-attributes.php:108
+#: woocommerce/single-product/product-attributes.php:116
+msgid "Product Weight"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:120
+msgid "Product Size"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:126
+#: woocommerce/single-product/product-attributes.php:133
+#: woocommerce/single-product/product-attributes.php:161
 msgid "[depending on variation]"
 msgstr ""
 
