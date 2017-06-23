@@ -21,22 +21,6 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
-/*Product Attributes data structure:
- * 		'id'        => 0,
- *		'name'      => '',
- *		'options'   => array(), //array of term ids, see class-wc-product-attribute get_terms, get_slugs
- *		'position'  => 0,
- *		'visible'   => false,
- *		'variation' => false,
- *
- */
-global $product;
-$variationattributes=array();
-$archiveattributes=array();
-$dimensionattributes=array();
-$otherattributes=array();
-$variable = ( $product->get_type()=='variable') ? true : false;
-
 
 /*
  * get formatted value string for attribute
@@ -44,6 +28,7 @@ $variable = ( $product->get_type()=='variable') ? true : false;
  * @param WC_Product_Attribute  $attribute
  * @return string   formatted string
  */
+if ( !function_exists( 'getAttrValueString' ) ) {
 function getAttrValueString($attribute)
 {
     $values = array();
@@ -88,12 +73,14 @@ function getAttrValueString($attribute)
     }
     return apply_filters( 'woocommerce_attribute', $valuestring, $attribute, $values );    
 }
+}
 /*
  * output rows for attribute key-value pairs
  * 
  * @param Array     values keyed by display name
  * @return string   formatted string
  */
+if ( !function_exists( 'outputAttributes' ) ) {
 function outputAttributes($attrKeyValues, $type, $variable)
 {
     global $product;
@@ -123,25 +110,44 @@ function outputAttributes($attrKeyValues, $type, $variable)
                     $key=__('Product Size', 'photoline-inkston');
                     break;
                 case "product_weight":
-            $cellclass = $key;
-            $key = __( 'Weight', 'woocommerce' );
+                    $cellclass = $key;
+                    $key = __( 'Weight', 'woocommerce' );
                     if (($value==__( 'N/A', 'woocommerce' )) && ( $product->get_type()=='variable') ){
-                $value=__('[depending on variation]', 'photoline-inkston');
-            }
+                        $value=__('[depending on variation]', 'photoline-inkston');
+                    }
                     break;
                 case "product_dimensions":
-            $cellclass = $key;
-            $key= __( 'Dimensions', 'woocommerce' );
+                    $cellclass = $key;
+                    $key= __( 'Dimensions', 'woocommerce' );
                     if (($value==__( 'N/A', 'woocommerce' )) && ( $product->get_type()=='variable') ){
-                $value=__('[depending on variation]', 'photoline-inkston');
-            }
+                        $value=__('[depending on variation]', 'photoline-inkston');
+                    }
                     break;
             }            
         }
-        echo('<tr class="'.$type.'"><th>' . $key . '</th>');
-        echo('<td class="' . $cellclass .'">' . $value . '</td></tr>');        
+        echo('<tr class="'.$type.'"><th>' . $key . '</th> ');
+        echo(' <td class="' . $cellclass .'">' . $value . '</td></tr>');        
     }
 }
+}
+
+ 
+/*Product Attributes data structure:
+ * 		'id'        => 0,
+ *		'name'      => '',
+ *		'options'   => array(), //array of term ids, see class-wc-product-attribute get_terms, get_slugs
+ *		'position'  => 0,
+ *		'visible'   => false,
+ *		'variation' => false,
+ *
+ */
+global $product;
+$variationattributes=array();
+$archiveattributes=array();
+$dimensionattributes=array();
+$otherattributes=array();
+$variable = ( $product->get_type()=='variable') ? true : false;
+
 
 
 if ( $display_dimensions ) {
@@ -159,27 +165,24 @@ if ($net_weight){
         $net_weight = implode(', ', $net_weight);        
         $dimensionattributes['net_weight'] = $net_weight;
     } else {
-    $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
-}
+        $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
+    }
 }
 $net_size = get_post_meta($product->get_id(), 'net_size', true);
 if ($net_size){
     $value = esc_html( wc_format_dimensions( $net_size ));
     if ($value==__( 'N/A', 'woocommerce' )){
        if ( $product->get_type()=='variable' ){
-        $value=__('[depending on variation]', 'photoline-inkston');
+            $value=__('[depending on variation]', 'photoline-inkston');
             $dimensionattributes['net_size'] = $value;
         } else {
             $value='';
         }
     } else {
         $dimensionattributes['net_size'] = $value;
-    }    
+    }
 }
-
-
-
-
+    
 foreach ( $attributes as $attribute ){
     if ($attribute->get_visible()){
         $name = $attribute->get_name();
@@ -198,7 +201,7 @@ foreach ( $attributes as $attribute ){
         }
     }
 }
-    
+
 $idfields = array();
 $idkeys = array('asin', '_sku', 'upc');
 foreach ($idkeys as $key){
@@ -223,3 +226,4 @@ foreach ($idkeys as $key){
     
 ?>
 </table>
+<?php
