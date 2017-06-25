@@ -177,9 +177,9 @@ function isWoocs(){
 }
 
 /* customize cart buttons on archive screens _template_loop_add_to_cart */
-function custom_woocommerce_product_add_to_cart_text()
+function custom_woocommerce_product_add_to_cart_text($text, $product)
 {
-    global $product;
+    //global $product;
     $product_type = $product->get_type();
     switch ($product_type) {
         case 'external':
@@ -190,16 +190,24 @@ function custom_woocommerce_product_add_to_cart_text()
             break;
         case 'simple':
         case 'woosb':
+            if ($product->is_in_stock()){
             return __('Add', 'photoline-inkston');
+            } else {
+                return __('Read', 'photoline-inkston');
+            }
             break;
         case 'variable':
+            if ($product->is_in_stock()){
             return __('Choose', 'photoline-inkston');
+            } else {
+                return __('Read', 'photoline-inkston');
+            }
             break;
         default:
             return __('Read', 'photoline-inkston');
     }
 }
-add_filter('woocommerce_product_add_to_cart_text', 'custom_woocommerce_product_add_to_cart_text');/** * custom_woocommerce
+add_filter('woocommerce_product_add_to_cart_text', 'custom_woocommerce_product_add_to_cart_text', 10, 2);
 
 
   /*disable contact form 7 scripts */
@@ -1629,7 +1637,7 @@ function translate_woosb_ids($post_id, $post, $translations){
                 if ($woosb_product){
                     //item found, make sure it is an upsell on the translation
                     $translateditems[] = $woosb_product . '/' . $woosb_item_arr[1];
-                    add_upsell($woosb_product, $post_id);
+                    add_upsell($woosb_product, $translation);
                 } else {
                     //if item not found there was a problem in get_translated_variation()
                     //and item cannot be added
@@ -1658,6 +1666,7 @@ function add_upsell($addto, $upselltoadd)
     $upsells = $product->get_upsell_ids();
     if (!in_array($upselltoadd, $upsells)){
         $upsells[] = $upselltoadd;
+        $upsells = array_unique($upsells);
         //set_upsell_ids doesn't save product.. 
         $product->set_upsell_ids($upsells);
         //we don't want to get in event loop saving whole product again to update meta
@@ -1742,12 +1751,12 @@ function loop_columns() {
     return 5; // 5 products per row
 }
 }
-
+/*
 add_filter ( 'woocommerce_product_thumbnails_columns', 'xx_thumb_cols' );
  function xx_thumb_cols() {
      return 5; // .last class applied to every 4th thumbnail
  }
- 
+*/ 
 /*
  * filter for adding on sale notices for bundles
  * 
@@ -1789,11 +1798,14 @@ function custom_product_sale_flash( $output, $post, $product ) {
     if ($product && 'woosb' === $product->get_type()) {
         $woosb_pct = intval(get_post_meta( $product->get_id(), 'woosb_price_percent', true ));
         if ( ($woosb_pct) && ($woosb_pct<100) ){
+            //last check for fixed price rather than percent
+            $woosb_fixed = intval(get_post_meta( $product->get_id(), '_price', true )); 
+            if ( ($woosb_fixed) && ($woosb_fixed==$woosb_pct) ) {return $output;}
             return '<span class="onsale">-' .  round( 100 - $woosb_pct ) . '% ' . '</span>';
         }
     }
 
-    
+    return $output;
 }
 add_filter( 'woocommerce_sale_flash', 'custom_product_sale_flash', 11, 3 );
 /*
@@ -1831,7 +1843,8 @@ add_filter( 'woocommerce_placeholder_img_src', 'inkston_noimage' );
  */
 function inkston_thumbnail_add_title( $attr ) {
     //on woocommerce listing pages, extend image title
-    if ( (is_woocommerce()) && (! is_single() )){ 
+    //if ( (is_woocommerce()) && (! is_single() )){ 
+    if  (is_woocommerce() ){ 
         $attr['title'] = the_title_attribute(array('echo' => false)) . ' &#10;' . inkston_get_excerpt();
     }
     return $attr;
@@ -2084,9 +2097,6 @@ foreach ($idkeys as $key){
     }
 }
 */
-?>
-<table class="shop_attributes">
-<?php
     ksort($dimensionattributes);
     //ksort($variationattributes);
     ksort($archiveattributes);
@@ -2096,8 +2106,4 @@ foreach ($idkeys as $key){
     outputSimpleAttributes($otherattributes, 'attributes', false);
     outputSimpleAttributes($dimensionattributes, 'dimensions', true);
     //outputSimpleAttributes($idfields, 'codes', true);    
-    
-?>
-</table>
-<?php
 }

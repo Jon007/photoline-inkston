@@ -333,8 +333,8 @@ textarea {
 #menu-top a {
 color: #eaeaea;
 }
-#menu-top a:hover,
-#content .page-numbers:hover {
+#menu-top a:hover
+{
 color: #FFF;
 }
 
@@ -3617,8 +3617,8 @@ top:-40px;
 }
 }
 .psgal.woocommerce span.onsale, .psgal.woocommerce-page span.onsale{background-color:#fa7c0b}
-.psgal.woocommerce .products .star-rating{margin:0px 0 .5em;position:absolute;top:5px;left:5px}
-.psgal.woocommerce .star-rating span:before{color:#fa7c0b;background-color: white;}
+.psgal.woocommerce .products .star-rating{margin:0px 0 .5em;position:absolute;top:24px;left:5px}
+.psgal.woocommerce .star-rating span:before{color:#fa7c0b;background-color:transparent;}
 
 .tooltip {
 	position: relative;
@@ -3637,7 +3637,7 @@ top:-40px;
     position: absolute;
     top: 100px;
 		left: 50%; 
-    margin-left: -250px;
+    margin-left:-250px;
     z-index: 99;
 		opacity:0;
 		transition:opacity 0.5s linear;
@@ -3649,9 +3649,10 @@ li.first .tooltip .tooltiptext{
     margin-left:0px;
 }
 li.last .tooltip .tooltiptext{
+		left:-350px;
     right:0px;
-		left:inherit;
-    margin-left:0px;
+    margin-left:inherit;
+    margin-right:0px;
 }
 .tooltiptext .imgwrap {
 	float:left; width:280px;
@@ -3659,7 +3660,7 @@ li.last .tooltip .tooltiptext{
 .tooltiptext .imgwrap img {
 	max-width:270px;
 }
-@media (min-width:800px){
+@media (min-width:760px){
 a:hover	.tooltip .tooltiptext,
 .tooltip:hover .tooltiptext {
 		visibility: visible;
@@ -3678,3 +3679,15 @@ div#content a:active .tooltiptext .imgwrap img {
 /*optionally stop growth in product results pages: stops tooltip working:
 li.product {overflow:hidden;}
 */
+.site-content .page-numbers a {
+    color: white;
+    background-color: #39aa39;
+}
+.page-numbers a:hover, .page-numbers span.current{
+    color: #39aa39;
+    background-color: #eee;
+    border: 1px solid #39aa39;
+}
+#menu-social li:hover a::before {
+    color: #4d914d;
+}
