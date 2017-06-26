@@ -946,7 +946,7 @@ label {
 
 /*shrink logo on mobile screen to make room for header image, 
 but on small width (iphone5) pop back up to 100% as header will be hidden*/
-#logo img {max-height: 200px;position:relative;z-index: 10;}
+#logo img {max-height: 200px;position:relative;}
 #logo img{margin-top:20px;margin-bottom:14px;height:122px;}
 @media (max-width:480px) {#logo img {width: 300px;height:113px;margin-bottom:22px;}}
 @media (max-width:450px) {#logo img {width: 280px;height:106px;margin-bottom:30px;}}
@@ -2888,13 +2888,15 @@ img#header-thumbnail{
 */
 
 @media (min-height:900px){
-#head-wrap {
-    position:fixed;top:0;left:0;
-    z-index:2;
-}
-#head-wrap *{
-    z-index:2;
-}
+#head-wrap{position:fixed;top:0;left:0;z-index:99}
+#head-wrap *{z-index:2}
+#head-wrap img{z-index:0;}
+#mega-menu-top{z-index:999;}
+#wrap-content{position:relative;margin-top:215px}
+#content{padding-top:0}
+.page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
+/*
+*/
 #wrap-content{
     position:relative;
     margin-top:215px;
@@ -3535,7 +3537,6 @@ h2.woocommerce-Reviews-title{font-size:1.5em;}
 #content {padding-top:0px;}
 .no-sidebar .format-standard h1.page-title{font-size:36px;}
 @media (min-width: 1000px){
-#content{padding-top:10px;}
 .site-content .entry-title {line-height: 45px;}
 body, div.site-content{background-color:#eeeeee;}
 .site-main, div.product, .woocommerce ul.products,  #content #container{
@@ -3625,7 +3626,7 @@ top:-40px;
 	display: inline-block;
 }
 .tooltip .tooltiptext {
-    visibility: hidden;
+    visibility:hidden;
 		width: 520px;
     background-color: #eeeeee;
 		color:#1a1919;
@@ -3660,6 +3661,26 @@ li.last .tooltip .tooltiptext{
 .tooltiptext .imgwrap img {
 	max-width:270px;
 }
+/*advisable to stick to large display only has hard to calculate correct popup position when
+ there are eg 2 images per row (last is only set on 5th image...)
+In small width we cannot guarantee 5 images in a row so .first and .last will not reflect display
+@media (max-width:770px){
+.tooltip .tooltiptext,
+li.last .tooltip .tooltiptext,
+li.first .tooltip .tooltiptext
+{
+width:225px;left:-7px;
+min-height:100px;margin-left:0px;margin-right:0px;
+visibility:hidden;
+position:relative;left:50%;transform:translateX(-50%);
+}
+.tooltiptext .imgwrap {width:0px;}
+.woocommerce ul.products li.product a .tooltiptext .imgwrap img {width:0px;display:none;visibility:hidden;}
+}
+*/
+/*
+@media (min-width:300px){
+	*/
 @media (min-width:760px){
 a:hover	.tooltip .tooltiptext,
 .tooltip:hover .tooltiptext {
@@ -3667,6 +3688,9 @@ a:hover	.tooltip .tooltiptext,
     opacity:1;
     border: 1px solid #cccccc;
     border-radius: 6px;
+}
+@media (min-width:1100px){
+	.tooltip .tooltiptext {top:150px}
 }
 div#content a:focus .tooltiptext .imgwrap img, 
 div#content a:hover .tooltiptext .imgwrap img, 
@@ -3690,4 +3714,46 @@ li.product {overflow:hidden;}
 }
 #menu-social li:hover a::before {
     color: #4d914d;
+}
+#mega-menu-wrap-hamburger{
+	display:inline-block;
+	float:left;
+  z-index: 999;
+	max-width:75px;
+	background:transparent;
+	line-height:inherit;
+	margin-top:-5px;
+}
+#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link, 
+#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-current-menu-ancestor > a.mega-menu-link, 
+#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-current-page-ancestor > a.mega-menu-link,
+#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-toggle-on > a.mega-menu-link{
+	background:transparent;
+} 
+#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item > a.mega-menu-link:focus,
+#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item > a.mega-menu-link:hover{
+	color:#39aa39;
+	background:transparent;
+}
+.dashicons-admin-home.mega-menu-link{
+	background:transparent;
+}
+#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-megamenu > ul.mega-sub-menu {
+	display:block;
+	width:900px;
+	width:100vw;
+}
+
+#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item li.mega-menu-item > a.mega-menu-link:hover{
+	border: 1px solid #eeeeee;
+	color: white;
+	background-color: black;
+}
+#mega-menu-wrap-hamburger #mega-menu-hamburger li.mega-menu-item.mega-menu-item-has-children {
+	margin-bottom:0.5em;
+}
+@media only screen and (max-width: 600px) {
+  #mega-menu-wrap-hamburger .mega-menu-toggle {
+    display:none;
+  }
 }

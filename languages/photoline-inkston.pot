@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-06-22 02:58+0000\n"
+"POT-Creation-Date: 2017-06-26 03:53+0000\n"
 "POT-Revision-Date: Mon Aug 01 2016 11:35:09 GMT+0800 (CST)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: dinevthemes <post@makewp.ru>\n"
@@ -101,115 +101,147 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: functions.php:192
+#: functions.php:194
 msgid "Add"
 msgstr ""
 
-#: functions.php:195
-msgid "Choose"
-msgstr ""
-
-#: functions.php:198
+#: functions.php:196 functions.php:203 functions.php:207
 msgid "Read"
 msgstr ""
 
-#: functions.php:251 inc/contextual-help.php:65
+#: functions.php:201
+msgid "Choose"
+msgstr ""
+
+#: functions.php:260 inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr ""
 
-#: functions.php:252
+#: functions.php:261
+msgid "Hamburger Menu"
+msgstr ""
+
+#: functions.php:262
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:253 inc/contextual-help.php:60
+#: functions.php:263 inc/contextual-help.php:60
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:288
+#: functions.php:298
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:296
+#: functions.php:306
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:304
+#: functions.php:314
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:305
+#: functions.php:315
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:313
+#: functions.php:323
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:314
+#: functions.php:324
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:322
+#: functions.php:332
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:323
+#: functions.php:333
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:598
+#: functions.php:610
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:599
+#: functions.php:611
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:753
+#: functions.php:765
 msgid "Recent discussions in: "
 msgstr ""
 
-#: functions.php:980
+#: functions.php:992
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
 
-#: functions.php:981
+#: functions.php:993
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr ""
 
-#: functions.php:1262 functions.php:1375
+#: functions.php:1274 functions.php:1397
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1277 functions.php:1387
+#: functions.php:1288 functions.php:1409
 msgid "UPC"
 msgstr ""
 
-#: functions.php:1281
+#: functions.php:1292
 msgid "12 digits international standard Universal Product Code."
 msgstr ""
 
-#: functions.php:1296 functions.php:1409
+#: functions.php:1313 functions.php:1431
 msgid "Product weight"
 msgstr ""
 
-#: functions.php:1298 functions.php:1301 functions.php:1411 functions.php:1414
+#: functions.php:1315 functions.php:1318 functions.php:1433 functions.php:1436
 msgid "Unpacked net product weight."
 msgstr ""
 
-#: functions.php:1322 functions.php:1430
+#: functions.php:1344 functions.php:1452
 msgid "Product size "
 msgstr ""
 
-#: functions.php:1330 functions.php:1390 functions.php:1434
+#: functions.php:1352 functions.php:1412 functions.php:1456
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr ""
 
-#: header.php:80
+#: functions.php:1989 woocommerce/single-product/product-attributes.php:106
+msgid "Product Weight"
+msgstr ""
+
+#: functions.php:1993 woocommerce/single-product/product-attributes.php:110
+msgid "Product Size"
+msgstr ""
+
+#: functions.php:1999 functions.php:2006 functions.php:2062
+#: woocommerce/single-product/product-attributes.php:116
+#: woocommerce/single-product/product-attributes.php:123
+#: woocommerce/single-product/product-attributes.php:176
+msgid "[depending on variation]"
+msgstr ""
+
+#: functions.php:2149
+msgid "Congratulations, your order is now eligible for free shipping!"
+msgstr ""
+
+#: functions.php:2152
+msgid "Your order qualifies for free shipping!"
+msgstr ""
+
+#: functions.php:2158
+#, php-format
+msgid "Add %s more to your order to qualify for free shipping!"
+msgstr ""
+
+#: header.php:95
 msgid "Menu"
 msgstr ""
 
@@ -822,20 +854,6 @@ msgstr ""
 
 #: woocommerce/myaccount/navigation.php:35
 msgid "My Profile"
-msgstr ""
-
-#: woocommerce/single-product/product-attributes.php:116
-msgid "Product Weight"
-msgstr ""
-
-#: woocommerce/single-product/product-attributes.php:120
-msgid "Product Size"
-msgstr ""
-
-#: woocommerce/single-product/product-attributes.php:126
-#: woocommerce/single-product/product-attributes.php:133
-#: woocommerce/single-product/product-attributes.php:161
-msgid "[depending on variation]"
 msgstr ""
 
 #: woocommerce/single-product/review-meta.php:28

@@ -34,6 +34,20 @@
 
 <div id="head-wrap" class="out-wrap" style="background: <?php echo esc_attr( get_theme_mod( 'inkston_headerbg_color', '#ffffff' ) ); ?><?php if( !empty($home_image) ) { ?> url(<?php echo esc_url( $home_image );?>) no-repeat 50%;background-size: cover<?php } ?>;">
 
+<?php if ( has_nav_menu( 'hamburger' ) ) { 
+		wp_nav_menu(
+			array(
+			'theme_location'  => 'hamburger',
+			'menu_id'         => 'menu-ham',
+			'depth'           => 1,
+			'link_before'     => '<span>',
+			'link_after'      => '</span>',
+			'fallback_cb'     => '',
+			)
+		);    
+}
+?>
+
 <?php if ( has_nav_menu( 'top' ) ) { ?>
 	<div class="top-menu">
 		<?php
@@ -55,6 +69,7 @@
 	<div id="wrap-header" class="wrap hfeed site">
 		<?php do_action( 'before' ); ?>
 		<header id="masthead" class="site-header" role="banner">
+          
 			<div class="site-branding clearfix"><div id="logo"><?php
 					 if ( !is_front_page() ) { 
 						if ( !empty($logo) ) { 
