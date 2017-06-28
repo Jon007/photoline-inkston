@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-06-26 03:53+0000\n"
-"PO-Revision-Date: 2017-06-26 04:03+0000\n"
+"POT-Creation-Date: 2017-06-28 02:42+0000\n"
+"PO-Revision-Date: 2017-06-28 02:43+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
@@ -41,88 +41,71 @@ msgstr ""
 msgid "Hamburger Menu"
 msgstr ""
 
-#: functions.php:298
+#: functions.php:300
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:306
+#: functions.php:308
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:314
+#: functions.php:316
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:315
+#: functions.php:317
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:323
+#: functions.php:325
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:324
+#: functions.php:326
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:332
+#: functions.php:334
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:333
+#: functions.php:335
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:610
+#: functions.php:612
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:611
+#: functions.php:613
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:992
-#, php-format
-msgid ""
-"If you do not have an account <a target=\"_blank\" href=\"%s\">please "
-"register</a> (will open in new window)"
-msgstr ""
-"Si no tiene una cuenta <a target=\"_blank\" href=\"%s\">regístrese</a> (se "
-"abrirá una nueva ventana)"
-
-#: functions.php:993
-#, php-format
-msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
-msgstr " y haz clic <a href=\"#comment\" onclick=\"%s\" \">aquí</a>."
-
-#: functions.php:1274 functions.php:1397
+#: functions.php:1276 functions.php:1399
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1288 functions.php:1409
+#: functions.php:1290 functions.php:1411
 msgid "UPC"
 msgstr ""
 
-#: functions.php:1315 functions.php:1318 functions.php:1433 functions.php:1436
-msgid "Unpacked net product weight."
-msgstr "Peso neto del producto desembalado."
+#: functions.php:2268
+msgid ""
+"Your shopping cart includes customization options, you can tell us about "
+"these on the checkout page."
+msgstr ""
+"Su carro de la compra incluye una opción de diseño personalizado, usted "
+"puede incluir detalles cuando pasa por Caja."
 
-#: functions.php:1352 functions.php:1412 functions.php:1456
-msgid "Unpacked product size LxWxH in decimal form"
-msgstr "Tamaño del producto desembalado."
-
-#: functions.php:2149
-msgid "Congratulations, your order is now eligible for free shipping!"
-msgstr "¡Enhorabuena, su orden ahora es elegible para el envío gratis!"
-
-#: functions.php:2152
-msgid "Your order qualifies for free shipping!"
-msgstr "Su orden es elegible para el envío gratis"
-
-#: functions.php:2158
-#, php-format
-msgid "Add %s more to your order to qualify for free shipping!"
-msgstr "¡Añada %s más a su orden para calificar para el envío gratis!"
+#: functions.php:2281
+msgid ""
+"Your order has a custom design option, if you like you can upload a file "
+"and/or make comments below. You may also skip this step and confirm details "
+"with us later."
+msgstr ""
+"Su pedido tiene una opción de diseño personalizado, si lo desea puede cargar "
+"un archivo y/o realizar comentarios a continuación. También puede omitir "
+"este paso y confirmar los detalles con nosotros más adelante."
 
 #: header.php:95
 msgid "Menu"
@@ -133,10 +116,6 @@ msgstr ""
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-
-#: no-results.php:18 template-parts/header.php:14
-msgid "Search Inkston."
-msgstr "Buscar en Inkston."
 
 #. Name of the template
 msgid "FullPage"
@@ -227,10 +206,6 @@ msgid ""
 "The theme has several page templates. Use metabox Page Attributes > dropdown "
 "Template."
 msgstr ""
-
-#: inc/contextual-help.php:50
-msgid "Recommend"
-msgstr "Sugerir"
 
 #: inc/contextual-help.php:51
 msgid "Recommended plugins for inkston Theme"
@@ -502,14 +477,6 @@ msgstr ""
 msgid "Add New Page"
 msgstr ""
 
-#: inc/welcome.php:105
-msgid "Set you "
-msgstr "Establecer "
-
-#: inc/welcome.php:112
-msgid "Next Steps"
-msgstr "Próximos pasos"
-
 #: inc/welcome.php:114
 msgid "inkston includes a custom widgets, go to "
 msgstr ""
@@ -592,19 +559,19 @@ msgstr "&larr; Mas"
 msgid "Newer Comments &rarr;"
 msgstr "Volver&rarr;"
 
-#: comments.php:48
+#: comments.php:51
 msgid "Comments Closed"
 msgstr "Comentarios cerrados"
 
-#: comments.php:54
+#: comments.php:60
 msgid "Leave a Comment"
 msgstr "Dejar un comentario"
 
-#: comments.php:55
+#: comments.php:61
 msgid " or "
 msgstr "o"
 
-#: comments.php:60
+#: comments.php:70
 msgid "Post Comment"
 msgstr "Añadir comentario"
 
@@ -662,36 +629,79 @@ msgstr "Menu Principal"
 msgid "Social Menu"
 msgstr "Menu Social"
 
-#: functions.php:765
+#: functions.php:767
 msgid "Recent discussions in: "
 msgstr "Discusiones recientes en:"
 
-#: functions.php:1292
+#: functions.php:994
+#, php-format
+msgid ""
+"If you do not have an account <a target=\"_blank\" href=\"%s\">please "
+"register</a> (will open in new window)"
+msgstr ""
+"Si no tiene una cuenta <a target=\"_blank\" href=\"%s\">regístrese</a> (se "
+"abrirá una nueva ventana)"
+
+#: functions.php:995
+#, php-format
+msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
+msgstr " y haz clic <a href=\"#comment\" onclick=\"%s\" \">aquí</a>."
+
+#: functions.php:1294
 msgid "12 digits international standard Universal Product Code."
 msgstr "12 dígitos Código de Producto Universal, estándar internacional."
 
-#: functions.php:1313 functions.php:1431
+#: functions.php:1315 functions.php:1433
 msgid "Product weight"
 msgstr "Peso Neto"
 
-#: functions.php:1344 functions.php:1452
+#: functions.php:1317 functions.php:1320 functions.php:1435 functions.php:1438
+msgid "Unpacked net product weight."
+msgstr "Peso neto del producto desembalado."
+
+#: functions.php:1346 functions.php:1454
 msgid "Product size "
 msgstr "Tamaño del Producto"
 
-#: functions.php:1989 woocommerce/single-product/product-attributes.php:106
+#: functions.php:1354 functions.php:1414 functions.php:1458
+msgid "Unpacked product size LxWxH in decimal form"
+msgstr "Tamaño del producto desembalado."
+
+#: functions.php:1991 woocommerce/single-product/product-attributes.php:106
 msgid "Product Weight"
 msgstr "Peso Neto"
 
-#: functions.php:1993 woocommerce/single-product/product-attributes.php:110
+#: functions.php:1995 woocommerce/single-product/product-attributes.php:110
 msgid "Product Size"
 msgstr "Tamaño Neto"
 
-#: functions.php:1999 functions.php:2006 functions.php:2062
+#: functions.php:2001 functions.php:2008 functions.php:2064
 #: woocommerce/single-product/product-attributes.php:116
 #: woocommerce/single-product/product-attributes.php:123
 #: woocommerce/single-product/product-attributes.php:176
 msgid "[depending on variation]"
 msgstr "[dependiendo de variación]"
+
+#: functions.php:2151
+msgid "Congratulations, your order is now eligible for free shipping!"
+msgstr "¡Enhorabuena, su orden ahora es elegible para el envío gratis!"
+
+#: functions.php:2154
+msgid "Your order qualifies for free shipping!"
+msgstr "Su orden es elegible para el envío gratis"
+
+#: functions.php:2160
+#, php-format
+msgid "Add %s more to your order to qualify for free shipping!"
+msgstr "¡Añada %s más a su orden para calificar para el envío gratis!"
+
+#: functions.php:2198 no-results.php:18
+msgid "Search Inkston."
+msgstr "Buscar en Inkston."
+
+#: functions.php:2202
+msgid "results"
+msgstr "resultados"
 
 #: image.php:34
 #, php-format
@@ -779,6 +789,10 @@ msgstr "Inicio Rápido"
 msgid "Note"
 msgstr "Nota"
 
+#: inc/contextual-help.php:50
+msgid "Recommend"
+msgstr "Sugerir"
+
 #: inc/excerpts.php:15
 msgid "reading"
 msgstr "leyendo"
@@ -838,16 +852,20 @@ msgid "Welcome to"
 msgstr "Benvenido a"
 
 #: inc/welcome.php:105
+msgid "Set you "
+msgstr "Establecer "
+
+#: inc/welcome.php:105
 msgid "main Menu"
 msgstr "menu Principal"
+
+#: inc/welcome.php:112
+msgid "Next Steps"
+msgstr "Próximos pasos"
 
 #: inc/welcome.php:119
 msgid "Customize"
 msgstr "Customizar"
-
-#: template-parts/header.php:18
-msgid "results"
-msgstr "resultados"
 
 #: inc/widgets/widget-icontext.php:92
 msgid "Title:"

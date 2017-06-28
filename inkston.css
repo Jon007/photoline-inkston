@@ -3603,6 +3603,7 @@ span.sku_wrapper{display:none;}
     right:0px;
 }
 
+/* reduce display on smaller screens */
 @media (max-width:1100px){
 /* hide title for descriptions*/
 .woocommerce ul.products li.product .woocommerce-loop-product__title, 
@@ -3621,6 +3622,7 @@ top:-40px;
 .psgal.woocommerce .products .star-rating{margin:0px 0 .5em;position:absolute;top:24px;left:5px}
 .psgal.woocommerce .star-rating span:before{color:#fa7c0b;background-color:transparent;}
 
+
 .tooltip {
 	position: relative;
 	display: inline-block;
@@ -3638,12 +3640,18 @@ top:-40px;
     position: absolute;
     top: 100px;
 		left: 50%; 
-    margin-left:-250px;
+    margin-left:-150px;
     z-index: 99;
 		opacity:0;
 		transition:opacity 0.5s linear;
 		min-height: 300px;
 		min-width: 300px;
+}
+/* cross-sells on large screens are always shown as two columns on the left
+   so just use the normal .first formatting for all items*/
+div.cross-sells li.last .tooltip .tooltiptext{
+	left: 50%; 
+	margin-left:-150px;
 }
 li.first .tooltip .tooltiptext{
     left:0px; 	
@@ -3661,33 +3669,60 @@ li.last .tooltip .tooltiptext{
 .tooltiptext .imgwrap img {
 	max-width:270px;
 }
-/*advisable to stick to large display only has hard to calculate correct popup position when
- there are eg 2 images per row (last is only set on 5th image...)
-In small width we cannot guarantee 5 images in a row so .first and .last will not reflect display
-@media (max-width:770px){
+
+/* turn off completely on very small displays */
+@media (min-width:300px){
+	a:hover	.tooltip .tooltiptext,
+	.tooltip:hover .tooltiptext {
+			visibility: visible;
+			opacity:1;
+			border: 1px solid #cccccc;
+			border-radius: 6px;
+	}	
+}
+
+/* in smaller display:
+ - images wrap to 2 per row so use odd/even formatting instead of first/last
+ - no point showing zoom images, no room
+ */
+@media (max-width:760px){
 .tooltip .tooltiptext,
 li.last .tooltip .tooltiptext,
 li.first .tooltip .tooltiptext
 {
-width:225px;left:-7px;
+		width:200px;
 min-height:100px;margin-left:0px;margin-right:0px;
-visibility:hidden;
-position:relative;left:50%;transform:translateX(-50%);
+	}
+	ul.products li:nth-child(odd) a:hover	.tooltip .tooltiptext,
+	ul.products li:nth-child(odd) .tooltip:hover .tooltiptext {
+		right:initial; 	
+		left:0px; 	
+    margin-left:0px;
+	}
+	ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,
+	ul.products li:nth-child(even) .tooltip:hover .tooltiptext {
+		left:initial; 	
+		right:-300px; 	
+    margin-right:0px;
 }
 .tooltiptext .imgwrap {width:0px;}
 .woocommerce ul.products li.product a .tooltiptext .imgwrap img {width:0px;display:none;visibility:hidden;}
 }
-*/
-/*
-@media (min-width:300px){
-	*/
-@media (min-width:760px){
-a:hover	.tooltip .tooltiptext,
-.tooltip:hover .tooltiptext {
-		visibility: visible;
-    opacity:1;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
+@media (max-width:500px){
+	ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,
+	ul.products li:nth-child(even) .tooltip:hover .tooltiptext {
+		left:initial; 	
+		right:-200px; 	
+    margin-right:0px;
+	}
+}
+@media (max-width:400px){
+	ul.products li:nth-child(odd) a:hover	.tooltip .tooltiptext,
+	ul.products li:nth-child(odd) .tooltip:hover .tooltiptext {
+		right:initial; 	
+		left:-20px; 	
+    margin-left:0px;
+	}
 }
 @media (min-width:1100px){
 	.tooltip .tooltiptext {top:150px}
@@ -3699,10 +3734,12 @@ div#content a:active .tooltiptext .imgwrap img {
   transform:none;
   filter:none;
 }
-}
+
 /*optionally stop growth in product results pages: stops tooltip working:
 li.product {overflow:hidden;}
 */
+
+/* Apply site colours to paging menu and social menu */
 .site-content .page-numbers a {
     color: white;
     background-color: #39aa39;
@@ -3715,6 +3752,8 @@ li.product {overflow:hidden;}
 #menu-social li:hover a::before {
     color: #4d914d;
 }
+
+/* Hamburger menu is showing mega menu as a site map */
 #mega-menu-wrap-hamburger{
 	display:inline-block;
 	float:left;
@@ -3743,17 +3782,21 @@ li.product {overflow:hidden;}
 	width:900px;
 	width:100vw;
 }
-
 #mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-megamenu > ul.mega-sub-menu > li.mega-menu-item li.mega-menu-item > a.mega-menu-link:hover{
 	border: 1px solid #eeeeee;
 	color: white;
 	background-color: black;
 }
+/* allow separation and indentation between levels of sitemap */
 #mega-menu-wrap-hamburger #mega-menu-hamburger li.mega-menu-item.mega-menu-item-has-children {
 	margin-bottom:0.5em;
 }
+#mega-menu-wrap-hamburger #mega-menu-hamburger li.mega-menu-item > ul.mega-sub-menu
+{padding-left:9px;}
+/*turn off sitemap on tiny screens*/
 @media only screen and (max-width: 600px) {
   #mega-menu-wrap-hamburger .mega-menu-toggle {
     display:none;
   }
 }
+.woo_order_customization label {color:black;}

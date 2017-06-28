@@ -1,94 +1,9 @@
 <?php
 /**
  * @package Inkston
+ * 
+ * moved functions to functions.php because this page not called in some circumstances.
  */
-if ( ! function_exists( 'inkston_title' ) ) {
-	function inkston_title(){
-		static $title;
-		if (!isset($title)) {
-
-			/* get default title, overridden by Yoast SEO as appropriate */
-			$title = wp_title('&raquo;', false, '');
-      if (is_search()){
-        if (get_search_query()==''){
-          $title = __( 'Search Inkston.', 'photoline-inkston' );;
-        }
-        else{
-          global $wp_query;
-          $title .= ' (' . $wp_query->found_posts . ' ' . __('results', 'photoline-inkston' ) . ')';
-        }
-      }
-			/**
-			 * Template WooCommerce
-			 */
-			if (is_woocommerce_activated()) {
-				if (is_woocommerce() && !is_product()) {
-					$title = woocommerce_page_title(false);
-				}
-			}    /* if ( is_woocommerce_activated() ) */
-		}
-    /* remove trailing Inkston if added by Yoast SEO  */
-    $title = str_replace ( '- Inkston', '', $title );
-
-		return $title;
-	}
-}
-
-if ( ! function_exists( 'inkston_output_paging' ) ) {
-	/**
-	 * Display navigation to next/previous pages when applicable
-	 */
-	function inkston_output_paging()
-	{
-		/* all posts pages */
-		if (is_single() && !is_attachment()) {
-			/**
-			 * add navigation for posts pages - works also for custom post types ie wooCommerce product
-			 */ ?>
-			<nav id="single-nav">
-				<?php 
-        if (is_woocommerce() && is_product()) {
-          previous_post_link('<div id="single-nav-right">%link</div>', '<i class="fa fa-chevron-left"></i>', true, '' , 'product_cat');
-          next_post_link('<div id="single-nav-left">%link</div>', '<i class="fa fa-chevron-right"></i>', true, '', 'product_cat'); 
-        }
-        else {
-          previous_post_link('<div id="single-nav-right">%link</div>', '<i class="fa fa-chevron-left"></i>', true);
-          next_post_link('<div id="single-nav-left">%link</div>', '<i class="fa fa-chevron-right"></i>', true); 
-        }
-        ?>
-			</nav><!-- /single-nav -->
-			<?php
-		} /* image media attachment pages - not in fact used currently, disabled by one of the plugins*/
-		elseif (is_attachment()) { ?>
-			<nav id="single-nav">
-				<div
-					id="single-nav-right"><?php previous_image_link('%link', '<i class="fa fa-chevron-left"></i>'); ?></div>
-				<div
-					id="single-nav-left"><?php next_image_link('%link', '<i class="fa fa-chevron-right"></i>'); ?></div>
-			</nav><!-- /single-nav -->
-			<?php
-		}
-		/*
-        elseif (  is_woocommerce_activated() ) {
-            if (is_product_category())
-                echo ("<!--DEBUG TEST OF WOOCOMMERCE PAGINATION -->");
-                echo paginate_links( apply_filters( 'woocommerce_pagination_args', array(
-                    'base'         => esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) ),
-                    'format'       => '',
-                    'add_args'     => false,
-                    'current'      => max( 1, get_query_var( 'paged' ) ),
-                    'total'        => 2, // $wp_query->max_num_pages,
-                    'prev_text'    => '&larr;',
-                    'next_text'    => '&rarr;',
-                    'type'         => 'list',
-                    'end_size'     => 3,
-                    'mid_size'     => 3
-                ) ) );
-            }
-        }
-        */
-	}
-}
 ?>
 
 <header class="page-header wrap">

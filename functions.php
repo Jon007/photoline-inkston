@@ -2180,3 +2180,105 @@ function inkston_cart_free_shipping_qualifier($message, $products ){
     return $message;
 }
 add_filter( 'wc_add_to_cart_message_html', 'inkston_cart_free_shipping_qualifier', 10, 2);
+
+
+if ( ! function_exists( 'inkston_title' ) ) {
+	function inkston_title(){
+		static $title;
+		if (!isset($title)) {
+
+			/* get default title, overridden by Yoast SEO as appropriate */
+			$title = wp_title('&raquo;', false, '');
+      if (is_search()){
+        if (get_search_query()==''){
+          $title = __( 'Search Inkston.', 'photoline-inkston' );;
+        }
+        else{
+          global $wp_query;
+          $title .= ' (' . $wp_query->found_posts . ' ' . __('results', 'photoline-inkston' ) . ')';
+        }
+      }
+			/**
+			 * Template WooCommerce
+			 */
+			if (is_woocommerce_activated()) {
+				if (is_woocommerce() && !is_product()) {
+					$title = woocommerce_page_title(false);
+				}
+			}    /* if ( is_woocommerce_activated() ) */
+		}
+    /* remove trailing Inkston if added by Yoast SEO  */
+    $title = str_replace ( '- Inkston', '', $title );
+
+		return $title;
+	}
+}
+
+if ( ! function_exists( 'inkston_output_paging' ) ) {
+	/**
+	 * Display navigation to next/previous pages when applicable
+	 */
+	function inkston_output_paging()
+	{
+		/* all posts pages */
+		if (is_single() && !is_attachment()) {
+			/**
+			 * add navigation for posts pages - works also for custom post types ie wooCommerce product
+			 */ ?>
+			<nav id="single-nav">
+				<?php 
+        if (is_woocommerce() && is_product()) {
+          previous_post_link('<div id="single-nav-right">%link</div>', '<i class="fa fa-chevron-left"></i>', true, '' , 'product_cat');
+          next_post_link('<div id="single-nav-left">%link</div>', '<i class="fa fa-chevron-right"></i>', true, '', 'product_cat'); 
+        }
+        else {
+          previous_post_link('<div id="single-nav-right">%link</div>', '<i class="fa fa-chevron-left"></i>', true);
+          next_post_link('<div id="single-nav-left">%link</div>', '<i class="fa fa-chevron-right"></i>', true); 
+        }
+        ?>
+			</nav><!-- /single-nav -->
+			<?php
+		} /* image media attachment pages - not in fact used currently, disabled by one of the plugins*/
+		elseif (is_attachment()) { ?>
+			<nav id="single-nav">
+				<div
+					id="single-nav-right"><?php previous_image_link('%link', '<i class="fa fa-chevron-left"></i>'); ?></div>
+				<div
+					id="single-nav-left"><?php next_image_link('%link', '<i class="fa fa-chevron-right"></i>'); ?></div>
+			</nav><!-- /single-nav -->
+			<?php
+		}
+	}
+}
+
+/*
+ * add cart single flash message to explain about customization options
+ */
+function inkston_customization_cart_message()
+{
+    $class_exists=class_exists( 'Alg_WC_Checkout_Files_Upload_Main');
+    if ( ( is_cart() ) && ( $class_exists ) ){ //&& (class_exists( 'Alg_WC_Checkout_Files_Upload_Main') ) ) {
+        global $AWCCF;
+        //$awccf = new Alg_WC_Checkout_Files_Upload_Main;
+        if ( $AWCCF->is_visible(1) ) {
+          wc_print_notice( __('Your shopping cart includes customization options, you can tell us about these on the checkout page.' , 'photoline-inkston'), 'notice');
+        }
+    }
+}
+add_action( 'woocommerce_before_cart', 'inkston_customization_cart_message' );
+
+/*
+ * add checkout single flash message to explain about customization options
+ */
+function inkston_customization_checkout_message()
+{
+    $class_exists=class_exists( 'Alg_WC_Checkout_Files_Upload_Main');
+    if ( ( is_checkout() ) && ( $class_exists ) ){ //&& (class_exists( 'Alg_WC_Checkout_Files_Upload_Main') ) ) {
+        //$awccf = new Alg_WC_Checkout_Files_Upload_Main;
+        global $AWCCF;
+        if ( $AWCCF->is_visible(1) ) {
+          wc_print_notice( __('Your order has a custom design option, if you like you can upload a file and/or make comments below. You may also skip this step and confirm details with us later.' , 'photoline-inkston'), 'notice');
+        }
+    }
+}
+add_action( 'woocommerce_before_checkout_form', 'inkston_customization_checkout_message' );

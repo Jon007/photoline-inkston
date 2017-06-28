@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-06-26 03:53+0000\n"
+"POT-Creation-Date: 2017-06-28 02:41+0000\n"
 "POT-Revision-Date: Mon Aug 01 2016 11:35:09 GMT+0800 (CST)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: dinevthemes <post@makewp.ru>\n"
@@ -55,19 +55,19 @@ msgstr ""
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:48
+#: comments.php:51
 msgid "Comments Closed"
 msgstr ""
 
-#: comments.php:54
+#: comments.php:60
 msgid "Leave a Comment"
 msgstr ""
 
-#: comments.php:55
+#: comments.php:61
 msgid " or "
 msgstr ""
 
-#: comments.php:60
+#: comments.php:70
 msgid "Post Comment"
 msgstr ""
 
@@ -129,116 +129,137 @@ msgstr ""
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:298
+#: functions.php:300
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:306
+#: functions.php:308
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:314
+#: functions.php:316
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:315
+#: functions.php:317
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:323
+#: functions.php:325
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:324
+#: functions.php:326
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:332
+#: functions.php:334
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:333
+#: functions.php:335
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:610
+#: functions.php:612
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:611
+#: functions.php:613
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:765
+#: functions.php:767
 msgid "Recent discussions in: "
 msgstr ""
 
-#: functions.php:992
+#: functions.php:994
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
 
-#: functions.php:993
+#: functions.php:995
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr ""
 
-#: functions.php:1274 functions.php:1397
+#: functions.php:1276 functions.php:1399
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1288 functions.php:1409
+#: functions.php:1290 functions.php:1411
 msgid "UPC"
 msgstr ""
 
-#: functions.php:1292
+#: functions.php:1294
 msgid "12 digits international standard Universal Product Code."
 msgstr ""
 
-#: functions.php:1313 functions.php:1431
+#: functions.php:1315 functions.php:1433
 msgid "Product weight"
 msgstr ""
 
-#: functions.php:1315 functions.php:1318 functions.php:1433 functions.php:1436
+#: functions.php:1317 functions.php:1320 functions.php:1435 functions.php:1438
 msgid "Unpacked net product weight."
 msgstr ""
 
-#: functions.php:1344 functions.php:1452
+#: functions.php:1346 functions.php:1454
 msgid "Product size "
 msgstr ""
 
-#: functions.php:1352 functions.php:1412 functions.php:1456
+#: functions.php:1354 functions.php:1414 functions.php:1458
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr ""
 
-#: functions.php:1989 woocommerce/single-product/product-attributes.php:106
+#: functions.php:1991 woocommerce/single-product/product-attributes.php:106
 msgid "Product Weight"
 msgstr ""
 
-#: functions.php:1993 woocommerce/single-product/product-attributes.php:110
+#: functions.php:1995 woocommerce/single-product/product-attributes.php:110
 msgid "Product Size"
 msgstr ""
 
-#: functions.php:1999 functions.php:2006 functions.php:2062
+#: functions.php:2001 functions.php:2008 functions.php:2064
 #: woocommerce/single-product/product-attributes.php:116
 #: woocommerce/single-product/product-attributes.php:123
 #: woocommerce/single-product/product-attributes.php:176
 msgid "[depending on variation]"
 msgstr ""
 
-#: functions.php:2149
+#: functions.php:2151
 msgid "Congratulations, your order is now eligible for free shipping!"
 msgstr ""
 
-#: functions.php:2152
+#: functions.php:2154
 msgid "Your order qualifies for free shipping!"
 msgstr ""
 
-#: functions.php:2158
+#: functions.php:2160
 #, php-format
 msgid "Add %s more to your order to qualify for free shipping!"
+msgstr ""
+
+#: functions.php:2198 no-results.php:18
+msgid "Search Inkston."
+msgstr ""
+
+#: functions.php:2202
+msgid "results"
+msgstr ""
+
+#: functions.php:2268
+msgid ""
+"Your shopping cart includes customization options, you can tell us about "
+"these on the checkout page."
+msgstr ""
+
+#: functions.php:2281
+msgid ""
+"Your order has a custom design option, if you like you can upload a file "
+"and/or make comments below. You may also skip this step and confirm details "
+"with us later."
 msgstr ""
 
 #: header.php:95
@@ -257,10 +278,6 @@ msgstr ""
 #, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr ""
-
-#: no-results.php:18 template-parts/header.php:14
-msgid "Search Inkston."
 msgstr ""
 
 #: no-results.php:21
@@ -790,10 +807,6 @@ msgstr ""
 msgid ""
 "Below you will find links to plugins we recommend. None of these plugins are "
 "required for theme to work, they add additional functionality."
-msgstr ""
-
-#: template-parts/header.php:18
-msgid "results"
 msgstr ""
 
 #: inc/widgets/widget-icontext.php:13
