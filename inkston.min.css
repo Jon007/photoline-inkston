@@ -832,16 +832,13 @@ a:hover	.tooltip .tooltiptext,.tooltip:hover .tooltiptext{visibility:visible;opa
 }
 @media (max-width:760px) {
 .tooltip .tooltiptext,li.last .tooltip .tooltiptext,li.first .tooltip .tooltiptext{width:200px;min-height:100px;margin-left:0;margin-right:0}
-ul.products li:nth-child(odd) a:hover	.tooltip .tooltiptext,ul.products li:nth-child(odd) .tooltip:hover .tooltiptext{right:initial;left:0;margin-left:0}
-ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,ul.products li:nth-child(even) .tooltip:hover .tooltiptext{left:initial;right:-300px;margin-right:0}
+ul.products li:nth-child(odd) a:hover	.tooltip .tooltiptext,ul.products li:nth-child(odd) .tooltip:hover .tooltiptext{right:0;left:0;margin-left:0}
+ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,ul.products li:nth-child(even) .tooltip:hover .tooltiptext{left:0;right:0;margin-right:0}
 .tooltiptext .imgwrap{width:0}
 .woocommerce ul.products li.product a .tooltiptext .imgwrap img{width:0;display:none;visibility:hidden}
 }
 @media (max-width:500px) {
-ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,ul.products li:nth-child(even) .tooltip:hover .tooltiptext{left:initial;right:-200px;margin-right:0}
-}
-@media (max-width:400px) {
-ul.products li:nth-child(odd) a:hover	.tooltip .tooltiptext,ul.products li:nth-child(odd) .tooltip:hover .tooltiptext{right:initial;left:-20px;margin-left:0}
+ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,ul.products li:nth-child(even) .tooltip:hover .tooltiptext{left:-111px;right:0;margin-right:0}
 }
 @media (min-width:1100px) {
 .tooltip .tooltiptext{top:150px}

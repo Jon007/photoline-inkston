@@ -3584,7 +3584,7 @@ div.product_meta>span{display:block;}
 .woocommerce table.shop_attributes tr.archive-attributes td p{padding:0;}
 /* hide some screen distractions if no shopping cart and not shop page */
 body.cart-empty .page-header .header-cart{display:none;}
-body.woocommerce.cart-empty .page-header .header-cart{display:block;}
+body.woocommerce.cart-empty.archive .page-header .header-cart.ccy{display:block;}
 body.cart-show .page-header .header-cart{display:block;}
 /*no longer needed sku meta display since added to attributes display*/
 span.sku_wrapper{display:none;}
@@ -3695,15 +3695,15 @@ min-height:100px;margin-left:0px;margin-right:0px;
 	}
 	ul.products li:nth-child(odd) a:hover	.tooltip .tooltiptext,
 	ul.products li:nth-child(odd) .tooltip:hover .tooltiptext {
-		right:initial; 	
+		right:0; 	
 		left:0px; 	
     margin-left:0px;
 	}
 	ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,
 	ul.products li:nth-child(even) .tooltip:hover .tooltiptext {
-		left:initial; 	
-		right:-300px; 	
-    margin-right:0px;
+		left:0; 	
+		right:0; 	
+    margin-right:0;
 }
 .tooltiptext .imgwrap {width:0px;}
 .woocommerce ul.products li.product a .tooltiptext .imgwrap img {width:0px;display:none;visibility:hidden;}
@@ -3711,19 +3711,21 @@ min-height:100px;margin-left:0px;margin-right:0px;
 @media (max-width:500px){
 	ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,
 	ul.products li:nth-child(even) .tooltip:hover .tooltiptext {
-		left:initial; 	
-		right:-200px; 	
+		left:-111px; 	
+		right:0; 	
     margin-right:0px;
 	}
 }
+/*
 @media (max-width:400px){
 	ul.products li:nth-child(odd) a:hover	.tooltip .tooltiptext,
 	ul.products li:nth-child(odd) .tooltip:hover .tooltiptext {
-		right:initial; 	
+		right:0; 	
 		left:-20px; 	
     margin-left:0px;
 	}
 }
+*/
 @media (min-width:1100px){
 	.tooltip .tooltiptext {top:150px}
 }

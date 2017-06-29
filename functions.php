@@ -1866,10 +1866,6 @@ function pre_woocommerce_subcategory_thumbnail($category)
         $title .= ' &#10;' . $description;
     }
     echo('<span class="tooltip" title="' . $title . '">');
-}
-function post_woocommerce_subcategory_thumbnail($category)
-{
-    //<span class="tooltip" opened in pre_woocommerce_subcategory_thumbnail
         echo('<span class="tooltiptext">');
             woocommerce_template_loop_category_title($category);
             echo('<span class="imgwrap">');
@@ -1877,6 +1873,10 @@ function post_woocommerce_subcategory_thumbnail($category)
             echo('</span>');
             echo(wp_trim_words(strip_shortcodes($category->description), 60));
         echo('</span>');
+}
+function post_woocommerce_subcategory_thumbnail($category)
+{
+    //<span class="tooltip" opened in pre_woocommerce_subcategory_thumbnail
     echo('</span>');
 }
 add_action( 'woocommerce_before_subcategory_title', 'pre_woocommerce_subcategory_thumbnail', 9 );
