@@ -859,3 +859,5 @@ div#content a:focus .tooltiptext .imgwrap img,div#content a:hover .tooltiptext .
 #mega-menu-wrap-hamburger .mega-menu-toggle{display:none}
 }
 .woo_order_customization label{color:#000}
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--payment-methods,
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads{display:none;}

@@ -37,9 +37,6 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
 
 <div class="woo_order_customization">
-
-		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
-        
 		<div class="woocommerce-additional-fields__field-wrapper">
 			<?php  //this section moved from inside form-shipping.php
                 foreach ( $checkout->get_checkout_fields( 'order' )  as $key => $field ) : ?>
@@ -47,6 +44,9 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 			<?php endforeach; ?>
 		</div>
 		
+
+		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
+        
 </div>  
 		<div class="col2-set" id="customer_details">
 			<div class="col-1">

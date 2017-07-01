@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-06-28 02:41+0000\n"
+"POT-Creation-Date: 2017-07-01 17:12+0000\n"
 "POT-Revision-Date: Mon Aug 01 2016 11:35:09 GMT+0800 (CST)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: dinevthemes <post@makewp.ru>\n"
@@ -129,133 +129,133 @@ msgstr ""
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:300
+#: functions.php:298
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:308
+#: functions.php:306
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:316
+#: functions.php:314
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:317
+#: functions.php:315
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:325
+#: functions.php:323
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:326
+#: functions.php:324
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:334
+#: functions.php:332
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:335
+#: functions.php:333
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:612
+#: functions.php:610
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:613
+#: functions.php:611
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:767
+#: functions.php:765
 msgid "Recent discussions in: "
 msgstr ""
 
-#: functions.php:994
+#: functions.php:992
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
 
-#: functions.php:995
+#: functions.php:993
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr ""
 
-#: functions.php:1276 functions.php:1399
+#: functions.php:1274 functions.php:1397
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1290 functions.php:1411
+#: functions.php:1288 functions.php:1409
 msgid "UPC"
 msgstr ""
 
-#: functions.php:1294
+#: functions.php:1292
 msgid "12 digits international standard Universal Product Code."
 msgstr ""
 
-#: functions.php:1315 functions.php:1433
+#: functions.php:1313 functions.php:1431
 msgid "Product weight"
 msgstr ""
 
-#: functions.php:1317 functions.php:1320 functions.php:1435 functions.php:1438
+#: functions.php:1315 functions.php:1318 functions.php:1433 functions.php:1436
 msgid "Unpacked net product weight."
 msgstr ""
 
-#: functions.php:1346 functions.php:1454
+#: functions.php:1344 functions.php:1452
 msgid "Product size "
 msgstr ""
 
-#: functions.php:1354 functions.php:1414 functions.php:1458
+#: functions.php:1352 functions.php:1412 functions.php:1456
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr ""
 
-#: functions.php:1991 woocommerce/single-product/product-attributes.php:106
+#: functions.php:1987 woocommerce/single-product/product-attributes.php:107
 msgid "Product Weight"
 msgstr ""
 
-#: functions.php:1995 woocommerce/single-product/product-attributes.php:110
+#: functions.php:1991 woocommerce/single-product/product-attributes.php:111
 msgid "Product Size"
 msgstr ""
 
-#: functions.php:2001 functions.php:2008 functions.php:2064
-#: woocommerce/single-product/product-attributes.php:116
-#: woocommerce/single-product/product-attributes.php:123
+#: functions.php:1997 functions.php:2004 functions.php:2060
+#: woocommerce/single-product/product-attributes.php:117
+#: woocommerce/single-product/product-attributes.php:124
 #: woocommerce/single-product/product-attributes.php:176
 msgid "[depending on variation]"
 msgstr ""
 
-#: functions.php:2151
+#: functions.php:2147
 msgid "Congratulations, your order is now eligible for free shipping!"
 msgstr ""
 
-#: functions.php:2154
+#: functions.php:2150
 msgid "Your order qualifies for free shipping!"
 msgstr ""
 
-#: functions.php:2160
+#: functions.php:2156
 #, php-format
 msgid "Add %s more to your order to qualify for free shipping!"
 msgstr ""
 
-#: functions.php:2198 no-results.php:18
+#: functions.php:2194 no-results.php:18
 msgid "Search Inkston."
 msgstr ""
 
-#: functions.php:2202
+#: functions.php:2198
 msgid "results"
 msgstr ""
 
-#: functions.php:2268
+#: functions.php:2264
 msgid ""
 "Your shopping cart includes customization options, you can tell us about "
 "these on the checkout page."
 msgstr ""
 
-#: functions.php:2281
+#: functions.php:2280
 msgid ""
 "Your order has a custom design option, if you like you can upload a file "
 "and/or make comments below. You may also skip this step and confirm details "
@@ -809,6 +809,10 @@ msgid ""
 "required for theme to work, they add additional functionality."
 msgstr ""
 
+#: woocommerce-auto-added-coupons/coupon-select-free-product.php:134
+msgid "None"
+msgstr ""
+
 #: inc/widgets/widget-icontext.php:13
 msgid "Icons"
 msgstr ""
@@ -865,8 +869,32 @@ msgstr ""
 msgid "Automatically add paragraphs"
 msgstr ""
 
+#: woocommerce/emails/customer-on-hold-order.php:31
+msgid "pay for this order online"
+msgstr ""
+
 #: woocommerce/myaccount/navigation.php:35
 msgid "My Profile"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:207
+msgid "Shipping"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:211
+msgid "Free"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:212
+msgid "Order including this product will qualify for free shipping."
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:219
+msgid "Standard"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:221
+msgid "Standard shipping."
 msgstr ""
 
 #: woocommerce/single-product/review-meta.php:28

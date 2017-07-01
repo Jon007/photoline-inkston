@@ -3802,3 +3802,8 @@ li.product {overflow:hidden;}
   }
 }
 .woo_order_customization label {color:black;}
+/*no digital downloads on this site, just hide the menu item to avoid confusion
+ also Payment methods is added by Stripe gateway only and doesn't have useful functionality 
+ (eg can't remove payment method, isn't clear this refers to Stripe, so hide this)*/
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--payment-methods,
+.woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads{display:none;}

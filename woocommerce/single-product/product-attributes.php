@@ -15,7 +15,8 @@
  * @see 	    https://docs.woocommerce.com/document/template-structure/
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     3.0.0
+ * @version     3.1.0  
+ * @note        rewritten for inkston: 3.1 change is only make_clickable()
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -63,7 +64,7 @@ function getAttrValueString($attribute)
         $values = $attribute->get_options();
 
         foreach ( $values as $value ) {
-            $value = esc_html( $value );
+            $value = make_clickable(esc_html( $value ));
         }
     }
     if ($attribute->get_variation() || ($hasdescription)) {
@@ -157,7 +158,6 @@ if ( $display_dimensions ) {
     if ( $product->has_dimensions() ){
         $dimensionattributes['product_dimensions'] = esc_html( wc_format_dimensions( $product->get_dimensions( false ) ) );
     }
-    
 }
 $net_weight = get_post_meta($product->get_id(), 'net_weight', false);
 if ($net_weight){
@@ -201,6 +201,28 @@ foreach ( $attributes as $attribute ){
         }
     }
 }
+
+//add shipping class note
+$shippingclassid = $product->get_shipping_class_id();
+$shippingclassname = __('Shipping', 'photoline-inkston');
+$shippingclasstext = '';
+$shippinglink= get_permalink(pll_get_post(7420));
+if ($product->get_price() > 150){
+    $shippingclassname .= ': ' . __('Free', 'photoline-inkston');
+    $shippingclasstext = __('Order including this product will qualify for free shipping.', 'photoline-inkston');
+} else {        
+    if ($shippingclassid){
+        $term = get_term_by( 'id', $shippingclassid, 'product_shipping_class' );
+        $shippingclasstext = '<a href="' . $shippinglink . '">' . $term->name . '</a><br />' 
+            . $term->description;
+    } else {
+        $shippingclassname .= ': ' . __('Standard', 'photoline-inkston');
+        $shippingclasstext = '<a href="' . $shippinglink . '">' 
+            . __('Standard shipping.', 'photoline-inkston') . '</a>';
+    }
+}
+
+$dimensionattributes[$shippingclassname] = $shippingclasstext;
 
 $idfields = array();
 $idkeys = array('asin', '_sku', 'upc');
