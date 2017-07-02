@@ -2122,6 +2122,23 @@ function inkston_show_free_shipping_qualifier()
 }
 add_action('woocommerce_after_shipping_calculator', 'inkston_show_free_shipping_qualifier', 10, 0);
 
+function inkston_free_shipping_level(){
+    $level = apply_filters( 'raw_woocommerce_price', 150);
+    if (isWoocs()) {
+        global $WOOCS;        
+        $level = $WOOCS->woocs_exchange_value($level);
+    }
+    return $level;
+}
+function inkston_free_shipping_encourage_level(){
+    $level = apply_filters( 'raw_woocommerce_price', 100);
+    if (isWoocs()) {
+        global $WOOCS;        
+        $level = $WOOCS->woocs_exchange_value($level);
+    }
+    return $level;
+}
+
 /*
  * Calculate free shipping message based on current cart amount and any value added
  * 
@@ -2131,13 +2148,8 @@ add_action('woocommerce_after_shipping_calculator', 'inkston_show_free_shipping_
  */
 function inkston_get_cart_message($valueadd){
     //cart and barrier levels translated into current currency
-    $encouragement_level = apply_filters( 'raw_woocommerce_price', 100 );
-    $free_level =  apply_filters( 'raw_woocommerce_price', 150 );
-    if (isWoocs()) {
-        global $WOOCS;        
-        $encouragement_level = $WOOCS->woocs_exchange_value($encouragement_level);
-        $free_level = $WOOCS->woocs_exchange_value($free_level);
-    }
+    $encouragement_level = inkston_free_shipping_encourage_level();
+    $free_level =  inkston_free_shipping_level();
     $carttotal = WC()->cart->cart_contents_total;
 
     $shippingnote='';

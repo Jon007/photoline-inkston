@@ -3807,3 +3807,5 @@ li.product {overflow:hidden;}
  (eg can't remove payment method, isn't clear this refers to Stripe, so hide this)*/
 .woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--payment-methods,
 .woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads{display:none;}
+/* sale class to easily mark flash messages in sale highlight colour*/
+.saleflash{color:#fa7c0b;font-weight:bold;text-align: center;}

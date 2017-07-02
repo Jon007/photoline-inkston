@@ -207,7 +207,7 @@ $shippingclassid = $product->get_shipping_class_id();
 $shippingclassname = __('Shipping', 'photoline-inkston');
 $shippingclasstext = '';
 $shippinglink= get_permalink(pll_get_post(7420));
-if ($product->get_price() > 150){
+if ($product->get_price() > inkston_free_shipping_level()){
     $shippingclassname .= ': ' . __('Free', 'photoline-inkston');
     $shippingclasstext = __('Order including this product will qualify for free shipping.', 'photoline-inkston');
 } else {        
