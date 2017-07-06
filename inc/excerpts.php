@@ -46,6 +46,10 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
         } else {
             $output = wp_trim_words( strip_shortcodes( get_the_content( $id ) ), $length);
         }
+        if ($post->post_type=='product'){
+            $product = wc_get_product($post);
+            $output .= $product->get_price_html();
+        }
         return $output;
     }
 }

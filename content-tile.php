@@ -28,4 +28,13 @@ if (strrpos($thumbnail, "no-image.png") !== false) {
     $class .= ' nopic';
 }
 
-?><div class="<?php echo($class); ?>" id="post-<?php the_ID(); ?>" style="background-image:url('<?php echo $thumbnail; ?>')"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo($tile_content); ?></a></div>
+$beforelink='';
+if ($post->post_type=='product'){
+    $product = wc_get_product($post);
+    $beforelink .= wc_get_rating_html($product->get_average_rating(), $product->get_rating_count());
+    if ( $product->is_on_sale() ){
+        $beforelink .= apply_filters( 'woocommerce_sale_flash', '<span class="onsale">' . esc_html__( 'Sale!', 'woocommerce' ) . '</span>', $post, $product );
+    }
+}
+
+?><div class="<?php echo($class); ?>" id="post-<?php the_ID(); ?>" style="background-image:url('<?php echo $thumbnail; ?>')"><?php echo($beforelink); ?><a href="<?php the_permalink(); ?>" rel="bookmark"><?php echo($tile_content); ?></a></div>

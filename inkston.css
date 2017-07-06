@@ -5,7 +5,7 @@ Author: MoQiao
 Author URI: http://www.chipster.co.uk/themes/photoline-inkston/
 Description: Minimalistic theme for rich image photo and shop based sites. 
 Built-in Context Help. WooCommerce ready. Yoast SEO ready (uses Yoast breadcrumbs if available).
-Version: 2.1
+Version: 2.2
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: grid-layout, featured-image-header, featured-images,  full-width-template, e-commerce, photography, translation-ready
@@ -3236,7 +3236,7 @@ div.zls-btnmn{z-index:20!important;}
 /*allow fixbox container to force tile 150px in all resolutions
 except */
 .fixbox .tile{width:150px;min-width:150px;background-position:50%;}
-.fixbox .tile a {font-size:12px;line-height:1.3em;}
+.fixbox .tile a {font-size:12px;line-height:1.3em;max-height: 150px;}
 .fixbox .tile p {margin-bottom:5px;}
 .fixbox .tile a h3 {font-size:13px;margin-bottom:9px;}
 @media (max-width: 500px){.fixbox .tile{width:150px;float:left;}}
@@ -3686,12 +3686,12 @@ li.last .tooltip .tooltiptext{
  - no point showing zoom images, no room
  */
 @media (max-width:760px){
-.tooltip .tooltiptext,
-li.last .tooltip .tooltiptext,
-li.first .tooltip .tooltiptext
-{
+	.tooltip .tooltiptext,
+	li.last .tooltip .tooltiptext, 
+	li.first .tooltip .tooltiptext
+	{
 		width:200px;
-min-height:100px;margin-left:0px;margin-right:0px;
+		min-height:100px;margin-left:0px;margin-right:0px;
 	}
 	ul.products li:nth-child(odd) a:hover	.tooltip .tooltiptext,
 	ul.products li:nth-child(odd) .tooltip:hover .tooltiptext {
@@ -3704,9 +3704,9 @@ min-height:100px;margin-left:0px;margin-right:0px;
 		left:0; 	
 		right:0; 	
     margin-right:0;
-}
-.tooltiptext .imgwrap {width:0px;}
-.woocommerce ul.products li.product a .tooltiptext .imgwrap img {width:0px;display:none;visibility:hidden;}
+	}
+	.tooltiptext .imgwrap {width:0px;}
+	.woocommerce ul.products li.product a .tooltiptext .imgwrap img {width:0px;display:none;visibility:hidden;}
 }
 @media (max-width:500px){
 	ul.products li:nth-child(even) a:hover	.tooltip .tooltiptext,
@@ -3809,3 +3809,24 @@ li.product {overflow:hidden;}
 .woocommerce-MyAccount-navigation-link.woocommerce-MyAccount-navigation-link--downloads{display:none;}
 /* sale class to easily mark flash messages in sale highlight colour*/
 .saleflash{color:#fa7c0b;font-weight:bold;text-align: center;}
+	
+.tile a .woocs_price_code * {background:transparent;color:rgba(26, 25, 25, 0.1)!important}
+.tile:focus a .woocs_price_code *, 
+.tile:active a .woocs_price_code *, 
+.tile:hover a .woocs_price_code * {
+ color: #FFF!important;
+ background:transparent;
+ visibility:visible;	
+}
+.tile a{
+	float: left;
+	position: relative;
+}
+.tile a del{text-decoration:line-through;}
+/*
+.woocommerce .tile .star-rating{
+	display:inline-block;
+}
+*/
+.tile a {max-height: 150px;}
+.woocommerce .tile span.onsale{top:0;right:0;float:right;left:inherit;}

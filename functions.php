@@ -439,11 +439,25 @@ function inkston_body_class_filter($classes)
     //if ((is_single()) || is_product_category()  || is_category() )
     $classes[] = sanitize_html_class('psgal');
 
-    if (is_page_template('template-fullpage.php'))
+    if (is_page_template('template-fullpage.php')){
         $classes[] = sanitize_html_class('fullpage');
-
-    if (is_page_template('template-posttiles.php'))
+    }
+    if (is_page_template('template-posttiles.php')){
         $classes[] = sanitize_html_class('fullpage');
+        $classes[] = sanitize_html_class('woocommerce');
+    }
+    if (is_page_template('template-posttiles2.php')){
+        $classes[] = sanitize_html_class('fullpage');
+        $classes[] = sanitize_html_class('woocommerce');
+    }
+    if (is_page_template('template-posttiles3.php')){
+        $classes[] = sanitize_html_class('fullpage');
+        $classes[] = sanitize_html_class('woocommerce');
+    }
+    if (is_single()){
+        //we need a woocommerce in there for formatting related products
+        $classes[] = sanitize_html_class('woocommerce');
+    }
 
     if (!is_page() && !is_single() && !is_search())
         $classes[] = sanitize_html_class('colgrid');
@@ -1486,7 +1500,7 @@ function inkston_variation_meta_save_item($post_id, $key, $value)
         update_post_meta( $post_id, $key, $value);
     }
 }
-add_action( 'woocommerce_process_product_meta', 'inkston_meta_save', 10, 2 );
+add_action( 'woocommerce_process_product_meta', 'inkston_meta_save', 10, 3 );
 
 
 /**
@@ -2044,7 +2058,11 @@ if ( $display_dimensions ) {
 $net_weight = get_post_meta($product->get_id(), 'net_weight', false);
 if ($net_weight){
     if ( is_array($net_weight) ){
-        $net_weight = implode(', ', $net_weight);        
+        if ( is_array($net_weight)[0] ){
+            $net_weight = implode(', ', $net_weight[0]);        
+        } else {
+            $net_weight = implode(', ', $net_weight);        
+        }
         $dimensionattributes['net_weight'] = $net_weight;
     } else {
         $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
