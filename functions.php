@@ -1894,7 +1894,7 @@ function post_woocommerce_subcategory_thumbnail($category)
     echo('</span>');
 }
 add_action( 'woocommerce_before_subcategory_title', 'pre_woocommerce_subcategory_thumbnail', 9 );
-add_action( 'woocommerce_before_subcategory_title', 'post_woocommerce_subcategory_thumbnail', 11 );
+add_action( 'woocommerce_after_subcategory_title', 'post_woocommerce_subcategory_thumbnail', 11 );
 
 /*
  * get tooltip for products 
@@ -1930,11 +1930,16 @@ function inkston_product_tooltip(){
                 apply_filters( 'wc_product_enable_dimensions_display', $product->has_weight() || $product->has_dimensions() )
             );
             echo('</span>');
-    echo('</span>');
 }
  add_action( 'woocommerce_before_shop_loop_item', 'inkston_product_tooltip', 20 );
 
- 
+/*
+ * close tooltip wrapper after product to avoid spacing caused by closing it before...
+ */
+function inkston_product_tooltip_close(){
+    echo('</span>');    
+}
+add_action( 'woocommerce_after_shop_loop_item', 'inkston_product_tooltip_close', 50 ); 
 /*
  * get formatted value string for attribute
  * 

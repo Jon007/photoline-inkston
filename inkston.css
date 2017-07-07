@@ -3598,8 +3598,8 @@ span.sku_wrapper{display:none;}
     overflow: hidden;
     float: right;
     display: inline;
-		padding:5px 10px;
-    top:-45px;
+		padding:2px 10px;
+    top:-40px;
     right:0px;
 }
 
@@ -3831,3 +3831,9 @@ li.product {overflow:hidden;}
 .tile a {max-height: 200px;}
 .fixbox .tile a {max-height: 150px;}
 .woocommerce .tile span.onsale{top:0;right:0;float:right;left:inherit;}
+/* limit product title display in loops to 2 lines at 1.5 line spacing */
+.woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 {
+    max-height: 3em;
+    overflow: hidden;
+    padding: 0;
+}
