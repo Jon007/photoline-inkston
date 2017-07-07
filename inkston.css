@@ -3235,7 +3235,7 @@ div.zls-btnmn{z-index:20!important;}
 
 /*allow fixbox container to force tile 150px in all resolutions
 except */
-.fixbox .tile{width:150px;min-width:150px;background-position:50%;}
+.fixbox .tile{width:150px;min-width:150px;max-height:150px;background-position:50%;}
 .fixbox .tile a {font-size:12px;line-height:1.3em;max-height: 150px;}
 .fixbox .tile p {margin-bottom:5px;}
 .fixbox .tile a h3 {font-size:13px;margin-bottom:9px;}
@@ -3532,7 +3532,7 @@ span.search-highlight{font-weight:bold;background-color:rgba(104,153,195,0.5);}
 .comment_container p.meta, .comment_container a.comment-reply-link {font-size:12px;}
 div.comments-area li{list-style:none;margin-top:0.5em;}
 h2.woocommerce-Reviews-title{font-size:1.5em;}
-.woocommerce .star-rating{float:left;}
+.woocommerce .star-rating{float:left;margin-bottom:-1em;}
 /*shadowed body style: off completely unless running on widescreen*/
 #content {padding-top:0px;}
 .no-sidebar .format-standard h1.page-title{font-size:36px;}
@@ -3828,5 +3828,6 @@ li.product {overflow:hidden;}
 	display:inline-block;
 }
 */
-.tile a {max-height: 150px;}
+.tile a {max-height: 200px;}
+.fixbox .tile a {max-height: 150px;}
 .woocommerce .tile span.onsale{top:0;right:0;float:right;left:inherit;}

@@ -454,10 +454,10 @@ function inkston_body_class_filter($classes)
         $classes[] = sanitize_html_class('fullpage');
         $classes[] = sanitize_html_class('woocommerce');
     }
-    if (is_single()){
-        //we need a woocommerce in there for formatting related products
+//    if (is_single()){
+        //always need a woocommerce in there for formatting related products
         $classes[] = sanitize_html_class('woocommerce');
-    }
+//    }
 
     if (!is_page() && !is_single() && !is_search())
         $classes[] = sanitize_html_class('colgrid');
@@ -802,7 +802,7 @@ function postsperpage($limits)
 {
     if (is_search()) {
         global $wp_query;
-        $wp_query->query_vars['posts_per_page'] = 15;
+        $wp_query->query_vars['posts_per_page'] = 12;
     }
     return $limits;
 }

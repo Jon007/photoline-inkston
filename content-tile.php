@@ -19,7 +19,14 @@ $excerpt = inkston_get_excerpt();
 
 if ((is_search()) && (function_exists('relevanssi_highlight_terms'))) {
     $search = get_search_query();
-    $tile_content = '<h3>' . relevanssi_highlight_terms($title, $search) . '</h3><p class="p-summary">' . relevanssi_highlight_terms($excerpt, $search) . '</p>';
+    $tile_content = '<h3>' . relevanssi_highlight_terms($title, $search) . '</h3><p class="p-summary">'
+        . relevanssi_highlight_terms($excerpt, $search);
+    global $post;
+    if ($post->post_type=='product'){
+        $product = wc_get_product($post);
+        $tile_content .= ' ' . $product->get_price_html();
+    }
+    $tile_content .= '</p>';
 } else {
     $tile_content = '<h3>' . $title . '</h3><p class="p-summary">' . $excerpt . '</p>';
 }
