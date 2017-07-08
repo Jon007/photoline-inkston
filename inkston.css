@@ -3584,7 +3584,7 @@ div.product_meta>span{display:block;}
 .woocommerce table.shop_attributes tr.archive-attributes td p{padding:0;}
 /* hide some screen distractions if no shopping cart and not shop page */
 body.cart-empty .page-header .header-cart{display:none;}
-body.woocommerce.cart-empty.archive .page-header .header-cart.ccy{display:block;}
+body.cart-empty .page-header .header-cart.ccy{display:block;}
 body.cart-show .page-header .header-cart{display:block;}
 /*no longer needed sku meta display since added to attributes display*/
 span.sku_wrapper{display:none;}
@@ -3646,6 +3646,7 @@ top:-40px;
 		transition:opacity 0.5s linear;
 		min-height: 300px;
 		min-width: 300px;
+		line-height: 1.5em;
 }
 /* cross-sells on large screens are always shown as two columns on the left
    so just use the normal .first formatting for all items*/
@@ -3832,8 +3833,12 @@ li.product {overflow:hidden;}
 .fixbox .tile a {max-height: 150px;}
 .woocommerce .tile span.onsale{top:0;right:0;float:right;left:inherit;}
 /* limit product title display in loops to 2 lines at 1.5 line spacing */
-.woocommerce ul.products li.product .woocommerce-loop-category__title, .woocommerce ul.products li.product .woocommerce-loop-product__title, .woocommerce ul.products li.product h3 {
+.woocommerce ul.products li.product .woocommerce-loop-category__title, 
+.woocommerce ul.products li.product .woocommerce-loop-product__title, 
+h2.woocommerce-loop-product__title,
+woocommerce ul.products li.product h3 {
     max-height: 3em;
     overflow: hidden;
     padding: 0;
 }
+h2.woocommerce-loop-product__title{line-height: 1.5em;}

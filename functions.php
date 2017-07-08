@@ -1864,7 +1864,7 @@ function inkston_thumbnail_add_title( $attr ) {
     }
     return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'inkston_thumbnail_add_title', 10, 1);
+//add_filter( 'wp_get_attachment_image_attributes', 'inkston_thumbnail_add_title', 10, 1);
 
 
 /**
