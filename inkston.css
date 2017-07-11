@@ -3841,4 +3841,5 @@ woocommerce ul.products li.product h3 {
     overflow: hidden;
     padding: 0;
 }
+h2.woocommerce-loop-category__title,
 h2.woocommerce-loop-product__title{line-height: 1.5em;}
