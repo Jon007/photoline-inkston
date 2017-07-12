@@ -14,6 +14,13 @@
 ?>
 <form role="search" method="get" id="search-form" class="search-form" action="<?php echo esc_url( home_url() ); ?>/index.php">
 	<label>
+        <span class="search-label"><?php
+            if (have_posts()){
+                _e('Showing results for:', 'photoline-inkston');
+            } else {
+                _e('Search for:', 'photoline-inkston');                
+            }
+        ?></span>
 		<span class="screen-reader-text"><?php _ex( 'Search for:', 'label', 'photoline-inkston' ); ?></span>
 		<input type="search" class="search-field" id="search-field" placeholder="<?php _e( 'Search', 'photoline-inkston' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
 	</label>

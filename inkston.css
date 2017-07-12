@@ -3848,3 +3848,4 @@ h2.woocommerce-loop-product__title{line-height: 1.5em;}
 /*if there is a photo gallery, photoswipe-masonry inserts float:left which has a 
   side-effect of overriding later images floated to the right*/
 .psgal figure.alignright{float:right;}
+#search-field{display:inline-block;}

@@ -9,6 +9,11 @@ get_header(); ?>
 <?php get_template_part( 'template-parts/posts', 'wrap-start-small-fix' ); ?>
 
 <?php if ( have_posts() ) : ?>
+<div> 
+<?php 
+    the_widget( 'WP_Widget_Search');
+?>
+</div>
 <?php get_template_part( 'template-parts/posts', 'wrap-start-small' ); ?>
 <?php while ( have_posts() ) : the_post(); ?><?php get_template_part( 'content', 'tile' ); ?><?php endwhile;?>
 

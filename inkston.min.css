@@ -7,3 +7,4 @@ text-align:center;position:absolute;top:100px;left:50%;margin-left:-150px;z-inde
 h2.woocommerce-loop-category__title,h2.woocommerce-loop-product__title{line-height: 1.5em;}
 .commentlist .star-rating, .decent-comments .star-rating{margin-left:200px;}
 .psgal figure.alignright{float:right;}
+#search-field{display:inline-block;}

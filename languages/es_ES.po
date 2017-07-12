@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-07-01 17:13+0000\n"
-"PO-Revision-Date: 2017-07-01 17:15+0000\n"
+"POT-Creation-Date: 2017-07-12 06:55+0000\n"
+"PO-Revision-Date: 2017-07-12 06:56+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
@@ -73,19 +73,19 @@ msgstr ""
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:610
+#: functions.php:624
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:611
+#: functions.php:625
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:1274 functions.php:1397
+#: functions.php:1323 functions.php:1446
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1288 functions.php:1409
+#: functions.php:1337 functions.php:1458
 msgid "UPC"
 msgstr ""
 
@@ -99,12 +99,28 @@ msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
+#: searchform.php:19
+msgid "Showing results for:"
+msgstr "Mostrando resultados para:"
+
+#: searchform.php:21
+msgid "Search for:"
+msgstr "Búsqueda para:"
+
 #. Name of the template
 msgid "FullPage"
 msgstr ""
 
 #. Name of the template
 msgid "PostTiles"
+msgstr ""
+
+#. Name of the template
+msgid "PostTiles2"
+msgstr ""
+
+#. Name of the template
+msgid "PostTiles3"
 msgstr ""
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
@@ -481,62 +497,6 @@ msgid ""
 "required for theme to work, they add additional functionality."
 msgstr ""
 
-#: inc/widgets/widget-icontext.php:13
-msgid "Icons"
-msgstr ""
-
-#: inc/widgets/widget-icontext.php:16
-msgid "Custom Text Widget with Icons"
-msgstr ""
-
-#: inc/widgets/widget-icontext.php:95
-msgid "Icon:"
-msgstr ""
-
-#: inc/widgets/widget-icontext.php:97
-msgid "View Icons"
-msgstr ""
-
-#: inc/widgets/widget-icontext.php:101
-msgid "URL:"
-msgstr ""
-
-#: inc/widgets/widget-icontext.php:104
-msgid "Button Text:"
-msgstr ""
-
-#: inc/widgets/widget-icontext.php:107
-msgid "Icon and Button Color:"
-msgstr ""
-
-#: inc/widgets/widget-icontext.php:124
-msgid "Automatically add paragraphs"
-msgstr ""
-
-#: woocommerce/emails/customer-on-hold-order.php:31
-msgid "pay for this order online"
-msgstr "Pagar este pedido en línea"
-
-#: woocommerce/single-product/product-attributes.php:207
-msgid "Shipping"
-msgstr "Envio"
-
-#: woocommerce/single-product/product-attributes.php:211
-msgid "Free"
-msgstr "Gratis"
-
-#: woocommerce/single-product/product-attributes.php:212
-msgid "Order including this product will qualify for free shipping."
-msgstr "El pedido con este producto tiene envío gratis"
-
-#: woocommerce/single-product/product-attributes.php:219
-msgid "Standard"
-msgstr "Normal"
-
-#: woocommerce/single-product/product-attributes.php:221
-msgid "Standard shipping."
-msgstr "Envio normal."
-
 #. Name of the theme
 msgid "Photoline Inkston"
 msgstr ""
@@ -635,11 +595,11 @@ msgstr "Menu Principal"
 msgid "Social Menu"
 msgstr "Menu Social"
 
-#: functions.php:765
+#: functions.php:773 functions.php:815
 msgid "Recent discussions in: "
 msgstr "Discusiones recientes en:"
 
-#: functions.php:992
+#: functions.php:1041
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
@@ -648,68 +608,67 @@ msgstr ""
 "Si no tiene una cuenta <a target=\"_blank\" href=\"%s\">regístrese</a> (se "
 "abrirá una nueva ventana)"
 
-#: functions.php:993
+#: functions.php:1042
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr " y haz clic <a href=\"#comment\" onclick=\"%s\" \">aquí</a>."
 
-#: functions.php:1292
+#: functions.php:1341
 msgid "12 digits international standard Universal Product Code."
 msgstr "12 dígitos Código de Producto Universal, estándar internacional."
 
-#: functions.php:1313 functions.php:1431
+#: functions.php:1362 functions.php:1480
 msgid "Product weight"
 msgstr "Peso Neto"
 
-#: functions.php:1315 functions.php:1318 functions.php:1433 functions.php:1436
+#: functions.php:1364 functions.php:1367 functions.php:1482 functions.php:1485
 msgid "Unpacked net product weight."
 msgstr "Peso neto del producto desembalado."
 
-#: functions.php:1344 functions.php:1452
+#: functions.php:1393 functions.php:1501
 msgid "Product size "
 msgstr "Tamaño del Producto"
 
-#: functions.php:1352 functions.php:1412 functions.php:1456
+#: functions.php:1401 functions.php:1461 functions.php:1505
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr "Tamaño del producto desembalado."
 
-#: functions.php:1987 woocommerce/single-product/product-attributes.php:107
+#: functions.php:2041 woocommerce/single-product/product-attributes.php:107
 msgid "Product Weight"
 msgstr "Peso Neto"
 
-#: functions.php:1991 woocommerce/single-product/product-attributes.php:111
+#: functions.php:2045 woocommerce/single-product/product-attributes.php:111
 msgid "Product Size"
 msgstr "Tamaño Neto"
 
-#: functions.php:1997 functions.php:2004 functions.php:2060
+#: functions.php:2051 functions.php:2058
 #: woocommerce/single-product/product-attributes.php:117
 #: woocommerce/single-product/product-attributes.php:124
-#: woocommerce/single-product/product-attributes.php:176
 msgid "[depending on variation]"
 msgstr "[dependiendo de variación]"
 
-#: functions.php:2147
+#: functions.php:2214
 msgid "Congratulations, your order is now eligible for free shipping!"
 msgstr "¡Enhorabuena, su orden ahora es elegible para el envío gratis!"
 
-#: functions.php:2150
+#: functions.php:2217
 msgid "Your order qualifies for free shipping!"
 msgstr "Su orden es elegible para el envío gratis"
 
-#: functions.php:2156
+#: functions.php:2223
 #, php-format
 msgid "Add %s more to your order to qualify for free shipping!"
 msgstr "¡Añada %s más a su orden para calificar para el envío gratis!"
 
-#: functions.php:2194 no-results.php:18
+#: functions.php:2261 no-results.php:18
 msgid "Search Inkston."
 msgstr "Buscar en Inkston."
 
-#: functions.php:2198
+#: functions.php:2265
 msgid "results"
 msgstr "resultados"
 
-#: functions.php:2264
+#: functions.php:2331
 msgid ""
 "Your shopping cart includes customization options, you can tell us about "
 "these on the checkout page."
@@ -717,7 +676,7 @@ msgstr ""
 "Su carro de la compra incluye una opción de diseño personalizado, usted "
 "puede incluir detalles cuando pasa por Caja."
 
-#: functions.php:2280
+#: functions.php:2347
 msgid ""
 "Your order has a custom design option, if you like you can upload a file "
 "and/or make comments below. You may also skip this step and confirm details "
@@ -758,16 +717,16 @@ msgstr ""
 msgid "Nothing Found"
 msgstr "No se encuentra resultados"
 
-#: searchform.php:17
+#: searchform.php:24
 msgctxt "label"
 msgid "Search for:"
 msgstr "Búsqueda para:"
 
-#: searchform.php:18
+#: searchform.php:25
 msgid "Search"
 msgstr "Busqueda"
 
-#: searchform.php:20
+#: searchform.php:27
 msgctxt "submit button"
 msgid "Search"
 msgstr "Buscar"
@@ -895,33 +854,33 @@ msgstr "Customizar"
 msgid "None"
 msgstr "Ningún"
 
-#: inc/widgets/widget-icontext.php:92
-msgid "Title:"
-msgstr "Titulo:"
-
-#: inc/widgets/widget-icontext.php:97
-msgid "Remove"
-msgstr "Quitar"
-
-#: inc/widgets/widget-icontext.php:111
-msgid "Default"
-msgstr "por defecto"
-
-#: inc/widgets/widget-icontext.php:112
-msgid "Blue"
-msgstr "Azul"
-
-#: inc/widgets/widget-icontext.php:113
-msgid "Red"
-msgstr "Rojo"
-
-#: inc/widgets/widget-icontext.php:114
-msgid "Green"
-msgstr "Verde"
+#: woocommerce/emails/customer-on-hold-order.php:31
+msgid "pay for this order online"
+msgstr "Pagar este pedido en línea"
 
 #: woocommerce/myaccount/navigation.php:35
 msgid "My Profile"
 msgstr "Mi Perfil"
+
+#: woocommerce/single-product/product-attributes.php:209
+msgid "Shipping"
+msgstr "Envio"
+
+#: woocommerce/single-product/product-attributes.php:213
+msgid "Free"
+msgstr "Gratis"
+
+#: woocommerce/single-product/product-attributes.php:214
+msgid "Order including this product will qualify for free shipping."
+msgstr "El pedido con este producto tiene envío gratis"
+
+#: woocommerce/single-product/product-attributes.php:221
+msgid "Standard"
+msgstr "Normal"
+
+#: woocommerce/single-product/product-attributes.php:223
+msgid "Standard shipping."
+msgstr "Envio normal."
 
 #: woocommerce/single-product/review-meta.php:28
 msgid "Your comments are awaiting approval"
