@@ -88,7 +88,7 @@ function outputAttributes($attrKeyValues, $type, $variable)
     foreach ($attrKeyValues as $key => $value ) {
         $cellclass='';
         if ( is_array($value) ){
-            $value = implode(', ', $value);
+            $value = recursive_filter_implode(', ', $value);
         }
         if ($type=='codes'){ 
             switch ($key){
@@ -162,7 +162,7 @@ if ( $display_dimensions ) {
 $net_weight = get_post_meta($product->get_id(), 'net_weight', false);
 if ($net_weight){
     if ( is_array($net_weight) ){
-        $net_weight = implode(', ', $net_weight);        
+        $net_weight = recursive_filter_implode(', ', $net_weight);        
         $dimensionattributes['net_weight'] = $net_weight;
     } else {
         $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
@@ -173,8 +173,9 @@ if ($net_size){
     $value = esc_html( wc_format_dimensions( $net_size ));
     if ($value==__( 'N/A', 'woocommerce' )){
        if ( $product->get_type()=='variable' ){
-            $value=__('[depending on variation]', 'photoline-inkston');
-            $dimensionattributes['net_size'] = $value;
+            //don't add message as may not be set on variations
+            //$value=__('[depending on variation]', 'photoline-inkston');
+            $dimensionattributes['net_size'] = '';
         } else {
             $value='';
         }
@@ -202,27 +203,28 @@ foreach ( $attributes as $attribute ){
     }
 }
 
-//add shipping class note
-$shippingclassid = $product->get_shipping_class_id();
-$shippingclassname = __('Shipping', 'photoline-inkston');
-$shippingclasstext = '';
-$shippinglink= get_permalink(pll_get_post(7420));
-if ($product->get_price() > inkston_free_shipping_level()){
-    $shippingclassname .= ': ' . __('Free', 'photoline-inkston');
-    $shippingclasstext = __('Order including this product will qualify for free shipping.', 'photoline-inkston');
-} else {        
-    if ($shippingclassid){
-        $term = get_term_by( 'id', $shippingclassid, 'product_shipping_class' );
-        $shippingclasstext = '<a href="' . $shippinglink . '">' . $term->name . '</a><br />' 
-            . $term->description;
-    } else {
-        $shippingclassname .= ': ' . __('Standard', 'photoline-inkston');
-        $shippingclasstext = '<a href="' . $shippinglink . '">' 
-            . __('Standard shipping.', 'photoline-inkston') . '</a>';
-    }
+if (! ( $product->get_type() == 'variable' ) ){
+  //add shipping class note
+  $shippingclassid = $product->get_shipping_class_id();
+  $shippingclassname = __('Shipping', 'photoline-inkston');
+  $shippingclasstext = '';
+  $shippinglink= get_permalink(pll_get_post(7420));
+  if ($product->get_price() > inkston_free_shipping_level()){
+      $shippingclassname .= ': ' . __('Free', 'photoline-inkston');
+      $shippingclasstext = __('Order including this product will qualify for free shipping.', 'photoline-inkston');
+  } else {        
+      if ($shippingclassid){
+          $term = get_term_by( 'id', $shippingclassid, 'product_shipping_class' );
+          $shippingclasstext = '<a href="' . $shippinglink . '">' . $term->name . '</a><br />' 
+              . $term->description;
+      } else {
+          $shippingclassname .= ': ' . __('Standard', 'photoline-inkston');
+          $shippingclasstext = '<a href="' . $shippinglink . '">' 
+              . __('Standard shipping.', 'photoline-inkston') . '</a>';
+      }
+  }
+  $dimensionattributes[$shippingclassname] = $shippingclasstext;
 }
-
-$dimensionattributes[$shippingclassname] = $shippingclasstext;
 
 $idfields = array();
 $idkeys = array('asin', '_sku', 'upc');

@@ -740,9 +740,45 @@ foreach (array('term_description') as $filter) {
 }
 
 if (is_woocommerce_activated()) {
+    function inkston_woocommerce_after_single_product()
+    {
+        $other_language = (pll_current_language() == 'en') ? "es" : "en";
+        $least_products = 999999;   //get the term with least products 
+        $term_names = '';
+        $term_slugs = '';
+        $other_language_term_slugs = '';
+        
+        global $post;
+        $terms = get_the_terms($post->ID, 'product_cat');
+        if (!($terms)) {
+            return;
+        }   //if there are no terms then omit the comments from term...
+        foreach ($terms as $term) {
+            if ($term->count < $least_products){
+                $least_products = $term->count;
+                $termid = $term->term_id;
+                $term_names = $term->name;
+                $term_slugs = $term->slug;
+                $other_language_termid = pll_get_term($termid, $other_language);
+                if ($other_language_termid) {
+                    $other_language_term = get_term_by('id', $other_language_termid, 'product_cat');
+                    //echo('<h1>other language term : ' . $other_language_term->name . '</h1>');
+                    if ($other_language_term) {
+                        $other_language_term_slugs = $other_language_term->slug;
+                    }
+                }
+                
+            }
+        }
+        ?><h2 class="woocommerce-Reviews-title category-reviews"><?php echo(__('Recent discussions in: ', 'photoline-inkston') . $term_names ); ?></h2><?php
+        // make action magic happen here... 
+        echo do_shortcode('[decent_comments number="25" taxonomy="product_cat" terms="' . $term_slugs . '" ]');
+        echo do_shortcode('[decent_comments number="25" taxonomy="product_cat" terms="' . $other_language_term_slugs . '" ]');
+        comments_template();
+    }
 
 // define the woocommerce_after_single_product callback 
-    function inkston_woocommerce_after_single_product()
+    function inkston_woocommerce_after_single_product_old()
     {
         $other_language = (pll_current_language() == 'en') ? "es" : "en";
         $term_names = '';
@@ -782,9 +818,8 @@ if (is_woocommerce_activated()) {
         echo do_shortcode('[decent_comments number="25" taxonomy="product_cat" terms="' . $other_language_term_slugs . '" ]');
         comments_template();
     }
-;
 
-// add the action 
+//action now added at the beginning of file
 //add_action( 'woocommerce_after_single_product', 'inkston_woocommerce_after_single_product', 10, 0 ); 
 }
 
@@ -1489,14 +1524,14 @@ add_action( 'woocommerce_save_product_variation', 'inkston_save_variation_meta',
  * @param int   $post_id    product id
  * @param object $key       parameter name
  */
-function inkston_variation_meta_save_item($post_id, $key, $value)
+function inkston_variation_meta_save_item($post_id, $key, $value=null)
 {
-    if (empty($value)){
+    if (! ($value) ){
         if (isset($_POST[$key][ $post_id ])){
             $value = $_POST[$key][ $post_id ];
         }
     }
-    if( !empty( $value ) ){
+    if( ! ( $value ) ){
         update_post_meta( $post_id, $key, $value);
     }
 }
@@ -2050,7 +2085,7 @@ $otherattributes=array();
 $variable = ( $product->get_type()=='variable') ? true : false;
 
 
-
+if (! $variable){
 if ( $display_dimensions ) {
     if ( $product->has_weight() ){
         $dimensionattributes['product_weight'] = esc_html( wc_format_weight( $product->get_weight() ) );
@@ -2063,11 +2098,7 @@ if ( $display_dimensions ) {
 $net_weight = get_post_meta($product->get_id(), 'net_weight', false);
 if ($net_weight){
     if ( is_array($net_weight) ){
-        if ( is_array($net_weight)[0] ){
-            $net_weight = implode(', ', $net_weight[0]);        
-        } else {
-            $net_weight = implode(', ', $net_weight);        
-        }
+            $net_weight = recursive_filter_implode(', ', $net_weight);        
         $dimensionattributes['net_weight'] = $net_weight;
     } else {
         $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
@@ -2080,8 +2111,8 @@ if ($net_size){
     $value = esc_html( wc_format_dimensions( $net_size ));
     if ($value==__( 'N/A', 'woocommerce' )){
        if ( $product->get_type()=='variable' ){
-            $value=__('[depending on variation]', 'photoline-inkston');
-            $dimensionattributes['net_size'] = $value;
+                //$value=__('[depending on variation]', 'photoline-inkston');
+                $dimensionattributes['net_size'] = ''; //$value;
             unset($dimensionattributes['product_size']);
         } else {
             $value='';
@@ -2090,6 +2121,7 @@ if ($net_size){
         $dimensionattributes['net_size'] = $value;
         unset($dimensionattributes['product_size']);
     }
+}
 }
     
 foreach ( $attributes as $attribute ){
@@ -2349,3 +2381,34 @@ function inkston_allow_cancel_onhold($valid_order_statuses)
     return $valid_order_statuses;
 }
 add_filter( 'woocommerce_valid_order_statuses_for_cancel', 'inkston_allow_cancel_onhold', 10, 1);
+
+/**
+ * Recursively implodes an array with optional key inclusion
+ * 
+ * Example of $include_keys output: key, value, key, value, key, value
+ * 
+ * @access  public
+ * @param   array   $array         multi-dimensional array to recursively implode
+ * @param   string  $glue          value that glues elements together	
+ * @param   bool    $include_keys  include keys before their values
+ * @param   bool    $trim_all      trim ALL whitespace from string
+ * @return  string  imploded array
+ */ 
+function recursive_filter_implode($glue, $array, $include_keys = false, $trim_all = true)
+{
+    if (! is_array($array)){return $array;}
+	$glued_string = '';
+    $array = array_filter($array);
+	// Recursively iterates array and adds key/value to glued string
+	array_walk_recursive($array, 
+        function($value, $key) use ($glue, $include_keys, &$glued_string)
+        {
+            $include_keys and $glued_string .= $key.$glue;
+            $glued_string .= $value.$glue;
+        });
+	// Removes last $glue from string
+	strlen($glue) > 0 and $glued_string = substr($glued_string, 0, -strlen($glue));
+	// Trim ALL whitespace
+	$trim_all and $glued_string = preg_replace("/(\s)/ixsm", '', $glued_string);
+	return (string) $glued_string;
+}

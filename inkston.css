@@ -3843,3 +3843,8 @@ woocommerce ul.products li.product h3 {
 }
 h2.woocommerce-loop-category__title,
 h2.woocommerce-loop-product__title{line-height: 1.5em;}
+.commentlist .star-rating,
+.decent-comments .star-rating{margin-left:200px;}
+/*if there is a photo gallery, photoswipe-masonry inserts float:left which has a 
+  side-effect of overriding later images floated to the right*/
+.psgal figure.alignright{float:right;}
