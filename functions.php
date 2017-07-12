@@ -2403,8 +2403,10 @@ function recursive_filter_implode($glue, $array, $include_keys = false, $trim_al
 	array_walk_recursive($array, 
         function($value, $key) use ($glue, $include_keys, &$glued_string)
         {
+            if ($value){
             $include_keys and $glued_string .= $key.$glue;
             $glued_string .= $value.$glue;
+            }
         });
 	// Removes last $glue from string
 	strlen($glue) > 0 and $glued_string = substr($glued_string, 0, -strlen($glue));
