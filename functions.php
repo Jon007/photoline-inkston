@@ -1664,6 +1664,10 @@ function translate_woosb_ids($post_id, $post, $translations){
 
     //get woosb_ids and exit if none
     $woosb_ids = get_post_meta( $post_id, 'woosb_ids', true );
+    if (! ($woosb_ids) ){
+        //adaptation to support Grouped product in the same way as smart bundle
+        //$woosb_ids = get_post_meta( $post_id, '_children', true );
+    }
     if (! ($woosb_ids) ){return false;}
     
     //parse $woosb_ids {id}/{quantity},{id}/{quantity} format
@@ -1723,6 +1727,36 @@ function add_upsell($addto, $upselltoadd)
         update_post_meta($product->get_id(), '_upsell_ids', $upsells);
     }
 }
+
+/**
+ * When getting Upsells, also include Group Children if it is a Grouped product
+ *
+ * @param array      $related_ids array of product ids
+ * @param WC_Product $product current product
+ *
+ * @return array filtered result
+ */
+function addChildrenToUpsells($relatedIds, $product)
+{
+    if ($product->get_type()=='grouped'){
+        $children = $product->get_children();
+        if ($children){
+            $relatedIds = array_merge($relatedIds, $children);
+        }
+    }
+    return $relatedIds;
+}
+add_filter('woocommerce_product_get_upsell_ids', 'addChildrenToUpsells', 5, 2);
+
+function inkston_add_group_excerpt()
+{
+    global $product;
+    if ( ($product) && ($product->get_type()=='grouped') ){
+        woocommerce_template_single_excerpt();
+        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+    }
+}
+add_action('woocommerce_before_add_to_cart_form', 'inkston_add_group_excerpt', 10);
 /*
  * get the product, if it is a variable product, get the parent
  * 

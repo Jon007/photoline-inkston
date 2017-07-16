@@ -3849,3 +3849,13 @@ h2.woocommerce-loop-product__title{line-height: 1.5em;}
   side-effect of overriding later images floated to the right*/
 .psgal figure.alignright{float:right;}
 #search-field{display:inline-block;}
+/* now add to cart is not usable because of the tooltip popups, the buttons should be removed
+   (if anything the buttons should be placed on the popups)*/
+.psgal.woocommerce #content ul.products li a.button.add_to_cart_button, 
+.psgal.woocommerce #content ul.products li a.ajax_add_to_cart 
+.psgal.woocommerce #content ul.products {display:none;}
+/*FORUMS: increase font size for titles*/
+.bbp-forum-info .bbp-forum-title{font-weight:bold;font-size:larger;}
+.bbp-topic-title .bbp-topic-permalink{font-size:larger;}
+.product-type-grouped .price{display:none;}
+.product-type-grouped .group_table .price{display:inline-block;}
