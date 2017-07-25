@@ -3582,10 +3582,6 @@ div.product form.woocommerce-currency-switcher-form{margin-bottom:2em;}
 .page-header .header-cart.ccy {position: absolute;top:238px;right:3px;}
 div.product_meta>span{display:block;}
 .woocommerce table.shop_attributes tr.archive-attributes td p{padding:0;}
-/* hide some screen distractions if no shopping cart and not shop page */
-body.cart-empty .page-header .header-cart{display:none;}
-body.cart-empty .page-header .header-cart.ccy{display:block;}
-body.cart-show .page-header .header-cart{display:block;}
 /*no longer needed sku meta display since added to attributes display*/
 span.sku_wrapper{display:none;}
 /*shrink and move cart buttons */

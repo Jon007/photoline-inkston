@@ -367,6 +367,7 @@ function inkston_scripts()
         wp_enqueue_script('keyboard-image-navigation', $template_uri . '/js/keyboard-image-navigation.js', array('jquery'), '25062015');
     }
 
+    //inkston variation form added SKU, ASIN, UPC to switchable values
     if ((is_woocommerce_activated()) && (is_product())) {
 
         wp_deregister_script( 'add-to-cart-variation' );
@@ -2448,3 +2449,49 @@ function recursive_filter_implode($glue, $array, $include_keys = false, $trim_al
 	$trim_all and $glued_string = preg_replace("/(\s)/ixsm", '', $glued_string);
 	return (string) $glued_string;
 }
+
+/**
+ * Remove styles on non-bbPress page
+ * 
+ * @param   array   $styles      styles bbPress wants to add
+ * @return  array   styles to queue
+ */ 
+function remove_bbpress_styles($styles)
+{
+    if (! is_bbpress()){
+        return [];
+    } else {
+        if ( (! defined('SCRIPT_DEBUG') ) || (SCRIPT_DEBUG==false) ){
+            foreach ($styles as $key => $style){
+                $style['file'] = str_replace('.css', '.min.css', $style['file']);
+                $styles[$key]=$style;
+            }
+        }
+        return $styles;
+    }
+}
+add_filter( 'bbp_default_styles', 'remove_bbpress_styles', 10, 1 );
+
+
+/**
+ * Remove scripts on non-bbPress page
+ * 
+ * @param   array   $scripts      scripts bbPress wants to add
+ * @return  array   scripts to queue
+ */ 
+function remove_bbpress_scripts($scripts)
+{
+    if (! is_bbpress()){
+        remove_action('wp_print_scripts', 'bbpress_auto_subscription_ajax_load_scripts');
+        return [];
+    } else {
+        /* bbPress doesn't actually supply minified scripts
+        foreach ($scripts as $key => $script){
+            $script['file'] = str_replace('.js', '.min.js', $script['file']);
+            $scripts[$key]=$style;
+        }
+         */
+        return $scripts;
+    }
+}
+add_filter( 'bbp_default_scripts', 'remove_bbpress_scripts', 10, 1 );
