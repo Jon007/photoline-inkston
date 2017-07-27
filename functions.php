@@ -350,9 +350,10 @@ function inkston_scripts()
     $scriptname = '/inkston' . $suffix . '.css';
     wp_enqueue_style('inkston-style', $template_uri . $scriptname, array(), filemtime(get_stylesheet_directory() . $scriptname));
     //font-genericons currently enables cart symbol
-    wp_enqueue_style('font-genericons', $template_uri . '/genericons/genericons.css?v=3.4');
-    //includes the navigation arrows
-    wp_enqueue_style('font-awesome', $template_uri . '/font-awesome/css/font-awesome.min.css?v=4.4');
+    wp_enqueue_style('font-genericons', $template_uri . '/genericons/genericons.css');
+    //includes the navigation arrows - local version appeared slow..
+    //wp_enqueue_style('font-awesome', $template_uri . '/font-awesome/css/font-awesome.min.css?v=4.4');
+    wp_enqueue_style('font-awesome',  'http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css');
 
     wp_enqueue_script('skip-link-focus-fix', $template_uri . '/js/skip-link-focus-fix' . $suffix . '.js', array(), '25062015', true);
 
@@ -547,17 +548,17 @@ function inkston_remove_url($arg)
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+//require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Contextual Help Function File
  */
-require( get_template_directory() . '/inc/contextual-help.php' );
+//require( get_template_directory() . '/inc/contextual-help.php' );
 
 /**
  * Wellcom Screen
  */
-require_once( get_template_directory() . '/inc/welcome.php' );
+//require_once( get_template_directory() . '/inc/welcome.php' );
 
 /**
  * Theme hooks
@@ -569,29 +570,6 @@ require_once( get_template_directory() . '/inc/welcome.php' );
 add_action('display_submenu_sidebar', 'inkston_get_submenu');
 add_action('inkston_credits', 'inkston_txt_credits');
 
-
-/**
- * HOOKs
- * see page.php, single.php and sidebar.php
- */
-add_action('inkston_after_main_content', 'page_hook_example');
-
-function page_hook_example()
-{
-    echo '<!-- HOOK-Page -->';
-}
-add_action('inkston_after_post_content', 'post_hook_example');
-
-function post_hook_example()
-{
-    echo '<!-- HOOK-Post -->';
-}
-add_action('before_sidebar', 'sidebar_hook_example');
-
-function sidebar_hook_example()
-{
-    echo '<!-- HOOK-Sidebar -->';
-}
 
 /**
  * Add metabox Excerpt for Page.
@@ -1827,7 +1805,7 @@ function get_translated_variation($product_id, $lang)
 
 /* fixes for 5 items per row, 25 items per page etc */
 add_filter( 'loop_shop_per_page', function ( $cols ) {
-return 25;
+return 15;
 }, 20 );
 // Number or products per row ex 4
 add_filter('loop_shop_columns', 'loop_columns');
