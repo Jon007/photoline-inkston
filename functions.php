@@ -191,14 +191,14 @@ function custom_woocommerce_product_add_to_cart_text($text, $product)
         case 'simple':
         case 'woosb':
             if ($product->is_in_stock()){
-            return __('Add', 'photoline-inkston');
+                return __('Add', 'photoline-inkston');
             } else {
                 return __('Read', 'photoline-inkston');
             }
             break;
         case 'variable':
             if ($product->is_in_stock()){
-            return __('Choose', 'photoline-inkston');
+                return __('Choose', 'photoline-inkston');
             } else {
                 return __('Read', 'photoline-inkston');
             }
@@ -367,39 +367,50 @@ function inkston_scripts()
     if (is_singular() && wp_attachment_is_image()) {
         wp_enqueue_script('keyboard-image-navigation', $template_uri . '/js/keyboard-image-navigation.js', array('jquery'), '25062015');
     }
-
-    //inkston variation form added SKU, ASIN, UPC to switchable values
-    if ((is_woocommerce_activated()) && (is_product())) {
-
-        wp_deregister_script( 'add-to-cart-variation' );
-        $scriptname = '/js/add-to-cart-variation.js';
-        wp_register_script('add-to-cart-variation', $template_uri . $scriptname, array('jquery'),
-                 filemtime(get_stylesheet_directory() . $scriptname), true );
-        wp_enqueue_script('add-to-cart-variation');
     
-        
-//        $scriptname = '/js/variation-buttons' . $suffix . '.js';
-//        wp_enqueue_script('variation-buttons', $template_uri . $scriptname, array('jquery'), filemtime(get_stylesheet_directory() . $scriptname), true);
+
+    if ( (!is_cart()) && ( !is_checkout()) ){
+        wp_dequeue_style('wjecf-style');
+        wp_dequeue_script('wjecf-free-products');
+        wp_dequeue_style('angelleye-express-checkout-css');
+        wp_dequeue_script('angelleye_frontend');
     }
         
     ?><script type="text/javascript">window.loginurl = '<?php echo(wp_login_url()) ?>';</script><?php
 }
-add_action('wp_enqueue_scripts', 'inkston_scripts');
+add_action('wp_enqueue_scripts', 'inkston_scripts', 1000);
 
 function inkston_dequeue_script() {
+    
     wp_dequeue_script( 'wc-add-to-cart-variation' );
     wp_deregister_script( 'wc-add-to-cart-variation' );
 
-    $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
-    $template_uri = get_template_directory_uri();    
-    $scriptname = '/js/add-to-cart-variation' . $suffix . '.js';
-    wp_register_script('wc-add-to-cart-variation', $template_uri . $scriptname, array('jquery', 'wp-util' ),
-             filemtime(get_stylesheet_directory() . $scriptname), true );
-    wp_enqueue_script('wc-add-to-cart-variation');
+    if (is_single() && (is_product())){ 
+        $suffix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+        $template_uri = get_template_directory_uri();    
+        $scriptname = '/js/add-to-cart-variation' . $suffix . '.js';
+        wp_register_script('wc-add-to-cart-variation', $template_uri . $scriptname, array('jquery', 'wp-util' ),
+                 filemtime(get_stylesheet_directory() . $scriptname), true );
+        wp_enqueue_script('wc-add-to-cart-variation');
+    } 
+    
 //    wp_dequeue_script('wpla_product_matcher');
 }
 add_action( 'wp_print_scripts', 'inkston_dequeue_script', 1000 );
 
+
+function inkston_dequeue_styles()
+{
+    wp_dequeue_style('photoswipe-default-skin');
+    wp_dequeue_style('photoswipe');
+    
+    wp_dequeue_style('decent-comments-widget');   
+    
+    if (! is_single() || (! is_product()) ){ 
+        wp_dequeue_style('woosb');   
+    }
+}
+add_action( 'wp_print_styles', 'inkston_dequeue_styles', 1000 );
 
 /**
  * Extracting the first's image of post
@@ -460,7 +471,7 @@ function inkston_body_class_filter($classes)
         //always need a woocommerce in there for formatting related products
         $classes[] = sanitize_html_class('woocommerce');
 //    }
-
+    
     if (!is_page() && !is_single() && !is_search())
         $classes[] = sanitize_html_class('colgrid');
 
@@ -548,17 +559,17 @@ function inkston_remove_url($arg)
 /**
  * Customizer additions.
  */
-//require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Contextual Help Function File
  */
-//require( get_template_directory() . '/inc/contextual-help.php' );
+require( get_template_directory() . '/inc/contextual-help.php' );
 
 /**
  * Wellcom Screen
  */
-//require_once( get_template_directory() . '/inc/welcome.php' );
+require_once( get_template_directory() . '/inc/welcome.php' );
 
 /**
  * Theme hooks
@@ -590,13 +601,13 @@ add_action('init', 'inkston_add_excerpt_to_pages');
 /**/
 
 if (is_woocommerce_activated()) {
-
+/*
     function inkston_woocommerce_css()
     {
         wp_enqueue_style('woocommerce-custom-style', get_template_directory_uri() . '/css/woocommerce.css');
     }
     add_action('wp_enqueue_scripts', 'inkston_woocommerce_css');
-
+*/
     function inkston_woocommerce_widgets_init()
     {
         register_sidebar(array(
@@ -755,7 +766,7 @@ if (is_woocommerce_activated()) {
         echo do_shortcode('[decent_comments number="25" taxonomy="product_cat" terms="' . $other_language_term_slugs . '" ]');
         comments_template();
     }
-
+    
 // define the woocommerce_after_single_product callback 
     function inkston_woocommerce_after_single_product_old()
     {
@@ -1352,7 +1363,7 @@ function inkston_net_dimensions(){
             'custom_attributes' => array(
                     'step' 	=> 'any',
                     'min'	=> '0'
-                ) 
+                )
              * 
              */ 
         )
@@ -1859,7 +1870,7 @@ function custom_product_sale_flash( $output, $post, $product ) {
     
     $woosb_pct=100;
     if ($product && 'woosb' === $product->get_type()) {
-        $woosb_pct = intval(get_post_meta( $product->get_id(), 'woosb_price_percent', true ));
+        $woosb_pct = intval(get_post_meta( $product->get_id(), 'woosb_price_percent', true ));        
         if ( ($woosb_pct) && ($woosb_pct<100) ){
             //last check for fixed price rather than percent
             $woosb_fixed = intval(get_post_meta( $product->get_id(), '_price', true )); 
@@ -1979,7 +1990,7 @@ function inkston_product_tooltip(){
             );
             echo('</span>');
 }
- add_action( 'woocommerce_before_shop_loop_item', 'inkston_product_tooltip', 20 );
+add_action( 'woocommerce_before_shop_loop_item', 'inkston_product_tooltip', 20 );
 
 /*
  * close tooltip wrapper after product to avoid spacing caused by closing it before...
@@ -2099,44 +2110,44 @@ $variable = ( $product->get_type()=='variable') ? true : false;
 
 
 if (! $variable){
-if ( $display_dimensions ) {
-    if ( $product->has_weight() ){
-        $dimensionattributes['product_weight'] = esc_html( wc_format_weight( $product->get_weight() ) );
+    if ( $display_dimensions ) {
+        if ( $product->has_weight() ){
+            $dimensionattributes['product_weight'] = esc_html( wc_format_weight( $product->get_weight() ) );
+        }
+        if ( $product->has_dimensions() ){
+            $dimensionattributes['product_dimensions'] = esc_html( wc_format_dimensions( $product->get_dimensions( false ) ) );
+        }
+
     }
-    if ( $product->has_dimensions() ){
-        $dimensionattributes['product_dimensions'] = esc_html( wc_format_dimensions( $product->get_dimensions( false ) ) );
-    }
-    
-}
-$net_weight = get_post_meta($product->get_id(), 'net_weight', false);
-if ($net_weight){
-    if ( is_array($net_weight) ){
+    $net_weight = get_post_meta($product->get_id(), 'net_weight', false);
+    if ($net_weight){
+        if ( is_array($net_weight) ){
             $net_weight = recursive_filter_implode(', ', $net_weight);        
-        $dimensionattributes['net_weight'] = $net_weight;
-    } else {
-        $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
+            $dimensionattributes['net_weight'] = $net_weight;
+        } else {
+            $dimensionattributes['net_weight'] = esc_html( wc_format_weight( $net_weight ) );
+        }
+        //in simple view, if there is a net weight, unset the shipping weight
+        unset($dimensionattributes['product_weight']);
     }
-    //in simple view, if there is a net weight, unset the shipping weight
-    unset($dimensionattributes['product_weight']);
-}
-$net_size = get_post_meta($product->get_id(), 'net_size', true);
-if ($net_size){
-    $value = esc_html( wc_format_dimensions( $net_size ));
-    if ($value==__( 'N/A', 'woocommerce' )){
-       if ( $product->get_type()=='variable' ){
+    $net_size = get_post_meta($product->get_id(), 'net_size', true);
+    if ($net_size){
+        $value = esc_html( wc_format_dimensions( $net_size ));
+        if ($value==__( 'N/A', 'woocommerce' )){
+           if ( $product->get_type()=='variable' ){
                 //$value=__('[depending on variation]', 'photoline-inkston');
                 $dimensionattributes['net_size'] = ''; //$value;
-            unset($dimensionattributes['product_size']);
+                unset($dimensionattributes['product_size']);
+            } else {
+                $value='';
+            }
         } else {
-            $value='';
+            $dimensionattributes['net_size'] = $value;
+            unset($dimensionattributes['product_size']);
         }
-    } else {
-        $dimensionattributes['net_size'] = $value;
-        unset($dimensionattributes['product_size']);
     }
 }
-}
-    
+
 foreach ( $attributes as $attribute ){
     if ($attribute->get_visible()){
         $name = $attribute->get_name();
@@ -2174,7 +2185,7 @@ foreach ($idkeys as $key){
     outputSimpleAttributes($archiveattributes, 'archive-attributes', false);
     outputSimpleAttributes($otherattributes, 'attributes', false);
     outputSimpleAttributes($dimensionattributes, 'dimensions', true);
-    //outputSimpleAttributes($idfields, 'codes', true);    
+    //outputSimpleAttributes($idfields, 'codes', true);        
 }
 
 
@@ -2417,8 +2428,8 @@ function recursive_filter_implode($glue, $array, $include_keys = false, $trim_al
         function($value, $key) use ($glue, $include_keys, &$glued_string)
         {
             if ($value){
-            $include_keys and $glued_string .= $key.$glue;
-            $glued_string .= $value.$glue;
+                $include_keys and $glued_string .= $key.$glue;
+                $glued_string .= $value.$glue;
             }
         });
 	// Removes last $glue from string
@@ -2473,3 +2484,14 @@ function remove_bbpress_scripts($scripts)
     }
 }
 add_filter( 'bbp_default_scripts', 'remove_bbpress_scripts', 10, 1 );
+
+function inkston_suppress_shop_next_link($link)
+{
+    //if (is_page( wc_get_page_id( 'shop' ) )){
+    if (is_shop()){    
+      return '';
+    } else {
+      return $link;
+    }
+}
+add_filter( 'wpseo_next_rel_link', 'inkston_suppress_shop_next_link', 10, 1);

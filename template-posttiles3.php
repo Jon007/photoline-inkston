@@ -105,7 +105,7 @@ get_header(); ?>
     }
 
 //REMAINING NON-FEATURED PRODUCTS as load more, with option to exclude papers
-    echo do_shortcode('[ajax_load_more posts_per_page="24" offset="24" max_pages="99" '
+    echo do_shortcode('[ajax_load_more posts_per_page="24" offset="20" max_pages="99" '
 //            . 'taxonomy="product_cat" taxonomy_terms="paper" taxonomy_operator="NOT IN" '
             . ' meta_key="_featured" meta_value="no" meta_compare="IN" '
             . ' post__not_in="' . implode(',', wc_get_product_ids_on_sale()) . '"'
