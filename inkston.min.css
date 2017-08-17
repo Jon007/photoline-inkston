@@ -207,7 +207,10 @@ label{color:#aaa;padding:5px 0}
 .site-info{margin-top:20px;color:#666;font-size:11px}
 .site-branding{text-align:left;padding-left:15px;padding-top:15px;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover}
 .site-title-group{margin:50px 40px}
-#logo img{max-height:200px;position:relative;margin-top:20px;margin-bottom:14px;height:122px}
+#logo img{max-height:200px;position:relative;left:-40px;margin-top:20px;margin-bottom:14px;height:122px}
+@media (max-width:600px) {
+#logo img{left:0}
+}
 @media (max-width:480px) {
 #logo img{width:300px;height:113px;margin-bottom:22px}
 }
@@ -589,24 +592,20 @@ ul#menu-top li{border:1px solid #1a1919}
 ul#menu-top li:hover{border:1px solid #c3a068}
 ul#menu-top li.lang-item{text-align:center}
 ul#menu-top li.current-lang,ul#menu-top li.current-menu-item,ul#menu-top li.current_page_parent,ul#menu-top li.current-post-ancestor{border-bottom:1px solid #c3a068}
-img#header-thumbnail{position:absolute;right:0;top:30px;width:auto;height:150px}
-@media (max-width:374px) {
-#header-thumbnail{display:none}
-}
 @media (min-width:800px) {
 .inline-sidebar{padding-left:10px;float:right;width:50%}
 }
 @media (min-height:900px) {
-#head-wrap{position:fixed;top:0;left:0;z-index:99}
-#head-wrap *{z-index:2}
-#head-wrap img{z-index:0}
-#mega-menu-top{z-index:999}
-#wrap-content{position:relative;margin-top:215px}
-#content{padding-top:0}
-.page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
-#wrap-content{position:relative;margin-top:215px}
-#content{padding-top:0}
-.page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
+body:not(.home) #head-wrap{position:fixed;top:0;left:0;z-index:99}
+body:not(.home) #head-wrap *{z-index:2}
+body:not(.home) #head-wrap img{z-index:0}
+body:not(.home) #mega-menu-top{z-index:999}
+body:not(.home) #wrap-content{position:relative;margin-top:215px}
+body:not(.home) #content{padding-top:0}
+body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
+body:not(.home) #wrap-content{position:relative;margin-top:215px}
+body:not(.home) #content{padding-top:0}
+body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
 }
 #add_payment_method table.cart img,.woocommerce-cart table.cart img,.woocommerce-checkout table.cart img{width:150px}
 div.wpcf7{margin:0;padding:0}
@@ -641,7 +640,7 @@ div.pswp__zoom-wrap img{max-width:none}
 #menu-top li.lang-item-zh{display:none}
 .home div.wrap{max-width:1100px;margin:0 auto}
 .home h2{padding-top:1em}
-.home .entry-header,.home .entry-header p{margin-bottom:0}
+.home .entry-header,.home .entry-header p{margin-bottom:0;display:none}
 @media (max-width: 685px) {
 img.size-medium{width:95%;height:auto}
 img.size-thumbnail{width:200px;height:auto}
@@ -680,6 +679,7 @@ div.product_meta{padding-bottom:1em}
 .woocommerce #content ul.products a.button.add_to_cart_button:hover,.woocommerce #content ul.products a.ajax_add_to_cart:hover{color:#fff;background-color:#4d914d}
 .woocommerce ul.products li.product,.woocommerce-page ul.products li.product{margin-bottom:1.5em}
 div.zls-btnmn{z-index:20!important}
+body.home div.zls-btnmn{display:none!important}
 .tile{color:#FFF;position:relative;float:left;overflow:hidden;margin:0;min-width:200px;width:16%;background-size:cover}
 .tile:after{content:"";display:block;padding-bottom:100%}
 .tile a{position:absolute;width:100%;height:100%;font-size:16px;text-align:center;color:rgba(26,25,25,0.1)!important;line-height:1.5em;top:-40px;background-color:transparent}
@@ -815,15 +815,20 @@ h2.woocommerce-Reviews-title{font-size:1.5em}
 #content{padding-top:0}
 .no-sidebar .format-standard h1.page-title{font-size:36px}
 @media (min-width: 1000px) {
-.site-content .entry-title{line-height:45px}
-body,div.site-content{background-color:#eee}
-.site-main,div.product,.woocommerce ul.products,#content #container{background-color:#fff;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);padding:15px}
+body:not(.home) .site-content .entry-title{line-height:45px}
+body:not(.home),body:not(.home) div.site-content{background-color:#eee}
+body:not(.home) .site-main,div.product,.woocommerce ul.products,body:not(.home) #content #container{background-color:#fff;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);padding:15px}
 .attachment-shop_thumbnail{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
-.site-content{padding:15px 15px 0}
-div.site-footer{background:#eee}
-.page-header{border:0}
-h1.page-title,h1.page-title.entry-title{word-break:normal;text-align:center;font-size:36px}
+body:not(.home) .site-content{padding:15px 15px 0}
+body:not(.home) div.site-footer{background:#eee}
+body:not(.home) .page-header{border:0}
+body:not(.home) h1.page-title,body:not(.home) h1.page-title.entry-title{word-break:normal;text-align:center;font-size:36px}
 }
+body.home h1.page-title,body.home h1.page-title.entry-title{display:none}
+body.home .site-content{padding:0}
+body.home .page-header{display:none}
+body.home #header-thumbnail{display:none}
+body.home #breadcrumb{display:none}
 body .hide-if-logged-in{display:block}
 body.logged-in .hide-if-logged-in{display:none}
 body .hide-if-logged-out{display:none}
@@ -920,3 +925,31 @@ h2.woocommerce-loop-category__title,h2.woocommerce-loop-product__title{line-heig
 .bbp-topic-title .bbp-topic-permalink{font-size:larger}
 .product-type-grouped .price{display:none}
 .product-type-grouped .group_table .price{display:inline-block}
+#header-thumbnail{position:absolute;right:0;top:30px;width:auto;height:150px;white-space:nowrap;overflow-y:scroll;z-index:0;text-align:right}
+#header-thumbnail .tile a{white-space:normal}
+div#header-thumbnail.fixbox{z-index:0}
+#header-thumbnail img{z-index:0}
+@media (max-width:1550px) {
+#header-thumbnail{max-width:1050px}
+}
+@media (max-width:1400px) {
+#header-thumbnail{max-width:900px}
+}
+@media (max-width:1250px) {
+#header-thumbnail{max-width:750px}
+}
+@media (max-width:1100px) {
+#header-thumbnail{max-width:600px}
+}
+@media (max-width:950px) {
+#header-thumbnail{max-width:450px}
+}
+@media (max-width:800px) {
+#header-thumbnail{max-width:300px}
+}
+@media (max-width:650px) {
+#header-thumbnail{max-width:150px}
+}
+@media (max-width:500px) {
+#header-thumbnail{display:none}
+}

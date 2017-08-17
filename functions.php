@@ -2495,3 +2495,93 @@ function inkston_suppress_shop_next_link($link)
     }
 }
 add_filter( 'wpseo_next_rel_link', 'inkston_suppress_shop_next_link', 10, 1);
+
+/**
+ * shuffle input array of post objects
+ * 
+ * @param   array   $array array of post objects
+ * @return  array   array of post objects
+ */ 
+function shuffle_assoc($array)
+{
+    // Initialize
+    $shuffled_array = array();
+
+    // Get array's keys and shuffle them.
+    $shuffled_keys = array_keys($array);
+    shuffle($shuffled_keys);
+
+
+    // Create same array, but in shuffled order.
+    foreach ( $shuffled_keys AS $shuffled_key ) {
+        $shuffled_array[  $shuffled_key  ] = $array[  $shuffled_key  ];
+    } // foreach
+
+    // Return
+    return $shuffled_array;
+}            
+/**
+ * Get selection of featured, recent and sale products and posts
+ * 
+ * @return  array   array of post objects
+ */ 
+function get_featured_posts()
+{
+
+    //RECENT POSTS
+    $query_args = array(
+        'ignore_sticky_posts' => 0, //sticky posts automatically added by WP
+        'post_type' => array( 'post' ),
+        'orderby' => 'modified',
+        'posts_per_page' => 50,
+        'showposts'   =>  50,
+        'order' => 'DESC'
+    );
+    $recent_list = new WP_Query( $query_args );
+    
+    //FEATURED PRODUCTS 
+    $query_args = array(
+        'posts_per_page' => 100,
+        'showposts'   =>  100,
+        'post_status' => 'publish',
+        'post_type'   => 'product',
+        'post__in'    => array_merge( array( 0 ), wc_get_featured_product_ids(), wc_get_product_ids_on_sale()  ),
+        'orderby'     =>  'modified',
+        'order'       =>  'DESC',
+    );
+    $product_list = new WP_Query( $query_args );      
+
+    //SALE PRODUCTS 
+    /*
+    $query_args = array(
+        'posts_per_page' => 25,
+        'showposts'   =>  25,
+        'post_status' => 'publish',
+        'post_type'   => 'product',
+        'post__in'    => array_merge( array( 0 ), wc_get_product_ids_on_sale() ),
+        'orderby'     =>  'modified',
+        'order'       =>  'DESC',
+    );
+    $sale_list = new WP_Query( $query_args );    
+    */
+
+    //RECENT NON-FEATURED PRODUCTS 
+    $query_args = array(
+        'post_type'   =>  'product',
+        'posts_per_page' => 25,
+        'showposts'   =>  25,
+        'post_status' => 'publish',
+        'post__not_in' => array_merge( array( 0 ), wc_get_product_ids_on_sale(), wc_get_featured_product_ids() ),
+        'orderby'     =>  'modified',
+        'order'       =>  'DESC',
+    );    
+    $recentproduct_list = new WP_Query( $query_args );      
+
+    //$final_posts = array_merge( $recent_list->posts, $product_list->posts, $sale_list->posts, $recentproduct_list->posts  );
+    $final_posts = array_merge( $recent_list->posts, $product_list->posts, $recentproduct_list->posts  );
+
+    //$final_posts = array_unique ( $final_posts);
+    //$final_posts = shuffle_assoc($final_posts);
+    shuffle($final_posts);
+    return $final_posts;
+}

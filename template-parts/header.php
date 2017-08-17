@@ -127,6 +127,19 @@ if ( is_woocommerce_activated() ) {
 		$thumbnail_img = '<img ' . $img_attr . ' src="' . get_template_directory_uri() . '/img/no-image.png" alt="inkston logo" />';
 	}
 }
+
+    echo('<div id="header-thumbnail" class="fixbox">');
+    $feature_posts = get_featured_posts();
+    $i = 0;
+    foreach ( $feature_posts as $key => $post ) {	
+		setup_postdata( $post ); 
+        get_template_part( 'content', 'tile-thumb' );
+        $i++;
+        if ($i>7){break;}
+    }
+    echo('</div>');
+
+/*
 if ( ! ( $thumbnail_img )  ) {
 	$thumbnail_id = get_post_thumbnail_id();
 	$thumbnail_img= wp_get_attachment_image( $thumbnail_id, 'thumbnail', false, $img_attr );
@@ -145,8 +158,9 @@ if  (! ( $fullsize ) ) {
 	echo ( $thumbnail_img );
 }
 else{
-/*THUMBNAIL REVIEW -  OUTPUT THIS TYPE OF STRUCTURE to enable same ZOOM as woocommerce product*/
 	echo('<div class="images" style="opacity:1;"><a rel="' . $rel_lightbox . '" href="' . $fullsize . '"  itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto">' . $thumbnail_img . '</a></div>');
 }
+
+*/
 ?>
 </header>

@@ -38,10 +38,6 @@ get_header(); ?>
 $meta_query   = WC()->query->get_meta_query();
 $meta_query = array(
 array(
-    'key'   => '_featured',
-    'value' => 'yes'
-), 
-    array(
         'key'       => '_visibility',
         'value'     => 'hidden',
         'compare'   => '!=',
@@ -49,10 +45,18 @@ array(
 );
 $args = array(
     'post_type'   =>  'product',
-    'showposts'   =>  24,
+    'showposts'   =>  48,
     'orderby'     =>  'modified',
     'order'       =>  'DESC',
-    'meta_query'  =>  $meta_query
+    'meta_query'  =>  $meta_query,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+            'terms'    => 'featured',
+            'compare'   => 'IN',
+        ),
+    ),
 );    
   $post_list = new WP_Query( $args );      
   if ( $post_list->have_posts() ) {
@@ -66,10 +70,6 @@ $args = array(
 $meta_query   = WC()->query->get_meta_query();
 $meta_query = array(
 array(
-    'key'   => '_featured',
-    'value' => 'no'
-), 
-    array(
         'key'       => '_visibility',
         'value'     => 'hidden',
         'compare'   => '!=',
@@ -80,7 +80,15 @@ $args = array(
     'showposts'   =>  24,
     'orderby'     =>  'modified',
     'order'       =>  'DESC',
-    'meta_query'  =>  $meta_query
+    'meta_query'  =>  $meta_query,
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'product_visibility',
+            'field'    => 'name',
+            'terms'    => 'featured',
+            'compare'   => 'NOT IN',
+        ),
+    ),
 );    
   $post_list = new WP_Query( $args );      
   if ( $post_list->have_posts() ) {
@@ -94,10 +102,9 @@ $args = array(
 //REMAINING NON-FEATURED PRODUCTS as load more, with option to exclude papers
     echo do_shortcode('[ajax_load_more posts_per_page="24" offset="24" max_pages="99" '
 //            . 'taxonomy="product_cat" taxonomy_terms="paper" taxonomy_operator="NOT IN" '
-            . ' meta_key="_featured" meta_value="no" meta_compare="IN" '
+            . ' taxonomy="product_visibility" taxonomy_terms="featured" taxonomy_operator="NOT IN" taxonomy_field="name"  '
             . ' post_type="product" orderby="modified" scroll_distance="50"]');
   
-
 endwhile; // end of the loop. ?>
 	</div><!-- fixbox -->
 

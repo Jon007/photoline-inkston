@@ -34,7 +34,7 @@ if ( !function_exists( 'inkston_excerpt' ) ) {
 }
 
 if ( !function_exists( 'inkston_get_excerpt' ) ) {
-    function inkston_get_excerpt($length=13, $readmore=false ) {
+    function inkston_get_excerpt($length=25, $readmore=false ) {
         global $post;
         if (is_search() && 13==$length){$length=36;}
         $id = $post->ID;

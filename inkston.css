@@ -1022,8 +1022,8 @@ label {
 
 /*shrink logo on mobile screen to make room for header image, 
 but on small width (iphone5) pop back up to 100% as header will be hidden*/
-#logo img {max-height: 200px;position:relative;}
-#logo img{margin-top:20px;margin-bottom:14px;height:122px;}
+#logo img {max-height: 200px;position:relative;left:-40px;margin-top:20px;margin-bottom:14px;height:122px;}
+@media (max-width:600px) {#logo img {left:0;}}
 @media (max-width:480px) {#logo img {width: 300px;height:113px;margin-bottom:22px;}}
 @media (max-width:450px) {#logo img {width: 280px;height:106px;margin-bottom:30px;}}
 @media (max-width:430px) {#logo img {width: 260px;height:98px;margin-bottom:33px;margin-top:20px}}
@@ -2933,18 +2933,6 @@ ul#menu-top li.current-lang img {
     height:17px;
 }
 */
-img#header-thumbnail{
-    position:absolute;
-    right:0;
-    top:30px;
-    width:auto;
-    height:150px;
-}
-@media (max-width:374px) {
-    #header-thumbnail {
-        display: none;
-    }
-}
 /*sidebar within text page*/
 @media (min-width:800px) {
 .inline-sidebar{
@@ -2964,23 +2952,23 @@ img#header-thumbnail{
 */
 
 @media (min-height:900px){
-#head-wrap{position:fixed;top:0;left:0;z-index:99}
-#head-wrap *{z-index:2}
-#head-wrap img{z-index:0;}
-#mega-menu-top{z-index:999;}
-#wrap-content{position:relative;margin-top:215px}
-#content{padding-top:0}
-.page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
+body:not(.home) #head-wrap{position:fixed;top:0;left:0;z-index:99}
+body:not(.home) #head-wrap *{z-index:2}
+body:not(.home) #head-wrap img{z-index:0;}
+body:not(.home) #mega-menu-top{z-index:999;}
+body:not(.home) #wrap-content{position:relative;margin-top:215px}
+body:not(.home) #content{padding-top:0}
+body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
 /*
 */
-#wrap-content{
+body:not(.home) #wrap-content{
     position:relative;
     margin-top:215px;
 }
-#content{
+body:not(.home) #content{
     padding-top:0px;
 }
-.page-header.wrap{
+body:not(.home) .page-header.wrap{
     padding-top:0px;
     padding-bottom:0px;
     margin-bottom:5px;
@@ -3139,7 +3127,7 @@ div.pswp__zoom-wrap img{max-width: none;}
 /*adjust home page spacing*/
 .home div.wrap{max-width:1100px;margin: 0 auto;}
 .home h2{padding-top:1em;}
-.home .entry-header,.home .entry-header p{margin-bottom:0;}
+.home .entry-header,.home .entry-header p{margin-bottom:0;display:none;}
 
 /*handle images on small screens*/
 @media (max-width: 685px) {
@@ -3249,6 +3237,7 @@ ul.products a.button.add_to_cart_button:after, ul.products a.ajax_add_to_cart:af
 */
 /*reduce z-index of zoho button, if enabled, so it can be covered by photoswipe image zoom..%*/
 div.zls-btnmn{z-index:20!important;}
+body.home div.zls-btnmn{display:none!important;}
 
 /* square tile class: default large size to min 200px 
  and 6 per row (16%), overridden for smaller screen sizes*/
@@ -3613,9 +3602,9 @@ h2.woocommerce-Reviews-title{font-size:1.5em;}
 #content {padding-top:0px;}
 .no-sidebar .format-standard h1.page-title{font-size:36px;}
 @media (min-width: 1000px){
-.site-content .entry-title {line-height: 45px;}
-body, div.site-content{background-color:#eeeeee;}
-.site-main, div.product, .woocommerce ul.products,  #content #container{
+body:not(.home) .site-content .entry-title {line-height: 45px;}
+body:not(.home), body:not(.home) div.site-content{background-color:#eeeeee;}
+body:not(.home) .site-main, div.product, .woocommerce ul.products,  body:not(.home) #content #container{
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding: 15px;
@@ -3623,11 +3612,18 @@ body, div.site-content{background-color:#eeeeee;}
 .attachment-shop_thumbnail{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);  
 }
-.site-content{padding: 15px 15px 0; }
-div.site-footer {background:#eeeeee;}
-.page-header{border:0;}
-h1.page-title, h1.page-title.entry-title{word-break:normal;text-align:center;font-size:36px;}
+body:not(.home) .site-content{padding: 15px 15px 0; }
+body:not(.home) div.site-footer {background:#eeeeee;}
+body:not(.home) .page-header{border:0;}
+body:not(.home) h1.page-title, body:not(.home) h1.page-title.entry-title{word-break:normal;text-align:center;font-size:36px;}
 }
+body.home h1.page-title, body.home h1.page-title.entry-title{display:none}
+body.home .site-content{padding: 0; }
+body.home .page-header { display:none;}
+body.home #header-thumbnail{display:none;}
+body.home #breadcrumb{display:none;}
+
+
 body .hide-if-logged-in{display:block;}
 body.logged-in .hide-if-logged-in{display:none;}
 body .hide-if-logged-out{display:none;}
@@ -3931,3 +3927,63 @@ h2.woocommerce-loop-product__title{line-height: 1.5em;}
 .bbp-topic-title .bbp-topic-permalink{font-size:larger;}
 .product-type-grouped .price{display:none;}
 .product-type-grouped .group_table .price{display:inline-block;}
+#header-thumbnail{
+    position:absolute;
+    right:0;
+    top:30px;
+    width:auto;
+    height:150px;
+    white-space: nowrap;
+    overflow-y: scroll;
+    z-index: 0;
+    text-align: right;
+}
+#header-thumbnail .tile a{
+		white-space:normal;
+}
+div#header-thumbnail.fixbox{
+    z-index: 0;
+}
+#header-thumbnail img{
+    z-index: 0;	
+}
+@media (max-width:1550px) {
+    #header-thumbnail {
+        max-width:1050px;
+    }
+}
+@media (max-width:1400px) {
+    #header-thumbnail {
+        max-width:900px;
+    }
+}
+@media (max-width:1250px) {
+    #header-thumbnail {
+        max-width:750px;
+    }
+}
+@media (max-width:1100px) {
+    #header-thumbnail {
+        max-width:600px;
+    }
+}
+@media (max-width:950px) {
+    #header-thumbnail {
+        max-width:450px;
+    }
+}
+@media (max-width:800px) {
+    #header-thumbnail {
+        max-width:300px;
+    }
+}
+@media (max-width:650px) {
+    #header-thumbnail {
+        max-width:150px;
+    }
+}
+@media (max-width:500px) {
+    #header-thumbnail {
+        display: none;
+    }
+}
