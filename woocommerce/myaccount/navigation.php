@@ -29,10 +29,18 @@ do_action( 'woocommerce_before_account_navigation' );
 			<li class="<?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
 				<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
 			</li>
-        <?php } ?>
-		<?php if (function_exists('bbp_get_user_profile_url')) { ?>
-            <li class="">
-				<a href="<?php echo(esc_url( bbp_get_user_profile_url(get_current_user_id()))); ?>"><?php echo(esc_html( __('My Profile', 'photoline-inkston') ));?></a>
+        <?php } 
+        $profileurl = false;
+        if (function_exists('bbp_get_user_profile_url')) {
+            $profileurl = esc_url( bbp_get_user_profile_url(get_current_user_id()));
+        } else {
+            $user     = get_userdata( get_current_user_id() );
+            $nicename = $user->user_nicename;
+            $profileurl = '/community/forums/users/' . $nicename;
+        }
+        if ($profileurl){
+        ?><li class="">
+<a href="<?php echo($profileurl); ?>"><?php echo(esc_html( __('My Profile', 'photoline-inkston') ));?></a>
 			</li>
         <?php } ?>
     </ul>

@@ -953,3 +953,4 @@ div#header-thumbnail.fixbox{z-index:0}
 @media (max-width:500px) {
 #header-thumbnail{display:none}
 }
+#logo a:hover{outline:none;}

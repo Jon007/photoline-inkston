@@ -49,9 +49,17 @@ if ( post_password_required() )
 	<?php endif; ?>
 <?php
   $page_id = inkGetPageID(2756);  // get Contact page in the current language
-  $contact_link = get_page_link($page_id); 
-  $contact_title = get_the_title( $page_id );
-  $comment_title = '<a href="#comment" id="comment" name="comment">' . __( 'Leave a Comment', 'photoline-inkston' ) . '</a> ' . 
+    if ($page_id){
+      $contact_link = get_page_link($page_id); 
+      $contact_title = get_the_title( $page_id );
+    } else {
+        $contact_link = __( 'https://www.inkston.com/inkston/contact-us/', 'photoline-inkston' ); 
+        $contact_title = __( 'Contact', 'photoline-inkston' ); 
+    }
+    $comment_title = '<a href="#comment" ' . 
+        //    'id="comment" ' . 
+        'name="comment">' . 
+        __( 'Leave a Comment', 'photoline-inkston' ) . '</a> ' . 
            __(' or ', 'photoline-inkston' ) . 
           ' <a href="' . $contact_link . '" onclick="javascript:return true;">' . $contact_title . '</a>';
 	$args = array(

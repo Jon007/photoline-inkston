@@ -89,7 +89,13 @@
 
 					<li>
 						<span class="bbp-user-edit-link">
-							<a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e( "Shop Account", 'woocommerce' ); ?>"><?php _e( "My Account", 'woocommerce' ); ?></a>
+							<a href="<?php 
+                            if (is_woocommerce_activated()){
+                                echo get_permalink( get_option('woocommerce_myaccount_page_id') ); 
+                            } else {
+                                echo __('/my-account/', 'photoline-inkston');
+                            }
+                            ?>" title="<?php _e( "Shop Account", 'woocommerce' ); ?>"><?php _e( "My Account", 'woocommerce' ); ?></a>
 						</span>
 					</li>
                     

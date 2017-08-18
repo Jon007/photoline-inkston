@@ -40,7 +40,12 @@
 <div class="clearfix">
  	<div class="col"><?php 
     $page_id = inkGetPageID(17);
-    $about = get_page_link($page_id);
+    //error_log('$page_id is "' . $page_id . '"');
+    if ($page_id){
+        $about = get_page_link($page_id);
+    } else {
+        $about = 'https://www.inkston.com/';
+    }
   echo '<a href="' . $about . '">&copy; '.date('Y'); ?> <span id="footer-copyright"><?php echo esc_html( get_theme_mod( 'copyright_txt', 'All rights reserved' ) ); ?></a></span><span class="sep"> &middot; </span>
 		<?php do_action( 'inkston_credits' ); ?>
 	</div>

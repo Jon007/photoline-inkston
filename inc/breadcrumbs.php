@@ -114,8 +114,11 @@ if ( !function_exists( 'inkston_breadcrumb' ) ) {
 
 			} elseif ( !is_single() && !is_page() && !is_404() && 'post' != get_post_type() ) {
 				$post_type = get_post_type_object( get_post_type() );
-				$html_output .= $before . $post_type->labels->singular_name . $after;
-
+                if ($post_type){
+				            $html_output .= $before . $post_type->labels->singular_name . $after;
+                } else {
+                    $html_output .= $before . get_post_type();
+                }
 			} elseif ( is_attachment() ) {
 				$parent = get_post( $parent_id );
 				$cat    = get_the_category( $parent->ID );
