@@ -46,14 +46,28 @@
 			)
 		);    
 }
-?>
 
-<?php if ( has_nav_menu( 'top' ) ) { ?>
+    $topmenu = 'top' ;  
+    $locale = get_locale();
+    switch ($locale){
+        case 'fr_FR':
+            if ( has_nav_menu( 'topfr_FR' ) ) {
+                $topmenu = 'topfr_FR' ;                  
+            }            
+            break;
+        case 'es_ES':
+            if ( has_nav_menu( 'topes_ES' ) ) {
+                $topmenu = 'topes_ES' ;                  
+            }            
+            break;
+    }
+
+    if ( has_nav_menu( $topmenu ) ) { ?>
 	<div class="top-menu">
 		<?php
 		wp_nav_menu(
 			array(
-			'theme_location'  => 'top',
+			'theme_location'  => $topmenu,
 			'menu_id'         => 'menu-top',
 			'depth'           => 1,
 			'link_before'     => '<span>',

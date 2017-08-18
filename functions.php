@@ -273,7 +273,12 @@ if (!function_exists('inkston_setup')) :
             'social' => __('Social Menu', 'photoline-inkston'),
         ));
 
-
+        if ( ! function_exists( 'pll_the_languages' ) ) {
+            register_nav_menus(array(
+                'topfr_FR' => __('Top Menu', 'photoline-inkston') . ' Français',
+                'topes_ES' => __('Top Menu', 'photoline-inkston') . ' Español',
+            ));
+        }
         /**
          * Setup the WordPress core custom header image.
          */
