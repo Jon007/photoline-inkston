@@ -1,28 +1,24 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: inkston\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-08-21 23:43+0000\n"
-"PO-Revision-Date: 2017-08-21 23:44+0000\n"
+"Project-Id-Version: Photoline Inkston\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-21 23:42+0000\n"
+"PO-Revision-Date: 2017-08-21 23:43+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
-"Language-Team: Spanish (Spain)\n"
-"Language: es-ES\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Language-Team: French (France)\n"
+"Language: fr-FR\n"
+"Plural-Forms: nplurals=2; plural=n > 1\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Loco - https://localise.biz/\n"
-"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
-"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
-"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
-"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: .."
+"X-Generator: Loco - https://localise.biz/"
 
 #. Name of the template
 msgid "commentspage"
+msgstr ""
+
+#: comments.php:16
+msgid "Comments: "
 msgstr ""
 
 #: comments.php:16
@@ -37,8 +33,38 @@ msgstr ""
 msgid "%"
 msgstr ""
 
+#: comments.php:21 comments.php:36
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:51
+msgid "Comments Closed"
+msgstr ""
+
+#: comments.php:60
+msgid "Contact"
+msgstr ""
+
+#: content-page-full.php:30 content-page.php:33 content-single.php:17
+#: content.php:16
+msgid "Pages:"
+msgstr ""
+
+#: functions.php:273 functions.php:281 functions.php:282
+#: inc/contextual-help.php:65
+msgid "Top Menu"
+msgstr ""
+
 #: functions.php:274
 msgid "Hamburger Menu"
+msgstr ""
+
+#: functions.php:275
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:276 inc/contextual-help.php:60
+msgid "Social Menu"
 msgstr ""
 
 #: functions.php:317
@@ -89,13 +115,17 @@ msgstr ""
 msgid "UPC"
 msgstr ""
 
+#: functions2.php:1046
+msgid "Website"
+msgstr ""
+
 #: functions2.php:1057
 msgid ""
 "add optional tags separated by commas, to allow more classifications than "
 "available under categories "
 msgstr ""
-"Agregue etiquetas opcionales separadas por comas para permitir más "
-"clasificaciones que las disponibles en categorías"
+"Ajouter des balises facultatives séparées par des virgules, pour permettre "
+"plus de classifications que celles disponibles dans les catégories"
 
 #: header.php:109
 msgid "Menu"
@@ -128,8 +158,7 @@ msgid "Puzzle-Pic"
 msgstr ""
 
 #: bbpress/user-details.php:35
-#, php-format
-msgid "%s's Posts"
+msgid "Articles"
 msgstr ""
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
@@ -141,6 +170,11 @@ msgstr ""
 
 #: inc/breadcrumbs.php:33
 msgid "Error 404"
+msgstr ""
+
+#: inc/breadcrumbs.php:180 inc/extras.php:76
+#, php-format
+msgid "Page %s"
 msgstr ""
 
 #: inc/contextual-help.php:16 inc/welcome.php:47 inc/welcome.php:48
@@ -158,6 +192,10 @@ msgid ""
 msgstr ""
 
 #: inc/contextual-help.php:17
+msgid "Quick Start"
+msgstr ""
+
+#: inc/contextual-help.php:17
 msgid ""
 "Using Customizer set your color, upload a logo (avatar - for personal) image,"
 " upload a background image (or select any color), upload the image (or "
@@ -169,6 +207,10 @@ msgid ""
 "The theme has page templates for the Home Page. Home Mosaic Tiles and Home "
 "Square Tiles Templates show 4 (or more) posts image format. Into Home "
 "Tagline section can be used plugins shortcode."
+msgstr ""
+
+#: inc/contextual-help.php:17
+msgid "Note"
 msgstr ""
 
 #: inc/contextual-help.php:17
@@ -212,6 +254,10 @@ msgstr ""
 msgid ""
 "The theme has several page templates. Use metabox Page Attributes > dropdown "
 "Template."
+msgstr ""
+
+#: inc/contextual-help.php:50
+msgid "Recommend"
 msgstr ""
 
 #: inc/contextual-help.php:51
@@ -405,6 +451,10 @@ msgstr ""
 msgid "Post format image on Home"
 msgstr ""
 
+#: inc/excerpts.php:15
+msgid "reading"
+msgstr ""
+
 #: inc/pagination.php:46
 msgid "Posts navigation"
 msgstr ""
@@ -423,8 +473,32 @@ msgctxt "Next post link"
 msgid "<i class=\"fa fa-arrow-right\"></i>"
 msgstr ""
 
+#: inc/template-tags.php:135
+#, php-format
+msgid ""
+"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>by</i> "
+"%2$s</span>"
+msgstr ""
+
 #: inc/template-tags.php:154 inc/template-tags.php:155
 msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:159
+msgid "Category: "
+msgstr ""
+
+#: inc/template-tags.php:164
+msgid "Tag: "
+msgstr ""
+
+#: inc/template-tags.php:307
+#, php-format
+msgid "design %s"
+msgstr ""
+
+#: inc/welcome.php:34
+msgid "Thanks for choosing inkston!"
 msgstr ""
 
 #: inc/welcome.php:35
@@ -440,12 +514,20 @@ msgstr ""
 msgid "Get a brief setup instructions on the %swelcome screen%s."
 msgstr ""
 
+#: inc/welcome.php:36
+msgid "Welcome!"
+msgstr ""
+
 #: inc/welcome.php:66
 msgid "Theme"
 msgstr ""
 
 #: inc/welcome.php:67
 msgid "Thank you for choosing inkston WordPress theme for your website!"
+msgstr ""
+
+#: inc/welcome.php:72
+msgid "Welcome to"
 msgstr ""
 
 #: inc/welcome.php:75
@@ -484,6 +566,18 @@ msgstr ""
 msgid "Add New Page"
 msgstr ""
 
+#: inc/welcome.php:105
+msgid "Set you "
+msgstr ""
+
+#: inc/welcome.php:105
+msgid "main Menu"
+msgstr ""
+
+#: inc/welcome.php:112
+msgid "Next Steps"
+msgstr ""
+
 #: inc/welcome.php:114
 msgid "inkston includes a custom widgets, go to "
 msgstr ""
@@ -496,6 +590,10 @@ msgstr ""
 msgid "Using the WordPress Customizer you can tweak appearance."
 msgstr ""
 
+#: inc/welcome.php:119
+msgid "Customize"
+msgstr ""
+
 #: inc/welcome.php:126
 msgid "Plugins"
 msgstr ""
@@ -506,6 +604,14 @@ msgid ""
 "required for theme to work, they add additional functionality."
 msgstr ""
 
+#: woocommerce-auto-added-coupons/coupon-select-free-product.php:134
+msgid "None"
+msgstr ""
+
+#: woocommerce/single-product/product-attributes.php:221
+msgid "Standard"
+msgstr ""
+
 #. Name of the theme
 msgid "Photoline Inkston"
 msgstr ""
@@ -514,108 +620,78 @@ msgstr ""
 msgid "Minimalistic theme for rich image photo and shop based sites."
 msgstr ""
 
+#. Author of the theme
+msgid "MoQiao"
+msgstr ""
+
 #. Author URI of the theme
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
 
-#: comments.php:16
-msgid "Comments: "
-msgstr "Comentarios:"
-
-#: comments.php:21 comments.php:36
-msgid "Comment navigation"
-msgstr "Navegar comentarios"
-
 #: comments.php:22 comments.php:37
 msgid "&larr; Older Comments"
-msgstr "&larr; Mas"
+msgstr "&larr; Commentaires plus anciens"
 
 #: comments.php:23 comments.php:38
 msgid "Newer Comments &rarr;"
-msgstr "Volver&rarr;"
-
-#: comments.php:51
-msgid "Comments Closed"
-msgstr "Comentarios cerrados"
+msgstr "Commentaires plus récents &rarr;"
 
 #: comments.php:59
 msgid "https://www.inkston.com/inkston/contact-us/"
-msgstr "https://www.inkston.com/es/inkston-es/contacto/"
-
-#: comments.php:60
-msgid "Contact"
-msgstr "Contacto"
+msgstr "https://www.inkston.com/fr/portail/contactez-nous/"
 
 #: comments.php:65
 msgid "Leave a Comment"
-msgstr "Dejar un comentario"
+msgstr "Laissez un commentaire"
 
 #: comments.php:66
 msgid " or "
-msgstr "o"
+msgstr "ou"
 
 #: comments.php:75
 msgid "Post Comment"
-msgstr "Añadir comentario"
+msgstr "Poster un commentaire"
 
 #: content-gallery.php:22
 msgid "Leave a comment"
-msgstr "Añadir comentario"
+msgstr "laissez un commentaire"
 
 #: content-gallery.php:22
 msgid "1 Comment"
-msgstr "Un Comentario"
+msgstr "1 commentaire"
 
 #: content-gallery.php:22
 msgid "Comments: %"
-msgstr "Comentarios: %"
+msgstr "Commentaires: %"
 
 #: content-gallery.php:25 content-home-main.php:26 content-page-full.php:45
 #: content-page.php:49 content-single.php:33 content.php:31 image.php:48
 msgid "Edit"
-msgstr "Editar"
-
-#: content-page-full.php:30 content-page.php:33 content-single.php:17
-#: content.php:16
-msgid "Pages:"
-msgstr "Paginas:"
+msgstr "Editer"
 
 #: functions.php:191
 msgid "Buy"
-msgstr "Comprar"
+msgstr "Acheter"
 
 #: functions.php:194
 msgid "View"
-msgstr "Ver"
+msgstr "Voir"
 
 #: functions.php:199
 msgid "Add"
-msgstr "Añadir"
+msgstr "Ajouter"
 
 #: functions.php:201 functions.php:208 functions.php:212
 msgid "Read"
-msgstr "Leer"
+msgstr "Lire"
 
 #: functions.php:206
 msgid "Choose"
-msgstr "Elegir"
-
-#: functions.php:273 functions.php:281 functions.php:282
-#: inc/contextual-help.php:65
-msgid "Top Menu"
-msgstr "Menu Top"
-
-#: functions.php:275
-msgid "Primary Menu"
-msgstr "Menu Principal"
-
-#: functions.php:276 inc/contextual-help.php:60
-msgid "Social Menu"
-msgstr "Menu Social"
+msgstr "Choisir"
 
 #: functions.php:829 functions.php:871
 msgid "Recent discussions in: "
-msgstr "Discusiones recientes en:"
+msgstr "Discussions récentes dans:"
 
 #: functions.php:1098
 #, php-format
@@ -623,76 +699,80 @@ msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
-"Si no tiene una cuenta <a target=\"_blank\" href=\"%s\">regístrese</a> (se "
-"abrirá una nueva ventana)"
+"Si vous n'avez pas de compte <a target=\"_blank\" href=\"%s\"> inscrivez-"
+"vous </a> (ouvrira dans une nouvelle fenêtre)"
 
 #: functions.php:1099
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
-msgstr " y haz clic <a href=\"#comment\" onclick=\"%s\" \">aquí</a>."
+msgstr "puis <a href=\"#comment\" onclick=\"%s\" \"> cliquez ici </a>."
 
 #: functions.php:1404
 msgid "12 digits international standard Universal Product Code."
-msgstr "12 dígitos Código de Producto Universal, estándar internacional."
+msgstr "Code numérique universel de 12 chiffres."
 
 #: functions.php:1425 functions.php:1543
 msgid "Product weight"
-msgstr "Peso Neto"
+msgstr "Poids du produit"
 
 #: functions.php:1427 functions.php:1430 functions.php:1545 functions.php:1548
 msgid "Unpacked net product weight."
-msgstr "Peso neto del producto desembalado."
+msgstr "Poids net du produit non emballé."
 
 #: functions.php:1456 functions.php:1564
 msgid "Product size "
-msgstr "Tamaño del Producto"
+msgstr "Taille du produit"
 
 #: functions.php:1464 functions.php:1524 functions.php:1568
 msgid "Unpacked product size LxWxH in decimal form"
-msgstr "Tamaño del producto desembalado."
+msgstr "Taille de produit non conditionnée LxWxH en décimale"
 
 #: functions2.php:469 woocommerce/single-product/product-attributes.php:107
 msgid "Product Weight"
-msgstr "Peso Neto"
+msgstr "Poids du produit"
 
 #: functions2.php:473 woocommerce/single-product/product-attributes.php:111
 msgid "Product Size"
-msgstr "Tamaño Neto"
+msgstr "Taille du produit"
 
 #: functions2.php:479 functions2.php:486
 #: woocommerce/single-product/product-attributes.php:117
 #: woocommerce/single-product/product-attributes.php:124
 msgid "[depending on variation]"
-msgstr "[dependiendo de variación]"
+msgstr "[En fonction de la variation]"
 
 #: functions2.php:642
 msgid "Congratulations, your order is now eligible for free shipping!"
-msgstr "¡Enhorabuena, su orden ahora es elegible para el envío gratis!"
+msgstr ""
+"Félicitations, votre commande est maintenant admissible à la livraison "
+"gratuite!"
 
 #: functions2.php:645
 msgid "Your order qualifies for free shipping!"
-msgstr "Su orden es elegible para el envío gratis"
+msgstr "Tes commandes se qualifient pour des expeditions gratuites!"
 
 #: functions2.php:651
 #, php-format
 msgid "Add %s more to your order to qualify for free shipping!"
-msgstr "¡Añada %s más a su orden para calificar para el envío gratis!"
+msgstr ""
+"Ajoutez %s plus à votre commande pour être admissible à la livraison "
+"gratuite!"
 
 #: functions2.php:689 no-results.php:18
 msgid "Search Inkston."
-msgstr "Buscar en Inkston."
+msgstr "Rechercher Inkston."
 
 #: functions2.php:693
 msgid "results"
-msgstr "resultados"
+msgstr "résultats"
 
 #: functions2.php:760
 msgid ""
 "Your shopping cart includes customization options, you can tell us about "
 "these on the checkout page."
 msgstr ""
-"Su carro de la compra incluye una opción de diseño personalizado, usted "
-"puede incluir detalles cuando pasa por Caja."
+"Votre panier comprend des options de personnalisation, vous pouvez nous en "
+"informer sur la page de caisse."
 
 #: functions2.php:776
 msgid ""
@@ -700,66 +780,63 @@ msgid ""
 "and/or make comments below. You may also skip this step and confirm details "
 "with us later."
 msgstr ""
-"Su pedido tiene una opción de diseño personalizado, si lo desea puede cargar "
-"un archivo y/o realizar comentarios a continuación. También puede omitir "
-"este paso y confirmar los detalles con nosotros más adelante."
+"Votre commande a une option de conception personnalisée, si vous le "
+"souhaitez, vous pouvez télécharger un fichier et / ou faire des commentaires "
+"ci-dessous. Vous pouvez également ignorer cette étape et confirmer les "
+"détails avec nous plus tard."
 
 #: functions2.php:1013
 msgid "Login with Facebook, LinkedIn or Google"
-msgstr "Inicie sesión con Facebook, LinkedIn o Google"
+msgstr "Connectez-vous avec Facebook, LinkedIn ou Google"
 
 #: functions2.php:1015
 msgid "Or use your Inkston login:"
-msgstr "O utilice su Inkston login:"
+msgstr "Ou utilisez votre login Inkston:"
 
 #: functions2.php:1040
 msgid "Name"
-msgstr "Nombre"
+msgstr "Nom"
 
 #: functions2.php:1041
 msgid "Country"
-msgstr "País"
+msgstr "Pays"
 
 #: functions2.php:1042
 msgid "Contact Email"
-msgstr "Email de contacto"
+msgstr "Email du contact"
 
 #: functions2.php:1043
 msgid "Location"
-msgstr "Ubicación"
+msgstr "Région"
 
 #: functions2.php:1044
 msgid "About"
-msgstr "Acerca de"
+msgstr "Autour de"
 
 #: functions2.php:1045
 msgid "Summary"
-msgstr "Resumen"
-
-#: functions2.php:1046
-msgid "Website"
-msgstr "Sitio web"
+msgstr "Résumé"
 
 #: functions2.php:1050
 msgid "Artist or studio name "
-msgstr "Nombre del artista o del estudio"
+msgstr "Nom de l'artiste ou du studio"
 
 #: functions2.php:1051
 msgid "Main country "
-msgstr "País principal"
+msgstr "Pays principal"
 
 #: functions2.php:1052
 msgid "Please enter town or region to help visitors find you "
-msgstr "Introduzca la ciudad o región para ayudar a los visitantes a ubicarle"
+msgstr "Entrez la ville ou la région pour aider les visiteurs à vous trouver"
 
 #: functions2.php:1053
 msgid ""
 "To avoid spam, Email address will never be shown, instead a contact form "
 "will be provided which is only available to genuine logged-on users. "
 msgstr ""
-"Para evitar el spam, nunca se mostrará la dirección de correo electrónico, "
-"sino que se proporcionará un formulario de contacto que sólo estará "
-"disponible para los usuarios registrados."
+"Pour éviter le courrier indésirable, l'adresse de courrier électronique ne "
+"sera jamais affichée, mais un formulaire de contact sera fourni qui n'est "
+"disponible que pour les utilisateurs authentiques connectés."
 
 #: functions2.php:1054
 msgid ""
@@ -767,25 +844,25 @@ msgid ""
 "Do you sell your artwork, do you accept commissions?  Do you teach or can "
 "you recommend teachers? "
 msgstr ""
-"¿Cómo empezaste con las artes orientales? ¿Cuáles son tus técnicas favoritas?"
-" ¿Vende su obra de arte, acepta comisiones? ¿Enseña o puede recomendar "
-"maestros?"
+"Comment avez-vous commencé avec les arts orientaux? Quelles sont vos "
+"techniques préférées? Vendez-vous votre œuvre d'art, acceptez-vous des "
+"commissions? Enseignez-vous ou pouvez-vous recommander des enseignants?"
 
 #: functions2.php:1055
 msgid ""
 "Here you can make a special short summary for search engines and search "
 "results.  Leave blank for an automatic summary. "
 msgstr ""
-"Aquí puede hacer un breve resumen especial para los motores de búsqueda y "
-"los resultados de búsqueda. Deje en blanco un resumen automático."
+"Ici, vous pouvez faire un petit résumé spécial pour les moteurs de recherche "
+"et les résultats de recherche. Laissez vide pour un résumé automatique."
 
 #: functions2.php:1056
 msgid ""
 "Main website (can be any link including Facebook page if that is your main "
 "page) "
 msgstr ""
-"Sitio web principal (puede ser cualquier enlace incluyendo página de "
-"Facebook si esa es su página principal)"
+"Site principal (peut-être un lien incluant la page Facebook si c'est votre "
+"page principale)"
 
 #: image.php:34
 #, php-format
@@ -794,46 +871,46 @@ msgid ""
 "datetime=\"%1$s\">%2$s</time></span> at <a href=\"%3$s\">%4$s &times; "
 "%5$s</a> in <a href=\"%6$s\" rel=\"gallery\">%7$s</a>"
 msgstr ""
-"Publican <span class=\"entry-date\"><time class=\"entry-date\" "
-"datetime=\"%1$s\">%2$s</time></span> a <a href=\"%3$s\">%4$s &times; %5$s</a>"
-" in <a href=\"%6$s\" rel=\"gallery\">%7$s</a>"
+"Publié <span class=\"entry-date\"><time class=\"entry-date\" "
+"datetime=\"%1$s\">%2$s</time></span> à <a href=\"%3$s\">%4$s &times; %5$s</a>"
+" dans <a href=\"%6$s\" rel=\"gallery\">%7$s</a>"
 
 #: no-results.php:21
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"Sentimos pero no hay nada para vuestra búsqueda. Por favor intenta otra vez "
-"con otras palabras."
+"Désolé, mais rien ne correspondait à vos termes de recherche. Veuillez "
+"réessayer avec d'autres mots-clés."
 
 #: no-results.php:28
 msgid ""
 "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
 "searching can help."
 msgstr ""
-"Sentimos no encontramos lo que se ha solicitado.  Quizás una búsqueda "
-"ayudará."
+"Il semble que nous ne pouvons pas trouver ce que vous recherchez. Peut-être "
+"que la recherche peut vous aider."
 
 #: searchBAD.php:52
 msgid "Nothing Found"
-msgstr "No se encuentra resultados"
+msgstr "rien n'a été trouvé"
 
 #: searchform.php:20
 msgid "Showing results for:"
-msgstr "Mostrando resultados para:"
+msgstr "Montrant les résultats pour:"
 
 #: searchform.php:22
 msgid "Search for:"
-msgstr "Búsqueda para:"
+msgstr "Rechercher:"
 
 #: searchform.php:25
 msgctxt "label"
 msgid "Search for:"
-msgstr "Búsqueda para:"
+msgstr "Rechercher:"
 
 #: searchform.php:26
 msgid "Search"
-msgstr "Busqueda"
+msgstr "Rechercher"
 
 #: searchform.php:31
 #, php-format
@@ -841,9 +918,8 @@ msgid ""
 " on inkston.com.  You can also <a href='https://www.inkston.com/community/?"
 "s=%s'>repeat the search on community site</a>."
 msgstr ""
-"En inkston.com. También puedes <a href='https://www.inkston.com/community/?"
-"update-user-locale=es_ES&s=%s'> repetir la búsqueda en el sitio de la "
-"comunidad inkston (Foros y Artistas)</a>."
+"sur inkston.com. Vous pouvez également <a href='https://www.inkston."
+"com/community/?s=%s'> répéter la recherche sur le site communautaire </a>."
 
 #: searchform.php:38
 #, php-format
@@ -851,177 +927,96 @@ msgid ""
 "on inkston community.  You can also <a href='https://www.inkston.com/?s=%s'>"
 "repeat the search on the main site</a>."
 msgstr ""
-"en la comunidad inkston. También puedes <a href='https://www.inkston.com/es/?"
-"s=%s'> repetir la búsqueda en el sitio principal </a>."
+"sur la communauté inkston. Vous pouvez également <a href='https://www."
+"inkston.com/?s=%s'> répéter la recherche sur le site principal </a>."
 
 #: searchform.php:46
 msgctxt "submit button"
 msgid "Search"
-msgstr "Buscar"
+msgstr "Rechercher"
 
 #: bbpress/user-details.php:35
-msgid "Articles"
-msgstr "Historias"
+#, php-format
+msgid "%s's Posts"
+msgstr "%s's Articles"
 
 #: bbpress/user-details.php:97
 msgid "/my-account/"
-msgstr "/mi-cuenta/"
+msgstr "/mon-compte/"
 
 #: inc/breadcrumbs.php:28
 msgid "Home"
-msgstr "Portada"
+msgstr "Page d'accueil "
 
 #: inc/breadcrumbs.php:29
 #, php-format
 msgid "Archive for %s"
-msgstr "Archivos para %s"
+msgstr "Articles pour %s"
 
 #: inc/breadcrumbs.php:30
 #, php-format
 msgid "Search results for: %s"
-msgstr "Resultados de búsqueda para: %s"
+msgstr "Résultats de la recherche pour: %s"
 
 #: inc/breadcrumbs.php:31
 #, php-format
 msgid "Posts tagged %s"
-msgstr "Tag %s"
+msgstr "Messages avec la balise %s"
 
 #: inc/breadcrumbs.php:32
 #, php-format
 msgid "View all posts by %s"
-msgstr "Ver todo escrito por %s"
-
-#: inc/breadcrumbs.php:180 inc/extras.php:76
-#, php-format
-msgid "Page %s"
-msgstr "Pagina %s"
-
-#: inc/contextual-help.php:17
-msgid "Quick Start"
-msgstr "Inicio Rápido"
-
-#: inc/contextual-help.php:17
-msgid "Note"
-msgstr "Nota"
-
-#: inc/contextual-help.php:50
-msgid "Recommend"
-msgstr "Sugerir"
-
-#: inc/excerpts.php:15
-msgid "reading"
-msgstr "leyendo"
+msgstr "Voir tous les messages par %s"
 
 #: inc/excerpts.php:15
 msgid "Read more"
-msgstr "Leer mas"
+msgstr "En savoir plus"
 
 #: inc/template-tags.php:44
 msgid "Back"
-msgstr "Volver"
+msgstr "Retour"
 
 #: inc/template-tags.php:48
 msgid "More"
-msgstr "Mas"
-
-#: inc/template-tags.php:135
-#, php-format
-msgid ""
-"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>by</i> "
-"%2$s</span>"
-msgstr ""
-"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>por</i> "
-"%2$s</span>"
-
-#: inc/template-tags.php:159
-msgid "Category: "
-msgstr "Categoria:"
-
-#: inc/template-tags.php:164
-msgid "Tag: "
-msgstr "Etiqueta: "
-
-#: inc/template-tags.php:307
-#, php-format
-msgid "design %s"
-msgstr "diseño %s"
+msgstr "Plus"
 
 #: inc/template-tags.php:382
 msgid "View Cart"
-msgstr "Ver Carrito"
+msgstr "Voir le panier"
 
 #: inc/template-tags.php:388
 msgid "Checkout"
-msgstr "Caja"
-
-#: inc/welcome.php:34
-msgid "Thanks for choosing inkston!"
-msgstr "Gracias para confiar en nosotros!"
-
-#: inc/welcome.php:36
-msgid "Welcome!"
-msgstr "Bienvenido!"
-
-#: inc/welcome.php:72
-msgid "Welcome to"
-msgstr "Benvenido a"
-
-#: inc/welcome.php:105
-msgid "Set you "
-msgstr "Establecer "
-
-#: inc/welcome.php:105
-msgid "main Menu"
-msgstr "menu Principal"
-
-#: inc/welcome.php:112
-msgid "Next Steps"
-msgstr "Próximos pasos"
-
-#: inc/welcome.php:119
-msgid "Customize"
-msgstr "Customizar"
-
-#: woocommerce-auto-added-coupons/coupon-select-free-product.php:134
-msgid "None"
-msgstr "Ningún"
+msgstr "Caisse"
 
 #: woocommerce/emails/customer-on-hold-order.php:31
 msgid "pay for this order online"
-msgstr "Pagar este pedido en línea"
+msgstr "Payer pour cette commande en ligne"
 
 #: woocommerce/myaccount/navigation.php:43
 msgid "My Profile"
-msgstr "Mi Perfil"
+msgstr "Mon profil"
 
 #: woocommerce/single-product/product-attributes.php:209
 msgid "Shipping"
-msgstr "Envio"
+msgstr "livraison"
 
 #: woocommerce/single-product/product-attributes.php:213
 msgid "Free"
-msgstr "Gratis"
+msgstr "Gratuit"
 
 #: woocommerce/single-product/product-attributes.php:214
 msgid "Order including this product will qualify for free shipping."
-msgstr "El pedido con este producto tiene envío gratis"
-
-#: woocommerce/single-product/product-attributes.php:221
-msgid "Standard"
-msgstr "Normal"
+msgstr ""
+"La commande comprenant ce produit sera admissible à la livraison gratuite."
 
 #: woocommerce/single-product/product-attributes.php:223
 msgid "Standard shipping."
-msgstr "Envio normal."
+msgstr "Expédition standard."
 
 #: woocommerce/single-product/review-meta.php:28
 msgid "Your comments are awaiting approval"
-msgstr "Su comentario queda a la espera de aprobación"
+msgstr "Vos commentaires attendent l'approbation"
 
-#. Theme URI of the theme
+#. URI of the theme
 msgid "http://www.inkston.com"
-msgstr "https://www.inkston.com/es/"
-
-#. Author of the theme
-msgid "MoQiao"
-msgstr "ingleno"
+msgstr "https://www.inkston.com/fr/"

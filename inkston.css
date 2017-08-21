@@ -2844,6 +2844,7 @@ text-align: left;
 
 
 @media (max-width: 650px) {
+ul#menu-top .menu-item{padding: 0 2px;}
 
     #logo {
         float: left;
@@ -2890,6 +2891,7 @@ text-align: left;
 
 
 @media (max-width: 480px) {
+		ul#menu-top .menu-item{padding: 0;}
     #wrap {
         width: 100%;
         margin: 0;
@@ -2924,6 +2926,7 @@ ul#menu-top li:hover {
 }
 ul#menu-top li.lang-item {
     text-align: center;
+		padding: 0 2px;
 }
 ul#menu-top li.current-lang, ul#menu-top li.current-menu-item, ul#menu-top li.current_page_parent
 , ul#menu-top li.current-post-ancestor{

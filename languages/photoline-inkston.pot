@@ -1,27 +1,18 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: inkston\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-07-12 06:54+0000\n"
-"POT-Revision-Date: Mon Aug 01 2016 11:35:09 GMT+0800 (CST)\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-08-21 23:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: dinevthemes <post@makewp.ru>\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
 "Language: \n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Loco - https://localise.biz/\n"
-"X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
-"__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;"
-"_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;"
-"esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;"
-"esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-SearchPath-0: .."
+"X-Generator: Loco - https://localise.biz/"
 
 #. Name of the template
 msgid "commentspage"
@@ -59,15 +50,23 @@ msgstr ""
 msgid "Comments Closed"
 msgstr ""
 
+#: comments.php:59
+msgid "https://www.inkston.com/inkston/contact-us/"
+msgstr ""
+
 #: comments.php:60
+msgid "Contact"
+msgstr ""
+
+#: comments.php:65
 msgid "Leave a Comment"
 msgstr ""
 
-#: comments.php:61
+#: comments.php:66
 msgid " or "
 msgstr ""
 
-#: comments.php:70
+#: comments.php:75
 msgid "Post Comment"
 msgstr ""
 
@@ -93,175 +92,255 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: functions.php:186
+#: functions.php:191
 msgid "Buy"
 msgstr ""
 
-#: functions.php:189
+#: functions.php:194
 msgid "View"
 msgstr ""
 
-#: functions.php:194
+#: functions.php:199
 msgid "Add"
 msgstr ""
 
-#: functions.php:196 functions.php:203 functions.php:207
+#: functions.php:201 functions.php:208 functions.php:212
 msgid "Read"
 msgstr ""
 
-#: functions.php:201
+#: functions.php:206
 msgid "Choose"
 msgstr ""
 
-#: functions.php:260 inc/contextual-help.php:65
+#: functions.php:273 functions.php:281 functions.php:282
+#: inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr ""
 
-#: functions.php:261
+#: functions.php:274
 msgid "Hamburger Menu"
 msgstr ""
 
-#: functions.php:262
+#: functions.php:275
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:263 inc/contextual-help.php:60
+#: functions.php:276 inc/contextual-help.php:60
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:298
+#: functions.php:317
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:306
+#: functions.php:325
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:314
+#: functions.php:333
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:315
+#: functions.php:334
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:323
+#: functions.php:342
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:324
+#: functions.php:343
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:332
+#: functions.php:351
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:333
+#: functions.php:352
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:624
+#: functions.php:678
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:625
+#: functions.php:679
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:773 functions.php:815
+#: functions.php:829 functions.php:871
 msgid "Recent discussions in: "
 msgstr ""
 
-#: functions.php:1041
+#: functions.php:1098
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
 
-#: functions.php:1042
+#: functions.php:1099
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr ""
 
-#: functions.php:1323 functions.php:1446
+#: functions.php:1386 functions.php:1509
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1337 functions.php:1458
+#: functions.php:1400 functions.php:1521
 msgid "UPC"
 msgstr ""
 
-#: functions.php:1341
+#: functions.php:1404
 msgid "12 digits international standard Universal Product Code."
 msgstr ""
 
-#: functions.php:1362 functions.php:1480
+#: functions.php:1425 functions.php:1543
 msgid "Product weight"
 msgstr ""
 
-#: functions.php:1364 functions.php:1367 functions.php:1482 functions.php:1485
+#: functions.php:1427 functions.php:1430 functions.php:1545 functions.php:1548
 msgid "Unpacked net product weight."
 msgstr ""
 
-#: functions.php:1393 functions.php:1501
+#: functions.php:1456 functions.php:1564
 msgid "Product size "
 msgstr ""
 
-#: functions.php:1401 functions.php:1461 functions.php:1505
+#: functions.php:1464 functions.php:1524 functions.php:1568
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr ""
 
-#: functions.php:2041 woocommerce/single-product/product-attributes.php:107
+#: functions2.php:469 woocommerce/single-product/product-attributes.php:107
 msgid "Product Weight"
 msgstr ""
 
-#: functions.php:2045 woocommerce/single-product/product-attributes.php:111
+#: functions2.php:473 woocommerce/single-product/product-attributes.php:111
 msgid "Product Size"
 msgstr ""
 
-#: functions.php:2051 functions.php:2058
+#: functions2.php:479 functions2.php:486
 #: woocommerce/single-product/product-attributes.php:117
 #: woocommerce/single-product/product-attributes.php:124
 msgid "[depending on variation]"
 msgstr ""
 
-#: functions.php:2214
+#: functions2.php:642
 msgid "Congratulations, your order is now eligible for free shipping!"
 msgstr ""
 
-#: functions.php:2217
+#: functions2.php:645
 msgid "Your order qualifies for free shipping!"
 msgstr ""
 
-#: functions.php:2223
+#: functions2.php:651
 #, php-format
 msgid "Add %s more to your order to qualify for free shipping!"
 msgstr ""
 
-#: functions.php:2261 no-results.php:18
+#: functions2.php:689 no-results.php:18
 msgid "Search Inkston."
 msgstr ""
 
-#: functions.php:2265
+#: functions2.php:693
 msgid "results"
 msgstr ""
 
-#: functions.php:2331
+#: functions2.php:760
 msgid ""
 "Your shopping cart includes customization options, you can tell us about "
 "these on the checkout page."
 msgstr ""
 
-#: functions.php:2347
+#: functions2.php:776
 msgid ""
 "Your order has a custom design option, if you like you can upload a file "
 "and/or make comments below. You may also skip this step and confirm details "
 "with us later."
 msgstr ""
 
-#: header.php:95
+#: functions2.php:1013
+msgid "Login with Facebook, LinkedIn or Google"
+msgstr ""
+
+#: functions2.php:1015
+msgid "Or use your Inkston login:"
+msgstr ""
+
+#: functions2.php:1040
+msgid "Name"
+msgstr ""
+
+#: functions2.php:1041
+msgid "Country"
+msgstr ""
+
+#: functions2.php:1042
+msgid "Contact Email"
+msgstr ""
+
+#: functions2.php:1043
+msgid "Location"
+msgstr ""
+
+#: functions2.php:1044
+msgid "About"
+msgstr ""
+
+#: functions2.php:1045
+msgid "Summary"
+msgstr ""
+
+#: functions2.php:1046
+msgid "Website"
+msgstr ""
+
+#: functions2.php:1050
+msgid "Artist or studio name "
+msgstr ""
+
+#: functions2.php:1051
+msgid "Main country "
+msgstr ""
+
+#: functions2.php:1052
+msgid "Please enter town or region to help visitors find you "
+msgstr ""
+
+#: functions2.php:1053
+msgid ""
+"To avoid spam, Email address will never be shown, instead a contact form "
+"will be provided which is only available to genuine logged-on users. "
+msgstr ""
+
+#: functions2.php:1054
+msgid ""
+"How did you start with Oriental arts? What are your favourite techniques?  "
+"Do you sell your artwork, do you accept commissions?  Do you teach or can "
+"you recommend teachers? "
+msgstr ""
+
+#: functions2.php:1055
+msgid ""
+"Here you can make a special short summary for search engines and search "
+"results.  Leave blank for an automatic summary. "
+msgstr ""
+
+#: functions2.php:1056
+msgid ""
+"Main website (can be any link including Facebook page if that is your main "
+"page) "
+msgstr ""
+
+#: functions2.php:1057
+msgid ""
+"add optional tags separated by commas, to allow more classifications than "
+"available under categories "
+msgstr ""
+
+#: header.php:109
 msgid "Menu"
 msgstr ""
 
@@ -295,24 +374,38 @@ msgstr ""
 msgid "Nothing Found"
 msgstr ""
 
-#: searchform.php:19
+#: searchform.php:20
 msgid "Showing results for:"
 msgstr ""
 
-#: searchform.php:21
-msgid "Search for:"
-msgstr ""
-
-#: searchform.php:24
-msgctxt "label"
+#: searchform.php:22
 msgid "Search for:"
 msgstr ""
 
 #: searchform.php:25
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:26
 msgid "Search"
 msgstr ""
 
-#: searchform.php:27
+#: searchform.php:31
+#, php-format
+msgid ""
+" on inkston.com.  You can also <a href='https://www.inkston.com/community/?"
+"s=%s'>repeat the search on community site</a>."
+msgstr ""
+
+#: searchform.php:38
+#, php-format
+msgid ""
+"on inkston community.  You can also <a href='https://www.inkston.com/?s=%s'>"
+"repeat the search on the main site</a>."
+msgstr ""
+
+#: searchform.php:46
 msgctxt "submit button"
 msgid "Search"
 msgstr ""
@@ -333,8 +426,21 @@ msgstr ""
 msgid "PostTiles3"
 msgstr ""
 
+#. Name of the template
+msgid "Puzzle-Pic"
+msgstr ""
+
+#: bbpress/user-details.php:35
+#, php-format
+msgid "%s's Posts"
+msgstr ""
+
 #: bbpress/user-details.php:35
 msgid "Articles"
+msgstr ""
+
+#: bbpress/user-details.php:97
+msgid "/my-account/"
 msgstr ""
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
@@ -372,7 +478,7 @@ msgstr ""
 msgid "Error 404"
 msgstr ""
 
-#: inc/breadcrumbs.php:177 inc/extras.php:76
+#: inc/breadcrumbs.php:180 inc/extras.php:76
 #, php-format
 msgid "Page %s"
 msgstr ""
@@ -709,11 +815,11 @@ msgstr ""
 msgid "design %s"
 msgstr ""
 
-#: inc/template-tags.php:391
+#: inc/template-tags.php:382
 msgid "View Cart"
 msgstr ""
 
-#: inc/template-tags.php:397
+#: inc/template-tags.php:388
 msgid "Checkout"
 msgstr ""
 
@@ -832,7 +938,7 @@ msgstr ""
 msgid "pay for this order online"
 msgstr ""
 
-#: woocommerce/myaccount/navigation.php:35
+#: woocommerce/myaccount/navigation.php:43
 msgid "My Profile"
 msgstr ""
 
@@ -868,7 +974,7 @@ msgstr ""
 msgid "Minimalistic theme for rich image photo and shop based sites."
 msgstr ""
 
-#. Theme URI of the theme
+#. URI of the theme
 msgid "http://www.inkston.com"
 msgstr ""
 
