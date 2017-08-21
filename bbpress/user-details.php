@@ -32,7 +32,7 @@
 
                 <li class="">
 					<span class="vcard user-posts">
-						<a class="url fn n" href="<?php echo(esc_url( get_author_posts_url(bbp_get_user_id()))); ?>" title="<?php printf( esc_attr__( "%s's Articles", 'bbpress' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>" rel="me"><?php _e( 'Articles', 'photoline-inkston' ); ?></a>
+						<a class="url fn n" href="<?php echo(esc_url( get_author_posts_url(bbp_get_user_id()))); ?>" title="<?php printf( esc_attr__( "%s's Posts", 'photoline-inkston' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>" rel="me"><?php _e( 'Articles', 'photoline-inkston' ); ?></a>
 					</span>
 				</li>
 

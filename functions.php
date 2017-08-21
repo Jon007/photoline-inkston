@@ -442,23 +442,68 @@ if (!function_exists('inkston_catch_image')) :
         ob_end_clean();
         $first_img = '';
         if (is_single()) {
-            $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-            if (0 != $output) {
-                /*
-                 * NOTE: this gets the image sized as on the page, size not guaranteed,
-                 * may also get an external image so no guarantee thumbnail is available  */
-                $first_img = $matches [1][0];
-            }
+            $first_img = inkston_featured_img_tag($post->post_content, false);
         }
-
         if (empty($first_img)) {
             $first_img = get_template_directory_uri() . '/img/no-image.png';
         }
-
         return $first_img;
     }
 endif;
 
+/**
+ * Filter: 'wpseo_pre_analysis_post_content' - Allow filtering the content before analysis
+ *
+ * @param string $content - post content
+ * @param WP_Post $post - post 
+ * @param bool $tag - return tag or url
+ * 
+ * @return string image
+ */
+function inkston_featured_img_tag($content, $tag){    
+    $first_img = '';
+    $last_avatar = '';
+    $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+    if (0 != $output) {
+        /*
+         * NOTE: this gets the image sized as on the page, size not guaranteed,
+         * may also get an external image so no guarantee thumbnail is available  */
+        if ($tag){
+            $urls = $matches [0];
+        } else {
+            $urls = $matches [1];
+        }
+        foreach ($urls as $url) {
+            if (strpos($url, 'cat-generator-avatars') === false) {
+                $first_img = $url;
+                break;
+            } else {
+                $last_avatar = $url;
+            }
+        }
+    }
+    if (empty($first_img)) {
+        if ($last_avatar){
+            $first_img = $last_avatar;
+        } else {
+            $first_img = get_template_directory_uri() . '/img/no-image.png';
+        }
+    }
+    return $first_img;
+}
+/**
+ * Filter: 'wpseo_pre_analysis_post_content' - Allow filtering the content before analysis
+ *
+ * @param string $content - post content
+ * @param WP_Post $post - post 
+ * 
+ * @return string image
+ */
+function inkston_featured_img($content, $post){
+    return inkston_featured_img_tag($content, true);
+}
+add_filter( 'wpseo_pre_analysis_post_content', 'inkston_featured_img', 10, 2);
+//$content = apply_filters( 'wpseo_pre_analysis_post_content', $post->post_content, $post );
 
 /**
  * Add body class
@@ -475,19 +520,15 @@ function inkston_body_class_filter($classes)
     }
     if (is_page_template('template-posttiles.php')){
         $classes[] = sanitize_html_class('fullpage');
-        $classes[] = sanitize_html_class('woocommerce');
     }
     if (is_page_template('template-posttiles2.php')){
         $classes[] = sanitize_html_class('fullpage');
-        $classes[] = sanitize_html_class('woocommerce');
     }
     if (is_page_template('template-posttiles3.php')){
         $classes[] = sanitize_html_class('fullpage');
-        $classes[] = sanitize_html_class('woocommerce');
     }
 //    if (is_single()){
         //always need a woocommerce in there for formatting related products
-        $classes[] = sanitize_html_class('woocommerce');
 //    }
     
     if (!is_page() && !is_single() && !is_search())
@@ -497,6 +538,7 @@ function inkston_body_class_filter($classes)
        $classes[] = (sizeof(WC()->cart->cart_contents) == 0) ? 'cart-empty' : 'cart-show';
        $classes[] = 'woocommerce-page';
        $classes[] = 'columns-5';
+       $classes[] = sanitize_html_class('woocommerce');
     }
         
     
@@ -2621,3 +2663,40 @@ function get_featured_posts()
     shuffle($final_posts);
     return $final_posts;
 }
+
+/**
+ * Force add super socializer to login form for business directory
+ * 
+ * @param string $content Content to display. Default empty.
+ * @param array  $args    Array of login form arguments.
+ * 
+ * @return  string Content to display
+ */ 
+function ink_login_form_add_socializer($content , $args )
+{
+    if (function_exists('the_champ_login_button')){
+        return $content . the_champ_login_shortcode(
+            array(
+			'title' => __('Login with Facebook, LinkedIn or Google', 'photoline-inkston') 
+            ) ) . '<div id="ink_login_message">' . 
+            __('Or use your Inkston login:', 'photoline-inkston') .
+            '</div>';
+    } else {
+        return $content;
+    }
+}
+add_filter( 'login_form_top', 'ink_login_form_add_socializer', 10, 2 );
+
+/**
+ * Add CPTs to author archives
+ * 
+* @param WP_Query &$this The WP_Query instance (passed by reference).
+*/ 
+function custom_post_author_archive($query) {
+    if ($query->is_author)
+    {
+        $query->set( 'post_type', array('wpbdp_listing', 'post') );
+    }
+    remove_action( 'pre_get_posts', 'custom_post_author_archive' );
+}
+add_action('pre_get_posts', 'custom_post_author_archive');

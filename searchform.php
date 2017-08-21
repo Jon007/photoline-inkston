@@ -15,6 +15,7 @@
 <form role="search" method="get" id="search-form" class="search-form" action="<?php echo esc_url( home_url() ); ?>/index.php">
 	<label>
         <span class="search-label"><?php
+            $query = get_search_query();
             if (have_posts()){
                 _e('Showing results for:', 'photoline-inkston');
             } else {
@@ -22,7 +23,25 @@
             }
         ?></span>
 		<span class="screen-reader-text"><?php _ex( 'Search for:', 'label', 'photoline-inkston' ); ?></span>
-		<input type="search" class="search-field" id="search-field" placeholder="<?php _e( 'Search', 'photoline-inkston' ); ?>" value="<?php echo esc_attr( get_search_query() ); ?>" name="s">
+		<input type="search" class="search-field" id="search-field" placeholder="<?php _e( 'Search', 'photoline-inkston' ); ?>" value="<?php echo esc_attr( $query ); ?>" name="s"><?php
+            if (is_multisite() ){
+                if (is_main_site()){
+                    ?><span class="search-label"><?php
+                        printf( 
+                            __(" on inkston.com.  You can also <a href='https://www.inkston.com/community/?s=%s'>repeat the search on community site</a>.", 
+                                'photoline-inkston'),
+                            $query);
+                    ?></span><?php
+                } else {
+                    ?><span class="search-label"><?php
+                        printf( 
+                            __("on inkston community.  You can also <a href='https://www.inkston.com/?s=%s'>repeat the search on the main site</a>.", 
+                                'photoline-inkston'),
+                            $query);
+                    ?></span><?php
+                }
+            }
+        ?>
 	</label>
 	<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'photoline-inkston' ); ?>">
 </form>

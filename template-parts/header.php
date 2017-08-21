@@ -26,7 +26,7 @@ if ( is_woocommerce_activated() ) {
 	if ( is_woocommerce() && !is_product() ) {
 		if (is_shop()) {
             $do_breadcrumb = false;
-		$do_cart = true;
+            $do_cart = true;
         //finally cart must always be there on woocommerce page since the pate will be cached..
         //} elseif (sizeof(WC()->cart->cart_contents) == 0){
         //    $do_cart = false;        
@@ -41,7 +41,7 @@ if ( is_woocommerce_activated() ) {
 		$do_breadcrumb = false;
 //	} elseif (sizeof(WC()->cart->cart_contents) == 0){
 //		$do_cart = false;
-	}
+    }
   if (is_checkout() && (is_checkout_pay_page()) ){$do_cart = false;}
 }	/* if ( is_woocommerce_activated() ) */
 
@@ -126,7 +126,6 @@ if ( is_woocommerce_activated() ) {
 		$img_attr='width="auto" height="150" id="header-thumbnail"';
 		$thumbnail_img = '<img ' . $img_attr . ' src="' . get_template_directory_uri() . '/img/no-image.png" alt="inkston logo" />';
 	}
-}
 
     echo('<div id="header-thumbnail" class="fixbox">');
     $feature_posts = get_featured_posts();
@@ -138,29 +137,27 @@ if ( is_woocommerce_activated() ) {
         if ($i>7){break;}
     }
     echo('</div>');
-
-/*
-if ( ! ( $thumbnail_img )  ) {
-	$thumbnail_id = get_post_thumbnail_id();
-	$thumbnail_img= wp_get_attachment_image( $thumbnail_id, 'thumbnail', false, $img_attr );
-	if (! ($thumbnail_img)){ $thumbnail_img = '<img ' . $img_attr . ' src="' . inkston_catch_image() . '" alt="thumbnail" />';}
-  //only get the link for single pages as the photoswipe won't do the single posts page links at the moment
-  //if (is_single()){
-    if (is_woocommerce_activated() && is_product()){
-      $fullsize = 0;
-    }else{
-      $fullsize = wp_get_attachment_url($thumbnail_id);
+} else {
+    if ( ! ( $thumbnail_img )  ) {
+        $thumbnail_id = get_post_thumbnail_id();
+        $thumbnail_img= wp_get_attachment_image( $thumbnail_id, 'thumbnail', false, $img_attr );
+        if (! ($thumbnail_img)){ $thumbnail_img = '<img ' . $img_attr . ' src="' . inkston_catch_image() . '" alt="thumbnail" />';}
+      //only get the link for single pages as the photoswipe won't do the single posts page links at the moment
+      //if (is_single()){
+        if (is_woocommerce_activated() && is_product()){
+          $fullsize = 0;
+        }else{
+          $fullsize = wp_get_attachment_url($thumbnail_id);
+        }
     }
-  //}
-}
 
-if  (! ( $fullsize ) ) {
-	echo ( $thumbnail_img );
-}
-else{
-	echo('<div class="images" style="opacity:1;"><a rel="' . $rel_lightbox . '" href="' . $fullsize . '"  itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto">' . $thumbnail_img . '</a></div>');
-}
 
-*/
+    if  (! ( $fullsize ) ) {
+        echo ( $thumbnail_img );
+    }
+    else{
+        echo('<div class="images" style="opacity:1;"><a rel="' . $rel_lightbox . '" href="' . $fullsize . '"  itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto">' . $thumbnail_img . '</a></div>');
+    }
+}
 ?>
 </header>
