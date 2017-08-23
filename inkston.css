@@ -3628,10 +3628,10 @@ body.home #header-thumbnail{display:none;}
 body.home #breadcrumb{display:none;}
 
 
-body .hide-if-logged-in{display:block;}
-body.logged-in .hide-if-logged-in{display:none;}
-body .hide-if-logged-out{display:none;}
-body.logged-in .hide-if-logged-out{display:block;}
+body .hide-if-logged-in{display:block!important;}
+body.logged-in .hide-if-logged-in{display:none!important;}
+body .hide-if-logged-out{display:none!important;}
+body.logged-in .hide-if-logged-out{display:block!important;}
 .avatar{float: left;margin-right: 10px;}
 .icon-footer {margin-right: 30px;}
 .comments-area footer .comment-author{margin-bottom: -50px;}
@@ -4073,5 +4073,14 @@ body.wpbdp-view-show_listing header.page-header {display:none}
 }		
 .wpbdp-listing .listing-thumbnail{margin-right:15px;}
 #bbpress-forums .bbp-forum-info .bbp-forum-content,
-body.bbpress .bbp-reply-content{font-size:15px;}
+body.bbpress .bbp-reply-content{font-size:15px;line-height:150%;}
 body.bbpress #content h1{font-size: 24px;}
+.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-40px;float:right;}
+.wpbdp-listing-single .listing-title{display:none;}
+.mailpoet_form_widget .mailpoet_paragraph{display:inline-block;}
+.mailpoet_form_widget .mailpoet_paragraph input[type="submit"]{text-transform:none;}
+.woocommerce-message a.button.wc-forward {
+margin: 2px;
+min-width: 143px;
+text-align: center;
+}

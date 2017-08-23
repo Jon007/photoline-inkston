@@ -865,7 +865,7 @@ function recursive_filter_implode($glue, $array, $include_keys = false, $trim_al
  */ 
 function remove_bbpress_styles($styles)
 {
-    if (! is_bbpress()){
+    if ( (! function_exists('is_bbpress')) || ( (! is_bbpress()) && (! is_front_page())) ) {
         return [];
     } else {
         if ( (! defined('SCRIPT_DEBUG') ) || (SCRIPT_DEBUG==false) ){
@@ -1088,3 +1088,23 @@ function ink_wpbdp_field_description($description){
 }
 add_filter('wpbdp_render_field_description', 'ink_wpbdp_field_description', 10, 1);
 
+//filter to add description after forums titles on forum index
+function rw_singleforum_description() {
+  echo '<div class="bbp-forum-content">';
+  echo bbp_forum_content();
+  echo '</div>';
+}
+add_action( 'bbp_template_before_single_forum' , 'rw_singleforum_description');
+
+
+function ink_add_checkout_message($message, $products){
+    $checkouturl = esc_url( wc_get_page_permalink( 'checkout' ) );
+    $checkoutlabel = esc_html__( 'Checkout', 'woocommerce' );
+    $checkoutbutton = sprintf( ' &nbsp; <a href="%s" class="button wc-forward"> &nbsp; %s  &nbsp; </a>', 
+        $checkouturl, $checkoutlabel );
+//        esc_url( wc_get_page_permalink( 'checkout' ) ), 
+//        esc_html__( 'Checkout', 'woocommerce' ) 
+    
+    return $checkoutbutton . $message;
+}
+add_filter( 'wc_add_to_cart_message_html', 'ink_add_checkout_message', 10, 2 );
