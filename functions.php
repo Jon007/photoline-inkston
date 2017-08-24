@@ -558,7 +558,7 @@ function inkston_excerpt_length($length)
     } elseif (is_home()) {
         $length = 35;
     } elseif (is_page()) {
-        $length = 15;
+        $length = 30;
     } else {
         $length = 30;
     }
