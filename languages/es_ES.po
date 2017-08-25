@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-08-21 23:43+0000\n"
-"PO-Revision-Date: 2017-08-21 23:44+0000\n"
+"POT-Creation-Date: 2017-08-25 02:43+0000\n"
+"PO-Revision-Date: 2017-08-25 02:54+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
@@ -37,65 +37,65 @@ msgstr ""
 msgid "%"
 msgstr ""
 
-#: functions.php:274
+#: functions.php:271
 msgid "Hamburger Menu"
 msgstr ""
 
-#: functions.php:317
+#: functions.php:313
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:325
+#: functions.php:321
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:333
+#: functions.php:329
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:334
+#: functions.php:330
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:342
+#: functions.php:338
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:343
+#: functions.php:339
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:351
+#: functions.php:347
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:352
+#: functions.php:348
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:678
+#: functions.php:674
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:679
+#: functions.php:675
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:1386 functions.php:1509
+#: functions.php:1384 functions.php:1507
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1400 functions.php:1521
+#: functions.php:1398 functions.php:1519
 msgid "UPC"
 msgstr ""
 
-#: functions2.php:1057
-msgid ""
-"add optional tags separated by commas, to allow more classifications than "
-"available under categories "
+#: functions2.php:1013
+msgid "Login or register with Facebook, LinkedIn, Google"
 msgstr ""
-"Agregue etiquetas opcionales separadas por comas para permitir más "
-"clasificaciones que las disponibles en categorías"
+
+#: functions2.php:1152
+msgid "Subscribe to this conversation with occasional email."
+msgstr "Suscríbete a esta conversación con correos electrónicos ocasionales."
 
 #: header.php:109
 msgid "Menu"
@@ -127,10 +127,18 @@ msgstr ""
 msgid "Puzzle-Pic"
 msgstr ""
 
+#. Name of the template
+msgid "Subscribe To Comments"
+msgstr "Suscribirse a los comentarios"
+
 #: bbpress/user-details.php:35
 #, php-format
 msgid "%s's Posts"
 msgstr ""
+
+#: bbpress/user-details.php:106 woocommerce/myaccount/navigation.php:69
+msgid "Newsletter subscriptions"
+msgstr "Suscripciones a los boletines"
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
 #, php-format
@@ -369,10 +377,6 @@ msgstr ""
 msgid "Footer Copyright"
 msgstr ""
 
-#: inc/customizer.php:469
-msgid "Copyright"
-msgstr ""
-
 #: inc/customizer.php:479
 msgid "Display Options"
 msgstr ""
@@ -518,6 +522,22 @@ msgstr ""
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
 
+#: inc/customizer.php:469
+msgid "Copyright"
+msgstr "Derechos de autor"
+
+#: woocommerce/myaccount/navigation.php:58
+msgid "Comment subscriptions"
+msgstr "Suscripciones de comentarios"
+
+#: woocommerce/myaccount/navigation.php:79
+msgid "My comments and reviews"
+msgstr "Mis comentarios y críticas"
+
+#: woocommerce/myaccount/navigation.php:80
+msgid "My Comments"
+msgstr "Mis comentarios"
+
 #: comments.php:16
 msgid "Comments: "
 msgstr "Comentarios:"
@@ -534,27 +554,27 @@ msgstr "&larr; Mas"
 msgid "Newer Comments &rarr;"
 msgstr "Volver&rarr;"
 
-#: comments.php:51
+#: comments.php:48
 msgid "Comments Closed"
 msgstr "Comentarios cerrados"
 
-#: comments.php:59
+#: comments.php:56
 msgid "https://www.inkston.com/inkston/contact-us/"
 msgstr "https://www.inkston.com/es/inkston-es/contacto/"
 
-#: comments.php:60
+#: comments.php:57
 msgid "Contact"
 msgstr "Contacto"
 
-#: comments.php:65
+#: comments.php:62
 msgid "Leave a Comment"
 msgstr "Dejar un comentario"
 
-#: comments.php:66
+#: comments.php:63
 msgid " or "
 msgstr "o"
 
-#: comments.php:75
+#: comments.php:68
 msgid "Post Comment"
 msgstr "Añadir comentario"
 
@@ -600,24 +620,24 @@ msgstr "Leer"
 msgid "Choose"
 msgstr "Elegir"
 
-#: functions.php:273 functions.php:281 functions.php:282
+#: functions.php:270 functions.php:278 functions.php:279
 #: inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr "Menu Top"
 
-#: functions.php:275
+#: functions.php:272
 msgid "Primary Menu"
 msgstr "Menu Principal"
 
-#: functions.php:276 inc/contextual-help.php:60
+#: functions.php:273 inc/contextual-help.php:60
 msgid "Social Menu"
 msgstr "Menu Social"
 
-#: functions.php:829 functions.php:871
+#: functions.php:825 functions.php:867
 msgid "Recent discussions in: "
 msgstr "Discusiones recientes en:"
 
-#: functions.php:1098
+#: functions.php:1096
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
@@ -626,28 +646,28 @@ msgstr ""
 "Si no tiene una cuenta <a target=\"_blank\" href=\"%s\">regístrese</a> (se "
 "abrirá una nueva ventana)"
 
-#: functions.php:1099
+#: functions.php:1097
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr " y haz clic <a href=\"#comment\" onclick=\"%s\" \">aquí</a>."
 
-#: functions.php:1404
+#: functions.php:1402
 msgid "12 digits international standard Universal Product Code."
 msgstr "12 dígitos Código de Producto Universal, estándar internacional."
 
-#: functions.php:1425 functions.php:1543
+#: functions.php:1423 functions.php:1541
 msgid "Product weight"
 msgstr "Peso Neto"
 
-#: functions.php:1427 functions.php:1430 functions.php:1545 functions.php:1548
+#: functions.php:1425 functions.php:1428 functions.php:1543 functions.php:1546
 msgid "Unpacked net product weight."
 msgstr "Peso neto del producto desembalado."
 
-#: functions.php:1456 functions.php:1564
+#: functions.php:1454 functions.php:1562
 msgid "Product size "
 msgstr "Tamaño del Producto"
 
-#: functions.php:1464 functions.php:1524 functions.php:1568
+#: functions.php:1462 functions.php:1522 functions.php:1566
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr "Tamaño del producto desembalado."
 
@@ -703,10 +723,6 @@ msgstr ""
 "Su pedido tiene una opción de diseño personalizado, si lo desea puede cargar "
 "un archivo y/o realizar comentarios a continuación. También puede omitir "
 "este paso y confirmar los detalles con nosotros más adelante."
-
-#: functions2.php:1013
-msgid "Login with Facebook, LinkedIn or Google"
-msgstr "Inicie sesión con Facebook, LinkedIn o Google"
 
 #: functions2.php:1015
 msgid "Or use your Inkston login:"
@@ -787,6 +803,14 @@ msgstr ""
 "Sitio web principal (puede ser cualquier enlace incluyendo página de "
 "Facebook si esa es su página principal)"
 
+#: functions2.php:1057
+msgid ""
+"add optional tags separated by commas, to allow more classifications than "
+"available under categories "
+msgstr ""
+"Agregue etiquetas opcionales separadas por comas para permitir más "
+"clasificaciones que las disponibles en categorías"
+
 #: image.php:34
 #, php-format
 msgid ""
@@ -863,7 +887,7 @@ msgstr "Buscar"
 msgid "Articles"
 msgstr "Historias"
 
-#: bbpress/user-details.php:97
+#: bbpress/user-details.php:94
 msgid "/my-account/"
 msgstr "/mi-cuenta/"
 

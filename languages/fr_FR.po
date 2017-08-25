@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoline Inkston\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-21 23:42+0000\n"
-"PO-Revision-Date: 2017-08-21 23:43+0000\n"
+"POT-Creation-Date: 2017-08-25 02:47+0000\n"
+"PO-Revision-Date: 2017-08-25 02:52+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -19,7 +19,7 @@ msgstr ""
 
 #: comments.php:16
 msgid "Comments: "
-msgstr ""
+msgstr "Commentaires:"
 
 #: comments.php:16
 msgid "0"
@@ -37,11 +37,11 @@ msgstr ""
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:51
+#: comments.php:48
 msgid "Comments Closed"
-msgstr ""
+msgstr "Commentaires fermés"
 
-#: comments.php:60
+#: comments.php:57
 msgid "Contact"
 msgstr ""
 
@@ -50,82 +50,83 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: functions.php:273 functions.php:281 functions.php:282
+#: functions.php:270 functions.php:278 functions.php:279
 #: inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr ""
 
-#: functions.php:274
+#: functions.php:271
 msgid "Hamburger Menu"
 msgstr ""
 
-#: functions.php:275
+#: functions.php:272
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:276 inc/contextual-help.php:60
+#: functions.php:273 inc/contextual-help.php:60
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:317
+#: functions.php:313
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:325
+#: functions.php:321
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:333
+#: functions.php:329
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:334
+#: functions.php:330
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:342
+#: functions.php:338
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:343
+#: functions.php:339
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:351
+#: functions.php:347
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:352
+#: functions.php:348
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:678
+#: functions.php:674
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:679
+#: functions.php:675
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:1386 functions.php:1509
+#: functions.php:1384 functions.php:1507
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1400 functions.php:1521
+#: functions.php:1398 functions.php:1519
 msgid "UPC"
+msgstr ""
+
+#: functions2.php:1013
+msgid "Login or register with Facebook, LinkedIn, Google"
 msgstr ""
 
 #: functions2.php:1046
 msgid "Website"
 msgstr ""
 
-#: functions2.php:1057
-msgid ""
-"add optional tags separated by commas, to allow more classifications than "
-"available under categories "
+#: functions2.php:1152
+msgid "Subscribe to this conversation with occasional email."
 msgstr ""
-"Ajouter des balises facultatives séparées par des virgules, pour permettre "
-"plus de classifications que celles disponibles dans les catégories"
+"Abonnez-vous à cette conversation avec un courrier électronique occasionnel."
 
 #: header.php:109
 msgid "Menu"
@@ -157,9 +158,17 @@ msgstr ""
 msgid "Puzzle-Pic"
 msgstr ""
 
+#. Name of the template
+msgid "Subscribe To Comments"
+msgstr "S'abonner aux commentaires"
+
 #: bbpress/user-details.php:35
 msgid "Articles"
 msgstr ""
+
+#: bbpress/user-details.php:106 woocommerce/myaccount/navigation.php:69
+msgid "Newsletter subscriptions"
+msgstr "Abonnement à la Newsletter"
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
 #, php-format
@@ -417,7 +426,7 @@ msgstr ""
 
 #: inc/customizer.php:469
 msgid "Copyright"
-msgstr ""
+msgstr "Droits d'auteur"
 
 #: inc/customizer.php:479
 msgid "Display Options"
@@ -486,20 +495,20 @@ msgstr ""
 
 #: inc/template-tags.php:159
 msgid "Category: "
-msgstr ""
+msgstr "Catégorie"
 
 #: inc/template-tags.php:164
 msgid "Tag: "
-msgstr ""
+msgstr "Étiquette:"
 
 #: inc/template-tags.php:307
 #, php-format
 msgid "design %s"
-msgstr ""
+msgstr "désign %s"
 
 #: inc/welcome.php:34
 msgid "Thanks for choosing inkston!"
-msgstr ""
+msgstr "Merci d'avoir choisi inkston!"
 
 #: inc/welcome.php:35
 msgid "This theme has built-in Contextual Help for most admin screens."
@@ -516,7 +525,7 @@ msgstr ""
 
 #: inc/welcome.php:36
 msgid "Welcome!"
-msgstr ""
+msgstr "Bienvenue!"
 
 #: inc/welcome.php:66
 msgid "Theme"
@@ -528,7 +537,7 @@ msgstr ""
 
 #: inc/welcome.php:72
 msgid "Welcome to"
-msgstr ""
+msgstr "Bienvenue à"
 
 #: inc/welcome.php:75
 msgid "Here are some links to get you started and optional theme-setup tasks:"
@@ -608,6 +617,18 @@ msgstr ""
 msgid "None"
 msgstr ""
 
+#: woocommerce/myaccount/navigation.php:58
+msgid "Comment subscriptions"
+msgstr "Abonnement aux commentaires"
+
+#: woocommerce/myaccount/navigation.php:79
+msgid "My comments and reviews"
+msgstr "Mes commentaires et avis"
+
+#: woocommerce/myaccount/navigation.php:80
+msgid "My Comments"
+msgstr "Mes commentaires"
+
 #: woocommerce/single-product/product-attributes.php:221
 msgid "Standard"
 msgstr ""
@@ -636,19 +657,19 @@ msgstr "&larr; Commentaires plus anciens"
 msgid "Newer Comments &rarr;"
 msgstr "Commentaires plus récents &rarr;"
 
-#: comments.php:59
+#: comments.php:56
 msgid "https://www.inkston.com/inkston/contact-us/"
 msgstr "https://www.inkston.com/fr/portail/contactez-nous/"
 
-#: comments.php:65
+#: comments.php:62
 msgid "Leave a Comment"
 msgstr "Laissez un commentaire"
 
-#: comments.php:66
+#: comments.php:63
 msgid " or "
 msgstr "ou"
 
-#: comments.php:75
+#: comments.php:68
 msgid "Post Comment"
 msgstr "Poster un commentaire"
 
@@ -689,11 +710,11 @@ msgstr "Lire"
 msgid "Choose"
 msgstr "Choisir"
 
-#: functions.php:829 functions.php:871
+#: functions.php:825 functions.php:867
 msgid "Recent discussions in: "
 msgstr "Discussions récentes dans:"
 
-#: functions.php:1098
+#: functions.php:1096
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
@@ -702,28 +723,28 @@ msgstr ""
 "Si vous n'avez pas de compte <a target=\"_blank\" href=\"%s\"> inscrivez-"
 "vous </a> (ouvrira dans une nouvelle fenêtre)"
 
-#: functions.php:1099
+#: functions.php:1097
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr "puis <a href=\"#comment\" onclick=\"%s\" \"> cliquez ici </a>."
 
-#: functions.php:1404
+#: functions.php:1402
 msgid "12 digits international standard Universal Product Code."
 msgstr "Code numérique universel de 12 chiffres."
 
-#: functions.php:1425 functions.php:1543
+#: functions.php:1423 functions.php:1541
 msgid "Product weight"
 msgstr "Poids du produit"
 
-#: functions.php:1427 functions.php:1430 functions.php:1545 functions.php:1548
+#: functions.php:1425 functions.php:1428 functions.php:1543 functions.php:1546
 msgid "Unpacked net product weight."
 msgstr "Poids net du produit non emballé."
 
-#: functions.php:1456 functions.php:1564
+#: functions.php:1454 functions.php:1562
 msgid "Product size "
 msgstr "Taille du produit"
 
-#: functions.php:1464 functions.php:1524 functions.php:1568
+#: functions.php:1462 functions.php:1522 functions.php:1566
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr "Taille de produit non conditionnée LxWxH en décimale"
 
@@ -784,10 +805,6 @@ msgstr ""
 "souhaitez, vous pouvez télécharger un fichier et / ou faire des commentaires "
 "ci-dessous. Vous pouvez également ignorer cette étape et confirmer les "
 "détails avec nous plus tard."
-
-#: functions2.php:1013
-msgid "Login with Facebook, LinkedIn or Google"
-msgstr "Connectez-vous avec Facebook, LinkedIn ou Google"
 
 #: functions2.php:1015
 msgid "Or use your Inkston login:"
@@ -863,6 +880,14 @@ msgid ""
 msgstr ""
 "Site principal (peut-être un lien incluant la page Facebook si c'est votre "
 "page principale)"
+
+#: functions2.php:1057
+msgid ""
+"add optional tags separated by commas, to allow more classifications than "
+"available under categories "
+msgstr ""
+"Ajouter des balises facultatives séparées par des virgules, pour permettre "
+"plus de classifications que celles disponibles dans les catégories"
 
 #: image.php:34
 #, php-format
@@ -940,7 +965,7 @@ msgstr "Rechercher"
 msgid "%s's Posts"
 msgstr "%s's Articles"
 
-#: bbpress/user-details.php:97
+#: bbpress/user-details.php:94
 msgid "/my-account/"
 msgstr "/mon-compte/"
 
