@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
 "POT-Creation-Date: 2017-08-25 02:43+0000\n"
-"PO-Revision-Date: 2017-08-25 02:54+0000\n"
+"PO-Revision-Date: 2017-08-25 06:43+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
@@ -91,11 +91,7 @@ msgstr ""
 
 #: functions2.php:1013
 msgid "Login or register with Facebook, LinkedIn, Google"
-msgstr ""
-
-#: functions2.php:1152
-msgid "Subscribe to this conversation with occasional email."
-msgstr "Suscríbete a esta conversación con correos electrónicos ocasionales."
+msgstr "Inicie sesión o regístrese en Facebook, LinkedIn, Google"
 
 #: header.php:109
 msgid "Menu"
@@ -127,18 +123,10 @@ msgstr ""
 msgid "Puzzle-Pic"
 msgstr ""
 
-#. Name of the template
-msgid "Subscribe To Comments"
-msgstr "Suscribirse a los comentarios"
-
 #: bbpress/user-details.php:35
 #, php-format
 msgid "%s's Posts"
-msgstr ""
-
-#: bbpress/user-details.php:106 woocommerce/myaccount/navigation.php:69
-msgid "Newsletter subscriptions"
-msgstr "Suscripciones a los boletines"
+msgstr "%s's Entradas"
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
 #, php-format
@@ -521,6 +509,18 @@ msgstr ""
 #. Author URI of the theme
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
+
+#: functions2.php:1152
+msgid "Subscribe to this conversation with occasional email."
+msgstr "Suscríbete a esta conversación con correos electrónicos ocasionales."
+
+#. Name of the template
+msgid "Subscribe To Comments"
+msgstr "Suscribirse a los comentarios"
+
+#: bbpress/user-details.php:106 woocommerce/myaccount/navigation.php:69
+msgid "Newsletter subscriptions"
+msgstr "Suscripciones a los boletines"
 
 #: inc/customizer.php:469
 msgid "Copyright"

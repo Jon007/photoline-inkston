@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Photoline Inkston\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-08-25 02:47+0000\n"
-"PO-Revision-Date: 2017-08-25 02:52+0000\n"
+"PO-Revision-Date: 2017-08-25 06:45+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -16,10 +16,6 @@ msgstr ""
 #. Name of the template
 msgid "commentspage"
 msgstr ""
-
-#: comments.php:16
-msgid "Comments: "
-msgstr "Commentaires:"
 
 #: comments.php:16
 msgid "0"
@@ -36,10 +32,6 @@ msgstr ""
 #: comments.php:21 comments.php:36
 msgid "Comment navigation"
 msgstr ""
-
-#: comments.php:48
-msgid "Comments Closed"
-msgstr "Commentaires fermés"
 
 #: comments.php:57
 msgid "Contact"
@@ -117,16 +109,11 @@ msgstr ""
 
 #: functions2.php:1013
 msgid "Login or register with Facebook, LinkedIn, Google"
-msgstr ""
+msgstr "Connectez-vous ou inscrivez-vous sur Facebook, LinkedIn, Google"
 
 #: functions2.php:1046
 msgid "Website"
 msgstr ""
-
-#: functions2.php:1152
-msgid "Subscribe to this conversation with occasional email."
-msgstr ""
-"Abonnez-vous à cette conversation avec un courrier électronique occasionnel."
 
 #: header.php:109
 msgid "Menu"
@@ -158,17 +145,9 @@ msgstr ""
 msgid "Puzzle-Pic"
 msgstr ""
 
-#. Name of the template
-msgid "Subscribe To Comments"
-msgstr "S'abonner aux commentaires"
-
 #: bbpress/user-details.php:35
 msgid "Articles"
 msgstr ""
-
-#: bbpress/user-details.php:106 woocommerce/myaccount/navigation.php:69
-msgid "Newsletter subscriptions"
-msgstr "Abonnement à la Newsletter"
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
 #, php-format
@@ -424,10 +403,6 @@ msgstr ""
 msgid "Footer Copyright"
 msgstr ""
 
-#: inc/customizer.php:469
-msgid "Copyright"
-msgstr "Droits d'auteur"
-
 #: inc/customizer.php:479
 msgid "Display Options"
 msgstr ""
@@ -488,27 +463,12 @@ msgid ""
 "<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>by</i> "
 "%2$s</span>"
 msgstr ""
+"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>par</i> "
+"%2$s</span>"
 
 #: inc/template-tags.php:154 inc/template-tags.php:155
 msgid ", "
 msgstr ""
-
-#: inc/template-tags.php:159
-msgid "Category: "
-msgstr "Catégorie"
-
-#: inc/template-tags.php:164
-msgid "Tag: "
-msgstr "Étiquette:"
-
-#: inc/template-tags.php:307
-#, php-format
-msgid "design %s"
-msgstr "désign %s"
-
-#: inc/welcome.php:34
-msgid "Thanks for choosing inkston!"
-msgstr "Merci d'avoir choisi inkston!"
 
 #: inc/welcome.php:35
 msgid "This theme has built-in Contextual Help for most admin screens."
@@ -523,10 +483,6 @@ msgstr ""
 msgid "Get a brief setup instructions on the %swelcome screen%s."
 msgstr ""
 
-#: inc/welcome.php:36
-msgid "Welcome!"
-msgstr "Bienvenue!"
-
 #: inc/welcome.php:66
 msgid "Theme"
 msgstr ""
@@ -534,10 +490,6 @@ msgstr ""
 #: inc/welcome.php:67
 msgid "Thank you for choosing inkston WordPress theme for your website!"
 msgstr ""
-
-#: inc/welcome.php:72
-msgid "Welcome to"
-msgstr "Bienvenue à"
 
 #: inc/welcome.php:75
 msgid "Here are some links to get you started and optional theme-setup tasks:"
@@ -617,18 +569,6 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: woocommerce/myaccount/navigation.php:58
-msgid "Comment subscriptions"
-msgstr "Abonnement aux commentaires"
-
-#: woocommerce/myaccount/navigation.php:79
-msgid "My comments and reviews"
-msgstr "Mes commentaires et avis"
-
-#: woocommerce/myaccount/navigation.php:80
-msgid "My Comments"
-msgstr "Mes commentaires"
-
 #: woocommerce/single-product/product-attributes.php:221
 msgid "Standard"
 msgstr ""
@@ -648,6 +588,68 @@ msgstr ""
 #. Author URI of the theme
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
+
+#: comments.php:16
+msgid "Comments: "
+msgstr "Commentaires:"
+
+#: comments.php:48
+msgid "Comments Closed"
+msgstr "Commentaires fermés"
+
+#: functions2.php:1152
+msgid "Subscribe to this conversation with occasional email."
+msgstr ""
+"Abonnez-vous à cette conversation avec un courrier électronique occasionnel."
+
+#. Name of the template
+msgid "Subscribe To Comments"
+msgstr "S'abonner aux commentaires"
+
+#: bbpress/user-details.php:106 woocommerce/myaccount/navigation.php:69
+msgid "Newsletter subscriptions"
+msgstr "Abonnement à la Newsletter"
+
+#: inc/customizer.php:469
+msgid "Copyright"
+msgstr "Droits d'auteur"
+
+#: inc/template-tags.php:159
+msgid "Category: "
+msgstr "Catégorie"
+
+#: inc/template-tags.php:164
+msgid "Tag: "
+msgstr "Étiquette:"
+
+#: inc/template-tags.php:307
+#, php-format
+msgid "design %s"
+msgstr "désign %s"
+
+#: inc/welcome.php:34
+msgid "Thanks for choosing inkston!"
+msgstr "Merci d'avoir choisi inkston!"
+
+#: inc/welcome.php:36
+msgid "Welcome!"
+msgstr "Bienvenue!"
+
+#: inc/welcome.php:72
+msgid "Welcome to"
+msgstr "Bienvenue à"
+
+#: woocommerce/myaccount/navigation.php:58
+msgid "Comment subscriptions"
+msgstr "Abonnement aux commentaires"
+
+#: woocommerce/myaccount/navigation.php:79
+msgid "My comments and reviews"
+msgstr "Mes commentaires et avis"
+
+#: woocommerce/myaccount/navigation.php:80
+msgid "My Comments"
+msgstr "Mes commentaires"
 
 #: comments.php:22 comments.php:37
 msgid "&larr; Older Comments"
