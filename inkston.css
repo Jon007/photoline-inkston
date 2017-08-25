@@ -765,7 +765,7 @@ span.page-title p {
 }
 
 label {
-    color: #aaa;
+    color: #413e3e;
     padding: 5px 0;
 }
 
@@ -3097,7 +3097,7 @@ input[type="submit"].wpcf7-submit:hover, input[type="submit"].wpcf7-submit:activ
  }
 /* */
 li.wc_payment_method label, #customer_details label, #shipping_method label {
-  color: #404040;
+  color: #413e3e;
 }
 .woocommerce #payment, .woocommerce-page #payment {
  background-color:white;
@@ -3532,7 +3532,7 @@ cite.fn a.url {color:#000;}
 
 .comments-area footer .comment-meta,
 .comments-area footer .comment-meta a {
-    color: #aaaaaa;
+    color: #413e3e;
     text-decoration: none;
     font-size: 12px;
 }
@@ -3543,7 +3543,7 @@ cite.fn a.url {color:#000;}
 .comments-area #respond {padding-top: 40px;}
 
 .comments-area #reply-title {font-size: 18px;margin-bottom: 10px;}
-#commentform label{display: block;}
+#commentform label{display: block;color: #4d914d;}
 #commentform label .required {color: red;}
 #comments {font-size: 12px;}
 .pingback {font-size: 11px;color: #444;margin-bottom: 10px;}
@@ -4040,8 +4040,9 @@ div#header-thumbnail.fixbox{
 .wpbdp-listing-single .extra-images ul li img {
     max-width:min-content;
 }
+.wpbdp-form-field .field-description,
 .wpbdp-listing label, .wpbdp-form-field-label label{
-	color: #1a1919;
+	color: #686464;
 }
 .wpbdp-form-field-type-checkbox div.wpbdmcheckboxclass, 
 select.required{
@@ -4085,3 +4086,8 @@ min-width: 143px;
 text-align: center;
 }
 #bbpress-forums .button.acomment-translate{padding: 3px 9px;}
+#commentform .comment-form-mailpoet, 
+#commentform .comment-form-subscriptions, 
+#commentform .form-submit{
+	margin:0;
+}

@@ -939,6 +939,8 @@ function merge_comments($comments, $post_ID)
 //note: this isn't called at all for wooCommerce products..
 function merge_comment_count($count, $post_ID)
 {
+    //ignore fake page for Subscribe to Comments Reloaded
+    if (9999999==$post_ID){return $count;}
     /* temporarily remove comment merging on wooCommerce product reviews, since this isn't compatible with 
      * how wooCommerce ratings and totals are calculated as yet */
     if (is_woocommerce_activated()) {
@@ -1177,8 +1179,8 @@ function inkGetPageID($page)
     //get the page it, if $page is not already numeric
     if (!(is_numeric($page))){
         if (is_string($page)){
-            $page = get_page($page);
-            if (! $page){return false;}
+            //$page = get_page($page);
+            //if (! $page){return false;}
             $args = array(
               'name'        => $page,
               'post_type'   => 'page',
