@@ -1108,3 +1108,25 @@ function ink_add_checkout_message($message, $products){
     return $checkoutbutton . $message;
 }
 add_filter( 'wc_add_to_cart_message_html', 'ink_add_checkout_message', 10, 2 );
+
+
+function ink_bbp_mail_alert( $message, $reply_id, $topic_id ){
+	$topic_title  = strip_tags( bbp_get_topic_title( $topic_id ) );
+    $forum_title = bbp_get_topic_forum_title($topic_id);
+
+	$messageheader = sprintf( __( 'New post in Forum "%1$s", Topic "%2$s".', 'photoline-inkston' ),
+		$forum_title,
+		$topic_title
+	);
+    $profilelink = network_site_url() . '/community/my-profile/';
+	$messagefooter = sprintf( __( 'Or visit your profile page to review all your subscriptions: %1$s', 'photoline-inkston' ),
+		$profilelink
+	);
+    $messagefooter .= "\r\n" . "\r\n" . __('Thankyou for participating in Inkston Community', 'photoline-inkston' );
+    
+    return $messageheader . "\r\n" . "\r\n" . $message . "\r\n" . $messagefooter;
+}
+add_filter( 'bbp_subscription_mail_message', 'ink_bbp_mail_alert', 10, 3);
+
+
+

@@ -4076,7 +4076,7 @@ body.wpbdp-view-show_listing header.page-header {display:none}
 #bbpress-forums .bbp-forum-info .bbp-forum-content,
 body.bbpress .bbp-reply-content{font-size:15px;line-height:150%;}
 body.bbpress #content h1{font-size: 24px;}
-.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-40px;float:right;}
+.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-100px;float:right;}
 .wpbdp-listing-single .listing-title{display:none;}
 .mailpoet_form_widget .mailpoet_paragraph{display:inline-block;}
 .mailpoet_form_widget .mailpoet_paragraph input[type="submit"]{text-transform:none;}
@@ -4090,4 +4090,10 @@ text-align: center;
 #commentform .comment-form-subscriptions, 
 #commentform .form-submit{
 	margin:0;
+}
+/*allow forum text to flow around the author block... especially useful on small screens*/
+#bbpress-forums div.bbp-forum-content, 
+#bbpress-forums div.bbp-topic-content, 
+#bbpress-forums div.bbp-reply-content {
+    margin-left: 0;
 }
