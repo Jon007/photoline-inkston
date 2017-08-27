@@ -1129,4 +1129,20 @@ function ink_bbp_mail_alert( $message, $reply_id, $topic_id ){
 add_filter( 'bbp_subscription_mail_message', 'ink_bbp_mail_alert', 10, 3);
 
 
+function ink_bbp_distributionaddress($address){
+    return __('forum-subscribers@inkston.com', 'photoline-inkston');
+}
+add_filter( 'bbp_get_do_not_reply_address', 'ink_bbp_distributionaddress', 10, 1);
 
+function get_user_points(){
+    $points = 0;
+    $user_id = get_current_user_id();
+    if ($user_id){
+        $points_meta = get_user_meta($user_id, '_badgeos_points', true );
+        if (is_numeric($points_meta)){
+           $points =  $points_meta;
+        }
+    }
+    return $points;
+}
+add_shortcode('inkpoints', 'get_user_points');

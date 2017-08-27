@@ -4097,3 +4097,46 @@ text-align: center;
 #bbpress-forums div.bbp-reply-content {
     margin-left: 0;
 }
+#bbpress-forums .subscription-toggle{
+padding: 5px 15px;
+font-size: larger;
+background-color: #4d914d;
+color: white;
+text-decoration: none;
+float: right;
+border-radius: 5px;
+}
+#bbpress-forums .subscription-toggle:hover{
+background-color: #4d914d;
+color: white;
+}
+#bbpress-forums div.bbp-forum-content{
+font-size: larger;
+font-weight: bolder;	
+}
+#bbpress-forums .bbp-forum-info div.bbp-forum-content{
+font-size: 14px;
+font-weight: normal;	
+}
+#bbpress-forums .bbp-forums-list li {
+font-size:15px;	
+}
+.bbp-search-form .search-label{display:none;}
+.bbp-search-form .search-submit{display:inline-block;}
+.tile.noimage{
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
+}
+.tile.noimage a{
+background-color: rgba(255,255,255,0.9)!important;
+color: rgba(0,0,0,0.7)!important;
+top:-8px;
+}
+.tile.noimage:hover a{
+	top:10px;
+	color:white!important;
+	background-color: rgba(26, 25, 25, 0.9)!important;
+}
+.tile .noimage span.search-highlight{
+    font-weight: bolder;
+    background-color: rgba(104,153,195,0.5);
+}

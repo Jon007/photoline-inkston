@@ -16,7 +16,7 @@
 	<label>
         <span class="search-label"><?php
             $query = get_search_query();
-            if (have_posts()){
+            if (have_posts() && $query){
                 _e('Showing results for:', 'photoline-inkston');
             } else {
                 _e('Search for:', 'photoline-inkston');                

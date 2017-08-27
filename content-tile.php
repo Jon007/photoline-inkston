@@ -6,14 +6,17 @@
 ?>
 
 <?php
+$class = "tile h-entry";
 $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id(), 'medium');
 if ($thumbnail) {
     $thumbnail = $thumbnail[0];
 } else {
     $thumbnail = inkston_catch_image();
+    if ($thumbnail == get_template_directory_uri() . '/img/no-image.png'){
+        $class .= " noimage";
+    }
 }
 /* $extract = inkston_get_excerpt( 25 );  just plain text, use inkston_excerpt( 40 ); for html.. */
-$class = "tile h-entry";
 $title = get_the_title();
 $excerpt = inkston_get_excerpt();
 

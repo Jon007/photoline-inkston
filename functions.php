@@ -441,7 +441,7 @@ if (!function_exists('inkston_catch_image')) :
         ob_start();
         ob_end_clean();
         $first_img = '';
-        if (is_single()) {
+        if (is_single() || $post) {
             $first_img = inkston_featured_img_tag($post->post_content, false);
         }
         if (empty($first_img)) {
