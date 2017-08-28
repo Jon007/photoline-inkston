@@ -1344,7 +1344,6 @@ function ink_clear_achievements_to_notify($user_id){
 }
 //can't actually print the messages as we are redirected on successful post ....
 function ink_print_achievement_messages(){
-    error_log('printing achievements');
     $user_id = get_current_user_id();
     if ($user_id){
         $achievements = ink_get_achievements_to_notify($user_id);
@@ -1362,9 +1361,6 @@ function ink_print_achievement_messages(){
             ink_clear_achievements_to_notify($user_id)
             ?></div><?php 
         }
-        else {
-                error_log('no achievements this time');
-        }
     }
 }
 add_action( 'bbp_template_notices', 'ink_print_achievement_messages');
@@ -1372,7 +1368,6 @@ add_action( 'bbp_template_notices', 'ink_print_achievement_messages');
 
 function ink_add_achievement_messages($user_id, $achievement_id, $this_trigger, $site_id, $args){
     $achievement_type = get_post_type( $achievement_id );
-    error_log('awarded: ' . $achievement_type);
     if ( 'step' != $achievement_type ) {
         ink_set_achievements_to_notify($user_id, $achievement_id);
     }
@@ -1441,13 +1436,21 @@ add_filter('pre_option_relevanssi_expand_shortcodes', 'ink_nosearch_shortcodes',
  */
 function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
 {
+    $title = '';
     $user_Id = 0;
     if (is_numeric($id_or_email)){
         $user_Id = intval($id_or_email);
+        if ($user_Id){
+            $user = get_user_by('ID', $user_Id);
+            $title = $user->display_name;
+        }
     } else {
+        if ($id_or_email) {
         $user = get_user_by( 'email', $id_or_email );
         if ($user){
             $user_Id = $user->ID;
+                $title = $user->display_name;
+            }
         }
     }
     if (is_numeric($user_Id)){
@@ -1459,7 +1462,11 @@ function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
         if ($badge != __('No badges yet', 'photoline-inkston')){
             return '<img alt="' . esc_attr(get_user_level( array(
             'user_id' => $user_Id,
-            'style' => 'text') )) . '" src="' . $badge . '" class="avatar avatar-' . $size . ' " height="' . $size . '" width="' . $size . '" style="height:'. $size .'px;width:'. $size .'px" />';
+            'style' => 'text') )) . '" src="' . $badge . 
+                '" title="' . $title . 
+                '" class="avatar avatar-' . $size . 
+                '" height="' . $size . '" width="' . $size . 
+                '" style="height:'. $size .'px;width:'. $size .'px" />';
         }
 
     }

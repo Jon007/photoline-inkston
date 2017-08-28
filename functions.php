@@ -474,7 +474,7 @@ function inkston_featured_img_tag($content, $tag){
             $urls = $matches [1];
         }
         foreach ($urls as $url) {
-            if (strpos($url, 'cat-generator-avatars') === false) {
+            if ( (strpos($url, 'cat-generator-avatars') === false) && (strpos($url, 'badge') === false) ) {
                 $first_img = $url;
                 break;
             } else {
