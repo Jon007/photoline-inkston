@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoline Inkston\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 02:47+0000\n"
-"PO-Revision-Date: 2017-08-25 06:45+0000\n"
+"POT-Creation-Date: 2017-08-27 15:35+0000\n"
+"PO-Revision-Date: 2017-08-27 15:45+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -107,12 +107,12 @@ msgstr ""
 msgid "UPC"
 msgstr ""
 
-#: functions2.php:1013
-msgid "Login or register with Facebook, LinkedIn, Google"
-msgstr "Connectez-vous ou inscrivez-vous sur Facebook, LinkedIn, Google"
-
 #: functions2.php:1046
 msgid "Website"
+msgstr ""
+
+#: functions2.php:1177
+msgid "forum-subscribers@inkston.com"
 msgstr ""
 
 #: header.php:109
@@ -145,9 +145,9 @@ msgstr ""
 msgid "Puzzle-Pic"
 msgstr ""
 
-#: bbpress/user-details.php:35
-msgid "Articles"
-msgstr ""
+#: bbpress/user-profile.php:26
+msgid "to add content to this section."
+msgstr "pour ajouter du contenu à cette section."
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
 #, php-format
@@ -457,15 +457,6 @@ msgctxt "Next post link"
 msgid "<i class=\"fa fa-arrow-right\"></i>"
 msgstr ""
 
-#: inc/template-tags.php:135
-#, php-format
-msgid ""
-"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>by</i> "
-"%2$s</span>"
-msgstr ""
-"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>par</i> "
-"%2$s</span>"
-
 #: inc/template-tags.php:154 inc/template-tags.php:155
 msgid ", "
 msgstr ""
@@ -589,67 +580,67 @@ msgstr ""
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
 
+#: functions2.php:1161
+#, php-format
+msgid "New post in Forum \"%1$s\", Topic \"%2$s\"."
+msgstr "Nouvelle publication dans Forum \"%1$s\", Sujet \"%2$s\"."
+
+#: functions2.php:1166
+#, php-format
+msgid "Or visit your profile page to review all your subscriptions: %1$s"
+msgstr ""
+"Ou visitez votre page de profil pour passer en revue tous vos abonnements: "
+"%1$s"
+
+#: functions2.php:1169
+msgid "Thankyou for participating in Inkston Community"
+msgstr "Merci d'avoir participé à la communauté d'Inkston"
+
+#. Name of the template
+msgid "Profile"
+msgstr "Profil"
+
+#: bbpress/user-details.php:35
+msgid "Artist Listings"
+msgstr "Inscriptions d'artistes"
+
+#: bbpress/user-profile.php:16
+#, php-format
+msgid "%s's Profile"
+msgstr "Profil de %s"
+
+#: bbpress/user-profile.php:23
+msgid "This user has not yet edited their profile."
+msgstr "Cet utilisateur n'a pas encore modifié son profil."
+
+#: bbpress/user-profile.php:25
+msgid "Edit your profile"
+msgstr "Modifier votre profil"
+
+#: bbpress/user-profile.php:32
+msgid "Forum Contributions"
+msgstr "Contributions au Forum"
+
+#: bbpress/user-profile.php:45
+msgid "Contributor badges"
+msgstr "Insignes du contributeur"
+
+#: bbpress/user-profile.php:46
+msgid ""
+"Points are awarded for making community contributions, as you earn more "
+"points you can win badges which get you prize coupons redeemable at the shop."
+"  <a href=\"https://www.inkston.com/community/my-awards/\">Click here</a> to "
+"see the levels and points scheme."
+msgstr ""
+"Les points sont attribués pour faire des contributions communautaires, car "
+"vous gagnez plus de points, vous pouvez gagner des badges qui vous "
+"permettent de racheter des coupons de prix au magasin. <a href=\"https://www."
+"inkston.com/community/my-awards/\"> Cliquez ici </a> pour voir le schéma des "
+"niveaux et des points."
+
 #: comments.php:16
 msgid "Comments: "
 msgstr "Commentaires:"
-
-#: comments.php:48
-msgid "Comments Closed"
-msgstr "Commentaires fermés"
-
-#: functions2.php:1152
-msgid "Subscribe to this conversation with occasional email."
-msgstr ""
-"Abonnez-vous à cette conversation avec un courrier électronique occasionnel."
-
-#. Name of the template
-msgid "Subscribe To Comments"
-msgstr "S'abonner aux commentaires"
-
-#: bbpress/user-details.php:106 woocommerce/myaccount/navigation.php:69
-msgid "Newsletter subscriptions"
-msgstr "Abonnement à la Newsletter"
-
-#: inc/customizer.php:469
-msgid "Copyright"
-msgstr "Droits d'auteur"
-
-#: inc/template-tags.php:159
-msgid "Category: "
-msgstr "Catégorie"
-
-#: inc/template-tags.php:164
-msgid "Tag: "
-msgstr "Étiquette:"
-
-#: inc/template-tags.php:307
-#, php-format
-msgid "design %s"
-msgstr "désign %s"
-
-#: inc/welcome.php:34
-msgid "Thanks for choosing inkston!"
-msgstr "Merci d'avoir choisi inkston!"
-
-#: inc/welcome.php:36
-msgid "Welcome!"
-msgstr "Bienvenue!"
-
-#: inc/welcome.php:72
-msgid "Welcome to"
-msgstr "Bienvenue à"
-
-#: woocommerce/myaccount/navigation.php:58
-msgid "Comment subscriptions"
-msgstr "Abonnement aux commentaires"
-
-#: woocommerce/myaccount/navigation.php:79
-msgid "My comments and reviews"
-msgstr "Mes commentaires et avis"
-
-#: woocommerce/myaccount/navigation.php:80
-msgid "My Comments"
-msgstr "Mes commentaires"
 
 #: comments.php:22 comments.php:37
 msgid "&larr; Older Comments"
@@ -658,6 +649,10 @@ msgstr "&larr; Commentaires plus anciens"
 #: comments.php:23 comments.php:38
 msgid "Newer Comments &rarr;"
 msgstr "Commentaires plus récents &rarr;"
+
+#: comments.php:48
+msgid "Comments Closed"
+msgstr "Commentaires fermés"
 
 #: comments.php:56
 msgid "https://www.inkston.com/inkston/contact-us/"
@@ -807,6 +802,10 @@ msgstr ""
 "souhaitez, vous pouvez télécharger un fichier et / ou faire des commentaires "
 "ci-dessous. Vous pouvez également ignorer cette étape et confirmer les "
 "détails avec nous plus tard."
+
+#: functions2.php:1013
+msgid "Login or register with Facebook, LinkedIn, Google"
+msgstr "Connectez-vous ou inscrivez-vous sur Facebook, LinkedIn, Google"
 
 #: functions2.php:1015
 msgid "Or use your Inkston login:"
@@ -962,14 +961,22 @@ msgctxt "submit button"
 msgid "Search"
 msgstr "Rechercher"
 
+#. Name of the template
+msgid "Subscribe To Comments"
+msgstr "S'abonner aux commentaires"
+
 #: bbpress/user-details.php:35
 #, php-format
 msgid "%s's Posts"
 msgstr "%s's Articles"
 
-#: bbpress/user-details.php:94
+#: bbpress/user-details.php:96
 msgid "/my-account/"
 msgstr "/mon-compte/"
+
+#: bbpress/user-details.php:109 woocommerce/myaccount/navigation.php:69
+msgid "Newsletter subscriptions"
+msgstr "Abonnement à la Newsletter"
 
 #: inc/breadcrumbs.php:28
 msgid "Home"
@@ -995,6 +1002,10 @@ msgstr "Messages avec la balise %s"
 msgid "View all posts by %s"
 msgstr "Voir tous les messages par %s"
 
+#: inc/customizer.php:469
+msgid "Copyright"
+msgstr "Droits d'auteur"
+
 #: inc/excerpts.php:15
 msgid "Read more"
 msgstr "En savoir plus"
@@ -1007,6 +1018,28 @@ msgstr "Retour"
 msgid "More"
 msgstr "Plus"
 
+#: inc/template-tags.php:135
+#, php-format
+msgid ""
+"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>by</i> "
+"%2$s</span>"
+msgstr ""
+"<span class=\"posted-on\">%1$s</span><span class=\"byline\"> <i>par</i> "
+"%2$s</span>"
+
+#: inc/template-tags.php:159
+msgid "Category: "
+msgstr "Catégorie"
+
+#: inc/template-tags.php:164
+msgid "Tag: "
+msgstr "Étiquette:"
+
+#: inc/template-tags.php:307
+#, php-format
+msgid "design %s"
+msgstr "désign %s"
+
 #: inc/template-tags.php:382
 msgid "View Cart"
 msgstr "Voir le panier"
@@ -1015,6 +1048,18 @@ msgstr "Voir le panier"
 msgid "Checkout"
 msgstr "Caisse"
 
+#: inc/welcome.php:34
+msgid "Thanks for choosing inkston!"
+msgstr "Merci d'avoir choisi inkston!"
+
+#: inc/welcome.php:36
+msgid "Welcome!"
+msgstr "Bienvenue!"
+
+#: inc/welcome.php:72
+msgid "Welcome to"
+msgstr "Bienvenue à"
+
 #: woocommerce/emails/customer-on-hold-order.php:31
 msgid "pay for this order online"
 msgstr "Payer pour cette commande en ligne"
@@ -1022,6 +1067,18 @@ msgstr "Payer pour cette commande en ligne"
 #: woocommerce/myaccount/navigation.php:43
 msgid "My Profile"
 msgstr "Mon profil"
+
+#: woocommerce/myaccount/navigation.php:58
+msgid "Comment subscriptions"
+msgstr "Abonnement aux commentaires"
+
+#: woocommerce/myaccount/navigation.php:79
+msgid "My comments and reviews"
+msgstr "Mes commentaires et avis"
+
+#: woocommerce/myaccount/navigation.php:80
+msgid "My Comments"
+msgstr "Mes commentaires"
 
 #: woocommerce/single-product/product-attributes.php:209
 msgid "Shipping"

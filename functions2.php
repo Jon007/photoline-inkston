@@ -1118,7 +1118,7 @@ function ink_bbp_mail_alert( $message, $reply_id, $topic_id ){
 		$forum_title,
 		$topic_title
 	);
-    $profilelink = network_site_url() . '/community/my-profile/';
+    $profilelink = network_site_url() . 'community/my-profile/';
 	$messagefooter = sprintf( __( 'Or visit your profile page to review all your subscriptions: %1$s', 'photoline-inkston' ),
 		$profilelink
 	);
@@ -1146,3 +1146,162 @@ function get_user_points(){
     return $points;
 }
 add_shortcode('inkpoints', 'get_user_points');
+
+/* didn't quite seem to work..
+function ink_badge_triggers($triggers){
+    $triggers['badgeos_new_wpbdp_listing'] = __( 'Publish a new directory listing', 'photoline-inkston' );
+    return $triggers;
+}
+add_filter( 'badgeos_activity_triggers', 'ink_badge_triggers', 10, 1);
+*/
+
+/**
+ * Displays a members achievements
+ *
+ * @since 1.0.0
+ */
+function ink_bp_member_achievements_content() {
+
+    $userid = bbp_get_user_id();
+    if (! $userid){return;}
+	$achievement_types = badgeos_get_network_achievement_types_for_user( $userid );
+	// Eliminate step cpt from array
+	if ( ( $key = array_search( 'step', $achievement_types ) ) !== false ) {
+		unset( $achievement_types[$key] );
+		$achievement_types = array_values( $achievement_types );
+	}
+
+	$type = '';
+
+	if ( is_array( $achievement_types ) && !empty( $achievement_types ) ) {
+		foreach ( $achievement_types as $achievement_type ) {
+			$name = get_post_type_object( $achievement_type )->labels->name;
+			$slug = str_replace( ' ', '-', strtolower( $name ) );
+			if ( $slug && strpos( $_SERVER['REQUEST_URI'], $slug ) ) {
+				$type = $achievement_type;
+			}
+		}
+		if ( empty( $type ) )
+			$type = $achievement_types[0];
+	}
+
+	$atts = array(
+//		'type'        => $type,
+		'type'        => 'badge,point',
+		'limit'       => '10',
+		'show_filter' => 'false',
+		'show_search' => 'false',
+		'group_id'    => '0',
+		'user_id'     => $userid,
+		'wpms'        => badgeos_ms_show_all_achievements(),
+	);
+	echo badgeos_achievements_list_shortcode( $atts );
+}
+
+//function for highest badge: badgeos_achievements_list_shortcode limit to 1, return by last sort order..
+
+
+/*
+ * set achievements pending notification (so they are available to show to user after redirect)
+ * @param int    $user_id    User ID.
+ * @param int    $achievement_id new achievement awarded to this user
+ * @return int|bool Meta ID if the key didn't exist, true on successful update, false on failure.
+ */
+function ink_set_achievements_to_notify($user_id, $achievement_id){
+    if ($achievement_id){
+        //return update_user_meta($user_id, '_ink_badge_pending', $achievement_id);
+
+        $achievements = ink_get_achievements_to_notify($user_id);
+        if ($achievements){
+            if (! is_array($achievements)){
+                $achievements = explode(',', '' . $achievements);
+            }
+            if(! in_array($achievement_id, $achievements)){
+                array_push($achievements, $achievement_id);
+            }
+        } else {
+            $achievements[] = $achievement_id;
+        }
+        return update_user_meta($user_id, '_ink_badge_pending', $achievements);
+    } else {
+        return false;
+    }
+}
+function ink_get_achievements_to_notify($user_id){
+    return get_user_meta($user_id, '_ink_badge_pending', true);    
+}
+function ink_clear_achievements_to_notify($user_id){
+    update_user_meta($user_id, '_ink_badge_pending', '');
+}
+//can't actually print the messages as we are redirected on successful post ....
+function ink_print_achievement_messages(){
+    error_log('printing achievements');
+    $user_id = get_current_user_id();
+    if ($user_id){
+        $achievements = ink_get_achievements_to_notify($user_id);
+    	if(is_array($achievements) && count($achievements) > 0){ 
+            ?><div class="bbp-template-notice"><p><?php 
+                _e('Congratulations you have been awarded:','photoline-inkston') ?></p><?php 
+            for($i = 0, $size = count($achievements); $i < $size; ++$i) {
+                if (is_numeric($achievements[$i])){
+                    echo(badgeos_render_achievement($achievements[$i], $user_id));
+                    echo(badgeos_render_earned_achievement_text($achievements[$i], $user_id));
+                }
+            }
+            //TODO: how do we know to clear, maybe there is a redirect and this is never shown??
+            //maybe need acknowledgement button
+            ink_clear_achievements_to_notify($user_id)
+            ?></div><?php 
+        }
+        else {
+                error_log('no achievements this time');
+        }
+    }
+}
+add_action( 'bbp_template_notices', 'ink_print_achievement_messages');
+
+
+function ink_add_achievement_messages($user_id, $achievement_id, $this_trigger, $site_id, $args){
+    $achievement_type = get_post_type( $achievement_id );
+    error_log('awarded: ' . $achievement_type);
+    if ( 'step' != $achievement_type ) {
+        ink_set_achievements_to_notify($user_id, $achievement_id);
+    }
+    //users profile is set to allow badgeos notification emails
+    if (badgeos_can_notify_user($user_id)){
+        if ('badge' == $achievement_type){
+            $to_email = get_userdata( $user_id )->user_email;
+            
+            $blog_name = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
+            $subject = $blog_name . ' ' . __('your contribution has unlocked an award', 'photoline-inkston');
+
+            $profilelink = network_site_url() . 'community/my-profile/';
+            $messagefooter = sprintf( __( 'Visit <a href="%1$s">your profile page</a> to see details of your awards and turn these notifications on or off.', 'photoline-inkston' ),
+                $profilelink
+            );
+            
+            $message = __('You were awarded this badge for making contributions to ', 'photoline-inkston');
+            $message .= ' ' . __('Inkston Oriental Art Comunity','photoline-inkston');
+            $message .= ' <br/>' . badgeos_render_achievement($achievement_id, $user_id);
+            $message .= ' <br/>' . badgeos_render_earned_achievement_text($achievement_id, $user_id);
+            $message .= ' <br/><br/>' . $messagefooter;
+            $message .=  ' <br/><br/>' . __('Thankyou for participating in Inkston Community', 'photoline-inkston');
+    
+            // Setup "From" email address
+            $from_email =  __('rewards@inkston.com', 'photoline-inkston');
+            // Setup the From header
+            $headers = array( 'From: ' . get_bloginfo( 'name' ) . ' <' . $from_email . '>',
+                              'Content-Type: text/html; charset=UTF-8');
+
+            // Send notification email
+            wp_mail( $to_email, $subject, $message, $headers );
+        }
+    }
+}
+add_action( 'badgeos_award_achievement', 'ink_add_achievement_messages', 10, 5);
+
+//function ink_render_earned_badge()
+            //badgeos_get_achievement_post_thumbnail $post_id 
+            //            $value = get_post_meta( $post_id, '_badgeos_congratulations_text', true );
+//badgeos_render_earned_achievement_text( $achievement_id = 0, $user_id = 0 ) 
+//	return apply_filters( 'badgeos_earned_achievement_message', $earned_message, $achievement_id, $user_id );

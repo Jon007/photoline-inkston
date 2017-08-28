@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-25 02:43+0000\n"
+"POT-Creation-Date: 2017-08-27 15:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -340,8 +340,22 @@ msgid ""
 "available under categories "
 msgstr ""
 
-#: functions2.php:1152
-msgid "Subscribe to this conversation with occasional email."
+#: functions2.php:1161
+#, php-format
+msgid "New post in Forum \"%1$s\", Topic \"%2$s\"."
+msgstr ""
+
+#: functions2.php:1166
+#, php-format
+msgid "Or visit your profile page to review all your subscriptions: %1$s"
+msgstr ""
+
+#: functions2.php:1169
+msgid "Thankyou for participating in Inkston Community"
+msgstr ""
+
+#: functions2.php:1177
+msgid "forum-subscribers@inkston.com"
 msgstr ""
 
 #: header.php:109
@@ -431,6 +445,10 @@ msgid "PostTiles3"
 msgstr ""
 
 #. Name of the template
+msgid "Profile"
+msgstr ""
+
+#. Name of the template
 msgid "Puzzle-Pic"
 msgstr ""
 
@@ -444,15 +462,48 @@ msgid "%s's Posts"
 msgstr ""
 
 #: bbpress/user-details.php:35
-msgid "Articles"
+msgid "Artist Listings"
 msgstr ""
 
-#: bbpress/user-details.php:94
+#: bbpress/user-details.php:96
 msgid "/my-account/"
 msgstr ""
 
-#: bbpress/user-details.php:106 woocommerce/myaccount/navigation.php:69
+#: bbpress/user-details.php:109 woocommerce/myaccount/navigation.php:69
 msgid "Newsletter subscriptions"
+msgstr ""
+
+#: bbpress/user-profile.php:16
+#, php-format
+msgid "%s's Profile"
+msgstr ""
+
+#: bbpress/user-profile.php:23
+msgid "This user has not yet edited their profile."
+msgstr ""
+
+#: bbpress/user-profile.php:25
+msgid "Edit your profile"
+msgstr ""
+
+#: bbpress/user-profile.php:26
+msgid "to add content to this section."
+msgstr ""
+
+#: bbpress/user-profile.php:32
+msgid "Forum Contributions"
+msgstr ""
+
+#: bbpress/user-profile.php:45
+msgid "Contributor badges"
+msgstr ""
+
+#: bbpress/user-profile.php:46
+msgid ""
+"Points are awarded for making community contributions, as you earn more "
+"points you can win badges which get you prize coupons redeemable at the shop."
+"  <a href=\"https://www.inkston.com/community/my-awards/\">Click here</a> to "
+"see the levels and points scheme."
 msgstr ""
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40

@@ -163,6 +163,7 @@ table {
 caption,th,td {
     font-weight: 400;
     text-align: left;
+		vertical-align: middle;
 }
 
 blockquote:before,blockquote:after,q:before,q:after {
@@ -4140,3 +4141,13 @@ top:-8px;
     font-weight: bolder;
     background-color: rgba(104,153,195,0.5);
 }
+.badgeos-no-results{
+	display:none;
+}
+.bbp-user-description{
+	white-space:pre-wrap;
+	font-size: larger;
+	box-shadow: 0 1px 3px rgba(0,0,0,.13);
+	padding:10px;
+}
+body.bbp-user-page .entry-meta{display:none;}
