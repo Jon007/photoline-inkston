@@ -1134,9 +1134,14 @@ function ink_bbp_distributionaddress($address){
 }
 add_filter( 'bbp_get_do_not_reply_address', 'ink_bbp_distributionaddress', 10, 1);
 
-function get_user_points(){
+function get_user_points($atts = array()){
+    $a = shortcode_atts( array(
+        'user_id' => ink_user_id(),
+    ), $atts );
+    return badgeos_get_users_points($a['user_id']);
+    /*
     $points = 0;
-    $user_id = get_current_user_id();
+    $user_id = bbp_get_user_id();
     if ($user_id){
         $points_meta = get_user_meta($user_id, '_badgeos_points', true );
         if (is_numeric($points_meta)){
@@ -1144,8 +1149,110 @@ function get_user_points(){
         }
     }
     return $points;
+     *
+     */
 }
 add_shortcode('inkpoints', 'get_user_points');
+
+function get_user_level($atts = array()){
+    $a = shortcode_atts( array(
+        'user_id' => ink_user_id(),
+		'achievement_type' => 'badge', // A specific achievement type
+        'size' => 'badgeos-achievement',  //thumbnail image size        
+		'style' => 'html', // formatted output with image and text
+		//'style' => 'full', // complete output including congratulation text
+		//'style' => 'img', // image tag for current badge only
+		//'style' => 'imglink', // image tag for current badge wrapped in link
+		//'style' => 'imgurl', // image url for current badge only
+		//'style' => 'text', // text name for current badge only
+		//'style' => 'url', // url for current badge only
+		//'style' => 'textlink', // text name and link for current badge only
+		//'style' => 'int', // level number (menu order +1) for current badge only        
+		//'style' => 'score', // highest badge and score details
+        ), $atts );
+    
+    $user_achievements = badgeos_get_user_achievements($a);
+    if (! $user_achievements || sizeof($user_achievements)==0){
+        return __('No badges yet', 'photoline-inkston');
+    }
+    
+    $user_achievement_ids = wp_list_pluck($user_achievements, 'ID');
+    
+    $achievements = badgeos_get_achievements(array(
+        'post_type' => 'badge',
+		'suppress_filters' => true,
+		'numberposts' => 1,
+		'orderby' => 'menu_order',
+		'order' => 'DESC', 
+        'include' => $user_achievement_ids,
+        ));   
+
+    $output = '';
+    $post = $achievements[0];
+    switch ($a['style']) {
+        case 'int':
+            $output = intval($post->menu_order);
+            break;
+        case 'img':
+            $output = get_the_post_thumbnail($post, $a['size']);
+            break;
+        case 'imgurl':
+            $thumb_id = get_post_thumbnail_id($post);
+            $thumb_url_array = wp_get_attachment_image_src($thumb_id, $a['size'], true);
+            $output = $thumb_url_array[0];
+            break;
+        case 'text':
+            $output = $post->post_title;
+            break;
+        case 'url':
+            $output = get_permalink($post);
+            break;
+        case 'imglink':            
+            $output = '<div class="badgeos-item-image"><a href="' . get_permalink($post) . '">' . get_the_post_thumbnail($post, $a['size']) . '</a></div>';
+            break;
+        case 'textlink':
+            $output = '<div class="badgeos-item-description"><h2 class="badgeos-item-title"><a href="' . 
+                get_permalink($post) . '">' . $post->post_title . '</a></h2></div>';
+            break;
+        case 'score':
+            $output = '<div class="inkpoints"><div class="badgeos-item-image"><a href="' . get_permalink($post) . '">' . get_the_post_thumbnail($post, $a['size']) . '</a></div>';
+            $output .= '<div class="badgeos-item-description"><p>' . 
+                __('Current level: ', 'photoline-inkston') .
+                '<a href="' . get_permalink($post) . '">' . $post->post_title . 
+                    ' (' . __('level ', 'photoline-inkston') . (intval($post->menu_order)) .  ')</a>' .
+                '<br />' .
+                sprintf( __( 'Current score: %1$s points.', 'photoline-inkston' ), get_user_points() ) . 
+                '</p></div></div>';
+            break;
+        case 'html':  //one block with badge and badge description (not award message)
+            $user_id = $a['user_id'];
+            $output = badgeos_render_achievement($post->ID, $user_id);            
+            break;
+        case 'full':
+        default:  //html
+/*            $output = '<div class="badgeos-item-image"><a href="' . get_permalink($post) . '">' . get_the_post_thumbnail($post) . '</a></div>';
+            $output .= '<div class="badgeos-item-description"><h2 class="badgeos-item-title"><a href="' . 
+                get_permalink($post) . '">' . $post->post_title . '</a></h2>' . 
+                '<div class="badgeos-item-excerpt">' . $post->excerpt . '</div>' . 
+                '</div>';
+*/
+            $user_id = $a['user_id'];
+            $output = badgeos_render_achievement($post->ID, $user_id);
+            $output .= ' <br/>' . badgeos_render_earned_achievement_text($post->ID, $user_id);
+            
+    }
+    
+    return $output;
+}
+add_shortcode('inklevel', 'get_user_level');
+
+function ink_user_id(){
+    if (function_exists('bbp_get_user_id')){
+        return bbp_get_user_id();
+    } else {
+        return get_current_user_id();
+    }
+}
 
 /* didn't quite seem to work..
 function ink_badge_triggers($triggers){
@@ -1162,7 +1269,7 @@ add_filter( 'badgeos_activity_triggers', 'ink_badge_triggers', 10, 1);
  */
 function ink_bp_member_achievements_content() {
 
-    $userid = bbp_get_user_id();
+    $userid = ink_user_id();
     if (! $userid){return;}
 	$achievement_types = badgeos_get_network_achievement_types_for_user( $userid );
 	// Eliminate step cpt from array
@@ -1193,6 +1300,8 @@ function ink_bp_member_achievements_content() {
 		'show_search' => 'false',
 		'group_id'    => '0',
 		'user_id'     => $userid,
+        'orderby'     => 'menu_order', 
+        'order'       => 'ASC',
 		'wpms'        => badgeos_ms_show_all_achievements(),
 	);
 	echo badgeos_achievements_list_shortcode( $atts );
@@ -1305,3 +1414,57 @@ add_action( 'badgeos_award_achievement', 'ink_add_achievement_messages', 10, 5);
             //            $value = get_post_meta( $post_id, '_badgeos_congratulations_text', true );
 //badgeos_render_earned_achievement_text( $achievement_id = 0, $user_id = 0 ) 
 //	return apply_filters( 'badgeos_earned_achievement_message', $earned_message, $achievement_id, $user_id );
+
+/* disable shortcodes problematic for relevannsi */
+function ink_nosearch_shortcodes($arr){
+    $problem_shortcodes = array('inkpoints', 'inklevel', 'badgeos_achievements_list', 'robo-gallery', 'maxmegamenu');
+    if (is_array($arr)){
+        return array_merge($arr, $problem_shortcodes);
+    } else {
+        return $problem_shortcodes;
+    }
+}
+add_filter('relevanssi_disable_shortcodes_excerpt', 'ink_nosearch_shortcodes', 10, 1);
+add_filter('pre_option_relevanssi_expand_shortcodes', 'ink_nosearch_shortcodes', 10, 1);
+
+
+/**
+ * Filters the avatar to retrieve.
+ *
+ * @since 2.5.0
+ * @since 4.2.0 The `$args` parameter was added.
+ *
+ * @param string $avatar      &lt;img&gt; tag for the user's avatar.
+ * @param mixed  $id_or_email The Gravatar to retrieve. Accepts a user_id, gravatar md5 hash,
+ *                            user email, WP_User object, WP_Post object, or WP_Comment object.
+ * @param int    $size        Square avatar width and height in pixels to retrieve.
+ * @param string $default     URL for the default image or a default type. Accepts '404', 'retro', 'monsterid',
+ *                            'wavatar', 'indenticon','mystery' (or 'mm', or 'mysteryman'), 'blank', or 'gravatar_default'.
+ *                            Default is the value of the 'avatar_default' option, with a fallback of 'mystery'.
+ * @param string $alt         Alternative text to use in the avatar image tag. Default empty.
+ * @param array  $args        Arguments passed to get_avatar_data(), after processing.
+ */
+function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
+{
+    $user_Id = 0;
+    if (is_numeric($id_or_email)){
+        $user_Id = intval($id_or_email);
+    } else {
+        $user = get_user_by( 'email', $id_or_email );
+        if ($user){
+            $user_Id = $user->ID;
+        }
+    }
+    if (is_numeric($user_Id)){
+        
+        if ($badge != __('No badges yet', 'photoline-inkston')){
+            return '<img alt="' . esc_attr(get_user_level( array(
+            'user_id' => $user_Id,
+            'style' => 'text') )) . '" src="' . $badge . '" class="avatar avatar-' . $size . ' " height="' . $size . '" width="' . $size . '" style="height:'. $size .'px;width:'. $size .'px" />';
+        }
+
+    }
+	return $avatar;
+    
+}
+add_filter( 'get_avatar', 'ink_filter_avatar', 200, 6 );

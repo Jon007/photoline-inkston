@@ -43,10 +43,13 @@ if ( (bbp_get_user_id() == get_current_user_id() ) ||
 &nbsp;
 <hr />
 <h2 class="section-title"><?php _e( 'Contributor badges', 'photoline-inkston' ); ?></h2>
-<p><?php printf( __( 'Current score: %1$s points.', 'photoline-inkston' ), get_user_points() );
+<p><?php 
+    echo (get_user_level(array('style'=>'score')));
+//printf( __( 'Current score: %1$s points.', 'photoline-inkston' ), get_user_points() );
 ?></p>
 <p><?php _e( 'Points are awarded for making community contributions, as you earn more points you can win badges which get you prize coupons redeemable at the shop.  <a href="https://www.inkston.com/community/my-awards/">Click here</a> to see the levels and points scheme.', 'photoline-inkston' ); ?></p>
-<?php  ink_bp_member_achievements_content(); 
+<?php  
+ink_bp_member_achievements_content(); 
      }
 ?>
     </div>

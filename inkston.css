@@ -3640,7 +3640,7 @@ body.logged-in .hide-if-logged-out{display:block!important;}
 .woocommerce #reviews #comments ol.commentlist li img.avatar {width:60px;border:0;padding:0;}
 .woocommerce #reviews #comments ol.commentlist li .comment-text {border:0;}
 #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current span.vcard a {opacity:1;}
-.bbp-author-avatar img.avatar-14{width:40px!important;border:0!important;}
+.bbp-author-avatar img.avatar-14{width:40px!important;height:auto!important;border:0!important;}
 button, button[disabled]:hover, button[disabled]:focus, input[type="button"], input[type="button"][disabled]:hover, input[type="button"][disabled]:focus, input[type="reset"], input[type="reset"][disabled]:hover, input[type="reset"][disabled]:focus, input[type="submit"], input[type="submit"][disabled]:hover, input[type="submit"][disabled]:focus {
   text-transform:none;
 }
@@ -3829,7 +3829,9 @@ li.product {overflow:hidden;}
     color: #4d914d;
 }
 
-/* Hamburger menu is showing mega menu as a site map */
+/* 
+ * Hamburger menu customisations here - mega menu as pop-out site map 
+ */
 #mega-menu-wrap-hamburger{
 	display:inline-block;
 	float:left;
@@ -3875,6 +3877,8 @@ li.product {overflow:hidden;}
     display:none;
   }
 }
+
+
 .woo_order_customization label {color:black;}
 /*no digital downloads on this site, just hide the menu item to avoid confusion
  also Payment methods is added by Stripe gateway only and doesn't have useful functionality 
@@ -3884,6 +3888,9 @@ li.product {overflow:hidden;}
 /* sale class to easily mark flash messages in sale highlight colour*/
 .saleflash{color:#fa7c0b;font-weight:bold;text-align: center;}
 	
+/*
+ * WooComerce Currency Switcher
+ */
 .tile a .woocs_price_code * {background:transparent;color:rgba(26, 25, 25, 0.1)!important}
 .tile:focus a .woocs_price_code *, 
 .tile:active a .woocs_price_code *, 
@@ -3896,6 +3903,7 @@ li.product {overflow:hidden;}
 	float: left;
 	position: relative;
 }
+/* strike out original price where there is a sale price */
 .tile a del{text-decoration:line-through;}
 /*
 .woocommerce .tile .star-rating{
@@ -3927,11 +3935,12 @@ h2.woocommerce-loop-product__title{line-height: 1.5em;}
 .psgal.woocommerce #content ul.products li a.button.add_to_cart_button, 
 .psgal.woocommerce #content ul.products li a.ajax_add_to_cart 
 .psgal.woocommerce #content ul.products {display:none;}
-/*FORUMS: increase font size for titles*/
-.bbp-forum-info .bbp-forum-title{font-weight:bold;font-size:larger;}
-.bbp-topic-title .bbp-topic-permalink{font-size:larger;}
 .product-type-grouped .price{display:none;}
 .product-type-grouped .group_table .price{display:inline-block;}
+
+/* 
+ * Featured stories/products header: reduce number of displayed articles according to screen size 
+ */
 #header-thumbnail{
     position:absolute;
     right:0;
@@ -3994,6 +4003,10 @@ div#header-thumbnail.fixbox{
 }
 /* take off distracting outline */
 #logo a:hover, #logo a:active{outline:none;}
+
+/*
+ *  Business Directory customisations here:
+ */
 .wpbdp-listing a:not(.wpbdp-button) {
     color: #39aa39;
 }
@@ -4073,7 +4086,15 @@ body.wpbdp-view-show_listing #wrap-content {margin-top:45px;}
 body.wpbdp-view-show_listing #wrap-header{display:none}
 body.wpbdp-view-show_listing header.page-header {display:none}
 }		
-.wpbdp-listing .listing-thumbnail{margin-right:15px;}
+.wpbdp-listing .listing-thumbnail{margin-right:1.5em;}
+
+
+/*
+ *  bbPress forums customisations here:
+ */
+/*FORUMS: increase font size for titles*/
+.bbp-forum-info .bbp-forum-title{font-weight:bold;font-size:larger;}
+.bbp-topic-title .bbp-topic-permalink{font-size:larger;}
 #bbpress-forums .bbp-forum-info .bbp-forum-content,
 body.bbpress .bbp-reply-content{font-size:15px;line-height:150%;}
 body.bbpress #content h1{font-size: 24px;}
@@ -4124,6 +4145,8 @@ font-size:15px;
 }
 .bbp-search-form .search-label{display:none;}
 .bbp-search-form .search-submit{display:inline-block;}
+
+/* when an article in tile view has no images */
 .tile.noimage{
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);	
 }
@@ -4141,13 +4164,34 @@ top:-8px;
     font-weight: bolder;
     background-color: rgba(104,153,195,0.5);
 }
-.badgeos-no-results{
-	display:none;
-}
+/* allow wrappable user-formatted text formatting in profile description (not currently html) */
 .bbp-user-description{
 	white-space:pre-wrap;
 	font-size: larger;
 	box-shadow: 0 1px 3px rgba(0,0,0,.13);
 	padding:10px;
 }
+/* do not show bogus metadata at end of profile page */
 body.bbp-user-page .entry-meta{display:none;}
+
+/*
+ *  BadgeOS customisations here:
+ */
+
+/* hide misleading Badgeos placeholder before ajax is run */
+.badgeos-no-results{
+	display:none;
+}
+/* allow standard badge description to wrap around image floated to the left */
+.badgeos-item-image{
+    float: left;
+    margin-right: 1.5em;	
+}
+.badgeos-item-description{
+	display:inline-block;
+}
+/* hide extra details when within display notices */
+.bbp-template-notice .badgeos-item-attached,
+.bbp-template-notice .badgeos-achievement-earned
+{display:none;}
+.inkpoints .badgeos-item-description{margin-top:1.5em;}
