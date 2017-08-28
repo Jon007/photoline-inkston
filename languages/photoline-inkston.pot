@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-27 15:29+0000\n"
+"POT-Creation-Date: 2017-08-28 02:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -350,12 +350,39 @@ msgstr ""
 msgid "Or visit your profile page to review all your subscriptions: %1$s"
 msgstr ""
 
-#: functions2.php:1169
+#: functions2.php:1169 functions2.php:1332
 msgid "Thankyou for participating in Inkston Community"
 msgstr ""
 
 #: functions2.php:1177
 msgid "forum-subscribers@inkston.com"
+msgstr ""
+
+#: functions2.php:1288
+msgid "Congratulations you have been awarded:"
+msgstr ""
+
+#: functions2.php:1320
+msgid "your contribution has unlocked an award"
+msgstr ""
+
+#: functions2.php:1323
+#, php-format
+msgid ""
+"Visit <a href=\"%1$s\">your profile page</a> to see details of your awards "
+"and turn these notifications on or off."
+msgstr ""
+
+#: functions2.php:1327
+msgid "You were awarded this badge for making contributions to "
+msgstr ""
+
+#: functions2.php:1328
+msgid "Inkston Oriental Art Comunity"
+msgstr ""
+
+#: functions2.php:1335
+msgid "rewards@inkston.com"
 msgstr ""
 
 #: header.php:109
@@ -499,6 +526,11 @@ msgid "Contributor badges"
 msgstr ""
 
 #: bbpress/user-profile.php:46
+#, php-format
+msgid "Current score: %1$s points."
+msgstr ""
+
+#: bbpress/user-profile.php:48
 msgid ""
 "Points are awarded for making community contributions, as you earn more "
 "points you can win badges which get you prize coupons redeemable at the shop."

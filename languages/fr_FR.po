@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoline Inkston\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-27 15:35+0000\n"
-"PO-Revision-Date: 2017-08-27 15:45+0000\n"
+"POT-Creation-Date: 2017-08-28 02:23+0000\n"
+"PO-Revision-Date: 2017-08-28 02:25+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -115,6 +115,35 @@ msgstr ""
 msgid "forum-subscribers@inkston.com"
 msgstr ""
 
+#: functions2.php:1288
+msgid "Congratulations you have been awarded:"
+msgstr "Félicitations, vous avez reçu:"
+
+#: functions2.php:1320
+msgid "your contribution has unlocked an award"
+msgstr "Votre contribution a débloqué un prix"
+
+#: functions2.php:1323
+#, php-format
+msgid ""
+"Visit <a href=\"%1$s\">your profile page</a> to see details of your awards "
+"and turn these notifications on or off."
+msgstr ""
+"Visitez <a href=\"%1$s\"> votre page de profil </a> pour voir les détails de "
+"vos récompenses et activer ou désactiver ces notifications."
+
+#: functions2.php:1327
+msgid "You were awarded this badge for making contributions to "
+msgstr "Vous avez reçu ce badge pour avoir contribué à"
+
+#: functions2.php:1328
+msgid "Inkston Oriental Art Comunity"
+msgstr ""
+
+#: functions2.php:1335
+msgid "rewards@inkston.com"
+msgstr ""
+
 #: header.php:109
 msgid "Menu"
 msgstr ""
@@ -145,9 +174,10 @@ msgstr ""
 msgid "Puzzle-Pic"
 msgstr ""
 
-#: bbpress/user-profile.php:26
-msgid "to add content to this section."
-msgstr "pour ajouter du contenu à cette section."
+#: bbpress/user-profile.php:46
+#, php-format
+msgid "Current score: %1$s points."
+msgstr ""
 
 #: inc/back-compat.php:21 inc/back-compat.php:29 inc/back-compat.php:40
 #, php-format
@@ -580,64 +610,6 @@ msgstr ""
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
 
-#: functions2.php:1161
-#, php-format
-msgid "New post in Forum \"%1$s\", Topic \"%2$s\"."
-msgstr "Nouvelle publication dans Forum \"%1$s\", Sujet \"%2$s\"."
-
-#: functions2.php:1166
-#, php-format
-msgid "Or visit your profile page to review all your subscriptions: %1$s"
-msgstr ""
-"Ou visitez votre page de profil pour passer en revue tous vos abonnements: "
-"%1$s"
-
-#: functions2.php:1169
-msgid "Thankyou for participating in Inkston Community"
-msgstr "Merci d'avoir participé à la communauté d'Inkston"
-
-#. Name of the template
-msgid "Profile"
-msgstr "Profil"
-
-#: bbpress/user-details.php:35
-msgid "Artist Listings"
-msgstr "Inscriptions d'artistes"
-
-#: bbpress/user-profile.php:16
-#, php-format
-msgid "%s's Profile"
-msgstr "Profil de %s"
-
-#: bbpress/user-profile.php:23
-msgid "This user has not yet edited their profile."
-msgstr "Cet utilisateur n'a pas encore modifié son profil."
-
-#: bbpress/user-profile.php:25
-msgid "Edit your profile"
-msgstr "Modifier votre profil"
-
-#: bbpress/user-profile.php:32
-msgid "Forum Contributions"
-msgstr "Contributions au Forum"
-
-#: bbpress/user-profile.php:45
-msgid "Contributor badges"
-msgstr "Insignes du contributeur"
-
-#: bbpress/user-profile.php:46
-msgid ""
-"Points are awarded for making community contributions, as you earn more "
-"points you can win badges which get you prize coupons redeemable at the shop."
-"  <a href=\"https://www.inkston.com/community/my-awards/\">Click here</a> to "
-"see the levels and points scheme."
-msgstr ""
-"Les points sont attribués pour faire des contributions communautaires, car "
-"vous gagnez plus de points, vous pouvez gagner des badges qui vous "
-"permettent de racheter des coupons de prix au magasin. <a href=\"https://www."
-"inkston.com/community/my-awards/\"> Cliquez ici </a> pour voir le schéma des "
-"niveaux et des points."
-
 #: comments.php:16
 msgid "Comments: "
 msgstr "Commentaires:"
@@ -890,6 +862,22 @@ msgstr ""
 "Ajouter des balises facultatives séparées par des virgules, pour permettre "
 "plus de classifications que celles disponibles dans les catégories"
 
+#: functions2.php:1161
+#, php-format
+msgid "New post in Forum \"%1$s\", Topic \"%2$s\"."
+msgstr "Nouvelle publication dans Forum \"%1$s\", Sujet \"%2$s\"."
+
+#: functions2.php:1166
+#, php-format
+msgid "Or visit your profile page to review all your subscriptions: %1$s"
+msgstr ""
+"Ou visitez votre page de profil pour passer en revue tous vos abonnements: "
+"%1$s"
+
+#: functions2.php:1169 functions2.php:1332
+msgid "Thankyou for participating in Inkston Community"
+msgstr "Merci d'avoir participé à la communauté d'Inkston"
+
 #: image.php:34
 #, php-format
 msgid ""
@@ -962,6 +950,10 @@ msgid "Search"
 msgstr "Rechercher"
 
 #. Name of the template
+msgid "Profile"
+msgstr "Profil"
+
+#. Name of the template
 msgid "Subscribe To Comments"
 msgstr "S'abonner aux commentaires"
 
@@ -970,6 +962,10 @@ msgstr "S'abonner aux commentaires"
 msgid "%s's Posts"
 msgstr "%s's Articles"
 
+#: bbpress/user-details.php:35
+msgid "Artist Listings"
+msgstr "Inscriptions d'artistes"
+
 #: bbpress/user-details.php:96
 msgid "/my-account/"
 msgstr "/mon-compte/"
@@ -977,6 +973,44 @@ msgstr "/mon-compte/"
 #: bbpress/user-details.php:109 woocommerce/myaccount/navigation.php:69
 msgid "Newsletter subscriptions"
 msgstr "Abonnement à la Newsletter"
+
+#: bbpress/user-profile.php:16
+#, php-format
+msgid "%s's Profile"
+msgstr "Profil de %s"
+
+#: bbpress/user-profile.php:23
+msgid "This user has not yet edited their profile."
+msgstr "Cet utilisateur n'a pas encore modifié son profil."
+
+#: bbpress/user-profile.php:25
+msgid "Edit your profile"
+msgstr "Modifier votre profil"
+
+#: bbpress/user-profile.php:26
+msgid "to add content to this section."
+msgstr "pour ajouter du contenu à cette section."
+
+#: bbpress/user-profile.php:32
+msgid "Forum Contributions"
+msgstr "Contributions au Forum"
+
+#: bbpress/user-profile.php:45
+msgid "Contributor badges"
+msgstr "Insignes du contributeur"
+
+#: bbpress/user-profile.php:48
+msgid ""
+"Points are awarded for making community contributions, as you earn more "
+"points you can win badges which get you prize coupons redeemable at the shop."
+"  <a href=\"https://www.inkston.com/community/my-awards/\">Click here</a> to "
+"see the levels and points scheme."
+msgstr ""
+"Les points sont attribués pour faire des contributions communautaires, car "
+"vous gagnez plus de points, vous pouvez gagner des badges qui vous "
+"permettent de racheter des coupons de prix au magasin. <a href=\"https://www."
+"inkston.com/community/my-awards/\"> Cliquez ici </a> pour voir le schéma des "
+"niveaux et des points."
 
 #: inc/breadcrumbs.php:28
 msgid "Home"
