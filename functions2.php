@@ -1409,11 +1409,6 @@ function ink_add_achievement_messages($user_id, $achievement_id, $this_trigger, 
 }
 add_action( 'badgeos_award_achievement', 'ink_add_achievement_messages', 10, 5);
 
-//function ink_render_earned_badge()
-            //badgeos_get_achievement_post_thumbnail $post_id 
-            //            $value = get_post_meta( $post_id, '_badgeos_congratulations_text', true );
-//badgeos_render_earned_achievement_text( $achievement_id = 0, $user_id = 0 ) 
-//	return apply_filters( 'badgeos_earned_achievement_message', $earned_message, $achievement_id, $user_id );
 
 /* disable shortcodes problematic for relevannsi */
 function ink_nosearch_shortcodes($arr){
@@ -1457,6 +1452,10 @@ function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
     }
     if (is_numeric($user_Id)){
         
+        $badge = get_user_level( array(
+            'user_id' => $user_Id,
+            'style' => 'imgurl') );
+
         if ($badge != __('No badges yet', 'photoline-inkston')){
             return '<img alt="' . esc_attr(get_user_level( array(
             'user_id' => $user_Id,
