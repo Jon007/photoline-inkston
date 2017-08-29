@@ -369,7 +369,7 @@ if ( ! function_exists( 'inkston_after_main_posts' ) ) {
  */
 if ( ! function_exists( 'inkston_cart_link' ) ) {
 	function inkston_cart_link( $wrapper_class = 'header-cart' ) {
-		if ( ! is_woocommerce_activated() ) {return false;}
+//		if ( ! is_woocommerce_activated() ) {return false;}
         
       
 		//update: turn off wrapper class override since this is called by ajax 
@@ -378,44 +378,54 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
 		/**
 		 * is_cart - Returns true when viewing the cart page so hide the cart button.
 		 **/
-		$button_url=esc_url(wc_get_cart_url());
 		$button_title=__( 'View Cart', 'photoline-inkston' );
 		$button_text='';
 		$button_class = 'menu-item';
 
-		if ( (is_cart()) && (sizeof(WC()->cart->cart_contents) > 0) ) {
-        $button_url=esc_url(wc_get_checkout_url());
-        $button_title=__( 'Checkout', 'photoline-inkston' );
-        $button_text=$button_title;
-		}  /* otherwise show, but only if there are items.. . */
-		elseif (sizeof(WC()->cart->cart_contents) > 0) {
-			$button_class = 'menu-item';
-			$button_text='<span class="cart-total">' . WC()->cart->get_cart_contents_count() . '</span> ' . wp_kses_data( WC()->cart->get_cart_total() );
-			//TWEAK:  if there are cart items, then don't cache the page, we don't want cached version of page to have cart...
-			//note also/instead pre-loading could also be used to ensure non-cart page versions are cached
-			if ( ! defined( 'DONOTCACHEPAGE' ) ) {
-				define( "DONOTCACHEPAGE", true );
-			}
-		}
-		else {
-      //doesn't work, even just initializing by default
-      //$button_text=__( 'Cart', 'photoline-inkston' );
-      $button_text='<span class="cart-total"> </span> &nbsp; &nbsp; ';
-			//$button_class = 'hidden';
-      /* turn button into add-to-cart button if nothing there currently: doesn't work yet..
-      if (is_product()){
-    		$button_title=__( 'Add to Cart', 'photoline-inkston' );
-        $button_text=$button_title;
-        global $product;
-        $button_url='?add-to-cart=' . $product->id;
-      }
-       */
-		}
-		if ( is_cart() ){
-			$wrapper_class = 'checkout ' . $wrapper_class;
-		}else{
-			$wrapper_class = 'cart-contents ' . $wrapper_class;
-		}
+		if ( is_woocommerce_activated() ) {
+            $button_url=esc_url(wc_get_cart_url());
+            
+            if ( (is_cart()) && (sizeof(WC()->cart->cart_contents) > 0) ) {
+                $button_url=esc_url(wc_get_checkout_url());
+                $button_title=__( 'Checkout', 'photoline-inkston' );
+                $button_text=$button_title;
+            }  /* otherwise show, but only if there are items.. . */
+            elseif (sizeof(WC()->cart->cart_contents) > 0) {
+              $button_class = 'menu-item';
+              $button_text='<span class="cart-total">' . WC()->cart->get_cart_contents_count() . '</span> ' . wp_kses_data( WC()->cart->get_cart_total() );
+              //TWEAK:  if there are cart items, then don't cache the page, we don't want cached version of page to have cart...
+              //note also/instead pre-loading could also be used to ensure non-cart page versions are cached
+              if ( ! defined( 'DONOTCACHEPAGE' ) ) {
+                define( "DONOTCACHEPAGE", true );
+              }
+            }
+            else {
+              //doesn't work, even just initializing by default
+              //$button_text=__( 'Cart', 'photoline-inkston' );
+              $button_text='<span class="cart-total"> </span> &nbsp; &nbsp; ';
+              //$button_class = 'hidden';
+              /* turn button into add-to-cart button if nothing there currently: doesn't work yet..
+              if (is_product()){
+                $button_title=__( 'Add to Cart', 'photoline-inkston' );
+                $button_text=$button_title;
+                global $product;
+                $button_url='?add-to-cart=' . $product->id;
+              }
+               */
+            }
+            if ( is_cart() ){
+              $wrapper_class = 'checkout ' . $wrapper_class;
+            }else{
+              $wrapper_class = 'cart-contents ' . $wrapper_class;
+            }
+        } else {
+    		$button_url='https://www.inkston.com/cart/';
+            if (! isset( $_COOKIE['woocommerce_cart_hash'] ) ) {
+                $wrapper_class .=' hidden';
+            } else {
+              $button_text='<span class="cart-total"> </span>' . __( 'Cart', 'photoline-inkston' );
+            }
+        }
 		echo ('<ul class="' . $wrapper_class . '">');
         echo ('<li class="' . $button_class . '"><a href="' . $button_url . '" title="'.
     		$button_title . '">' . $button_text . '</a>');

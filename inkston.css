@@ -3629,10 +3629,10 @@ body.home #header-thumbnail{display:none;}
 body.home #breadcrumb{display:none;}
 
 
-body .hide-if-logged-in{display:block!important;}
+body .hide-if-logged-in{display:initial!important;}
 body.logged-in .hide-if-logged-in{display:none!important;}
 body .hide-if-logged-out{display:none!important;}
-body.logged-in .hide-if-logged-out{display:block!important;}
+body.logged-in .hide-if-logged-out{display:initial!important;}
 .avatar{float: left;margin-right: 10px;}
 .icon-footer {margin-right: 30px;}
 .comments-area footer .comment-author{margin-bottom: -50px;}
@@ -4087,8 +4087,10 @@ body.wpbdp-view-show_listing #wrap-header{display:none}
 body.wpbdp-view-show_listing header.page-header {display:none}
 }		
 .wpbdp-listing .listing-thumbnail{margin-right:1.5em;}
-
-
+.wpbdp-listing-single .main-image {
+float:left;
+margin-left:0px;
+}
 /*
  *  bbPress forums customisations here:
  */
@@ -4098,7 +4100,7 @@ body.wpbdp-view-show_listing header.page-header {display:none}
 #bbpress-forums .bbp-forum-info .bbp-forum-content,
 body.bbpress .bbp-reply-content{font-size:15px;line-height:150%;}
 body.bbpress #content h1{font-size: 24px;}
-.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-100px;float:right;}
+.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-60px;float:right;}
 .wpbdp-listing-single .listing-title{display:none;}
 .mailpoet_form_widget .mailpoet_paragraph{display:inline-block;}
 .mailpoet_form_widget .mailpoet_paragraph input[type="submit"]{text-transform:none;}
@@ -4220,5 +4222,4 @@ div.bbp-author-role, div.bbp-reply-ip{display:none;}
 .bbp-template-notice .badgeos-achievement-earned
 {display:none;}
 .inkpoints .badgeos-item-description{margin-top:1.5em;}
-
-
+span.badgeos-item-title{font-weight:bolder;font-size:larger;}

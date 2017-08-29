@@ -1029,10 +1029,10 @@ function custom_post_author_archive($query) {
     if ($query->is_author)
     {
         $query->set( 'post_type', array('wpbdp_listing', 'post') );
+        remove_action( 'pre_get_posts', 'custom_post_author_archive' );
     }
-    remove_action( 'pre_get_posts', 'custom_post_author_archive' );
 }
-add_action('pre_get_posts', 'custom_post_author_archive');
+add_action('pre_get_posts', 'custom_post_author_archive', 1, 1);
 
 
 function get_directory_labels(){
@@ -1139,18 +1139,6 @@ function get_user_points($atts = array()){
         'user_id' => ink_user_id(),
     ), $atts );
     return badgeos_get_users_points($a['user_id']);
-    /*
-    $points = 0;
-    $user_id = bbp_get_user_id();
-    if ($user_id){
-        $points_meta = get_user_meta($user_id, '_badgeos_points', true );
-        if (is_numeric($points_meta)){
-           $points =  $points_meta;
-        }
-    }
-    return $points;
-     *
-     */
 }
 add_shortcode('inkpoints', 'get_user_points');
 
@@ -1247,8 +1235,8 @@ function get_user_level($atts = array()){
 add_shortcode('inklevel', 'get_user_level');
 
 function ink_user_id(){
-    if (function_exists('bbp_get_user_id')){
-        return bbp_get_user_id();
+    if (function_exists('bbp_get_displayed_user_id')){
+        return bbp_get_displayed_user_id();
     } else {
         return get_current_user_id();
     }
@@ -1352,8 +1340,15 @@ function ink_print_achievement_messages(){
                 _e('Congratulations you have been awarded:','photoline-inkston') ?></p><?php 
             for($i = 0, $size = count($achievements); $i < $size; ++$i) {
                 if (is_numeric($achievements[$i])){
+                    $achievement_type = get_post_type( $achievements[$i] );
+                    switch($achievement_type){
+                        case 'badge':
+                        case 'point':
                     echo(badgeos_render_achievement($achievements[$i], $user_id));
                     echo(badgeos_render_earned_achievement_text($achievements[$i], $user_id));
+                            break;
+                        default:
+                    }
                 }
             }
             //TODO: how do we know to clear, maybe there is a redirect and this is never shown??
@@ -1367,10 +1362,22 @@ add_action( 'bbp_template_notices', 'ink_print_achievement_messages');
 
 
 function ink_add_achievement_messages($user_id, $achievement_id, $this_trigger, $site_id, $args){
-    $achievement_type = get_post_type( $achievement_id );
-    if ( 'step' != $achievement_type ) {
-        ink_set_achievements_to_notify($user_id, $achievement_id);
+    //for now only process these alerts on community site since the post ids from main site are not synced to child
+    if ($site_id!=2){
+        //potential to add woocommerce alerts for site 1...
+        //or key by site id for later retrieval
+        return false;        
     }
+    $achievement_type = get_post_type( $achievement_id );
+    switch($achievement_type){
+        case 'badge':
+        case 'point':
+        ink_set_achievements_to_notify($user_id, $achievement_id);
+            break;
+        default:
+            return false;
+    }
+
     //users profile is set to allow badgeos notification emails
     if (badgeos_can_notify_user($user_id)){
         if ('badge' == $achievement_type){
@@ -1437,7 +1444,7 @@ add_filter('pre_option_relevanssi_expand_shortcodes', 'ink_nosearch_shortcodes',
 function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
 {
     //first, if user already has an avatar, which is not cat-generator avatar, return it
-    if ($avatar){
+    if (strpos($avatar, 'cat-generator-avatars') === false) {
         return $avatar;
     }
     $title = '';
@@ -1493,3 +1500,22 @@ function ink_min_avatar_size($args)
 }
 add_filter( 'bbp_after_get_author_link_parse_args', 'ink_min_avatar_size', 10, 1 );
 add_filter( 'bbp_after_get_topic_author_link_parse_args', 'ink_min_avatar_size', 10, 1 );
+
+function ink_login_form_shortcode() {
+	if ( is_user_logged_in() )
+    {
+		return '';
+    }
+	return wp_login_form( array( 'echo' => false ) );
+}
+add_shortcode( 'ink-login', 'ink_login_form_shortcode' );
+
+
+function ink_author_link($link, $author_id, $author_nicename){
+    if (strpos($link, 'community')==0){
+        $link = network_site_url() . 'community/forums/users/' . $author_nicename . '/';
+    }
+    return $link;
+}
+//add with higher filter than polylang (20)
+add_filter( 'author_link', 'ink_author_link', 30, 3 );

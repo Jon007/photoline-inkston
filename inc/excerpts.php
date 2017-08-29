@@ -44,7 +44,12 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
             //$output = wp_trim_words( strip_shortcodes( get_the_excerpt( $id ) ), 20) . "\r\n";
             //$output .= wp_trim_words( strip_shortcodes( get_the_content( $id ) ), $length);
         } else {
-            $output = wp_trim_words( strip_shortcodes( get_the_content( $id ) ), $length);
+            if ($post->post_type =='wpbdp_listing'){
+                $output = $post->post_content;
+            } else {
+                $output = get_the_content( $id ) ;
+            }
+            $output = wp_trim_words( strip_shortcodes( $output ), $length);
         }
         if ( (! is_search()) && ($post->post_type=='product') ){
             $product = wc_get_product($post);

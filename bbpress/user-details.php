@@ -32,14 +32,18 @@
 
                 <li class="">
 					<span class="vcard user-posts">
-						<a class="url fn n" href="<?php echo(esc_url( get_author_posts_url(bbp_get_user_id()))); ?>" title="<?php printf( esc_attr__( "%s's Posts", 'photoline-inkston' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>" rel="me"><?php _e( 'Artist Listings', 'photoline-inkston' ); ?></a>
+<?php
+$listings_link = (bbp_get_displayed_user_id() == get_current_user_id() ) 
+    ? ( network_site_url() . 'community/my-listings' )
+    : get_author_posts_url(bbp_get_displayed_user_id()) ;
+						?><a class="url fn n" href="<?php echo(esc_url( $listings_link )); ?>" title="<?php printf( esc_attr__( "%s's Posts", 'photoline-inkston' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>" rel="me"><?php _e( 'Artist Listings', 'photoline-inkston' ); ?></a>
 					</span>
 				</li>
 
 <?php 
   $page_id = inkGetPageID('comments');  // get Comments page in the current language
   if ($page_id){
-    $comment_link = get_page_link($page_id) . '?u=' . bbp_get_user_id(); 
+    $comment_link = get_page_link($page_id) . '?u=' . bbp_get_displayed_user_id(); 
     $comment_title = get_the_title( $page_id );
     
  ?>

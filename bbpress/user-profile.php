@@ -14,12 +14,20 @@
 <div id="bbp-user-profile" class="bbp-user-profile">
     <div class="bbp-user-section">
         <h2 class="section-title"><?php printf( esc_attr__( "%s's Profile", 'photoline-inkston' ), bbp_get_displayed_user_field( 'display_name' ) ); ?></h2>
+<?php
+    $user_url = bbp_get_displayed_user_field( 'user_url' );
+    if ($user_url){
+        echo ('<div class="ink-profile-link">');
+        echo ( '<a href="' . esc_attr($user_url) . '">' . $user_url . '</a>');
+        echo ("</p>");
+    }
+?>
 <div class="site-main">
 <div class="bbp-user-description"><?php 
 if ( bbp_get_displayed_user_field( 'description' ) ){
     bbp_displayed_user_field( 'description' ); 
 } else {
-    if ( bbp_get_user_id() != get_current_user_id() ){
+    if ( bbp_get_displayed_user_id() != get_current_user_id() ){
         _e('This user has not yet edited their profile.', 'photoline-inkston');
     } else {
         ?><a href="<?php bbp_user_profile_edit_url(); ?>"><?php _e( 'Edit your profile', 'photoline-inkston' ); ?></a> <?php
@@ -28,7 +36,7 @@ if ( bbp_get_displayed_user_field( 'description' ) ){
 }
 ?></div>
 </div>
-    
+&nbsp;    
 <h2 class="section-title"><?php _e( 'Forum Contributions', 'photoline-inkston' ); ?></h2>
 <div class="user-stats">
 <span class="bbp-user-topic-count"><a href="<?php bbp_user_topics_created_url(); ?>" title="<?php printf( esc_attr__( "%s's Topics Started", 'bbpress' ), bbp_get_displayed_user_field( 'display_name' ) ); ?>"><?php  printf( __( 'Topics Started: %s',  'bbpress' ), bbp_get_user_topic_count_raw() ); ?></a></span><br />
@@ -37,7 +45,7 @@ if ( bbp_get_displayed_user_field( 'description' ) ){
 
 
 <?php 
-if ( (bbp_get_user_id() == get_current_user_id() ) || 
+if ( (bbp_get_displayed_user_id() == get_current_user_id() ) || 
      ( current_user_can( badgeos_get_manager_capability() ) ) ) {    
 ?>
 &nbsp;
