@@ -1436,6 +1436,10 @@ add_filter('pre_option_relevanssi_expand_shortcodes', 'ink_nosearch_shortcodes',
  */
 function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
 {
+    //first, if user already has an avatar, which is not cat-generator avatar, return it
+    if ($avatar){
+        return $avatar;
+    }
     $title = '';
     $user_Id = 0;
     if (is_numeric($id_or_email)){
@@ -1465,7 +1469,7 @@ function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
             'style' => 'text') )) . '" src="' . $badge . 
                 '" title="' . $title . 
                 '" class="avatar avatar-' . $size . 
-                '" height="' . $size . '" width="' . $size . 
+                ' " height="' . $size . '" width="' . $size . 
                 '" style="height:'. $size .'px;width:'. $size .'px" />';
         }
 
@@ -1474,3 +1478,18 @@ function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
     
 }
 add_filter( 'get_avatar', 'ink_filter_avatar', 200, 6 );
+
+function ink_min_avatar_size($args)
+{
+    if (isset($args['size']) ){
+        $size = $args['size'];
+        if (is_numeric($size)){
+            if ($size < 88){
+                $args['size'] = 88;
+            }
+        }
+    }
+    return $args;
+}
+add_filter( 'bbp_after_get_author_link_parse_args', 'ink_min_avatar_size', 10, 1 );
+add_filter( 'bbp_after_get_topic_author_link_parse_args', 'ink_min_avatar_size', 10, 1 );
