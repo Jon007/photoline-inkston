@@ -756,7 +756,7 @@ if (is_woocommerce_activated()){
         if ( ( is_cart() ) && ( $class_exists ) ){ //&& (class_exists( 'Alg_WC_Checkout_Files_Upload_Main') ) ) {
             global $AWCCF;
             //$awccf = new Alg_WC_Checkout_Files_Upload_Main;
-            if ( $AWCCF->is_visible(1) ) {
+            if ($AWCCF && $AWCCF->is_visible(1) ) {
               wc_print_notice( __('Your shopping cart includes customization options, you can tell us about these on the checkout page.' , 'photoline-inkston'), 'notice');
             }
         }
@@ -1447,23 +1447,39 @@ function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
     if (strpos($avatar, 'cat-generator-avatars') === false) {
         return $avatar;
     }
+    //similarly return if there is no user info to look up 
+    if (! $id_or_email){return $avatar;}
+    
+    //for now only badge avatar on community site
+    if (get_current_blog_id()!=2){return $avatar;}
+    
     $title = '';
     $user_Id = 0;
+    $user = false;
     if (is_numeric($id_or_email)){
         $user_Id = intval($id_or_email);
         if ($user_Id){
             $user = get_user_by('ID', $user_Id);
             $title = $user->display_name;
         }
-    } else {
-        if ($id_or_email) {
+    } elseif (is_string( $id_or_email )) {
         $user = get_user_by( 'email', $id_or_email );
-        if ($user){
-            $user_Id = $user->ID;
-                $title = $user->display_name;
-            }
+    } elseif ( $id_or_email instanceof WP_User ){
+        $user = $id_or_email;
+    } elseif ( $id_or_email instanceof WP_Comment ) {
+        if ( 0 < $id_or_email->user_id ){
+            $user = get_user_by('ID', $id_or_email->user_id);
+        } else {
+            $title = $id_or_email->comment_author_email;
         }
+    } elseif ( $id_or_email instanceof WP_Post ) {
+        $user = get_user_by( 'ID', $id_or_email->post_author );
     }
+    if ($user){
+        $user_Id = $user->ID;
+            $title = $user->display_name;
+    }
+
     if (is_numeric($user_Id)){
         
         $badge = get_user_level( array(

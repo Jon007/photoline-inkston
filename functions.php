@@ -245,6 +245,11 @@ if (!function_exists('inkston_setup')) :
         /* Enable support for Excerpt on Pages. See http://codex.wordpress.org/Excerpt */
         add_post_type_support('page', 'excerpt');
 
+        //allow forums to have featured images
+        add_post_type_support('forum', array('thumbnail'));
+        add_post_type_support('topic', array('thumbnail'));
+
+
         /* Enable support WooCommerce */
         add_theme_support('woocommerce');
 

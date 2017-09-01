@@ -3478,6 +3478,8 @@ span.comments-num:before, span.comments-link:after {
 .comments-area .reply,
 .comments-area li.comment #respond {
     margin-left: 100px;
+		margin-top: 12px;
+    line-height: 1.5em;
 }
 
 .comment-content {
@@ -4223,3 +4225,6 @@ div.bbp-author-role, div.bbp-reply-ip{display:none;}
 {display:none;}
 .inkpoints .badgeos-item-description{margin-top:1.5em;}
 span.badgeos-item-title{font-weight:bolder;font-size:larger;}
+
+/* turn off facebook image sharing temporarily since broken by Facebook api change */
+body.psgal .pswp__share-tooltip a.pswp__share--facebook{display:none;}
