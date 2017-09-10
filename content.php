@@ -8,7 +8,9 @@
 
 <?php if ( is_single() ) : ?>
 <!-- DEBUG: CONTENT.PHP -->
+  <span class="entry-title" style="display:none"><?php  echo(inkston_title()); ?></span>
 	<div class="entry-content">
+    <h1 class="page-title"><?php echo(inkston_title()); ?></h1>
 	<?php the_content(); ?>
 
 			<?php

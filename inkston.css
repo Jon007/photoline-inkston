@@ -4132,6 +4132,11 @@ text-decoration: none;
 float: right;
 border-radius: 5px;
 }
+#bbpress-forums .bbp-reply-content .subscription-toggle{
+font-size: 100%;
+color: #39aa39;
+text-decoration: underline;
+}
 #bbpress-forums .subscription-toggle:hover{
 background-color: #4d914d;
 color: white;

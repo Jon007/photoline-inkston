@@ -895,6 +895,11 @@ body.bbpress #content h1{font-size:24px}
 #commentform .comment-form-mailpoet,#commentform .comment-form-subscriptions,#commentform .form-submit{margin:0}
 #bbpress-forums div.bbp-forum-content,#bbpress-forums div.bbp-topic-content,#bbpress-forums div.bbp-reply-content{margin-left:0}
 #bbpress-forums .subscription-toggle{padding:5px 15px;font-size:larger;background-color:#4d914d;color:white;text-decoration:none;float:right;border-radius:5px}
+#bbpress-forums .bbp-reply-content .subscription-toggle{
+font-size: 100%;
+color: #39aa39;
+text-decoration: underline;
+}
 #bbpress-forums .subscription-toggle:hover{background-color:#4d914d;color:white}
 #bbpress-forums div.bbp-forum-content{font-size:larger;font-weight:bolder}
 #bbpress-forums .bbp-forum-info div.bbp-forum-content{font-size:14px;font-weight:normal}
