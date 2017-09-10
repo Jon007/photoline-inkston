@@ -1178,6 +1178,16 @@ function get_user_level($atts = array()){
     $output = '';
     $post = $achievements[0];
     switch ($a['style']) {
+        case 'brushes':
+            $level = intval($post->menu_order);
+            $output = '<span title="'. $post->post_title . 
+                ' (' . __('level', 'photoline-inkston') . $level . ')' .
+                '" class="brushlevel">';
+            for ($x = 1; $x <= $level; $x++) {
+                $output .= '<i class="fa fa-paint-brush"></i>';
+            }
+            $output .= '</span>';
+            break;
         case 'int':
             $output = intval($post->menu_order);
             break;
@@ -1445,7 +1455,7 @@ function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
 {
     //first, if user already has an avatar, which is not cat-generator avatar, return it
     if (strpos($avatar, 'cat-generator-avatars') === false) {
-        return $avatar;
+        return $avatar;  //TODO: it could be nice to filter the title and add the user level
     }
     //similarly return if there is no user info to look up 
     if (! $id_or_email){return $avatar;}
@@ -1487,13 +1497,20 @@ function ink_filter_avatar($avatar, $id_or_email, $size, $default, $alt, $args )
             'style' => 'imgurl') );
 
         if ($badge != __('No badges yet', 'photoline-inkston')){
-            return '<img alt="' . esc_attr(get_user_level( array(
+            $levelname = get_user_level( array(
             'user_id' => $user_Id,
-            'style' => 'text') )) . '" src="' . $badge . 
-                '" title="' . $title . 
+                'style' => 'text') );
+            return '<span class="avatar-container">' . 
+                '<img alt="' . esc_attr($levelname) . '" src="' . $badge . 
+                '" title="' . $title . "\n(" . esc_attr($levelname) . ')' .
                 '" class="avatar avatar-' . $size . 
                 ' " height="' . $size . '" width="' . $size . 
-                '" style="height:'. $size .'px;width:'. $size .'px" />';
+                '" style="height:'. $size .'px;width:'. $size .'px" />' . 
+                //'<div class="avatar"' .
+                get_user_level( array(
+                'user_id' => $user_Id,
+                'style' => 'brushes') ) 
+                . '</span>';
         }
 
     }

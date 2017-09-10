@@ -3138,7 +3138,7 @@ div.pswp__zoom-wrap img{max-width: none;}
 @media (max-width: 685px) {
     img.size-medium { width:95%;height:auto;}
     img.size-thumbnail {width:200px;height:auto;}
-    .alignleft, .alignright {margin:5;width:45%!important}
+    .alignleft, .alignright {margin:5px;width:45%!important}
     .top-menu span{font-size:14px}
     img#header-thumbnail {top:28px;}
 }
@@ -4153,11 +4153,34 @@ font-size:15px;
 .bbp-topic-title .bbp-topic-permalink{
 	margin-left:50px;
 }
+.brushlevel{white-space:nowrap;}
+#bbpress-forums .bbp-topic-description img.avatar,
+#bbpress-forums .bbp-topic-revision-log img.avatar,
+#bbpress-forums .bbp-reply-revision-log img.avatar{max-width:22px;max-height:22px;}
+#bbpress-forums .bbp-topic-description .brushlevel,
+#bbpress-forums .bbp-topic-revision-log .brushlevel,
+#bbpress-forums .bbp-reply-revision-log .brushlevel{display:none;}
+#bbpress-forums .bbp-topic-freshness .avatar-container, 
+#bbpress-forums .bbp-forum-freshness .avatar-container {float:right;}
+#bbpress-forums .bbp-topic-freshness .avatar-container img.avatar,
+#bbpress-forums .bbp-forum-freshness .avatar-container img.avatar {
+		max-width:44px;max-height:44px;
+    margin-top: -25px;
+		border:0;
+		margin-right:0px;
+}
+#bbpress-forums .bbp-topic-freshness .avatar-container .brushlevel,
+#bbpress-forums .bbp-forum-freshness .avatar-container .brushlevel{
+    margin-right: -44px;
+    margin-top: 15px;
+    float: left;
+}
 #bbpress-forums p.bbp-topic-meta .bbp-topic-freshness-author img.avatar {
     float: right;
 		max-width:44px;max-height:44px;
     margin-top: -25px;
 		border:0;
+		margin-right:0px;
 }
 li.bbp-forum-freshness, li.bbp-topic-freshness {
 	 text-align: left;
@@ -4169,6 +4192,11 @@ li.bbp-forum-freshness, li.bbp-topic-freshness {
 #bbpress-forums .bbp-topic-description .bbp-author-avatar img.avatar
 {
 	border:0;max-width:44px;max-height:44px;
+}
+#bbpress-forums .bbp-topic-started-by .bbp-author-avatar .brushlevel{
+float: left;
+margin-left: -54px;
+margin-top: 15px;
 }
 #bbpress-forums .bbp-topic-started-by .bbp-author-avatar img.avatar{
 	border:0;max-width:44px;max-height:44px;float:left;margin-top:-25px;
