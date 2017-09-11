@@ -443,8 +443,6 @@ if (!function_exists('inkston_catch_image')) :
     function inkston_catch_image()
     {
         global $post, $posts;
-        ob_start();
-        ob_end_clean();
         $first_img = '';
         if (is_single() || $post) {
             $first_img = inkston_featured_img_tag($post->post_content, false);
@@ -488,10 +486,35 @@ function inkston_featured_img_tag($content, $tag){
         }
     }
     if (empty($first_img)) {
-        if ($last_avatar){
+        if (is_archive()){
+            $first_img = get_template_directory_uri() . '/img/forum-logo.jpg';
+        }elseif ($last_avatar){
             $first_img = $last_avatar;
         } else {
-            $first_img = get_template_directory_uri() . '/img/no-image.png';
+            //last chance check for bbPress
+            global $post;
+            if ($post){
+                $forum_id=0;
+                switch($post->post_type){
+                    case 'topic':
+                		$forum_id = bbp_get_topic_forum_id( $post->ID );
+                        break;
+                    case 'reply':
+                		$forum_id = bbp_get_reply_forum_id( $post->ID );
+                        break;
+                    default:
+                }
+                if ($forum_id){
+                    $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($forum_id), 'medium');
+                    if ($thumbnail) {
+                        $first_img = $thumbnail[0];
+                    }
+                }
+            }
+            
+            if (empty($first_img)) {
+                $first_img = get_template_directory_uri() . '/img/no-image.jpg';
+            }
         }
     }
     return $first_img;
