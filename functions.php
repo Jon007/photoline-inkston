@@ -467,6 +467,22 @@ function inkston_featured_img_tag($content, $tag){
     $first_img = '';
     $last_avatar = '';
     $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+
+    //check if we are on a bbPress forum post
+    global $post;
+    $forum_id=0;
+    if ($post){
+        switch($post->post_type){
+            case 'topic':
+                $forum_id = bbp_get_topic_forum_id( $post->ID );
+                break;
+            case 'reply':
+                $forum_id = bbp_get_reply_forum_id( $post->ID );
+                break;
+            default:
+        }
+    }
+    
     if (0 != $output) {
         /*
          * NOTE: this gets the image sized as on the page, size not guaranteed,
@@ -491,28 +507,11 @@ function inkston_featured_img_tag($content, $tag){
             $first_img = get_template_directory_uri() . '/img/forum-logo.jpg';
         }elseif ($last_avatar){
             $first_img = $last_avatar;
-        } else {
-            //last chance check for bbPress
-            global $post;
-            if ($post){
-                $forum_id=0;
-                switch($post->post_type){
-                    case 'topic':
-                		$forum_id = bbp_get_topic_forum_id( $post->ID );
-                        break;
-                    case 'reply':
-                		$forum_id = bbp_get_reply_forum_id( $post->ID );
-                        break;
-                    default:
-                }
-                if ($forum_id){
-                    $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($forum_id), 'medium');
-                    if ($thumbnail) {
-                        $first_img = $thumbnail[0];
-                    }
-                }
+        } elseif ($forum_id){ //last chance check for bbPress
+            $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($forum_id), 'medium');
+            if ($thumbnail) {
+                $first_img = $thumbnail[0];
             }
-            
             if (empty($first_img)) {
                 $first_img = get_template_directory_uri() . '/img/no-image.jpg';
             }
