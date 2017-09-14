@@ -1028,8 +1028,14 @@ add_filter( 'login_form_top', 'ink_login_form_add_socializer', 10, 2 );
 function custom_post_author_archive($query) {
     if ($query->is_author)
     {
-        $query->set( 'post_type', array('wpbdp_listing', 'post') );
-        remove_action( 'pre_get_posts', 'custom_post_author_archive' );
+        switch ($query->query_vars['post_type']) {
+            case 'topic':
+            case 'reply':
+                break;
+            default:
+                $query->set( 'post_type', array('wpbdp_listing', 'post') );
+                remove_action( 'pre_get_posts', 'custom_post_author_archive' );
+        }
     }
 }
 add_action('pre_get_posts', 'custom_post_author_archive', 1, 1);
