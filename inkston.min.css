@@ -933,3 +933,9 @@ div.bbp-author-role,div.bbp-reply-ip{display:none}
 .inkpoints .badgeos-item-description{margin-top:1.5em}
 span.badgeos-item-title{font-weight:bolder;font-size:larger}
 body.psgal .pswp__share-tooltip a.pswp__share--facebook{display:none}
+#puzzle-buttons{
+	display: flex;
+	justify-content: center;
+}
+#puzzle-buttons * {margin-left:5px;margin-right:5px;}
+#puzzle-move {line-height:2.5em;}

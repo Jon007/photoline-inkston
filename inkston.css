@@ -4261,3 +4261,15 @@ span.badgeos-item-title{font-weight:bolder;font-size:larger;}
 
 /* turn off facebook image sharing temporarily since broken by Facebook api change */
 body.psgal .pswp__share-tooltip a.pswp__share--facebook{display:none;}
+
+/* puzzle display customization */
+/* alternative display stacking the elements
+#nopuzzle-difficulty{max-width:150px;}
+#nopuzzle-buttons{float:right;max-width: 150px;}
+*/
+#puzzle-buttons{
+	display: flex;
+	justify-content: center;
+}
+#puzzle-buttons * {margin-left:5px;margin-right:5px;}
+#puzzle-move {line-height:2.5em;}
