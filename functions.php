@@ -137,7 +137,7 @@ if (is_woocommerce_activated()){
             }
 
             //localize position and hide_cents where possible
-            $locale = pll_current_language('locale'); 
+            $locale = (function_exists('pll_current_language')) ? pll_current_language('locale'): get_locale(); 
             $formatter = new \NumberFormatter($locale.'@currency='.$code,  \NumberFormatter::CURRENCY);
             if ($formatter){
                 $symbol=$formatter->getTextAttribute(\NumberFormatter::CURRENCY_SYMBOL);
@@ -496,7 +496,8 @@ function inkston_featured_img_tag($content, $tag){
             if ( (strpos($url, 'cat-generator-avatars') === false) && (strpos($url, 'badge') === false) 
                   && (strpos($url, 'avatar') === false)  ) {
                 $first_img = $url;
-                break;
+                //for forums, continue to last image, otherwise get first image
+                if (! $forum_id){break;}
             } else {
                 $last_avatar = $url;
             }
