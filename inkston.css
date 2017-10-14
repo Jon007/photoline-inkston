@@ -3841,7 +3841,8 @@ li.product {overflow:hidden;}
 	max-width:75px;
 	background:transparent;
 	line-height:inherit;
-	margin-top:-5px;
+	margin-top:-6px;
+	position: fixed;
 }
 #mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link, 
 #mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-current-menu-ancestor > a.mega-menu-link, 
@@ -4273,3 +4274,14 @@ body.psgal .pswp__share-tooltip a.pswp__share--facebook{display:none;}
 }
 #puzzle-buttons * {margin-left:5px;margin-right:5px;}
 #puzzle-move {line-height:2.5em;}
+
+/* summary/detail formatting for FAQ pages etc*/
+details details{margin-left:15px;margin-bottom:3px;}
+summary {font-weight:bold;font-size:larger;cursor:pointer;}
+details details summary {text-decoration:underline;font-weight:normal;font-size:inherit;}
+.site-content .entry-content details td{padding:0px 8px;}
+.site-content .entry-content details p{margin-bottom:5px; line-height:1.3em;}
+.site-content .entry-content details li{margin-bottom:5px; line-height:1.3em;}
+
+/* terms and conditions link for directory */
+.wpbdp-form-field.terms-and-conditions a{display:block;}

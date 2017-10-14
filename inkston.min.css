@@ -814,7 +814,7 @@ ul.products li:nth-child(even) a:hover .tooltip .tooltiptext,ul.products li:nth-
 .site-content .page-numbers a{color:white;background-color:#39aa39}
 .page-numbers a:hover,.page-numbers span.current{color:#39aa39;background-color:#eee;border:1px solid #39aa39}
 #menu-social li:hover a::before{color:#4d914d}
-#mega-menu-wrap-hamburger{display:inline-block;float:left;z-index:999;max-width:75px;background:transparent;line-height:inherit;margin-top:-5px}
+#mega-menu-wrap-hamburger{display:inline-block;float:left;z-index:999;max-width:75px;background:transparent;line-height:inherit;margin-top:-6px;position:fixed;}
 #mega-menu-wrap-hamburger #mega-menu-hamburger>li.mega-menu-item.mega-current-menu-item>a.mega-menu-link,#mega-menu-wrap-hamburger #mega-menu-hamburger>li.mega-menu-item.mega-current-menu-ancestor>a.mega-menu-link,#mega-menu-wrap-hamburger #mega-menu-hamburger>li.mega-menu-item.mega-current-page-ancestor>a.mega-menu-link,#mega-menu-wrap-hamburger #mega-menu-hamburger>li.mega-menu-item.mega-toggle-on>a.mega-menu-link{background:transparent}
 #mega-menu-wrap-hamburger #mega-menu-hamburger>li.mega-menu-item>a.mega-menu-link:focus,#mega-menu-wrap-hamburger #mega-menu-hamburger>li.mega-menu-item>a.mega-menu-link:hover{color:#39aa39;background:transparent}
 .dashicons-admin-home.mega-menu-link{background:transparent}
@@ -939,3 +939,10 @@ body.psgal .pswp__share-tooltip a.pswp__share--facebook{display:none}
 }
 #puzzle-buttons * {margin-left:5px;margin-right:5px;}
 #puzzle-move {line-height:2.5em;}
+details details{margin-left:15px;margin-bottom:3px;}
+summary {font-weight:bold;font-size:larger;cursor:pointer;}
+details details summary {text-decoration:underline;font-weight:normal;font-size:inherit;}
+.site-content .entry-content details td{padding:0px 8px;}
+.site-content .entry-content details p{margin-bottom:5px; line-height:1.3em;}
+.site-content .entry-content details li{margin-bottom:5px; line-height:1.3em;}
+.wpbdp-form-field.terms-and-conditions a{display:block;}
