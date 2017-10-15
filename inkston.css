@@ -4285,3 +4285,5 @@ details details summary {text-decoration:underline;font-weight:normal;font-size:
 
 /* terms and conditions link for directory */
 .wpbdp-form-field.terms-and-conditions a{display:block;}
+/* gift coupon field display */
+div.wcs-data{margin-top:5em;}

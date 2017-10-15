@@ -203,7 +203,7 @@ foreach ( $attributes as $attribute ){
     }
 }
 
-if (! ( $product->get_type() == 'variable' ) ){
+if ( $product->get_type() == 'simple' ){
   //add shipping class note
   $shippingclassid = $product->get_shipping_class_id();
   $shippingclassname = __('Shipping', 'photoline-inkston');

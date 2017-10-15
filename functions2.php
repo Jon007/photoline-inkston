@@ -772,7 +772,7 @@ if (is_woocommerce_activated()){
         if ( ( is_checkout() ) && ( $class_exists ) ){ //&& (class_exists( 'Alg_WC_Checkout_Files_Upload_Main') ) ) {
             //$awccf = new Alg_WC_Checkout_Files_Upload_Main;
             global $AWCCF;
-            if ( $AWCCF->is_visible(1) ) {
+            if ($AWCCF && ( $AWCCF->is_visible(1)) ) {
               wc_print_notice( __('Your order has a custom design option, if you like you can upload a file and/or make comments below. You may also skip this step and confirm details with us later.' , 'photoline-inkston'), 'notice');
             }
         }
@@ -1164,7 +1164,7 @@ function get_user_level($atts = array()){
 		//'style' => 'int', // level number (menu order +1) for current badge only        
 		//'style' => 'score', // highest badge and score details
         ), $atts );
-    
+    if (function_exists('badgeos_get_user_achievements')){
     $user_achievements = badgeos_get_user_achievements($a);
     if (! $user_achievements || sizeof($user_achievements)==0){
         return __('No badges yet', 'photoline-inkston');
@@ -1245,7 +1245,7 @@ function get_user_level($atts = array()){
             $output .= ' <br/>' . badgeos_render_earned_achievement_text($post->ID, $user_id);
             
     }
-    
+    }
     return $output;
 }
 add_shortcode('inklevel', 'get_user_level');
@@ -1256,6 +1256,26 @@ function ink_user_id(){
     } else {
         return get_current_user_id();
     }
+}
+
+/*
+ * allow shortcodes in forum posts
+ */
+function pw_bbp_shortcodes( $content, $reply_id ) {
+	if ( (! is_feed() ) && ( stripos($_SERVER['REQUEST_URI'], '/feed')===FALSE ) ) 
+	{
+        //$reply_author = bbp_get_reply_author_id( $reply_id );
+        //if( user_can( $reply_author, pw_bbp_parse_capability() ) ){
+              return do_shortcode( $content );
+        //}
+    } 
+    return strip_shortcodes($content);
+}
+add_filter('bbp_get_reply_content', 'pw_bbp_shortcodes', 10, 2);
+add_filter('bbp_get_topic_content', 'pw_bbp_shortcodes', 10, 2);
+
+function pw_bbp_parse_capability() {
+	return apply_filters( 'pw_bbp_parse_shortcodes_cap', 'publish_forums' );
 }
 
 /* didn't quite seem to work..

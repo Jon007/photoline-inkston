@@ -52,6 +52,9 @@ if ( post_password_required() )
     if ($page_id){
       $contact_link = get_page_link($page_id); 
       $contact_title = get_the_title( $page_id );
+    } elseif (get_locale()=='de_DE') {
+        $contact_link = __( 'https://www.inkston.com/deu/kontaktieren-sie-uns/', 'photoline-inkston' ); 
+        $contact_title = __( 'Contact', 'photoline-inkston' ); 
     } else {
         $contact_link = __( 'https://www.inkston.com/inkston/contact-us/', 'photoline-inkston' ); 
         $contact_title = __( 'Contact', 'photoline-inkston' ); 
