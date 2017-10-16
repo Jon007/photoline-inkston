@@ -947,3 +947,5 @@ details details summary {text-decoration:underline;font-weight:normal;font-size:
 .site-content .entry-content details li{margin-bottom:5px; line-height:1.3em;}
 .wpbdp-form-field.terms-and-conditions a{display:block;}
 div.wcs-data{margin-top:5em;}
+.tinv-wishlist .social-buttons {border:2px solid green;border-radius:5px;padding-left:10px;padding-right:10px;margin-right:15px;}
+.tinv-wishlist .social-buttons ul {margin-bottom: 0px;}

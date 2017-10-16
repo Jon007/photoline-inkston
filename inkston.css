@@ -4287,3 +4287,7 @@ details details summary {text-decoration:underline;font-weight:normal;font-size:
 .wpbdp-form-field.terms-and-conditions a{display:block;}
 /* gift coupon field display */
 div.wcs-data{margin-top:5em;}
+/* wishlist sharing buttons */
+.tinv-wishlist .social-buttons {border:2px solid green;border-radius:5px;padding-left:10px;padding-right:10px;margin-right:15px;}
+.tinv-wishlist .social-buttons ul {margin-bottom: 0px;}
+
