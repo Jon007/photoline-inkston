@@ -1581,10 +1581,11 @@ add_filter( 'author_link', 'ink_author_link', 30, 3 );
 
 
 function ink_default_wishlist_name($wl){
-    if ( array_key_exists( 'author', $wl ) ) {
+    if ( array_key_exists( 'author', $wl ) && array_key_exists( 'title', $wl ) ) {
         $user     = get_userdata( $wl['author'] );
-        $wl['title'] = $user->user_nicename . ' ' .  $wl['title'] ;
-            
+        if ($user && $user->user_nicename ){
+          $wl['title'] = $user->user_nicename . ' ' .  $wl['title'];
+        }
     }
     return $wl;
 }
