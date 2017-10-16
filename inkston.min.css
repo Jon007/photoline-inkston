@@ -949,3 +949,16 @@ details details summary {text-decoration:underline;font-weight:normal;font-size:
 div.wcs-data{margin-top:5em;}
 .tinv-wishlist .social-buttons {border:2px solid green;border-radius:5px;padding-left:10px;padding-right:10px;margin-right:15px;}
 .tinv-wishlist .social-buttons ul {margin-bottom: 0px;}
+#content .tinvwl_add_to_wishlist_button.icon-white.button{
+text-transform: uppercase;
+font-weight: 600;
+letter-spacing: 1px;
+-webkit-font-smoothing: antialiased;
+font-size: 14px;
+line-height: 16px;
+margin-top: -1em;
+margin-bottom: 5px;
+float: right;
+position: relative;
+margin-right: 50%;
+}

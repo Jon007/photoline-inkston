@@ -1578,3 +1578,14 @@ function ink_author_link($link, $author_id, $author_nicename){
 }
 //add with higher filter than polylang (20)
 add_filter( 'author_link', 'ink_author_link', 30, 3 );
+
+
+function ink_default_wishlist_name($wl){
+    if ( array_key_exists( 'author', $wl ) ) {
+        $user     = get_userdata( $wl['author'] );
+        $wl['title'] = $user->user_nicename . ' ' .  $wl['title'] ;
+            
+    }
+    return $wl;
+}
+add_filter( 'tinvwl_wishlist_get', 'ink_default_wishlist_name', 10, 1);
