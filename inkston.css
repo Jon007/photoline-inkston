@@ -4310,3 +4310,4 @@ margin-top: 5px;
 }
 /* fix amazon grid layout not flowing properly due to oversize sale items*/
 .aalb-pa-ad-unit.pull-left {max-height:259px;border:1px solid white;}
+.shop_table.order_details th{width:50%;}
