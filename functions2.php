@@ -1164,6 +1164,7 @@ function get_user_level($atts = array()){
 		//'style' => 'int', // level number (menu order +1) for current badge only        
 		//'style' => 'score', // highest badge and score details
         ), $atts );
+    $output = '';
     if (function_exists('badgeos_get_user_achievements')){
     $user_achievements = badgeos_get_user_achievements($a);
     if (! $user_achievements || sizeof($user_achievements)==0){
@@ -1181,7 +1182,6 @@ function get_user_level($atts = array()){
         'include' => $user_achievement_ids,
         ));   
 
-    $output = '';
     $post = $achievements[0];
     switch ($a['style']) {
         case 'brushes':

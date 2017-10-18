@@ -3367,12 +3367,13 @@ form#commentform {display: none;}
     background: #f8f8f8;
     border: 1px solid #cccccc;
     box-shadow: 0 1px 0 rgba(0,0,0,.08);
+		width:100%;
+		display:inline-block;
 }
 
 .comment-reply-title:hover {border: 1px solid #bbb;}
 
-.comment-list .comment-reply-title,
-.comment-reply-title.active {
+.comment-list {
     background: none;
     cursor: default;
     border: none;
@@ -4298,9 +4299,14 @@ letter-spacing: 1px;
 -webkit-font-smoothing: antialiased;
 font-size: 14px;
 line-height: 16px;
-margin-top: -1em;
+margin-top:0;
 margin-bottom: 5px;
 float: right;
 position: relative;
 margin-right: 50%;
 }
+#content div.product-type-woosb .tinvwl_add_to_wishlist_button.icon-white.button{
+margin-top: 5px;
+}
+/* fix amazon grid layout not flowing properly due to oversize sale items*/
+.aalb-pa-ad-unit.pull-left {max-height:259px;border:1px solid white;}

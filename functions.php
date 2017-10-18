@@ -389,13 +389,23 @@ function inkston_scripts()
     }
     
     if (is_woocommerce_activated()){
-        if ( (!is_cart()) && ( !is_checkout()) ){
+        //if ( (!is_cart()) && ( !is_checkout()) ){
+		if ( ! is_cart() && ! is_checkout() && ! isset( $_GET['pay_for_order'] ) && ! is_add_payment_method_page() ) {
             wp_dequeue_style('wjecf-style');
             wp_dequeue_script('wjecf-free-products');
-            wp_dequeue_style('angelleye-express-checkout-css');
-            wp_dequeue_script('angelleye_frontend');
+
+            //no longer used, retest if re-enable
+            //wp_dequeue_style('angelleye-express-checkout-css');
+            //wp_dequeue_script('angelleye_frontend');
+            
+            wp_dequeue_script('stripe');
+            wp_dequeue_script('woocommerce_stripe');
+            wp_dequeue_script('woocommerce_stripe_apple_pay_single');
+            wp_dequeue_style('stripe_apple_pay');            
+            
         }
-    }
+        }
+    
     ?><script type="text/javascript">window.loginurl = '<?php echo(wp_login_url()) ?>';</script><?php
 }
 add_action('wp_enqueue_scripts', 'inkston_scripts', 1000);
@@ -467,6 +477,8 @@ function inkston_featured_img_tag($content, $tag){
     $first_img = '';
     $last_avatar = '';
     $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+    /* $output = preg_match_all("/<img\s[^>]*?src\s*=\s*['\"]([^'\"]*?)['\"][^>]*?>", $content, $matches); */
+    //$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
 
     //check if we are on a bbPress forum post
     global $post;

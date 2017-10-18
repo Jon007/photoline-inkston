@@ -20,6 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+    //moving notices has no effect because they are placed at the top 
 wc_print_notices();
 
 do_action( 'woocommerce_before_checkout_form', $checkout );
