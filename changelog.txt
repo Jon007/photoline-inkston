@@ -1,5 +1,8 @@
 == inkston WordPress Theme ==
 
+= 3.2 - 18.10.2017
+- Formatting enhancements and integration for multisite with bbPress, Business Directory, Wishlist, currency switching
+
 = 2.7 - 13.4.2017
 - Enhanced: improved comment display and login redirection for disabling of anonymous comments.
 
