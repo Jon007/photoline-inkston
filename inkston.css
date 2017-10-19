@@ -2985,6 +2985,14 @@ body:not(.home) #wrap-content{
     overflow-x: hidden;
     height: calc(100vh - 262px);
 }
+/* do NOT apply viewport to woocommerce checkout or artist pages */
+body.woocommerce-checkout #wrap-content,
+body.single-wpbdp_listing #wrap-content
+{
+		position:inherit;
+		height: auto;
+}
+body.business-directory #wrap-content,
 body.post-type-archive-product #wrap-content,
 body.woocommerce-cart #wrap-content
 {

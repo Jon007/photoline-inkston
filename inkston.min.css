@@ -610,7 +610,8 @@ body:not(.home) #mega-menu-wrap-hamburger{z-index:999}
 body:not(.home) #content{padding-top:0}
 body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
 body:not(.home) #wrap-content{position:relative;margin-top:210px;overflow:auto;overflow-x:hidden;height:calc(100vh - 262px)}
-body.post-type-archive-product #wrap-content,body.woocommerce-cart #wrap-content{margin-top:193px;height:calc(100vh - 245px)}
+body.woocommerce-checkout #wrap-content,body.single-wpbdp_listing #wrap-content{position:inherit;height:auto}
+body.business-directory #wrap-content,body.post-type-archive-product #wrap-content,body.woocommerce-cart #wrap-content{margin-top:193px;height:calc(100vh - 245px)}
 body.home.woocommerce-checkout h1.page-title.entry-title{display:block}
 body:not(.home) #content{padding-top:0}
 body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}

@@ -1595,6 +1595,9 @@ function ink_sharing(){
     if (is_admin()|| is_feed() ){
         return;
     }
+    if ( function_exists('bbp_is_single_user') && bbp_is_single_user() ){
+        return;
+    }
     if (is_woocommerce_activated()) {
         if (is_cart() || is_checkout() || is_account_page() || is_ajax() ){
             return;
