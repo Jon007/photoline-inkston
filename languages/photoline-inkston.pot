@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-18 16:27+0000\n"
+"POT-Creation-Date: 2017-10-18 23:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -1051,6 +1051,14 @@ msgstr ""
 
 #: woocommerce-auto-added-coupons/coupon-select-free-product.php:134
 msgid "None"
+msgstr ""
+
+#: woocommerce/checkout/terms.php:26
+#, php-format
+msgid ""
+"By placing your order, you agree to the inkston <a href=\"%s\" "
+"target=\"_blank\" class=\"woocommerce-terms-and-conditions-link\">terms &amp;"
+" conditions</a>"
 msgstr ""
 
 #: woocommerce/emails/customer-on-hold-order.php:31

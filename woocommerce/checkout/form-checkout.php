@@ -37,18 +37,8 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
 	<?php if ( $checkout->get_checkout_fields() ) : ?>
 
-<div class="woo_order_customization">
-		<div class="woocommerce-additional-fields__field-wrapper">
-			<?php  //this section moved from inside form-shipping.php
-                foreach ( $checkout->get_checkout_fields( 'order' )  as $key => $field ) : ?>
-				<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
-			<?php endforeach; ?>
-		</div>
-		
-
 		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
         
-</div>  
 		<div class="col2-set" id="customer_details">
 			<div class="col-1">
 				<?php do_action( 'woocommerce_checkout_billing' ); ?>
@@ -71,6 +61,14 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
 	</div>
 
+<div class="woo_order_customization">
+		<div class="woocommerce-additional-fields__field-wrapper">
+			<?php  //this section moved from inside form-shipping.php
+                foreach ( $checkout->get_checkout_fields( 'order' )  as $key => $field ) : ?>
+				<?php woocommerce_form_field( $key, $field, $checkout->get_value( $key ) ); ?>
+			<?php endforeach; ?>
+		</div>
+</div>  
 	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
 
 </form>

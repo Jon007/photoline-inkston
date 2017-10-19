@@ -603,10 +603,11 @@ body:not(.home) #head-wrap{position:fixed;top:0;left:0;z-index:99}
 body:not(.home) #head-wrap *{z-index:2}
 body:not(.home) #head-wrap img{z-index:0}
 body:not(.home) #mega-menu-top{z-index:999}
-body:not(.home) #wrap-content{position:relative;margin-top:215px}
 body:not(.home) #content{padding-top:0}
 body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
-body:not(.home) #wrap-content{position:relative;margin-top:215px}
+body:not(.home) #wrap-content{position:relative;margin-top:210px;overflow:auto;overflow-x:hidden;height:calc(100vh - 262px)}
+body.woocommerce-cart #wrap-content{margin-top:193px;height:calc(100vh - 245px)}
+body.home.woocommerce-checkout h1.page-title.entry-title{display:block}
 body:not(.home) #content{padding-top:0}
 body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
 }
@@ -1048,3 +1049,4 @@ div.wcs-data{margin-top:5em}
 #content .tinvwl_add_to_wishlist_button.icon-white.button{text-transform:uppercase;font-weight:600;letter-spacing:1px;-webkit-font-smoothing:antialiased;font-size:14px;line-height:16px;margin-top:0;margin-bottom:5px;float:right;position:relative;margin-right:50%}
 #content div.product-type-woosb .tinvwl_add_to_wishlist_button.icon-white.button{margin-top:5px}
 .aalb-pa-ad-unit.pull-left{max-height:259px;border:1px solid #fff}
+.shop_table.order_details th{width:50%}

@@ -580,6 +580,10 @@ function inkston_body_class_filter($classes)
        $classes[] = 'woocommerce-page';
        $classes[] = 'columns-5';
        $classes[] = sanitize_html_class('woocommerce');
+       if (is_checkout()){
+           //checkout CSS kludge: viewport style is incompatible with checkout and applied to not(.home)
+           $classes[] = sanitize_html_class('home');           
+       }
     }
         
     

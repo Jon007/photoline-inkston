@@ -23,7 +23,7 @@ if ( $terms_page_id > 0 && apply_filters( 'woocommerce_checkout_show_terms', tru
 	?>
 	<p class="form-row terms wc-terms-and-conditions">
 		<label class="woocommerce-form__label">
-			<span><?php printf( __( 'I&rsquo;ve read and accept the <a href="%s" target="_blank" class="woocommerce-terms-and-conditions-link">terms &amp; conditions</a>', 'woocommerce' ), esc_url( wc_get_page_permalink( 'terms' ) ) ); ?></span>  
+			<span><?php printf( __( 'By placing your order, you agree to the inkston <a href="%s" target="_blank" class="woocommerce-terms-and-conditions-link">terms &amp; conditions</a>', 'photoline-inkston' ), esc_url( wc_get_page_permalink( 'terms' ) ) ); ?></span>  
 		</label>
 		<input type="hidden" name="terms" value="1" />
 		<input type="hidden" name="terms-field" value="0" />

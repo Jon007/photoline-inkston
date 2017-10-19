@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-10-18 16:29+0000\n"
-"PO-Revision-Date: 2017-10-18 16:31+0000\n"
+"POT-Creation-Date: 2017-10-18 23:56+0000\n"
+"PO-Revision-Date: 2017-10-18 23:57+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
@@ -534,32 +534,15 @@ msgid ""
 "required for theme to work, they add additional functionality."
 msgstr ""
 
-#: woocommerce/myaccount/my-orders.php:32 woocommerce/myaccount/orders.php:30
+#: woocommerce/checkout/terms.php:26
+#, php-format
 msgid ""
-"For any orders not received yet, please view status and delivery tracking "
-"codes below.<br />If your order has arrived, please leave your review!"
+"By placing your order, you agree to the inkston <a href=\"%s\" "
+"target=\"_blank\" class=\"woocommerce-terms-and-conditions-link\">terms &amp;"
+" conditions</a>"
 msgstr ""
-"Para cualquier pedido que aún no haya recibido, consulte el estado y los "
-"códigos de seguimiento de entrega a continuación.\n"
-"Si su pedido ha llegado, ¡deje su comentario!"
-
-#: woocommerce/myaccount/my-orders.php:35
-#: woocommerce/order/order-details.php:34
-msgid "Please help us to help you by reviewing your products!"
-msgstr "¡Por favor ayúdenos a ayudar mediante la revisión de sus productos!!"
-
-#: woocommerce/myaccount/my-orders.php:37
-#: woocommerce/order/order-details.php:36
-msgid ""
-"  All reviews earn points in inkston <a href=\"https://www.inkston."
-"com/community/my-awards/\">reward scheme</a>.  Your experience is highly "
-"valuable in helping us improve and helping others choose the most suitable "
-"products."
-msgstr ""
-"Todas las revisiones ganan puntos en <a href=\"https://www.inkston."
-"com/community/my-awards/\">el esquema de recompensa inkston</a>. Su "
-"experiencia es muy valiosa para ayudarnos a mejorar y ayudar a otros a "
-"elegir los productos más adecuados."
+"Al realizar su pedido, acepta los <a href=\"%s\" class=\"woocommerce-terms-"
+"and-conditions-link\">terminos y condiciones de inkston.com</a>"
 
 #. Name of the theme
 msgid "Photoline Inkston"
@@ -1146,6 +1129,33 @@ msgstr "Ningún"
 #: woocommerce/emails/customer-on-hold-order.php:31
 msgid "pay for this order online"
 msgstr "Pagar este pedido en línea"
+
+#: woocommerce/myaccount/my-orders.php:32 woocommerce/myaccount/orders.php:30
+msgid ""
+"For any orders not received yet, please view status and delivery tracking "
+"codes below.<br />If your order has arrived, please leave your review!"
+msgstr ""
+"Para cualquier pedido que aún no haya recibido, consulte el estado y los "
+"códigos de seguimiento de entrega a continuación.\n"
+"Si su pedido ha llegado, ¡deje su comentario!"
+
+#: woocommerce/myaccount/my-orders.php:35
+#: woocommerce/order/order-details.php:34
+msgid "Please help us to help you by reviewing your products!"
+msgstr "¡Por favor ayúdenos a ayudar mediante la revisión de sus productos!!"
+
+#: woocommerce/myaccount/my-orders.php:37
+#: woocommerce/order/order-details.php:36
+msgid ""
+"  All reviews earn points in inkston <a href=\"https://www.inkston."
+"com/community/my-awards/\">reward scheme</a>.  Your experience is highly "
+"valuable in helping us improve and helping others choose the most suitable "
+"products."
+msgstr ""
+"Todas las revisiones ganan puntos en <a href=\"https://www.inkston."
+"com/community/my-awards/\">el esquema de recompensa inkston</a>. Su "
+"experiencia es muy valiosa para ayudarnos a mejorar y ayudar a otros a "
+"elegir los productos más adecuados."
 
 #: woocommerce/myaccount/navigation.php:43
 msgid "My Profile"
