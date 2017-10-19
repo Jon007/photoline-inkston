@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoline Inkston\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-18 23:58+0000\n"
-"PO-Revision-Date: 2017-10-18 23:58+0000\n"
+"POT-Creation-Date: 2017-10-19 11:33+0000\n"
+"PO-Revision-Date: 2017-10-19 11:34+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -95,19 +95,19 @@ msgstr ""
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:715
+#: functions.php:719
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:716
+#: functions.php:720
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:1425 functions.php:1548
+#: functions.php:1429 functions.php:1552
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1439 functions.php:1560
+#: functions.php:1443 functions.php:1564
 msgid "UPC"
 msgstr ""
 
@@ -147,6 +147,10 @@ msgstr ""
 #: functions2.php:1482
 msgid "rewards@inkston.com"
 msgstr ""
+
+#: functions2.php:1675
+msgid "If you like this, please share: "
+msgstr "Si vous aimez ceci, merci de partager:"
 
 #: header.php:109
 msgid "Menu"
@@ -593,17 +597,6 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: woocommerce/checkout/terms.php:26
-#, php-format
-msgid ""
-"By placing your order, you agree to the inkston <a href=\"%s\" "
-"target=\"_blank\" class=\"woocommerce-terms-and-conditions-link\">terms &amp;"
-" conditions</a>"
-msgstr ""
-"En passant votre commande, vous acceptez <a href=\"%s\"  target=\"_blank\" "
-"class=\"woocommerce-terms-and-conditions-link\">les conditions d'utilisation "
-"de inkston.com</a>"
-
 #: woocommerce/single-product/product-attributes.php:221
 msgid "Standard"
 msgstr ""
@@ -697,11 +690,11 @@ msgstr "Lire"
 msgid "Choose"
 msgstr "Choisir"
 
-#: functions.php:866 functions.php:908
+#: functions.php:870 functions.php:912
 msgid "Recent discussions in: "
 msgstr "Discussions récentes dans:"
 
-#: functions.php:1137
+#: functions.php:1141
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
@@ -710,28 +703,28 @@ msgstr ""
 "Si vous n'avez pas de compte <a target=\"_blank\" href=\"%s\"> inscrivez-"
 "vous </a> (ouvrira dans une nouvelle fenêtre)"
 
-#: functions.php:1138
+#: functions.php:1142
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr "puis <a href=\"#comment\" onclick=\"%s\" \"> cliquez ici </a>."
 
-#: functions.php:1443
+#: functions.php:1447
 msgid "12 digits international standard Universal Product Code."
 msgstr "Code numérique universel de 12 chiffres."
 
-#: functions.php:1464 functions.php:1582
+#: functions.php:1468 functions.php:1586
 msgid "Product weight"
 msgstr "Poids du produit"
 
-#: functions.php:1466 functions.php:1469 functions.php:1584 functions.php:1587
+#: functions.php:1470 functions.php:1473 functions.php:1588 functions.php:1591
 msgid "Unpacked net product weight."
 msgstr "Poids net du produit non emballé."
 
-#: functions.php:1495 functions.php:1603
+#: functions.php:1499 functions.php:1607
 msgid "Product size "
 msgstr "Taille du produit"
 
-#: functions.php:1503 functions.php:1563 functions.php:1607
+#: functions.php:1507 functions.php:1567 functions.php:1611
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr "Taille de produit non conditionnée LxWxH en décimale"
 
@@ -1132,6 +1125,17 @@ msgstr "Bienvenue!"
 #: inc/welcome.php:72
 msgid "Welcome to"
 msgstr "Bienvenue à"
+
+#: woocommerce/checkout/terms.php:26
+#, php-format
+msgid ""
+"By placing your order, you agree to the inkston <a href=\"%s\" "
+"target=\"_blank\" class=\"woocommerce-terms-and-conditions-link\">terms &amp;"
+" conditions</a>"
+msgstr ""
+"En passant votre commande, vous acceptez <a href=\"%s\"  target=\"_blank\" "
+"class=\"woocommerce-terms-and-conditions-link\">les conditions d'utilisation "
+"de inkston.com</a>"
 
 #: woocommerce/emails/customer-on-hold-order.php:31
 msgid "pay for this order online"

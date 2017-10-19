@@ -20,7 +20,7 @@
 			) );
 			?>
 	</div><!-- .entry-content -->
-
+<?php    ink_sharing(); ?>
 	<footer class="entry-meta<?php if ( !is_active_sidebar( 'sidebar-1' ) ) { ?> no-sidebar<?php } ?>">
 
 		<div class="posted">

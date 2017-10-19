@@ -1590,3 +1590,30 @@ function ink_default_wishlist_name($wl){
     return $wl;
 }
 add_filter( 'tinvwl_wishlist_get', 'ink_default_wishlist_name', 10, 1);
+
+function ink_sharing(){
+    if (is_admin()|| is_feed() ){
+        return;
+    }
+    if (is_woocommerce_activated()) {
+        if (is_cart() || is_checkout() || is_account_page() || is_ajax() ){
+            return;
+        }
+    }
+    ?><div class="entry-content saleflash" style="text-align:center;"><?php 
+    _e('If you like this, please share: ', 'photoline-inkston');
+    $current_url="https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+    $encoded_url=urlencode($current_url);
+?><ul id="menu-share" class="menu-social">
+<li><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo($encoded_url); ?>"></a></li>
+<li><a target="_blank" href="https://twitter.com/home?status=<?php echo($encoded_url); ?>"></a></li>
+<li><a target="_blank" href="https://plus.google.com/share?url=<?php echo($encoded_url); ?>"></a></li>
+<li><a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&url=<?php echo($encoded_url); //&title=great%20stuff%20from%20inkston&summary=Summary%20excerpt&source=inkston.com?>"></a></li>
+<li><a href="mailto:?&subject=<?php echo($encoded_url); ?>&body=<?php echo($encoded_url); ?>"></a></li>
+</ul> 
+</div><!-- .entry-content -->
+<?php
+}
+add_action('woocommerce_share', 'ink_sharing');
+//add_action('bbp_template_after_single_topic', 'ink_sharing', 50);
+
