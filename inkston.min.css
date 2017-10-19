@@ -269,6 +269,7 @@ ul#sidemenu,#sidemenu li ul.sub-menu{margin-left:0;list-style:none}
 ul.menu-social li a::before,#menu-social li a::before{color:#1a1919;content:none;font-family:"FontAwesome";display:inline-block;font-size:18px;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 #menu-share li a:hover::before,#menu-share li a:active::before{color:#fa7c0b}
 ul.menu-social li a[href*="wordpress.org"]::before,ul.menu-social li a[href*="wordpress.com"]::before{content:'\f19a'!important}
+ul.menu-social li a[href*="amazon"]::before {content: '\f270'!important;}
 ul.menu-social li a[href*="mailto"]::before{content:'\f0e0'!important}
 ul.menu-social li a[href*="facebook.com"]::before{content:'\f082'!important}
 ul.menu-social li a[href*="twitter.com"]::before{content:'\f099'!important}
@@ -1055,3 +1056,4 @@ div.wcs-data{margin-top:5em}
 #content div.product-type-woosb .tinvwl_add_to_wishlist_button.icon-white.button{margin-top:5px}
 .aalb-pa-ad-unit.pull-left{max-height:259px;border:1px solid #fff}
 .shop_table.order_details th{width:50%}
+body.tinvwl-theme-style .menu-share-container{display:none;} 

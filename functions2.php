@@ -1603,7 +1603,7 @@ function ink_sharing(){
             return;
         }
     }
-    ?><div class="entry-content saleflash" style="text-align:center;"><?php 
+    ?><div class="entry-content saleflash menu-share-container" style="text-align:center;"><?php 
     _e('If you like this, please share: ', 'photoline-inkston');
     $current_url="https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $encoded_url=urlencode($current_url);

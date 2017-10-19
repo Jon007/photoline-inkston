@@ -46,7 +46,7 @@ if ( bbp_get_displayed_user_field( 'description' ) ){
 
 <?php 
 if ( (bbp_get_displayed_user_id() == get_current_user_id() ) || 
-     ( current_user_can( badgeos_get_manager_capability() ) ) ) {    
+     ( function_exists('badgeos_get_manager_capability') && current_user_can( badgeos_get_manager_capability() ) ) ) {    
 ?>
 &nbsp;
 <hr />
