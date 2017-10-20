@@ -1620,3 +1620,16 @@ function ink_sharing(){
 add_action('woocommerce_share', 'ink_sharing');
 //add_action('bbp_template_after_single_topic', 'ink_sharing', 50);
 
+/**
+ * Filter coupon metadata (rules) for gift coupons created by woo-sell-coupons
+ * 
+ * @param array       $coupon_meta default coupon meta data
+ * 
+ * @return array      filtered meta data.
+ */
+function ink_gift_coupon_rules($coupon_meta, $id, $message){
+    $coupon_meta['exclude_product_categories'] = array(5278, 5273);
+    $coupon_meta['_wjecf_enqueue_message'] = $message;
+    return $coupon_meta;
+}
+add_filter('wcs_gift_coupon_meta', 'ink_gift_coupon_rules', 10, 3);
