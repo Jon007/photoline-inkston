@@ -1058,3 +1058,8 @@ div.wcs-data{margin-top:5em}
 .shop_table.order_details th{width:50%}
 body.tinvwl-theme-style .menu-share-container{display:none;} 
 .wcs-data input{width:100%}
+.product-type-gift_coupon .single_add_to_cart_button.button.alt{margin-left: 50px;}
+#content .product-type-gift_coupon .tinvwl_add_to_wishlist_button.icon-white.button{float:none;}
+@media (max-width:760px){
+.product-type-gift_coupon .single_add_to_cart_button.button.alt{margin-left:0px;margin-bottom:8px;}
+}

@@ -1627,9 +1627,21 @@ add_action('woocommerce_share', 'ink_sharing');
  * 
  * @return array      filtered meta data.
  */
-function ink_gift_coupon_rules($coupon_meta, $id, $message){
+function ink_gift_coupon_rules($coupon_meta, $id, $coupon_code){
+    
     $coupon_meta['exclude_product_categories'] = array(5278, 5273);
-    $coupon_meta['_wjecf_enqueue_message'] = $message;
+    $coupon_val = $coupon_meta['coupon_amount'];
+    /*  too clever, doesn't quite work..
+    if (isWoocs()) {
+        global $WOOCS;        
+        $level = $WOOCS->woocs_exchange_value($level);
+    }
+    $coupon_val = wc_price($coupon_val);
+     */
+    $coupon_val .= 'USD';
+    $coupon_meta['_wjecf_enqueue_message'] = sprintf(
+        __('The coupon %s will give you a discount of %s when your basket value reaches %s or more.', 'photoline-inkston')
+        , $coupon_code, $coupon_val, $coupon_val);
     return $coupon_meta;
 }
 add_filter('wcs_gift_coupon_meta', 'ink_gift_coupon_rules', 10, 3);

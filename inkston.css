@@ -4347,5 +4347,13 @@ margin-top: 5px;
 /* fix amazon grid layout not flowing properly due to oversize sale items*/
 .aalb-pa-ad-unit.pull-left {max-height:259px;border:1px solid white;}
 .shop_table.order_details th{width:50%;}
-body.tinvwl-theme-style .menu-share-container{display:none;} /* gift coupon input format */
+body.tinvwl-theme-style .menu-share-container{display:none;} 
+/* gift coupon input format */
 .wcs-data input{width:100%}
+
+/* improve button layout on gift coupon */
+.product-type-gift_coupon .single_add_to_cart_button.button.alt{margin-left: 50px;}
+#content .product-type-gift_coupon .tinvwl_add_to_wishlist_button.icon-white.button{float:none;}
+@media (max-width:760px){
+.product-type-gift_coupon .single_add_to_cart_button.button.alt{margin-left:0px;margin-bottom:8px;}
+}
