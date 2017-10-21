@@ -1666,6 +1666,22 @@ function ink_get_newsletter_subscribe_url(){
     }
     return $managelink;
 }
+
+function ink_get_newsletter_subscribe_link(){
+    if (shortcode_exists('mailpoet_manage_subscription')){
+        echo(do_shortcode('[mailpoet_manage_subscription]'));
+    } else {
+        if (get_current_user_id()){
+            $manageurl = ink_get_newsletter_subscribe_url();
+            if ($manageurl){
+                echo('<a href="' . $manageurl . '" class="manageurl">');
+                _e('click here to manage your subscription', 'photoline-inkston');
+                echo('</a>');
+            }
+        }
+    }
+}
+add_shortcode( 'ink_get_newsletter_subscribe_link', 'ink_get_newsletter_subscribe_link');
 /**
  * Filters the dashboard URL for a user.
  *
