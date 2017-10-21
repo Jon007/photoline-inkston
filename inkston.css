@@ -3255,9 +3255,9 @@ div.product_meta{padding-bottom:1em;}
 /* tried to reduce this for single product form but is needed for variation products
 .woocommerce div.product form.cart{margin-bottom:2em;}
 */
-/*allow extra footer space on mobiles for bottom shareaholic*/
+/*allow extra footer space on mobiles for bottom shareaholic
 @media (max-width: 650px) {.site-footer {margin-bottom:30px;}}
-
+*/
 /*TODO: finish testing enable modified Add To Cart button from catalogue pages
 this stays invisible due to a entry in the woocommerce.css */
 .woocommerce #content ul.products a.button.add_to_cart_button:hover, .woocommerce #content ul.products a.ajax_add_to_cart:hover {
@@ -3673,7 +3673,6 @@ body.logged-in .hide-if-logged-in{display:none!important;}
 body .hide-if-logged-out{display:none!important;}
 body.logged-in .hide-if-logged-out{display:initial!important;}
 .avatar{float: left;margin-right: 10px;}
-.icon-footer {margin-right: 30px;}
 .comments-area footer .comment-author{margin-bottom: -50px;}
 .no-comments{margin-top:50px;}
 .woocommerce #reviews #comments ol.commentlist li img.avatar {width:60px;border:0;padding:0;}
@@ -4356,4 +4355,38 @@ body.tinvwl-theme-style .menu-share-container{display:none;}
 #content .product-type-gift_coupon .tinvwl_add_to_wishlist_button.icon-white.button{float:none;}
 @media (max-width:760px){
 .product-type-gift_coupon .single_add_to_cart_button.button.alt{margin-left:0px;margin-bottom:8px;}
+}
+/* mailpoet forms and other mysteriously grey areas */
+.site-content label strong, .site-content .mailpoet_checkbox_label{
+	color:#1a1919;
+}
+.mailpoet_paragraph{margin-bottom:1em;}
+.mailpoet_paragraph label{min-width:150px;}
+.mailpoet_paragraph label, 
+.mailpoet_paragraph input{
+	display:inline-block;
+} 
+div.about, div.footer-subscribe{
+	display: inline-block;
+	float: left;
+}
+div.footer-subscribe{margin-left:25%;}
+.col.alignright{float:right;}
+#wrap-content{background:transparent;}
+.col .search-footer{margin-left:12px;}
+.col.social{float:right;}
+.site-info .col{margin:0;}
+div.col.subscribe{width:45%;}
+div.col.subscribe a{text-decoration:none;font-weight:bold;}
+@media (max-width:650px){
+.site-footer{padding:0 5px;}
+div.about{margin-left:0;}
+div.col.subscribe{width:125px;}
+div.footer-subscribe{margin-left:12px;float:right;}
+}
+@media (max-width:460px){
+div.col.about, div.col.subscribe{width:50%!important;}
+div.footer-subscribe{margin-left:12px;float:right;}
+div.col.social{width:100%;clear:both;}
+div.icon-footer{margin-right:33%;}
 }

@@ -43,6 +43,15 @@ do_action( 'woocommerce_before_account_navigation' );
 <a href="<?php echo($profileurl); ?>"><?php echo(esc_html( __('My Profile', 'photoline-inkston') ));?></a>
 			</li>
 <?php } 
+/**
+ * show mailpoet link
+ */
+$mailpoet_link = ink_get_newsletter_subscribe_url();
+if ($mailpoet_link) {
+    ?><li class=""><a href="<?php echo($mailpoet_link); ?>"><?php echo(esc_html( 
+        __('Newsletter subscriptions', 'photoline-inkston') ));?></a></li><?php 
+} 
+
 global $wp_subscribe_reloaded;
 if ($wp_subscribe_reloaded ){
     $page_id = inkGetPageID('comment-subscriptions');  // get Comments page in the current language
@@ -59,16 +68,7 @@ if ($wp_subscribe_reloaded ){
         }
     }
 }
-if (function_exists('wysija_get_subscriptions_edit_link')){
-    $mailpoet_link = wysija_get_subscriptions_edit_link();
-    if ($mailpoet_link) {
-        /**
-         * show mailpoet link
-         */
-        ?><li class=""><a href="<?php echo($mailpoet_link); ?>"><?php echo(esc_html( 
-            __('Newsletter subscriptions', 'photoline-inkston') ));?></a></li><?php 
-    } 
-}
+
 $page_id = inkGetPageID('comments');  // get Comments page in the current language
 if ($page_id){
   $comment_link = get_page_link($page_id) . '?u=' . get_current_user_id(); 

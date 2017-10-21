@@ -1645,3 +1645,45 @@ function ink_gift_coupon_rules($coupon_meta, $id, $coupon_code){
     return $coupon_meta;
 }
 add_filter('wcs_gift_coupon_meta', 'ink_gift_coupon_rules', 10, 3);
+
+/**
+ * Filters the dashboard URL for a user.
+ *
+ * @return string magic url for mailpoet, like: 
+ * ?mailpoet_page=subscriptions&mailpoet_router&endpoint=subscription&action=manage
+ * &data=eyJ0b2tlbiI6IjE3ZmI2MCIsImVtYWlsIjoiaW5nbGVub0BpY2xvdWQuY29tIn0
+ */
+use MailPoet\Subscription\Url;
+use MailPoet\Models\Subscriber;
+function ink_get_newsletter_subscribe_url(){
+    $managelink = '';
+    $thisuser = wp_get_current_user();
+    if ($thisuser) {
+        global $mailpoet_plugin;
+        if ($mailpoet_plugin){
+            $managelink = Url::getManageUrl(Subscriber::getCurrentWPUser());
+        }
+    }
+    return $managelink;
+}
+/**
+ * Filters the dashboard URL for a user.
+ *
+ * @since 3.1.0
+ *
+ * @param string $url     The complete URL including scheme and path.
+ * @param int    $user_id The user ID.
+ * @param string $path    Path relative to the URL. Blank string if no path is specified.
+ * @param string $scheme  Scheme to give the URL context. Accepts 'http', 'https', 'login',
+ *                        'login_post', 'admin', 'relative' or null.
+ */
+function ink_user_dashboard_url($url, $user_id, $path, $scheme){
+    //woocommerce_account_edit_account();
+    if ( is_woocommerce_activated() ){
+        return wc_get_account_endpoint_url('edit-account');
+    } elseif (function_exists('bbp_user_profile_url') ){
+        return bbp_get_user_profile_url($user_id);
+    }
+    return $url;
+}
+add_filter( 'user_dashboard_url', 'ink_user_dashboard_url', 10, 4);
