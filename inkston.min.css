@@ -34,7 +34,7 @@ select#calc_shipping_country{padding:5px 0;width:auto}
 .woocommerce button.button,.woocommerce-page button.button,.woocommerce .woocommerce-message,.woocommerce .woocommerce-error,.woocommerce .woocommerce-info,.woocommerce-page .woocommerce-message,.woocommerce-page .woocommerce-error,.woocommerce-page .woocommerce-info{text-shadow:none}
 a.button.wc-forward,a.button.checkout.wc-forward,a.button.wc-backward{color:#1a1919}
 .woocommerce #payment,.woocommerce-page #payment{background:#f0f0f0}
-.woocommerce .cart-collaterals .shipping_calculator .shipping-calculator-button:after,.woocommerce-page .cart-collaterals .shipping_calculator .shipping-calculator-button:after{font-family:"FontAwesome";display:inline-block;font-size:24px;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:'\f1ec';color:#39aa39;font-family:FontAwesome;display:inline-block;font-size:24px;font-style:normal;font-weight:normal;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:\f1ec;color:#6899c3}
+.woocommerce .cart-collaterals .shipping_calculator .shipping-calculator-button:after,.woocommerce-page .cart-collaterals .shipping_calculator .shipping-calculator-button:after{font-family:"FontAwesome";display:inline-block;font-size:24px;font-style:normal;font-weight:400;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:'\f1ec';color:#39aa39;font-family:FontAwesome;display:inline-block;font-size:24px;font-style:normal;font-weight:normal;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:\f1ec;color:#6899c3}
 .woocommerce ul.cart_list li img,.woocommerce ul.product_list_widget li img{float:right;margin-left:4px;width:75px}
 .woocommerce-Tabs-panel--description h2,.woocommerce-Tabs-panel--description h3{display:inline-flex}
 .woocommerce #respond input#submit.alt.disabled,.woocommerce a.button.alt.disabled,.woocommerce button.button.alt.disabled,.woocommerce input.button.alt.disabled,.woocommerce #respond input#submit.alt.disabled:hover,.woocommerce a.button.alt.disabled:hover,.woocommerce button.button.alt.disabled:hover,.woocommerce input.button.alt.disabled:hover{background-color:rgba(26,25,25,0.5)}
@@ -55,14 +55,14 @@ blockquote:before,blockquote:after,q:before,q:after{content:' '}
 a:focus{outline:thin dotted}
 a:hover,a:active{outline:thin dotted}
 a img{border:0}
-body,button,input,select,textarea{color:#404040;line-height:1.5}
+body,button,input,select,textarea{color:#404040;line-height:1.5em}
 h1,h2,h3,h4,h5,h6{clear:both}
 p{margin-bottom:1.5em}
 b,strong{font-weight:700}
 dfn,cite,em,i{font-style:italic}
 blockquote{margin:0 1.5em}
 address{margin:0 0 1.5em}
-pre{background:#eee;font-family:"Courier 10 Pitch",Courier,monospace;font-size:1.5rem;line-height:1.6;margin-bottom:1.6em;max-width:100%;overflow:auto;padding:1.6em}
+pre{background:#eee;font-family:"Courier 10 Pitch",Courier,monospace;font-size:1.5rem;line-height:1.6em;margin-bottom:1.6em;max-width:100%;overflow:auto;padding:1.6em}
 code,kbd,tt,var{font:15px Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",monospace}
 abbr,acronym{border-bottom:1px dotted #666;cursor:help}
 mark,ins{background:#fff9c0;text-decoration:none}
@@ -119,9 +119,9 @@ textarea{overflow:auto;padding-left:3px;vertical-align:top;width:100%}
 .widget{margin:0 0 1.5em}
 .widget select{max-width:100%}
 .widget_search .search-submit{display:none}
-#secondary .call-to-action-text h3{font-size:150%;font-weight:200;line-height:1.5}
+#secondary .call-to-action-text h3{font-size:150%;font-weight:200;line-height:1.5em}
 .blog-widget{text-align:center}
-.blog-widget p{font-size:150%;font-weight:200;line-height:1.5;margin-bottom:0}
+.blog-widget p{font-size:150%;font-weight:200;line-height:1.5em;margin-bottom:0}
 .blog-widget .textwidget{margin-bottom:60px}
 .blog-widget .textwidget p:after{content:"";display:block;height:2px;margin-left:45%;margin-top:20px;width:10%;background-color:#333}
 .hentry{margin:0 0 1.5em}
@@ -155,11 +155,11 @@ a{-webkit-transition:all .2s ease-in-out;-moz-transition:all .2s ease-in-out;-o-
 a:visited{color:#333}
 a:active{color:#000}
 .page-header h1.page-title{font-size:32px;text-align:center}
-.entry-content h1.page-title{line-height:1.5}
+.entry-content h1.page-title{line-height:1.5em}
 .projects-page .page-header h1.page-title,.woocommerce .page-header h1.page-title,.page .page-header h1.page-title,.page-header h1.page-title{text-align:left;text-overflow:ellipsis;height:1.5em;overflow:hidden}
 h1.page-title,span.page-title p{margin-bottom:.2em}
 .entry-content .entry-excerpt p{margin-bottom:1.5em}
-.inkston-excerpt{font-size:18px;font-weight:200;line-height:1.5;margin-bottom:15px}
+.inkston-excerpt{font-size:18px;font-weight:200;line-height:1.5em;margin-bottom:15px}
 label{color:#413e3e;padding:5px 0}
 #content a:hover{text-decoration:underline}
 #content .box a:hover{text-decoration:none}
@@ -249,7 +249,7 @@ ul.nav-menu,.nav-menu ul,.nav-menu ul li ul{list-style:none}
 #menu-top a{text-decoration:none}
 ul#menu-top{list-style:none;margin:0}
 #menu-top li,#menu-footer li{display:inline-block;font-size:12px;padding:0 5px}
-#menu-top li a::before{content:'';font-family:"FontAwesome";display:inline-block;font-size:14px;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+#menu-top li a::before{content:'';font-family:"FontAwesome";display:inline-block;font-size:14px;font-style:normal;font-weight:400;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 #menu-top li a[href*="tel:"]::before{content:'\f095'}
 #menu-top li a[href*="mailto:"]::before{content:'\f0e0'}
 #menu-top li a[href*="https://goo.gl/maps/"]::before{content:'\f041'}
@@ -266,7 +266,7 @@ ul#sidemenu,#sidemenu li ul.sub-menu{margin-left:0;list-style:none}
 #menu-social{text-align:right}
 #menu-social li{display:inline-block;padding-left:5px}
 #menu-share,ul.menu-social,ul.menu-social li{display:inline-block;padding-left:5px;margin:0}
-ul.menu-social li a::before,#menu-social li a::before{color:#1a1919;content:none;font-family:"FontAwesome";display:inline-block;font-size:18px;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+ul.menu-social li a::before,#menu-social li a::before{color:#1a1919;content:none;font-family:"FontAwesome";display:inline-block;font-size:18px;font-style:normal;font-weight:400;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 #menu-share li a:hover::before,#menu-share li a:active::before{color:#fa7c0b}
 ul.menu-social li a[href*="wordpress.org"]::before,ul.menu-social li a[href*="wordpress.com"]::before{content:'\f19a'!important}
 ul.menu-social li a[href*="amazon"]::before{content:'\f270'!important}
@@ -314,7 +314,7 @@ h1,h2,h3,h4,h5,h6{font-family:"Open Sans",Helvetica,Arial,sans-serif;font-weight
 #before-home-widget .entry-content{padding-top:40px}
 #before-home-widget .entry-content,#after-home-widget .entry-content{margin-bottom:60px}
 .entry-content h2{font-size:1.5em}
-#home-content .entry-content p{font-size:18px;line-height:1.5;margin:24px 0}
+#home-content .entry-content p{font-size:18px;line-height:1.5em;margin:24px 0}
 #home-page .hentry{margin:0}
 .tagline-txt{text-align:center;overflow:hidden}
 .intro-txt{text-align:center;font-size:250%;font-weight:200}
@@ -336,7 +336,7 @@ h1,h2,h3,h4,h5,h6{font-family:"Open Sans",Helvetica,Arial,sans-serif;font-weight
 .site-content .entry-content ul,.site-content .comment-content ul,#tinymce ul,.site-content .entry-content ol,.site-content .comment-content ol,#tinymce ol{margin-bottom:20px}
 .site-content .entry-content blockquote,.site-content .comment-content blockquote,#tinymce blockquote{display:block;position:relative;padding:1% 0 4% 4%}
 .home-posts-description blockquote{font-size:18px;font-style:italic;line-height:24px;margin:0;padding:0}
-.page .entry-content blockquote:before,.format-standard .entry-content blockquote:before{font-family:"FontAwesome";display:inline-block;font-size:26px;font-style:oblique;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:'\f10d';color:#DEDEDE;left:0;position:absolute}
+.page .entry-content blockquote:before,.format-standard .entry-content blockquote:before{font-family:"FontAwesome";display:inline-block;font-size:26px;font-style:oblique;font-weight:400;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;content:'\f10d';color:#DEDEDE;left:0;position:absolute}
 .page .entry-content blockquote,.format-standard .entry-content blockquote{padding-left:5%}
 .format-quote .entry-content blockquote:before{margin-left:-10px;content:'\ ” '}
 .format-quote .entry-content blockquote:after{content:'\“ '}
@@ -357,7 +357,7 @@ blockquote{font-size:20px;font-style:italic;line-height:30px}
 .site-content .entry-title a{color:#3a3a3a}
 .site-content .entry-title a:hover{color:#000}
 h1.entry-title.no-thumb{font-size:32px;font-weight:600;line-height:36px}
-.format-standard.sticky h1.entry-title:before{color:#e64743;content:'\f02e';font-family:"FontAwesome";display:inline-block;font-size:22px;font-style:normal;font-weight:400;line-height:1;margin-right:5px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.format-standard.sticky h1.entry-title:before{color:#e64743;content:'\f02e';font-family:"FontAwesome";display:inline-block;font-size:22px;font-style:normal;font-weight:400;line-height:1em;margin-right:5px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .entry-header p{font-size:26px;line-height:32px;font-weight:300}
 .site-content .entry-meta,.site-content .entry-header .entry-meta{font-size:12px}
 .site-content .entry-meta{line-height:15px;color:#aaa}
@@ -432,7 +432,7 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input
 .author-avatar,.author-description{float:left}
 .author-avatar{width:80px}
 .author-description{margin-left:10px;width:70%}
-.author-description h4{line-height:1;margin-bottom:8px}
+.author-description h4{line-height:1em;margin-bottom:8px}
 .author-description p{font-size:13px}
 .author-follow{margin-left:90px}
 .widget .author-follow .fa{margin-right:0}
@@ -449,7 +449,7 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input
 #secondary .featured-page .widget-title{font-weight:600;font-size:18px}
 .image-text-widget,.icon-widget{text-align:center}
 .widget .icon-widget .fa{margin-right:0}
-.icon-widget .fa{font-size:42px;line-height:1.5;margin-right:0}
+.icon-widget .fa{font-size:42px;line-height:1.5em;margin-right:0}
 .green.fa{color:#31c493}
 .blue.fa{color:#00a5e7}
 .red.fa{color:#f16272}
@@ -468,7 +468,7 @@ input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input
 }
 .call-to-action-text h3{font-size:24px;line-height:1.2}
 #prebefore-home-widget h3{margin:0}
-#prebefore-home-widget .call-to-action-button a.btn{padding:15px 30px;font-size:18px;line-height:1.5}
+#prebefore-home-widget .call-to-action-button a.btn{padding:15px 30px;font-size:18px;line-height:1.5em}
 .widget-area .widget{margin-bottom:40px}
 .widget-area .widget ul,.site-footer ul{list-style:none;margin:0}
 .widget_nav_menu .menu ul li{margin:5px 0 5px 10px}
@@ -564,7 +564,7 @@ ul.nav-menu li a:hover{color:#000}
 }
 @media (max-width: 700px) {
 .site-content .entry-content blockquote,.site-content .comment-content blockquote{margin:0;padding:1% 0 4% 8%}
-.no-sidebar .format-standard h1.page-title,.no-sidebar .entry-content h1,.single .site-content .entry-title,.site-content .entry-content h1,.site-content .comment-content h1{font-size:24px;line-height:1.5}
+.no-sidebar .format-standard h1.page-title,.no-sidebar .entry-content h1,.single .site-content .entry-title,.site-content .entry-content h1,.site-content .comment-content h1{font-size:24px;line-height:1.5em}
 .entry-content .hero h1{font-size:30px}
 .single .site-content .related-content{padding-bottom:20px}
 .single .site-content .related-content .related-content-title{margin-left:0}
@@ -792,7 +792,7 @@ cite.fn a.url{color:#000}
 #commentform label .required{color:red}
 #comments{font-size:12px}
 .pingback{font-size:11px;color:#444;margin-bottom:10px}
-.comments-area .reply:before{content:'\f112';color:#ddd;font-family:"FontAwesome";display:inline-block;font-size:14px;font-style:normal;font-weight:400;line-height:1;padding-right:5px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.comments-area .reply:before{content:'\f112';color:#ddd;font-family:"FontAwesome";display:inline-block;font-size:14px;font-style:normal;font-weight:400;line-height:1em;padding-right:5px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .edit-link:before{content:'\f411';display:inline-block;-webkit-font-smoothing:antialiased;font:normal 16px/1 Genericons;vertical-align:middle}
 .comment-metadata{float:right}
 .comment-metadata a{display:inline}
@@ -1065,6 +1065,8 @@ body.tinvwl-theme-style .menu-share-container{display:none}
 .mailpoet_paragraph label,.mailpoet_paragraph input{display:inline-block}
 div.about,div.footer-subscribe{display:inline-block;float:left}
 div.footer-subscribe{margin-left:25%}
+div.footer-subscribe a.button{color:#fff;padding:5px;border-radius:5px;background-color:#fa7c0b}
+div.footer-subscribe a.button:hover,div.footer-subscribe a.button:active{color:#fff;background-color:#4d914d;transition:.5s linear}
 .col.alignright{float:right}
 #wrap-content{background:transparent}
 .col .search-footer{margin-left:12px}
@@ -1079,8 +1081,10 @@ div.col.subscribe{width:125px}
 div.footer-subscribe{margin-left:12px;float:right}
 }
 @media (max-width:460px) {
+.col .search-footer{margin-left:0}
 div.col.about,div.col.subscribe{width:50%!important}
-div.footer-subscribe{margin-left:12px;float:right}
+div.footer-subscribe{margin-left:12px;float:none}
 div.col.social{width:100%;clear:both}
 div.icon-footer{margin-right:33%}
 }
+body.woocommerce-lost-password .wpcf7{display:none}

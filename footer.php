@@ -66,7 +66,7 @@
     <div class="col subscribe">
       <span class="search-footer"><a href="#search-footer-bar"><i class="fa fa-search"></i></a></span>
       <div class="footer-subscribe">
-        <a href="<?php echo($manage_subscription); ?>">subscribe</a></div>
+        <a class="button" href="<?php echo($manage_subscription); ?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> subscribe</a></div>
     </div>
     <div class="col social"><?php 
         if ( has_nav_menu( 'social' ) ) {
