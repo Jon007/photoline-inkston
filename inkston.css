@@ -4327,7 +4327,7 @@ div.wcs-data{margin-top:5em;}
 .tinv-wishlist .social-buttons {border:2px solid green;border-radius:5px;padding-left:10px;padding-right:10px;margin-right:15px;}
 .tinv-wishlist .social-buttons ul {margin-bottom: 0px;}
 /* product add to wishlist button */
-#content .tinvwl_add_to_wishlist_button.icon-white.button{
+#content .tinvwl_add_to_wishlist_button.button{
 text-transform: uppercase;
 font-weight: 600;
 letter-spacing: 1px;
@@ -4340,7 +4340,7 @@ float: right;
 position: relative;
 margin-right: 50%;
 }
-#content div.product-type-woosb .tinvwl_add_to_wishlist_button.icon-white.button{
+#content div.product-type-woosb .tinvwl_add_to_wishlist_button.button{
 margin-top: 5px;
 }
 /* fix amazon grid layout not flowing properly due to oversize sale items*/
@@ -4352,7 +4352,7 @@ body.tinvwl-theme-style .menu-share-container{display:none;}
 
 /* improve button layout on gift coupon */
 .product-type-gift_coupon .single_add_to_cart_button.button.alt{margin-left: 50px;}
-#content .product-type-gift_coupon .tinvwl_add_to_wishlist_button.icon-white.button{float:none;}
+#content .product-type-gift_coupon .tinvwl_add_to_wishlist_button.button{float:none;}
 @media (max-width:760px){
 .product-type-gift_coupon .single_add_to_cart_button.button.alt{margin-left:0px;margin-bottom:8px;}
 }
