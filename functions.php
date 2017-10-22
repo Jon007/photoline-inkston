@@ -424,6 +424,12 @@ function inkston_dequeue_script() {
                      filemtime(get_stylesheet_directory() . $scriptname), true );
             wp_enqueue_script('wc-add-to-cart-variation');
         } 
+        
+        /* avoid refreshing cart fragments on pages which are not cached anyway... 
+           especially cart/checkout pages are already over-heavy due to not being cached and extra stripe scripts etc */
+        if ( is_cart() || is_checkout() || isset( $_GET['pay_for_order'] ) || is_add_payment_method_page() || is_account_page() ){
+            wp_dequeue_script('wc-cart-fragments');            
+        }
     }
 //    wp_dequeue_script('wpla_product_matcher');
 }

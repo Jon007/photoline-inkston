@@ -1646,6 +1646,30 @@ function ink_gift_coupon_rules($coupon_meta, $id, $coupon_code){
 }
 add_filter('wcs_gift_coupon_meta', 'ink_gift_coupon_rules', 10, 3);
 
+
+/**
+ * apply special formatting to gift coupon including link to auto-add-coupon to basket
+ * ( ?apply_coupon=coupon_code requires plugin, not implemented in woocommerce core)
+ * could also add fancy formatting / additional message and QR codes
+ *
+ * @param string $formatted_coupon_code default formatting
+ * @param string $coupon_code           raw coupon code
+ * @param string $coupon_amount         raw coupon amount
+ * @param string $formatted_price       formatted coupon amount
+ */
+function ink_format_gift_coupon($formatted_coupon_code, $coupon_code, $coupon_amount, $formatted_price){
+    global $woocommerce;
+    if ($woocommerce){
+//        $cart_url = wc_get_cart_url();
+
+  //      $formatted_coupon_code = sprintf(__('Click to add %s saving to your shopping basket.', 'photoline-inkston'), $formatted_price );
+        $formatted_coupon_code = '<h2 style="text-align:center;"><a class="saleflash" href="' . wc_get_cart_url() . 
+            '?apply_coupon=' . $coupon_code . '">'. $coupon_code . '</a></h2>';
+    }
+    return $formatted_coupon_code;
+}
+add_filter('wcs_format_gift_coupon', 'ink_format_gift_coupon', 10, 4);
+
 /**
  * Filters the dashboard URL for a user.
  *

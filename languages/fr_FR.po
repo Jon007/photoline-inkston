@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoline Inkston\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-21 05:40+0000\n"
-"PO-Revision-Date: 2017-10-21 05:43+0000\n"
+"POT-Creation-Date: 2017-10-22 01:25+0000\n"
+"PO-Revision-Date: 2017-10-22 01:25+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -95,19 +95,19 @@ msgstr ""
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:715
+#: functions.php:721
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:716
+#: functions.php:722
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:1425 functions.php:1548
+#: functions.php:1431 functions.php:1554
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1439 functions.php:1560
+#: functions.php:1445 functions.php:1566
 msgid "UPC"
 msgstr ""
 
@@ -119,47 +119,14 @@ msgstr ""
 msgid "forum-subscribers@inkston.com"
 msgstr ""
 
-#: functions2.php:1171 functions2.php:1525
-msgid "No badges yet"
-msgstr "Pas encore de badges"
-
-#: functions2.php:1190
-msgid "level"
-msgstr "niveau"
-
-#: functions2.php:1224
-msgid "Current level: "
-msgstr "Niveau actuel"
-
-#: functions2.php:1226
-msgid "level "
-msgstr "niveau"
-
-#: functions2.php:1228
-#, php-format
-msgid "Current score: %1$s points."
-msgstr "Score actuel: %1$s points."
-
-#: functions2.php:1431
-msgid "Inkston Oriental Art Comunity"
-msgstr "Communauté d'art oriental d'Inkston"
-
 #: functions2.php:1438
 msgid "rewards@inkston.com"
 msgstr ""
 
-#: functions2.php:1670
+#: functions2.php:1692
 #, php-format
-msgid ""
-"The coupon %s will give you a discount of %s when your basket value reaches "
-"%s or more."
-msgstr ""
-"Le coupon %s vous donnera une réduction de %s lorsque la valeur de votre "
-"panier atteint %s ou plus."
-
-#: functions2.php:1705
-msgid "click here to manage your subscription"
-msgstr "cliquez ici pour gérer votre abonnement"
+msgid "Click to add %s saving to your shopping basket."
+msgstr "Cliquez pour ajouter un coupon de réduction %s à votre panier:"
 
 #: header.php:109
 msgid "Menu"
@@ -618,10 +585,6 @@ msgstr ""
 msgid "Minimalistic theme for rich image photo and shop based sites."
 msgstr ""
 
-#. URI of the theme
-msgid "https://www.inkston.com"
-msgstr "https://www.inkston.com/fr"
-
 #. Author of the theme
 msgid "MoQiao"
 msgstr ""
@@ -699,11 +662,11 @@ msgstr "Lire"
 msgid "Choose"
 msgstr "Choisir"
 
-#: functions.php:866 functions.php:908
+#: functions.php:872 functions.php:914
 msgid "Recent discussions in: "
 msgstr "Discussions récentes dans:"
 
-#: functions.php:1137
+#: functions.php:1143
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
@@ -712,28 +675,28 @@ msgstr ""
 "Si vous n'avez pas de compte <a target=\"_blank\" href=\"%s\"> inscrivez-"
 "vous </a> (ouvrira dans une nouvelle fenêtre)"
 
-#: functions.php:1138
+#: functions.php:1144
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr "puis <a href=\"#comment\" onclick=\"%s\" \"> cliquez ici </a>."
 
-#: functions.php:1443
+#: functions.php:1449
 msgid "12 digits international standard Universal Product Code."
 msgstr "Code numérique universel de 12 chiffres."
 
-#: functions.php:1464 functions.php:1582
+#: functions.php:1470 functions.php:1588
 msgid "Product weight"
 msgstr "Poids du produit"
 
-#: functions.php:1466 functions.php:1469 functions.php:1584 functions.php:1587
+#: functions.php:1472 functions.php:1475 functions.php:1590 functions.php:1593
 msgid "Unpacked net product weight."
 msgstr "Poids net du produit non emballé."
 
-#: functions.php:1495 functions.php:1603
+#: functions.php:1501 functions.php:1609
 msgid "Product size "
 msgstr "Taille du produit"
 
-#: functions.php:1503 functions.php:1563 functions.php:1607
+#: functions.php:1509 functions.php:1569 functions.php:1613
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr "Taille de produit non conditionnée LxWxH en décimale"
 
@@ -898,6 +861,27 @@ msgstr ""
 msgid "Thankyou for participating in Inkston Community"
 msgstr "Merci d'avoir participé à la communauté d'Inkston"
 
+#: functions2.php:1171 functions2.php:1525
+msgid "No badges yet"
+msgstr "Pas encore de badges"
+
+#: functions2.php:1190
+msgid "level"
+msgstr "niveau"
+
+#: functions2.php:1224
+msgid "Current level: "
+msgstr "Niveau actuel"
+
+#: functions2.php:1226
+msgid "level "
+msgstr "niveau"
+
+#: functions2.php:1228
+#, php-format
+msgid "Current score: %1$s points."
+msgstr "Score actuel: %1$s points."
+
 #: functions2.php:1376
 msgid "Congratulations you have been awarded:"
 msgstr "Félicitations, vous avez reçu:"
@@ -919,9 +903,26 @@ msgstr ""
 msgid "You were awarded this badge for making contributions to "
 msgstr "Vous avez reçu ce badge pour avoir contribué à"
 
+#: functions2.php:1431
+msgid "Inkston Oriental Art Comunity"
+msgstr "Communauté d'art oriental d'Inkston"
+
 #: functions2.php:1634
 msgid "If you like this, please share: "
 msgstr "Si vous aimez ceci, merci de partager:"
+
+#: functions2.php:1670
+#, php-format
+msgid ""
+"The coupon %s will give you a discount of %s when your basket value reaches "
+"%s or more."
+msgstr ""
+"Le coupon %s vous donnera une réduction de %s lorsque la valeur de votre "
+"panier atteint %s ou plus."
+
+#: functions2.php:1729
+msgid "click here to manage your subscription"
+msgstr "cliquez ici pour gérer votre abonnement"
 
 #: image.php:34
 #, php-format
@@ -1217,3 +1218,7 @@ msgstr "Expédition standard."
 #: woocommerce/single-product/review-meta.php:28
 msgid "Your comments are awaiting approval"
 msgstr "Vos commentaires attendent l'approbation"
+
+#. URI of the theme
+msgid "https://www.inkston.com"
+msgstr "https://www.inkston.com/fr"
