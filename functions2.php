@@ -1580,6 +1580,33 @@ function ink_author_link($link, $author_id, $author_nicename){
 add_filter( 'author_link', 'ink_author_link', 30, 3 );
 
 
+/*
+ * Filters the author's display name: this needs care as to where it could be applied 
+ * as is also called for the name in the middle of a phrase, and any html is escaped
+ *
+ * @param string   $value            The value of the metadata.
+ * @param int      $user_id          The user ID for the value.
+ * @param int|bool $original_user_id The original user ID, as passed to the function.
+ */
+/*  
+function ink_display_user_level($value, $user_id, $original_user_id)
+//function ink_display_user_level($author_link, $r)
+{
+    $ink_user_level = get_user_level( array(
+            'user_id' => $user_id,
+            'style' => 'text') );    
+//            'style' => 'brushes') );  //would return brushes as genericon or fontawesome however result here is htmlencoded, needs to be applied elsewhere
+    
+    if ($ink_user_level){
+        $value .= ' (' . $ink_user_level . ')';
+    }
+    
+    return $value;
+}
+add_filter('get_the_author_display_name', 'ink_display_user_level', 10, 3);
+//add_filter( 'bbp_get_author_link', 'ink_display_user_level', 10, 2);    // $author_link, $r 
+*/
+
 function ink_default_wishlist_name($wl){
     if ( array_key_exists( 'author', $wl ) && array_key_exists( 'title', $wl ) ) {
         $user     = get_userdata( $wl['author'] );

@@ -1088,3 +1088,18 @@ div.col.social{width:100%;clear:both}
 div.icon-footer{margin-right:33%}
 }
 body.woocommerce-lost-password .wpcf7{display:none}
+.woocommerce-page #content #qt_wcs_gift_message_toolbar .button{
+height:20px;
+text-transform:none;
+background-color:#f5f5f5;
+color:#1a1919;
+padding:2px 3px;margin:1px;
+font-weight:normal;
+border: 1px solid #1a1919;
+border-radius:5px;
+}
+#content .wp-media-buttons .button{
+	padding: 5px;
+	background-color: #999;
+	font-size:1em;
+}
