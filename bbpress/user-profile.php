@@ -19,7 +19,7 @@
     if ($user_url){
         echo ('<div class="ink-profile-link">');
         echo ( '<a href="' . esc_attr($user_url) . '">' . $user_url . '</a>');
-        echo ("</p>");
+        echo ("</div>");
     }
 ?>
 <div class="site-main">

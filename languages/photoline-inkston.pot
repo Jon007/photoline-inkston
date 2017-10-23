@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-22 01:23+0000\n"
+"POT-Creation-Date: 2017-10-23 10:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -88,6 +88,7 @@ msgstr ""
 
 #: content-gallery.php:25 content-home-main.php:26 content-page-full.php:45
 #: content-page.php:49 content-single.php:33 content.php:33 image.php:48
+#: woocommerce/myaccount/navigation.php:44
 msgid "Edit"
 msgstr ""
 
@@ -165,55 +166,55 @@ msgstr ""
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:721
+#: functions.php:790
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:722
+#: functions.php:791
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:872 functions.php:914
+#: functions.php:941 functions.php:983
 msgid "Recent discussions in: "
 msgstr ""
 
-#: functions.php:1143
+#: functions.php:1212
 #, php-format
 msgid ""
 "If you do not have an account <a target=\"_blank\" href=\"%s\">please "
 "register</a> (will open in new window)"
 msgstr ""
 
-#: functions.php:1144
+#: functions.php:1213
 #, php-format
 msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
 msgstr ""
 
-#: functions.php:1431 functions.php:1554
+#: functions.php:1500 functions.php:1623
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1445 functions.php:1566
+#: functions.php:1514 functions.php:1635
 msgid "UPC"
 msgstr ""
 
-#: functions.php:1449
+#: functions.php:1518
 msgid "12 digits international standard Universal Product Code."
 msgstr ""
 
-#: functions.php:1470 functions.php:1588
+#: functions.php:1539 functions.php:1657
 msgid "Product weight"
 msgstr ""
 
-#: functions.php:1472 functions.php:1475 functions.php:1590 functions.php:1593
+#: functions.php:1541 functions.php:1544 functions.php:1659 functions.php:1662
 msgid "Unpacked net product weight."
 msgstr ""
 
-#: functions.php:1501 functions.php:1609
+#: functions.php:1570 functions.php:1678
 msgid "Product size "
 msgstr ""
 
-#: functions.php:1509 functions.php:1569 functions.php:1613
+#: functions.php:1578 functions.php:1638 functions.php:1682
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr ""
 
@@ -354,7 +355,7 @@ msgstr ""
 msgid "Or visit your profile page to review all your subscriptions: %1$s"
 msgstr ""
 
-#: functions2.php:1131 functions2.php:1435
+#: functions2.php:1131 functions2.php:1436
 msgid "Thankyou for participating in Inkston Community"
 msgstr ""
 
@@ -362,7 +363,7 @@ msgstr ""
 msgid "forum-subscribers@inkston.com"
 msgstr ""
 
-#: functions2.php:1171 functions2.php:1525
+#: functions2.php:1171 functions2.php:1526
 msgid "No badges yet"
 msgstr ""
 
@@ -383,50 +384,45 @@ msgstr ""
 msgid "Current score: %1$s points."
 msgstr ""
 
-#: functions2.php:1376
+#: functions2.php:1377
 msgid "Congratulations you have been awarded:"
 msgstr ""
 
-#: functions2.php:1423
+#: functions2.php:1424
 msgid "your contribution has unlocked an award"
 msgstr ""
 
-#: functions2.php:1426
+#: functions2.php:1427
 #, php-format
 msgid ""
 "Visit <a href=\"%1$s\">your profile page</a> to see details of your awards "
 "and turn these notifications on or off."
 msgstr ""
 
-#: functions2.php:1430
+#: functions2.php:1431
 msgid "You were awarded this badge for making contributions to "
 msgstr ""
 
-#: functions2.php:1431
+#: functions2.php:1432
 msgid "Inkston Oriental Art Comunity"
 msgstr ""
 
-#: functions2.php:1438
+#: functions2.php:1439
 msgid "rewards@inkston.com"
 msgstr ""
 
-#: functions2.php:1634
+#: functions2.php:1635
 msgid "If you like this, please share: "
 msgstr ""
 
-#: functions2.php:1670
+#: functions2.php:1671
 #, php-format
 msgid ""
 "The coupon %s will give you a discount of %s when your basket value reaches "
 "%s or more."
 msgstr ""
 
-#: functions2.php:1692
-#, php-format
-msgid "Click to add %s saving to your shopping basket."
-msgstr ""
-
-#: functions2.php:1729
+#: functions2.php:1730
 msgid "click here to manage your subscription"
 msgstr ""
 
@@ -528,45 +524,113 @@ msgstr ""
 msgid "Subscribe To Comments"
 msgstr ""
 
+#: bbpress/user-details.php:10
+msgid "My"
+msgstr ""
+
+#: bbpress/user-details.php:23
+msgid "/my-account/"
+msgstr ""
+
+#: bbpress/user-details.php:24
+msgid "Shop Account"
+msgstr ""
+
+#: bbpress/user-details.php:27
+msgid "/my-account/orders/"
+msgstr ""
+
+#: bbpress/user-details.php:28
+msgid "Check your order status and shipment tracking codes,"
+msgstr ""
+
+#: bbpress/user-details.php:31
+msgid "/my-account/edit-address/"
+msgstr ""
+
+#: bbpress/user-details.php:32
+msgid "Edit shipping/billing addresses for inkston shop"
+msgstr ""
+
+#: bbpress/user-details.php:35
+msgid "/my-account/edit-account/"
+msgstr ""
+
+#: bbpress/user-details.php:36
+msgid "Update account name/email address/password"
+msgstr ""
+
 #: bbpress/user-details.php:39
+msgid "/my-account/customer-logout/"
+msgstr ""
+
+#: bbpress/user-details.php:40
+msgid "Log out from inkston.com"
+msgstr ""
+
+#: bbpress/user-details.php:48 woocommerce/myaccount/navigation.php:43
+msgid "My Profile"
+msgstr ""
+
+#: bbpress/user-details.php:60 woocommerce/myaccount/navigation.php:48
+msgid "Check your points in inkston rewards scheme"
+msgstr ""
+
+#: bbpress/user-details.php:61 woocommerce/myaccount/navigation.php:49
+msgid "My Rewards"
+msgstr ""
+
+#: bbpress/user-details.php:67
 #, php-format
 msgid "%s's Posts"
 msgstr ""
 
-#: bbpress/user-details.php:39
+#: bbpress/user-details.php:69
 msgid "Artist Listings"
 msgstr ""
 
-#: bbpress/user-details.php:100
-msgid "/my-account/"
+#: bbpress/user-details.php:89
+msgid "Forum Topics"
 msgstr ""
 
-#: bbpress/user-profile.php:16
+#: bbpress/user-details.php:95
+msgid "Forum Replies"
+msgstr ""
+
+#: bbpress/user-details.php:104
+msgid "Favorite Forum Posts"
+msgstr ""
+
+#: bbpress/user-details.php:112 woocommerce/myaccount/navigation.php:56
+msgid "My Forum Subscriptions"
+msgstr ""
+
+#: bbpress/user-profile.php:17
 #, php-format
 msgid "%s's Profile"
 msgstr ""
 
-#: bbpress/user-profile.php:31
+#: bbpress/user-profile.php:32
 msgid "This user has not yet edited their profile."
 msgstr ""
 
-#: bbpress/user-profile.php:33
+#: bbpress/user-profile.php:34
 msgid "Edit your profile"
 msgstr ""
 
-#: bbpress/user-profile.php:34
+#: bbpress/user-profile.php:35
 msgid "to add content to this section."
 msgstr ""
 
-#: bbpress/user-profile.php:40
+#: bbpress/user-profile.php:41
 msgid "Forum Contributions"
 msgstr ""
 
-#: bbpress/user-profile.php:53
+#: bbpress/user-profile.php:54
 msgid "Contributor badges"
 msgstr ""
 
-#: bbpress/user-profile.php:58
+#: bbpress/user-profile.php:59
 msgid ""
 "Points are awarded for making community contributions, as you earn more "
 "points you can win badges which get you prize coupons redeemable at the shop."
@@ -1101,24 +1165,36 @@ msgid ""
 "products."
 msgstr ""
 
-#: woocommerce/myaccount/navigation.php:43
-msgid "My Profile"
+#: woocommerce/myaccount/navigation.php:51
+msgid "My Listings"
 msgstr ""
 
-#: woocommerce/myaccount/navigation.php:52
-msgid "Newsletter subscriptions"
+#: woocommerce/myaccount/navigation.php:53
+msgid "My Forum Topics"
 msgstr ""
 
-#: woocommerce/myaccount/navigation.php:67
-msgid "Comment subscriptions"
+#: woocommerce/myaccount/navigation.php:54
+msgid "My Forum Replies"
 msgstr ""
 
-#: woocommerce/myaccount/navigation.php:79
+#: woocommerce/myaccount/navigation.php:55
+msgid "My Favourite Forum Posts"
+msgstr ""
+
+#: woocommerce/myaccount/navigation.php:65
 msgid "My comments and reviews"
 msgstr ""
 
-#: woocommerce/myaccount/navigation.php:80
-msgid "My Comments"
+#: woocommerce/myaccount/navigation.php:66
+msgid "My Comments/Reviews"
+msgstr ""
+
+#: woocommerce/myaccount/navigation.php:83
+msgid "Comment subscriptions"
+msgstr ""
+
+#: woocommerce/myaccount/navigation.php:94
+msgid "Newsletter subscriptions"
 msgstr ""
 
 #: woocommerce/single-product/product-attributes.php:209

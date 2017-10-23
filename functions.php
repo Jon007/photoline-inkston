@@ -460,7 +460,9 @@ if (!function_exists('inkston_catch_image')) :
     {
         global $post, $posts;
         $first_img = '';
-        if (is_single() || $post) {
+        if ( function_exists('bbp_is_single_user') && bbp_is_single_user() ){
+            $first_img = inkston_featured_img_tag(get_avatar(bbp_get_displayed_user_field( 'user_email', 'raw' )), false);
+        } elseif (is_single() || ($post && $post->ID) ) {
             $first_img = inkston_featured_img_tag($post->post_content, false);
         }
         if (empty($first_img)) {
@@ -480,6 +482,68 @@ endif;
  * @return string image
  */
 function inkston_featured_img_tag($content, $tag){    
+    $first_img = '';
+    $last_avatar = '';
+
+    //check if we are on a bbPress forum post
+    global $post;
+    $forum_id=0;
+    if ($post){
+        switch($post->post_type){
+            case 'topic':
+                $forum_id = bbp_get_topic_forum_id( $post->ID );
+                break;
+            case 'reply':
+                $forum_id = bbp_get_reply_forum_id( $post->ID );
+                break;
+            default:
+        }
+    }
+    
+    try {
+        $doc = new DOMDocument();
+        $doc->loadHTML($content);    
+        $imageTags = $doc->getElementsByTagName('img');
+        /*
+         * NOTE: this gets the image sized as on the page, size not guaranteed,
+         * may also get an external image so no guarantee thumbnail is available  */
+        foreach ($imageTags as $tag) {
+            $url = $tag->getAttribute('src');
+            if ( (strpos($url, 'cat-generator-avatars') === false) && (strpos($url, 'badge') === false) 
+                  && (strpos($url, 'avatar') === false) ) {
+                $first_img = $url;
+                //for forums, continue to last image, otherwise get first non-avatar image
+                if (! $forum_id){break;}
+            } else {
+                $last_avatar = $url;
+            }
+        }        
+    } catch (Exception $e) {
+        //if the input isn't fully valid html, try regex
+        if ($first_img='' && $last_avatar='') {
+            return inkston_featured_img_tag_regex($content, $tag);  
+        }
+    }
+    
+    if (empty($first_img)) {
+        if (is_archive()){
+            $first_img = get_template_directory_uri() . '/img/forum-logo.jpg';
+        }elseif ($last_avatar){
+            $first_img = $last_avatar;
+        } elseif ($forum_id){ //last chance check for bbPress
+            $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($forum_id), 'medium');
+            if ($thumbnail) {
+                $first_img = $thumbnail[0];
+            }            
+            if (empty($first_img)) {
+                $first_img = get_template_directory_uri() . '/img/no-image.jpg';
+            }
+        }
+    }
+    return $first_img;
+}
+    
+function inkston_featured_img_tag_regex($content, $tag){    
     $first_img = '';
     $last_avatar = '';
     $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);

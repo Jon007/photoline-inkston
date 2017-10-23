@@ -40,17 +40,33 @@ do_action( 'woocommerce_before_account_navigation' );
         }
         if ($profileurl){
         ?><li class="">
-<a href="<?php echo($profileurl); ?>"><?php echo(esc_html( __('My Profile', 'photoline-inkston') ));?></a>
+<a class="inline" href="<?php echo($profileurl); ?>"><?php echo(esc_html( __('My Profile', 'photoline-inkston') ));?></a>
+ (<a class="inline" href="<?php echo($profileurl) . '/edit/'; ?>"><?php echo(esc_html( __('Edit', 'photoline-inkston') ));?></a>)
+</li>
+<?php } ?>
+<li><a href="/community/my-awards/" title="<?php 
+    _e( "Check your points in inkston rewards scheme", 'photoline-inkston' ); ?>"><?php 
+    _e( "My Rewards", 'photoline-inkston' ); ?></a></li>  
+<li class="">
+<a href="/community/my-listings"><?php echo(esc_html( __('My Listings', 'photoline-inkston') ));?></a>
+</li>
+<li class=""><a href="/community/forums/users/moqiao/topics/"><?php echo(esc_html( __('My Forum Topics', 'photoline-inkston') ));?></a></li>
+<li class=""><a href="/community/forums/users/moqiao/replies/"><?php echo(esc_html( __('My Forum Replies', 'photoline-inkston') ));?></a></li>
+<li class=""><a href="/community/forums/users/moqiao/favorites/"><?php echo(esc_html( __('My Favourite Forum Posts', 'photoline-inkston') ));?></a></li>
+<li class=""><a href="/community/forums/users/moqiao/subcriptions/"><?php echo(esc_html( __('My Forum Subscriptions', 'photoline-inkston') ));?></a></li>
+<?php 
+$page_id = inkGetPageID('comments');  // get Comments page in the current language
+if ($page_id){
+  $comment_link = get_page_link($page_id) . '?u=' . get_current_user_id(); 
+  $comment_title = get_the_title( $page_id );    
+?><li class="">
+    <span class="vcard user-comments">
+        <a class="url fn n" href="<?php echo($comment_link);?>" title="<?php 
+            esc_attr__( "My comments and reviews", 'photoline-inkston'); 
+            ?>" rel="me"><?php _e("My Comments/Reviews", 'photoline-inkston'); ?></a>
+    </span>
 			</li>
 <?php } 
-/**
- * show mailpoet link
- */
-$mailpoet_link = ink_get_newsletter_subscribe_url();
-if ($mailpoet_link) {
-    ?><li class=""><a href="<?php echo($mailpoet_link); ?>"><?php echo(esc_html( 
-        __('Newsletter subscriptions', 'photoline-inkston') ));?></a></li><?php 
-} 
 
 global $wp_subscribe_reloaded;
 if ($wp_subscribe_reloaded ){
@@ -69,18 +85,16 @@ if ($wp_subscribe_reloaded ){
     }
 }
 
-$page_id = inkGetPageID('comments');  // get Comments page in the current language
-if ($page_id){
-  $comment_link = get_page_link($page_id) . '?u=' . get_current_user_id(); 
-  $comment_title = get_the_title( $page_id );    
-?><li class="">
-    <span class="vcard user-comments">
-        <a class="url fn n" href="<?php echo($comment_link);?>" title="<?php 
-            esc_attr__( "My comments and reviews", 'photoline-inkston'); 
-            ?>" rel="me"><?php _e("My Comments", 'photoline-inkston'); ?></a>
-    </span>
-</li>
-        <?php } ?>
+/**
+ * show mailpoet link
+ */
+$mailpoet_link = ink_get_newsletter_subscribe_url();
+if ($mailpoet_link) {
+    ?><li class=""><a href="<?php echo($mailpoet_link); ?>"><?php echo(esc_html( 
+        __('Newsletter subscriptions', 'photoline-inkston') ));?></a></li><?php 
+} 
+
+?>
     </ul>
 </nav>
 

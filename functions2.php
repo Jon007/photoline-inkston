@@ -1222,7 +1222,7 @@ function get_user_level($atts = array()){
             $output = '<div class="inkpoints"><div class="badgeos-item-image"><a href="' . get_permalink($post) . '">' . get_the_post_thumbnail($post, $a['size']) . '</a></div>';
             $output .= '<div class="badgeos-item-description"><p>' . 
                 __('Current level: ', 'photoline-inkston') .
-                '<a href="' . get_permalink($post) . '">' . $post->post_title . 
+                    ' <a href="' . get_permalink($post) . '">' . $post->post_title . 
                     ' (' . __('level ', 'photoline-inkston') . (intval($post->menu_order)) .  ')</a>' .
                 '<br />' .
                 sprintf( __( 'Current score: %1$s points.', 'photoline-inkston' ), get_user_points() ) . 
@@ -1295,6 +1295,7 @@ function ink_bp_member_achievements_content() {
 
     $userid = ink_user_id();
     if (! $userid){return;}
+    if (! function_exists('badgeos_get_network_achievement_types_for_user')){return;}
 	$achievement_types = badgeos_get_network_achievement_types_for_user( $userid );
 	// Eliminate step cpt from array
 	if ( ( $key = array_search( 'step', $achievement_types ) ) !== false ) {

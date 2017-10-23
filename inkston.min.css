@@ -1027,7 +1027,7 @@ li.bbp-forum-freshness,li.bbp-topic-freshness{text-align:left}
 .tile.noimage a{background-color:rgba(255,255,255,0.9)!important;color:rgba(0,0,0,0.7)!important;top:-8px}
 .tile.noimage:hover a{top:10px;color:#fff!important;background-color:rgba(26,25,25,0.9)!important}
 .tile .noimage span.search-highlight{font-weight:bolder;background-color:rgba(104,153,195,0.5)}
-.bbp-user-description{white-space:pre-wrap;font-size:larger;box-shadow:0 1px 3px rgba(0,0,0,.13);padding:10px}
+.bbp-user-description{white-space:pre-wrap;box-shadow:0 1px 3px rgba(0,0,0,.13);padding:10px}
 body.bbp-user-page .entry-meta{display:none}
 div.bbp-author-role,div.bbp-reply-ip{display:none}
 .badgeos-no-results{display:none}
@@ -1092,3 +1092,15 @@ div.icon-footer{margin-right:33%}
 body.woocommerce-lost-password .wpcf7{display:none}
 .woocommerce-page #content #qt_wcs_gift_message_toolbar .button{height:20px;text-transform:none;background-color:#f5f5f5;color:#1a1919;padding:2px 3px;margin:1px;font-weight:400;border:1px solid #1a1919;border-radius:5px}
 #content .wp-media-buttons .button{padding:5px;background-color:#999;font-size:1em}
+#bbp-user-profile,#bbp-user-navigation{font-size:15px}
+.badgeos-item-excerpt p{margin-bottom:0}
+.badgeos-required-achievements{font-size:smaller;line-height:1em}
+#bbpress-forums #bbp-single-user-details #bbp-user-navigation a{padding:0}
+#bbpress-forums #bbp-single-user-details,.woocommerce-account .woocommerce-MyAccount-navigation,.woocommerce-account .woocommerce-MyAccount-navigation ul{margin:0;width:180px}
+.woocommerce-MyAccount-navigation li{background:none;margin:1px;list-style:none}
+#bbp-user-navigation a,#content .woocommerce-MyAccount-navigation a{display:inline-block;border:1px solid transparent;text-decoration:none;width:100%;white-space:nowrap}
+#bbp-user-navigation a:hover,#bbp-user-navigation a:active,#content .woocommerce-MyAccount-navigation a:hover,#content .woocommerce-MyAccount-navigation a:active{border:1px solid transparent;background-color:#ccc;text-decoration:none!important}
+#bbpress-forums #bbp-single-user-details #bbp-user-navigation a.inline,#content .woocommerce-MyAccount-navigation a.inline{display:inline-block;width:auto;white-space:nowrap}
+.woocommerce-account .woocommerce-MyAccount-content{width:calc(100vw - 250px)}
+#content .woocommerce-MyAccount-navigation li.is-active a{background:#eee}
+#bbp-user-profile #bbp-user-avatar{float:right}

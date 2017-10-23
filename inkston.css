@@ -3020,6 +3020,10 @@ body.single-wpbdp_listing #wrap-content
 		position:inherit;
 		height: auto;
 }
+#breadcrumb{
+overflow: hidden;
+max-height: 1.5em;	
+}
 }
 /*hide woocommerce category large image - no longer needed, removed from code */
 /*
@@ -4270,7 +4274,6 @@ top:-8px;
 /* allow wrappable user-formatted text formatting in profile description (not currently html) */
 .bbp-user-description{
 	white-space:pre-wrap;
-	font-size: larger;
 	box-shadow: 0 1px 3px rgba(0,0,0,.13);
 	padding:10px;
 }
@@ -4425,3 +4428,50 @@ border-radius:5px;
 	background-color: #999;
 	font-size:1em;
 }
+#bbp-user-profile, #bbp-user-navigation{font-size:15px;}
+/*
+.badgeos-item-attached{margin-top:-2em;float:right;}
+*/
+.badgeos-item-excerpt p{margin-bottom:0px;}
+.badgeos-required-achievements{font-size:smaller;line-height:1em;}
+#bbpress-forums #bbp-single-user-details #bbp-user-navigation a{padding:0;}
+#bbpress-forums #bbp-single-user-details,
+.woocommerce-account .woocommerce-MyAccount-navigation,
+.woocommerce-account .woocommerce-MyAccount-navigation ul{
+    margin: 0;
+		width:180px
+}
+.woocommerce-MyAccount-navigation li {
+    background: none;
+    margin: 1px;
+    list-style: none;
+}
+#bbp-user-navigation a,
+#content .woocommerce-MyAccount-navigation a {
+    display: inline-block;
+    border: 1px solid transparent;
+    text-decoration: none;
+		width:100%;
+		white-space: nowrap;
+}
+#bbp-user-navigation a:hover, 
+#bbp-user-navigation a:active, 
+#content .woocommerce-MyAccount-navigation a:hover,
+#content .woocommerce-MyAccount-navigation a:active{
+    border: 1px solid transparent;
+		background-color:#ccc;
+		text-decoration:none!important;
+}
+#bbpress-forums #bbp-single-user-details #bbp-user-navigation a.inline,
+#content .woocommerce-MyAccount-navigation a.inline {
+    display: inline-block;
+		width: auto;
+		white-space: nowrap;
+}
+.woocommerce-account .woocommerce-MyAccount-content {
+width:calc(100vw - 250px);
+}
+#content .woocommerce-MyAccount-navigation li.is-active a {
+    background: #eee;
+}
+#bbp-user-profile #bbp-user-avatar{float:right;}
