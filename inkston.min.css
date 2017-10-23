@@ -611,11 +611,13 @@ body:not(.home) #mega-menu-wrap-hamburger{z-index:999}
 body:not(.home) #content{padding-top:0}
 body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
 body:not(.home) #wrap-content{position:relative;margin-top:210px;overflow:auto;overflow-x:hidden;height:calc(100vh - 262px)}
-body.woocommerce-checkout #wrap-content,body.single-wpbdp_listing #wrap-content{position:inherit;height:auto}
-body.business-directory #wrap-content,body.post-type-archive-product #wrap-content,body.woocommerce-cart #wrap-content{margin-top:193px;height:calc(100vh - 245px)}
-body.home.woocommerce-checkout h1.page-title.entry-title{display:block}
 body:not(.home) #content{padding-top:0}
 body:not(.home) .page-header.wrap{padding-top:0;padding-bottom:0;margin-bottom:5px}
+body.business-directory #wrap-content,body.post-type-archive-product #wrap-content,body.woocommerce-cart #wrap-content{margin-top:193px;height:calc(100vh - 245px)}
+body.home.woocommerce-checkout h1.page-title.entry-title{display:block}
+body.woocommerce-checkout #head-wrap{position:inherit;height:auto}
+body.woocommerce-checkout #wrap-content,body.single-wpbdp_listing #wrap-content{position:inherit;height:auto}
+#breadcrumb{overflow:hidden;max-height:1.5em}
 }
 #add_payment_method table.cart img,.woocommerce-cart table.cart img,.woocommerce-checkout table.cart img{width:150px}
 div.wpcf7{margin:0;padding:0}
@@ -1088,18 +1090,5 @@ div.col.social{width:100%;clear:both}
 div.icon-footer{margin-right:33%}
 }
 body.woocommerce-lost-password .wpcf7{display:none}
-.woocommerce-page #content #qt_wcs_gift_message_toolbar .button{
-height:20px;
-text-transform:none;
-background-color:#f5f5f5;
-color:#1a1919;
-padding:2px 3px;margin:1px;
-font-weight:normal;
-border: 1px solid #1a1919;
-border-radius:5px;
-}
-#content .wp-media-buttons .button{
-	padding: 5px;
-	background-color: #999;
-	font-size:1em;
-}
+.woocommerce-page #content #qt_wcs_gift_message_toolbar .button{height:20px;text-transform:none;background-color:#f5f5f5;color:#1a1919;padding:2px 3px;margin:1px;font-weight:400;border:1px solid #1a1919;border-radius:5px}
+#content .wp-media-buttons .button{padding:5px;background-color:#999;font-size:1em}

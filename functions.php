@@ -586,6 +586,11 @@ function inkston_body_class_filter($classes)
        $classes[] = 'woocommerce-page';
        $classes[] = 'columns-5';
        $classes[] = sanitize_html_class('woocommerce');
+       
+       //hack: treat checkout as home and remove viewport to fix scrolling issue 
+       if (is_checkout()){
+           $classes[] = 'home';
+       }
     }
         
     
