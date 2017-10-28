@@ -4439,7 +4439,10 @@ border-radius:5px;
 .woocommerce-account .woocommerce-MyAccount-navigation,
 .woocommerce-account .woocommerce-MyAccount-navigation ul{
     margin: 0;
-		width:180px
+		float:left;
+		width:15%;
+		min-width:150px;
+		white-space:nowrap;
 }
 .woocommerce-MyAccount-navigation li {
     background: none;
@@ -4468,10 +4471,10 @@ border-radius:5px;
 		width: auto;
 		white-space: nowrap;
 }
-.woocommerce-account .woocommerce-MyAccount-content {
-width:calc(100vw - 250px);
-}
 #content .woocommerce-MyAccount-navigation li.is-active a {
     background: #eee;
 }
 #bbp-user-profile #bbp-user-avatar{float:right;}
+@media (max-width: 768px){
+	.woocommerce-MyAccount-navigation .community-menu{display:none;}
+}
