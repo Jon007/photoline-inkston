@@ -4150,6 +4150,9 @@ margin-left:0px;
 body.bbpress .bbp-reply-content{font-size:15px;line-height:150%;}
 body.bbpress #content h1{font-size: 24px;}
 .wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-60px;float:right;}
+@media (max-width: 1000px){
+.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-42px;}
+}
 .wpbdp-listing-single .listing-title{display:none;}
 .mailpoet_form_widget .mailpoet_paragraph{display:inline-block;}
 .mailpoet_form_widget .mailpoet_paragraph input[type="submit"]{text-transform:none;}
