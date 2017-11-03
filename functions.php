@@ -481,7 +481,7 @@ endif;
  * 
  * @return string image
  */
-function inkston_featured_img_tag($content, $tag){    
+function inkston_featured_img_tag($content, $returntag){    
     $first_img = '';
     $last_avatar = '';
 
@@ -507,8 +507,9 @@ function inkston_featured_img_tag($content, $tag){
         /*
          * NOTE: this gets the image sized as on the page, size not guaranteed,
          * may also get an external image so no guarantee thumbnail is available  */
-        foreach ($imageTags as $tag) {
-            $url = $tag->getAttribute('src');
+        foreach ($imageTags as $imgtag) {
+            $url=($returntag) ? $imgtag->ownerDocument->saveXML($imgtag) : $imgtag->getAttribute('src');            
+            //$url = $imgtag->getAttribute('src');
             if ( (strpos($url, 'cat-generator-avatars') === false) && (strpos($url, 'badge') === false) 
                   && (strpos($url, 'avatar') === false) ) {
                 $first_img = $url;
@@ -521,13 +522,16 @@ function inkston_featured_img_tag($content, $tag){
     } catch (Exception $e) {
         //if the input isn't fully valid html, try regex
         if ($first_img='' && $last_avatar='') {
-            return inkston_featured_img_tag_regex($content, $tag);  
+            return inkston_featured_img_tag_regex($content, $returntag);  
         }
     }
     
     if (empty($first_img)) {
         if (is_archive()){
             $first_img = get_template_directory_uri() . '/img/forum-logo.jpg';
+            if ($returntag){
+                $first_img = '<img src="' . $first_img . '" />';
+            }
         }elseif ($last_avatar){
             $first_img = $last_avatar;
         } elseif ($forum_id){ //last chance check for bbPress
@@ -537,6 +541,9 @@ function inkston_featured_img_tag($content, $tag){
             }            
             if (empty($first_img)) {
                 $first_img = get_template_directory_uri() . '/img/no-image.jpg';
+            }
+            if ($returntag){
+                $first_img = '<img src="' . $first_img . '" />';
             }
         }
     }
