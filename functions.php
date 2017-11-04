@@ -500,6 +500,7 @@ function inkston_featured_img_tag($content, $returntag){
         }
     }
     
+    if ($content){
     try {
         $doc = new DOMDocument();
         $doc->loadHTML($content);    
@@ -524,6 +525,7 @@ function inkston_featured_img_tag($content, $returntag){
         if ($first_img='' && $last_avatar='') {
             return inkston_featured_img_tag_regex($content, $returntag);  
         }
+    }
     }
     
     if (empty($first_img)) {

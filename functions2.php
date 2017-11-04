@@ -935,61 +935,67 @@ function shuffle_assoc($array)
 function get_featured_posts()
 {
 
-    //RECENT POSTS
-    $query_args = array(
-        'ignore_sticky_posts' => 0, //sticky posts automatically added by WP
-        'post_type' => array( 'post' ),
-        'orderby' => 'modified',
-        'posts_per_page' => 50,
-        'showposts'   =>  50,
-        'order' => 'DESC'
-    );
-    $recent_list = new WP_Query( $query_args );
-    
-    //FEATURED PRODUCTS 
     $final_posts = [];
-    if (is_woocommerce_activated()){
-    $query_args = array(
-        'posts_per_page' => 100,
-        'showposts'   =>  100,
-        'post_status' => 'publish',
-        'post_type'   => 'product',
-        'post__in'    => array_merge( array( 0 ), wc_get_featured_product_ids(), wc_get_product_ids_on_sale()  ),
-        'orderby'     =>  'modified',
-        'order'       =>  'DESC',
-    );
-    $product_list = new WP_Query( $query_args );      
-    //SALE PRODUCTS 
-    /*
-    $query_args = array(
-        'posts_per_page' => 25,
-        'showposts'   =>  25,
-        'post_status' => 'publish',
-        'post_type'   => 'product',
-        'post__in'    => array_merge( array( 0 ), wc_get_product_ids_on_sale() ),
-        'orderby'     =>  'modified',
-        'order'       =>  'DESC',
-    );
-    $sale_list = new WP_Query( $query_args );    
-    */
+    $tKey = 'inkfeat';
+    $final_posts = get_transient($tKey);
+    if(! $final_posts){
+        //RECENT POSTS
+        $query_args = array(
+            'ignore_sticky_posts' => 0, //sticky posts automatically added by WP
+            'post_type' => array( 'post' ),
+            'orderby' => 'modified',
+            'posts_per_page' => 50,
+            'showposts'   =>  50,
+            'order' => 'DESC'
+        );
+        $recent_list = new WP_Query( $query_args );
+    
+        //FEATURED PRODUCTS 
+        if (is_woocommerce_activated()){
+            $query_args = array(
+                'posts_per_page' => 100,
+                'showposts'   =>  100,
+                'post_status' => 'publish',
+                'post_type'   => 'product',
+                'post__in'    => array_merge( array( 0 ), wc_get_featured_product_ids(), wc_get_product_ids_on_sale()  ),
+                'orderby'     =>  'modified',
+                'order'       =>  'DESC',
+            );
+            $product_list = new WP_Query( $query_args );      
+            //SALE PRODUCTS 
+            /*
+            $query_args = array(
+                'posts_per_page' => 25,
+                'showposts'   =>  25,
+                'post_status' => 'publish',
+                'post_type'   => 'product',
+                'post__in'    => array_merge( array( 0 ), wc_get_product_ids_on_sale() ),
+                'orderby'     =>  'modified',
+                'order'       =>  'DESC',
+            );
+            $sale_list = new WP_Query( $query_args );    
+            */
 
-    //RECENT NON-FEATURED PRODUCTS 
-    $query_args = array(
-        'post_type'   =>  'product',
-        'posts_per_page' => 25,
-        'showposts'   =>  25,
-        'post_status' => 'publish',
-        'post__not_in' => array_merge( array( 0 ), wc_get_product_ids_on_sale(), wc_get_featured_product_ids() ),
-        'orderby'     =>  'modified',
-        'order'       =>  'DESC',
-    );    
-    $recentproduct_list = new WP_Query( $query_args );      
+            //RECENT NON-FEATURED PRODUCTS 
+            $query_args = array(
+                'post_type'   =>  'product',
+                'posts_per_page' => 25,
+                'showposts'   =>  25,
+                'post_status' => 'publish',
+                'post__not_in' => array_merge( array( 0 ), wc_get_product_ids_on_sale(), wc_get_featured_product_ids() ),
+                'orderby'     =>  'modified',
+                'order'       =>  'DESC',
+            );    
+            $recentproduct_list = new WP_Query( $query_args );      
 
-    //$final_posts = array_merge( $recent_list->posts, $product_list->posts, $sale_list->posts, $recentproduct_list->posts  );
-    $final_posts = array_merge( $recent_list->posts, $product_list->posts, $recentproduct_list->posts  );
-    } else {
-        $final_posts = $recent_list->posts;
+            //$final_posts = array_merge( $recent_list->posts, $product_list->posts, $sale_list->posts, $recentproduct_list->posts  );
+            $final_posts = array_merge( $recent_list->posts, $product_list->posts, $recentproduct_list->posts  );
+            set_transient($tKey, $final_posts, 24 * 60 * 60);
+        } else {
+            $final_posts = $recent_list->posts;
+        }
     }
+    
 
     //$final_posts = array_unique ( $final_posts);
     //$final_posts = shuffle_assoc($final_posts);
