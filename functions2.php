@@ -936,7 +936,8 @@ function get_featured_posts()
 {
 
     $final_posts = [];
-    $tKey = 'inkfeat';
+    $locale = (function_exists('pll_current_language')) ? pll_current_language('locale'): get_locale(); 
+    $tKey = 'inkfeat' . $locale;
     $final_posts = get_transient($tKey);
     if(! $final_posts){
         //RECENT POSTS
@@ -990,7 +991,7 @@ function get_featured_posts()
 
             //$final_posts = array_merge( $recent_list->posts, $product_list->posts, $sale_list->posts, $recentproduct_list->posts  );
             $final_posts = array_merge( $recent_list->posts, $product_list->posts, $recentproduct_list->posts  );
-            set_transient($tKey, $final_posts, 24 * 60 * 60);
+            set_transient($tKey, $final_posts, 3600);
         } else {
             $final_posts = $recent_list->posts;
         }
