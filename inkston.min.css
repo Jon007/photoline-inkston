@@ -1109,3 +1109,9 @@ body.woocommerce-lost-password .wpcf7{display:none}
 @media (max-width: 768px) {
 .woocommerce-MyAccount-navigation .community-menu{display:none}
 }
+body.business-directory ul#menu-top .menu-item.directory, 
+body.topic ul#menu-top .menu-item-object-forum,
+body.bbp-user-page ul#menu-top .menu-item.account,
+body.forum ul#menu-top .menu-item-object-forum{
+    border-bottom: 1px solid #c3a068;	
+}
