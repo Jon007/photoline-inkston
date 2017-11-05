@@ -1109,9 +1109,18 @@ body.woocommerce-lost-password .wpcf7{display:none}
 @media (max-width: 768px) {
 .woocommerce-MyAccount-navigation .community-menu{display:none}
 }
-body.business-directory ul#menu-top .menu-item.directory, 
-body.topic ul#menu-top .menu-item-object-forum,
-body.bbp-user-page ul#menu-top .menu-item.account,
-body.forum ul#menu-top .menu-item-object-forum{
-    border-bottom: 1px solid #c3a068;	
+body.business-directory ul#menu-top .menu-item.directory,body.topic ul#menu-top .menu-item-object-forum,body.bbp-user-page ul#menu-top .menu-item.account,body.forum ul#menu-top .menu-item-object-forum{border-bottom:1px solid #c3a068}
+@media (max-width:600px) {
+#logo img{margin-left:10px;margin-bottom:0;margin-top:20px}
+.page-header .header-cart{top:37px}
+.page-header .header-cart.ccy{position:absolute;top:67px;right:0}
+.top-menu{text-align:left}
+ul#menu-top{padding-left:10px}
+.woocommerce #logo img{left:-18px}
+#single-nav{top:91px;right:3px;min-width:71px}
+.bbp-topic-title .bbp-topic-permalink{margin-left:0}
+body.forum .bbp-author-avatar,body.bbpress .avatar-container{display:none}
+#bbpress-forums div.bbp-reply-author img.avatar{position:inherit}
+.bbp-forum-content{clear:both}
+#secondary{display:none;}
 }
