@@ -55,7 +55,7 @@
     }
     $aboutlink = '<a href="' . $about . '">&copy; '.date('Y') . ' <span id="footer-copyright"> ' .
         esc_html( get_theme_mod( 'copyright_txt', 'All rights reserved' ) ) . 
-        '</a></span><span class="sep"> &middot; </span>'; 
+        '</span></a><span class="sep"> &middot; </span>'; 
 ?>
 <div class="clearfix"></div>
 <div class="site-info">
