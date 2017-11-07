@@ -1762,3 +1762,23 @@ function ink_user_dashboard_url($url, $user_id, $path, $scheme){
     return $url;
 }
 add_filter( 'user_dashboard_url', 'ink_user_dashboard_url', 10, 4);
+
+/**
+ * Filters the forum reply link in feeds to force unique link to stop caching.
+ *    otherwise Facebook, Twitter etc cache previous image on same url
+ *
+ *
+ * @param string $url     The complete URL including scheme and path.
+ * @param int    $user_id The user ID.
+ * @param string $path    Path relative to the URL. Blank string if no path is specified.
+ * @param string $scheme  Scheme to give the URL context. Accepts 'http', 'https', 'login',
+ *                        'login_post', 'admin', 'relative' or null.
+ */
+function ink_bbp_feed_reply_url($url, $reply_id, $redirect_to){
+    if ( is_feed() || ( stripos($_SERVER['REQUEST_URI'], '/feed')) ){
+        $url = str_replace('#post-' . $reply_id, '?' . $reply_id . '#post-' . $reply_id, $url);
+    }
+    return $url;
+}
+add_filter( 'bbp_get_reply_url', 'ink_bbp_feed_reply_url', 10, 3);
+
