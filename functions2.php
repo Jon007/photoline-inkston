@@ -868,12 +868,14 @@ function remove_bbpress_styles($styles)
     if ( (! function_exists('is_bbpress')) || ( (! is_bbpress()) && (! is_front_page())) ) {
         return [];
     } else {
+/* remove minification as bbPress 2.6 now has this logic
         if ( (! defined('SCRIPT_DEBUG') ) || (SCRIPT_DEBUG==false) ){
             foreach ($styles as $key => $style){
                 $style['file'] = str_replace('.css', '.min.css', $style['file']);
                 $styles[$key]=$style;
             }
         }
+ */
         return $styles;
     }
 }
@@ -1776,7 +1778,7 @@ add_filter( 'user_dashboard_url', 'ink_user_dashboard_url', 10, 4);
  */
 function ink_bbp_feed_reply_url($url, $reply_id, $redirect_to){
     if ( is_feed() || ( stripos($_SERVER['REQUEST_URI'], '/feed')) ){
-        $url = str_replace('#post-' . $reply_id, '?' . $reply_id . '#post-' . $reply_id, $url);
+        $url = str_replace('#post-' . $reply_id, '/' . $reply_id . '/#post-' . $reply_id, $url);
     }
     return $url;
 }
