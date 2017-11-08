@@ -1784,3 +1784,17 @@ function ink_bbp_feed_reply_url($url, $reply_id, $redirect_to){
 }
 add_filter( 'bbp_get_reply_url', 'ink_bbp_feed_reply_url', 10, 3);
 
+/**
+ * Avoid changing SEO canonical urls for replies: allow each reply to be new canonical.
+ *
+ * @param string $url     The complete URL including scheme and path.
+ */
+function ink_bbp_canonical($canonical){
+    if (function_exists('is_bbpress') && is_bbpress()){
+        $canonical="https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        //$canonical='';
+    }
+    return $canonical;
+}
+add_filter( 'wpseo_canonical', 'ink_bbp_canonical', 10, 1 );
+//		$url = apply_filters( 'wpseo_opengraph_url', WPSEO_Frontend::get_instance()->canonical( false ) );
