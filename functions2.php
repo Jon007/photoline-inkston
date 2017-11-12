@@ -1078,6 +1078,7 @@ function ink_wpbdp_field_label($label){
     $tr_directory_label = get_directory_labels();
     switch($locale){
         case 'fr_FR':
+        case 'de_DE':
         case 'es_ES':
             if (isset($tr_directory_label[$label])){
                 $label = $tr_directory_label[$label];
@@ -1093,6 +1094,7 @@ function ink_wpbdp_field_description($description){
     $tr_directory_description = get_directory_descriptions();
     switch($locale){
         case 'fr_FR':
+        case 'de_DE':
         case 'es_ES':
             if (isset($tr_directory_description[ trim($description) ] )){
                 $description = $tr_directory_description[trim($description)];

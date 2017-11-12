@@ -60,6 +60,11 @@
                 $topmenu = 'topes_ES' ;                  
             }            
             break;
+        case 'de_DE':
+            if ( has_nav_menu( 'topde_DE' ) ) {
+                $topmenu = 'topde_DE' ;                  
+            }            
+            break;
     }
 
     if ( has_nav_menu( $topmenu ) ) { ?>

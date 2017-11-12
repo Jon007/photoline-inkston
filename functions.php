@@ -282,6 +282,7 @@ if (!function_exists('inkston_setup')) :
             register_nav_menus(array(
                 'topfr_FR' => __('Top Menu', 'photoline-inkston') . ' Français',
                 'topes_ES' => __('Top Menu', 'photoline-inkston') . ' Español',
+                'topde_DE' => __('Top Menu', 'photoline-inkston') . ' Deutsche',
             ));
         }
         /**
