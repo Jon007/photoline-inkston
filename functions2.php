@@ -1780,7 +1780,14 @@ add_filter( 'user_dashboard_url', 'ink_user_dashboard_url', 10, 4);
  */
 function ink_bbp_feed_reply_url($url, $reply_id, $redirect_to){
     if ( is_feed() || ( stripos($_SERVER['REQUEST_URI'], '/feed')) ){
-        $url = str_replace('#post-' . $reply_id, '/' . $reply_id . '/#post-' . $reply_id, $url);
+        $topicslug = bbp_get_topic_slug();
+        if ( stripos($url, $topicslug) ){
+            $url = str_replace('#post-' . $reply_id, $reply_id . '/#post-' . $reply_id, $url);
+        } else {
+            //fix, bbPress not return correct links for topics in feed
+            $url = bbp_get_topic_last_reply_permalink();
+            //$url = str_replace('#post-' . $reply_id, $reply_id . '/#post-' . $reply_id, $url)
+        }
     }
     return $url;
 }
