@@ -504,8 +504,11 @@ function inkston_featured_img_tag($content, $returntag){
     if ($content){
     try {
         $doc = new DOMDocument();
+            libxml_use_internal_errors(true);            
         $doc->loadHTML($content);    
         $imageTags = $doc->getElementsByTagName('img');
+            libxml_clear_errors();
+
         /*
          * NOTE: this gets the image sized as on the page, size not guaranteed,
          * may also get an external image so no guarantee thumbnail is available  */
@@ -811,6 +814,7 @@ if (is_woocommerce_activated()) {
 
 
 /**
+ * debugging this... it doesn't actually appear to get called, so are titles on images useless??
  * Add titles to images
  *
  * @author Bill Erickson
