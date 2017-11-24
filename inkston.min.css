@@ -208,7 +208,7 @@ label{color:#413e3e;padding:5px 0}
 .site-branding{text-align:left;padding-left:15px;padding-top:15px;-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover;background-size:cover}
 .site-title-group{margin:50px 40px}
 #logo img{max-height:200px;position:relative;margin-top:20px;margin-bottom:14px;height:122px}
-.woocommerce #logo img{left:-40px}
+.woocommerce #logo img{left:-10px}
 @media (max-width:600px) {
 #logo img{left:0}
 }
@@ -248,13 +248,13 @@ ul.nav-menu,.nav-menu ul,.nav-menu ul li ul{list-style:none}
 .menu-toggle{display:block;cursor:pointer}
 #menu-top a{text-decoration:none}
 ul#menu-top{list-style:none;margin:0}
-#menu-top li,#menu-footer li{display:inline-block;font-size:12px;padding:0 5px}
+#menu-top li,#menu-footer li{display:inline-block;font-size:12px;padding:0 2px}
 #menu-top li a::before{content:'';font-family:"FontAwesome";display:inline-block;font-size:14px;font-style:normal;font-weight:400;line-height:1em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 #menu-top li a[href*="tel:"]::before{content:'\f095'}
 #menu-top li a[href*="mailto:"]::before{content:'\f0e0'}
 #menu-top li a[href*="https://goo.gl/maps/"]::before{content:'\f041'}
 .top-menu{background-color:#1a1919;border-bottom:solid 1px #000;padding:1px 5px 3px 0;text-align:center}
-.top-menu li,.top-menu span{color:#dedede}
+.top-menu li,.top-menu span{color:#fff}
 .top-menu span{font-family:"Open Sans",Helvetica,Arial,sans-serif;font-size:16px}
 #sidemenu{border:1px solid #dedede;border-bottom:1px solid #fff}
 ul#sidemenu,#sidemenu li ul.sub-menu{margin-left:0;list-style:none}
@@ -597,7 +597,7 @@ ul#menu-top .current-menu-item{color:#c3a068}
 ul#menu-top .current-menu-item a{color:#c3a068;font-weight:400}
 ul#menu-top li{border:1px solid #1a1919}
 ul#menu-top li:hover{border:1px solid #c3a068}
-ul#menu-top li.lang-item{text-align:center;padding:0 2px}
+ul#menu-top li.lang-item{text-align:center;padding:0 1px}
 ul#menu-top li.current-lang,ul#menu-top li.current-menu-item,ul#menu-top li.current_page_parent,ul#menu-top li.current-post-ancestor{border-bottom:1px solid #c3a068}
 @media (min-width:800px) {
 .inline-sidebar{padding-left:10px;float:right;width:50%}
@@ -850,14 +850,15 @@ body.logged-in .hide-if-logged-out{display:initial!important}
 #bbpress-forums #bbp-single-user-details #bbp-user-navigation li.current span.vcard a{opacity:1}
 .bbp-author-avatar img.avatar-14{width:40px!important;height:auto!important;border:0!important}
 button,button[disabled]:hover,button[disabled]:focus,input[type="button"],input[type="button"][disabled]:hover,input[type="button"][disabled]:focus,input[type="reset"],input[type="reset"][disabled]:hover,input[type="reset"][disabled]:focus,input[type="submit"],input[type="submit"][disabled]:hover,input[type="submit"][disabled]:focus{text-transform:none}
-#topsearch{position:absolute;top:2px;right:100px}
+#topsearch{position:absolute;top:2px;right:90px}
 #topsearch input{border:0}
 #topsearch .fa{color:#fff}
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
 #topsearch input{display:none}
 }
 @media (max-width: 600px) {
 #topsearch{right:60px}
+.hide-on-mobile{display:none}
 }
 .variations .tawcvs-swatches .swatch{width:75px;height:75px}
 .woocommerce div.product form.cart{margin-bottom:0}
@@ -902,7 +903,7 @@ div#content a:focus .tooltiptext .imgwrap img,div#content a:hover .tooltiptext .
 .site-content .page-numbers a{color:#fff;background-color:#39aa39}
 .page-numbers a:hover,.page-numbers span.current{color:#39aa39;background-color:#eee;border:1px solid #39aa39}
 #menu-social li:hover a::before{color:#4d914d}
-#mega-menu-wrap-hamburger{display:inline-block;float:left;z-index:999;max-width:75px;background:transparent;line-height:inherit;margin-top:-6px;position:fixed}
+#mega-menu-wrap-hamburger{display:inline-block;float:left;z-index:999;max-width:150px;background:transparent;line-height:inherit;margin-top:-6px;position:fixed}
 #mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-current-menu-item > a.mega-menu-link,#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-current-menu-ancestor > a.mega-menu-link,#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-current-page-ancestor > a.mega-menu-link,#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item.mega-toggle-on > a.mega-menu-link{background:transparent}
 #mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item > a.mega-menu-link:focus,#mega-menu-wrap-hamburger #mega-menu-hamburger > li.mega-menu-item > a.mega-menu-link:hover{color:#39aa39;background:transparent}
 .dashicons-admin-home.mega-menu-link{background:transparent}
@@ -955,6 +956,7 @@ div#header-thumbnail.fixbox{z-index:0}
 }
 @media (max-width:650px) {
 #header-thumbnail{max-width:150px}
+ul#menu-top li,ul#menu-top li.lang-item{padding:0}
 }
 @media (max-width:500px) {
 #header-thumbnail{display:none}
@@ -995,8 +997,8 @@ body.wpbdp-view-show_listing header.page-header{display:none}
 #bbpress-forums .bbp-forum-info .bbp-forum-content,body.bbpress .bbp-reply-content{font-size:15px;line-height:150%}
 body.bbpress #content h1{font-size:24px}
 .wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-60px;float:right}
-@media (max-width: 1000px){
-.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-42px;}
+@media (max-width: 1000px) {
+.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-42px}
 }
 .wpbdp-listing-single .listing-title{display:none}
 .mailpoet_form_widget .mailpoet_paragraph{display:inline-block}
@@ -1122,5 +1124,7 @@ ul#menu-top{padding-left:10px}
 body.forum .bbp-author-avatar,body.bbpress .avatar-container{display:none}
 #bbpress-forums div.bbp-reply-author img.avatar{position:inherit}
 .bbp-forum-content{clear:both}
-#secondary{display:none;}
+#secondary{display:none}
 }
+#header-thumbnail.fixbox{overflow:hidden}
+body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder}

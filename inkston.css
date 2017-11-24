@@ -1024,7 +1024,7 @@ label {
 /*shrink logo on mobile screen to make room for header image, 
 but on small width (iphone5) pop back up to 100% as header will be hidden*/
 #logo img {max-height: 200px;position:relative;margin-top:20px;margin-bottom:14px;height:122px;}
-.woocommerce #logo img {left:-40px;}
+.woocommerce #logo img {left:-10px;}
 @media (max-width:600px) {#logo img {left:0;}}
 @media (max-width:480px) {#logo img {width: 300px;height:113px;margin-bottom:22px;}}
 @media (max-width:450px) {#logo img {width: 280px;height:106px;margin-bottom:30px;}}
@@ -1149,7 +1149,7 @@ ul#menu-top {
 #menu-footer li {
     display: inline-block;
     font-size: 12px;
-    padding: 0 5px;
+    padding: 0 2px;
 }
 
 #menu-top li a::before {
@@ -1186,7 +1186,7 @@ ul#menu-top {
 
 .top-menu li,
 .top-menu span {
-    color: #dedede;
+    color: white;
 }
 
 .top-menu span {
@@ -2945,7 +2945,7 @@ ul#menu-top li:hover {
 }
 ul#menu-top li.lang-item {
     text-align: center;
-		padding: 0 2px;
+		padding: 0 1px;
 }
 ul#menu-top li.current-lang, ul#menu-top li.current-menu-item, ul#menu-top li.current_page_parent
 , ul#menu-top li.current-post-ancestor{
@@ -3692,14 +3692,15 @@ body.logged-in .hide-if-logged-out{display:initial!important;}
 button, button[disabled]:hover, button[disabled]:focus, input[type="button"], input[type="button"][disabled]:hover, input[type="button"][disabled]:focus, input[type="reset"], input[type="reset"][disabled]:hover, input[type="reset"][disabled]:focus, input[type="submit"], input[type="submit"][disabled]:hover, input[type="submit"][disabled]:focus {
   text-transform:none;
 }
-#topsearch{position:absolute;top:2px;right:100px;}
+#topsearch{position:absolute;top:2px;right:90px;}
 #topsearch input{border:0;}
 #topsearch .fa{color:white;}
-@media (max-width: 1000px){
+@media (max-width: 1050px){
 #topsearch input{display:none;}
 }
 @media (max-width: 600px){
 #topsearch{right:60px;}
+.hide-on-mobile{display:none;}
 }
 .variations .tawcvs-swatches .swatch {width:75px;height:75px;}
 .woocommerce div.product form.cart{margin-bottom:0px;}
@@ -3884,7 +3885,7 @@ li.product {overflow:hidden;}
 	display:inline-block;
 	float:left;
   z-index: 999;
-	max-width:75px;
+	max-width:150px;
 	background:transparent;
 	line-height:inherit;
 	margin-top:-6px;
@@ -4044,6 +4045,8 @@ div#header-thumbnail.fixbox{
     #header-thumbnail {
         max-width:150px;
     }
+		/* squeeze up menus on narrow screen*/
+		ul#menu-top li, ul#menu-top li.lang-item{padding:0px}
 }
 @media (max-width:500px) {
     #header-thumbnail {
@@ -4519,3 +4522,8 @@ body.forum ul#menu-top .menu-item-object-forum{
 	.bbp-forum-content{clear:both;}
 	#secondary{display:none;}
 }
+/* disallow scrolling on thumbnail box, too disturbing*/
+#header-thumbnail.fixbox{overflow:hidden;}
+
+/* make last breadcrumb (current page) more prominent */
+body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder;}
