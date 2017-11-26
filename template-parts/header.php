@@ -130,11 +130,13 @@ if ( is_woocommerce_activated() ) {
     echo('<div id="header-thumbnail" class="fixbox">');
     $feature_posts = get_featured_posts();
     $i = 0;
-    foreach ( $feature_posts as $key => $post ) {	
-		setup_postdata( $post ); 
-        get_template_part( 'content', 'tile-thumb' );
-        $i++;
-        if ($i>7){break;}
+    if ($feature_posts){
+      foreach ( $feature_posts as $key => $post ) {	
+      setup_postdata( $post ); 
+          get_template_part( 'content', 'tile-thumb' );
+          $i++;
+          if ($i>7){break;}
+      }
     }
     echo('</div>');
 } else {

@@ -936,7 +936,6 @@ function shuffle_assoc($array)
  */ 
 function get_featured_posts()
 {
-
     $final_posts = [];
     $locale = (function_exists('pll_current_language')) ? pll_current_language('locale'): get_locale(); 
     $tKey = 'inkfeat' . $locale;

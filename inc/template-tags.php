@@ -368,70 +368,73 @@ if ( ! function_exists( 'inkston_after_main_posts' ) ) {
  * WooCommerce Cart Link
  */
 if ( ! function_exists( 'inkston_cart_link' ) ) {
-	function inkston_cart_link( $wrapper_class = 'header-cart' ) {
-//		if ( ! is_woocommerce_activated() ) {return false;}
+    function inkston_cart_fragment(){
+        $woocommerce_items_in_cart = $cart_value = 0;
+        $cart_ccy = $woocs_current_currency = 'USD';
+        $display_value = $result = '';
         
-      
-		//update: turn off wrapper class override since this is called by ajax 
-        //with no parameters for all cart buttons:
-		$wrapper_class = 'header-cart';
-		/**
-		 * is_cart - Returns true when viewing the cart page so hide the cart button.
-		 **/
-		$button_title=__( 'View Cart', 'photoline-inkston' );
-		$button_text=$price_text='';
-		$button_class = 'menu-item';
-
-		if ( is_woocommerce_activated() ) {
-            $button_url=esc_url(wc_get_cart_url());
-            
-            if ( (is_cart()) && (sizeof(WC()->cart->cart_contents) > 0) ) {
-                $button_url=esc_url(wc_get_checkout_url());
-                $button_title=__( 'Checkout', 'photoline-inkston' );
-                $button_text=$button_title;
-            }  /* otherwise show, but only if there are items.. . */
-            elseif (sizeof(WC()->cart->cart_contents) > 0) {
-              $button_class = 'menu-item';
-                $cart_total = WC()->cart->cart_contents_total;
-                $button_text='<span class="cart-total">' . 
-                    WC()->cart->get_cart_contents_count() . 
-                    '</span><span class="woocommerce-Price-amount">' . 
-                    wp_kses_data( wc_price($cart_total) . '</span>');
-                //attempt to convert total back to base currency for switcher
+        if (isset($_COOKIE['woocommerce_items_in_cart'])){
+            $woocommerce_items_in_cart = $_COOKIE['woocommerce_items_in_cart'];        
+        }
+        if ($woocommerce_items_in_cart){
+            if ( ! defined( 'DONOTCACHEPAGE' ) ) {define( "DONOTCACHEPAGE", true );}
+            if (isset($_COOKIE['wc_ccy'])){$cart_ccy = $_COOKIE['wc_ccy'];}     
+            if (isset($_COOKIE['woocs_current_currency'])){
+                $woocs_current_currency = $_COOKIE['woocs_current_currency'];
+            }
+            if (isset($_COOKIE['wc_val'])){$cart_value = $_COOKIE['wc_val'];}
+            if (isset($_COOKIE['wc_disp'])){$display_value = stripslashes($_COOKIE['wc_disp']);}         
+            if ($woocs_current_currency!=$cart_ccy){
+                //only call into currency switcher and woocommmerce if we have actually switched currency
                 global $WOOCS;
-                $price_text = $cart_total;
-                if ($WOOCS && $WOOCS->current_currency){
-                    $price_text = $cart_total / $WOOCS->get_currencies()[$WOOCS->current_currency]['rate'];
-                }
-                $price_text = ' data-price="' . $price_text . '"';
-              //TWEAK:  if there are cart items, then don't cache the page, we don't want cached version of page to have cart...
-              //note also/instead pre-loading could also be used to ensure non-cart page versions are cached
-              if ( ! defined( 'DONOTCACHEPAGE' ) ) {
-                define( "DONOTCACHEPAGE", true );
+                if ($WOOCS){
+                    $cart_value = $cart_value / 
+                        $WOOCS->get_currencies()[$WOOCS->current_currency]['rate'];
+                    $display_value = wp_kses_data(wc_price($cart_value));
               }
             }
-            else {
-              $button_text='<span class="cart-total"> </span> &nbsp; &nbsp; ';
-              
+            $result = '<span data-price="' . $cart_value . '" class="woocs_price_code cart-content">' .
+                '<span class="cart-total">' . $woocommerce_items_in_cart . '</span>' .
+                 $display_value . '</span>';
+        } else { //empty cart result
+            $result = '<span class="cart-total"> </span>';
             }
-            if ( is_cart() ){
-              $wrapper_class = 'checkout ' . $wrapper_class;
-            }else{
-              $wrapper_class = 'cart-contents ' . $wrapper_class;
+        error_log($result);
+        return $result;
             }
+    
+	function inkston_cart_link( $wrapper_class = 'header-cart' ) {        
+        $button_url = $button_title = '';
+        $button_text = inkston_cart_fragment();
+		if ( is_woocommerce_activated() ) {
+            
+            if ( (is_cart()) && (sizeof(WC()->cart->cart_contents) > 0) ) {
+                $button_url = esc_url(wc_get_checkout_url());
+                $button_title = __( 'Checkout', 'photoline-inkston' );
+                $button_text = '<span class="cart-content">' . $button_title . '</span>';
         } else {
-    		$button_url='https://www.inkston.com/cart/';
-            if (! isset( $_COOKIE['woocommerce_cart_hash'] ) ) {
-                $wrapper_class .=' hidden';
+                $button_url=esc_url(wc_get_cart_url());            
+            } 
+            
             } else {
-              $button_text='<span class="cart-total"> </span>' . __( 'Cart', 'photoline-inkston' );
+            //if on non-woocommerce blog, use default live cart urls
+            $locale = get_locale();
+            switch($locale){
+                case 'fr_FR':
+                    $button_url = 'https://www.inkston.com/fr/panier/';
+                    break;
+                case 'es_ES':
+                    $button_url = 'https://www.inkston.com/es/cesta-de-la-compra/';
+                    break;
+                default:
+                    $button_url = 'https://www.inkston.com/cart/';
             }
         }
-		echo ('<ul class="' . $wrapper_class . '">');
-        echo ('<li class="' . $button_class . '"><a href="' . $button_url . '" title="'.
-    		$button_title . '" ' . $price_text . 
-            '" class="woocs_price_code">' . $button_text . '</a>');
-        echo('</li></ul>');
+        
+        echo ('<ul class="header-cart">');
+        echo ('<li class="menu-item"><a href="' . $button_url . '" title="'. $button_title . '">');
+        echo ($button_text);
+        echo('</a></li></ul>');
 	}
 }
 

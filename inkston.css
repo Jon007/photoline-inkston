@@ -4528,4 +4528,8 @@ body.forum ul#menu-top .menu-item-object-forum{
 /* make last breadcrumb (current page) more prominent */
 body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder;}
 
-.top-menu span.woocommerce-Price-amount{font-size:12px;}
+/* dont let top cart figure grow with the menus */
+.top-menu .header-cart span.cart-content * {font-size:12px;}
+
+/* don't highlight sale prices within the header thumbails overlays */
+.header-thumbnail ins{background:transparent;}
