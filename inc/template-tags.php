@@ -397,7 +397,7 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
                 '<span class="cart-total">' . $woocommerce_items_in_cart . '</span>' .
                  $display_value . '</span>';
         } else { //empty cart result
-            $result = '<span class="cart-total"> </span>';
+            $result = '<span class="cart-content"> </span>';
             }
         return $result;
             }
