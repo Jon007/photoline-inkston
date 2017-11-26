@@ -399,7 +399,6 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
         } else { //empty cart result
             $result = '<span class="cart-total"> </span>';
             }
-        error_log($result);
         return $result;
             }
     

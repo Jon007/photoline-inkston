@@ -920,7 +920,7 @@ div#content a:focus .tooltiptext .imgwrap img,div#content a:hover .tooltiptext .
 .tile a .woocs_price_code *{background:transparent;color:rgba(26,25,25,0.1)!important}
 .tile:focus a .woocs_price_code *,.tile:active a .woocs_price_code *,.tile:hover a .woocs_price_code *{color:#FFF!important;background:transparent;visibility:visible}
 .tile a{float:left;position:relative}
-.tile a del{text-decoration:line-through}
+.tile a del{text-decoration:line-through!important}
 .tile a{max-height:200px}
 .fixbox .tile a{max-height:150px}
 .woocommerce .tile span.onsale{top:0;right:0;float:right;left:inherit}
@@ -1129,4 +1129,4 @@ body.forum .bbp-author-avatar,body.bbpress .avatar-container{display:none}
 #header-thumbnail.fixbox{overflow:hidden}
 body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder}
 .top-menu .header-cart span.cart-content * {font-size:12px;}
-.header-thumbnail ins{background:transparent;}
+#header-thumbnail ins{background:transparent;}

@@ -3954,7 +3954,7 @@ li.product {overflow:hidden;}
 	position: relative;
 }
 /* strike out original price where there is a sale price */
-.tile a del{text-decoration:line-through;}
+.tile a del{text-decoration:line-through!important;}
 /*
 .woocommerce .tile .star-rating{
 	display:inline-block;
@@ -4532,4 +4532,4 @@ body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder;}
 .top-menu .header-cart span.cart-content * {font-size:12px;}
 
 /* don't highlight sale prices within the header thumbails overlays */
-.header-thumbnail ins{background:transparent;}
+#header-thumbnail ins{background:transparent;}
