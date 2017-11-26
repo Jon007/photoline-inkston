@@ -379,7 +379,7 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
 		 * is_cart - Returns true when viewing the cart page so hide the cart button.
 		 **/
 		$button_title=__( 'View Cart', 'photoline-inkston' );
-		$button_text='';
+		$button_text=$price_text='';
 		$button_class = 'menu-item';
 
 		if ( is_woocommerce_activated() ) {
@@ -392,7 +392,18 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
             }  /* otherwise show, but only if there are items.. . */
             elseif (sizeof(WC()->cart->cart_contents) > 0) {
               $button_class = 'menu-item';
-              $button_text='<span class="cart-total">' . WC()->cart->get_cart_contents_count() . '</span> ' . wp_kses_data( WC()->cart->get_cart_total() );
+                $cart_total = WC()->cart->cart_contents_total;
+                $button_text='<span class="cart-total">' . 
+                    WC()->cart->get_cart_contents_count() . 
+                    '</span><span class="woocommerce-Price-amount">' . 
+                    wp_kses_data( wc_price($cart_total) . '</span>');
+                //attempt to convert total back to base currency for switcher
+                global $WOOCS;
+                $price_text = $cart_total;
+                if ($WOOCS && $WOOCS->current_currency){
+                    $price_text = $cart_total / $WOOCS->get_currencies()[$WOOCS->current_currency]['rate'];
+                }
+                $price_text = ' data-price="' . $price_text . '"';
               //TWEAK:  if there are cart items, then don't cache the page, we don't want cached version of page to have cart...
               //note also/instead pre-loading could also be used to ensure non-cart page versions are cached
               if ( ! defined( 'DONOTCACHEPAGE' ) ) {
@@ -400,18 +411,8 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
               }
             }
             else {
-              //doesn't work, even just initializing by default
-              //$button_text=__( 'Cart', 'photoline-inkston' );
               $button_text='<span class="cart-total"> </span> &nbsp; &nbsp; ';
-              //$button_class = 'hidden';
-              /* turn button into add-to-cart button if nothing there currently: doesn't work yet..
-              if (is_product()){
-                $button_title=__( 'Add to Cart', 'photoline-inkston' );
-                $button_text=$button_title;
-                global $product;
-                $button_url='?add-to-cart=' . $product->id;
-              }
-               */
+              
             }
             if ( is_cart() ){
               $wrapper_class = 'checkout ' . $wrapper_class;
@@ -428,7 +429,8 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
         }
 		echo ('<ul class="' . $wrapper_class . '">');
         echo ('<li class="' . $button_class . '"><a href="' . $button_url . '" title="'.
-    		$button_title . '">' . $button_text . '</a>');
+    		$button_title . '" ' . $price_text . 
+            '" class="woocs_price_code">' . $button_text . '</a>');
         echo('</li></ul>');
 	}
 }

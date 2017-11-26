@@ -814,8 +814,7 @@ if (is_woocommerce_activated()) {
 
 
 /**
- * debugging this... it doesn't actually appear to get called, so are titles on images useless??
- * Add titles to images
+ * Add titles to images - called from media.php wp_get_attachment_image
  *
  * @author Bill Erickson
  * @link https://github.com/billerickson/display-posts-shortcode/issues/109

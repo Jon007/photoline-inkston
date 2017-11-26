@@ -1128,3 +1128,4 @@ body.forum .bbp-author-avatar,body.bbpress .avatar-container{display:none}
 }
 #header-thumbnail.fixbox{overflow:hidden}
 body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder}
+.top-menu span.woocommerce-Price-amount{font-size:12px;}
