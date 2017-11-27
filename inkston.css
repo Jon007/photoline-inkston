@@ -4534,3 +4534,6 @@ body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder;}
 
 /* don't highlight sale prices within the header thumbails overlays */
 #header-thumbnail ins{background:transparent;}
+
+/* increase size of forum login prompt */
+.bbp-login-prompt{font-size:larger;}

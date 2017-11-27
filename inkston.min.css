@@ -1131,3 +1131,4 @@ body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder}
 .top-menu .header-cart span.cart-content,
 .top-menu .header-cart span.cart-content * {font-size:12px;}
 #header-thumbnail ins{background:transparent;}
+.bbp-login-prompt{font-size:larger;}

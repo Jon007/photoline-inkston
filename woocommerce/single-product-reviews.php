@@ -86,7 +86,7 @@ if ( ! comments_open() ) {
 
 					if ( $account_page_url = wc_get_page_permalink( 'myaccount' ) ) {
 						$comment_form['must_log_in'] = '<p class="must-log-in">' . 
-                            sprintf( __( 'You must be <a href="%s">logged in</a> to post a review.', 'woocommerce' ), 
+                            sprintf( __( 'You must be <a href="%s#comment">logged in</a> to post a review.', 'woocommerce' ), 
                                 wp_login_url(apply_filters('the_permalink', get_permalink() ) )
                             ) . '</p>';
 					}

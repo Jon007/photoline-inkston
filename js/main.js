@@ -17,7 +17,8 @@ jQuery(document).ready(function($) {
 			//like if you click on a link (it will be saved in the session history, 
 			//so the back button will work as expected)
 			//#comment not encoded by encodeURI so replace with %23
-			window.location.href = window.loginurl + "?redirect_to=" + encodeURI(window.location.href) + "%23comment";
+			//window.location.href = window.loginurl + "?redirect=" + encodeURI(window.location.href) + "%23comment";
+			window.location.href = window.loginurl + "%23comment";
 		}
 	});
 

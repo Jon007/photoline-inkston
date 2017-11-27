@@ -1806,3 +1806,88 @@ function ink_bbp_canonical($canonical){
 }
 add_filter( 'wpseo_canonical', 'ink_bbp_canonical', 10, 1 );
 //		$url = apply_filters( 'wpseo_opengraph_url', WPSEO_Frontend::get_instance()->canonical( false ) );
+
+/*
+ * Add redirect fields to login/registration forms
+ */
+function ink_redirect_field(){
+    $referer = '';
+    if (isset($_POST['redirect'])){
+        $referer = $_POST['redirect'];
+    }
+    if (isset($_REQUEST['redirect'])){
+        $referer = $_REQUEST['redirect'];
+    }
+//    if ($referer == ''){
+//        $referer = wp_get_raw_referer();
+//    }
+?><input type="hidden" name="redirect" value="<?php 
+    echo ($referer); 
+?>" /><?php
+}
+add_action('woocommerce_login_form_end', 'ink_redirect_field');
+add_action('woocommerce_register_form_end', 'ink_redirect_field');
+
+/*
+ * Allow redirect to previous page after registration
+ * @param string $redirect     this is the registration screen itself.
+ * @param string $account_page ie My Account.
+ * 
+ */
+function ink_redirect_registration($referer){
+    if (isset($_POST['redirect'])){
+        $referer = $_POST['redirect'];
+    }
+    if (isset($_REQUEST['redirect'])){
+        $referer = $_REQUEST['redirect'];
+    }
+    return $referer;
+}
+add_filter( 'woocommerce_registration_redirect', 'ink_redirect_registration', 10, 1);
+/*
+ * rewrite the standard login url to use the main woo account form..
+ * @param string $redirect     Path to redirect to on log in.
+ * @param bool   $force_reauth Whether to force reauthorization
+ * @return string The login URL. Not HTML-encoded.
+ */
+function ink_login_url($login_url, $redirect, $force_reauth){
+
+    if (isset($_POST['redirect'])){
+        $referer = $_POST['redirect'];
+    }
+//    if (! $redirect || $redirect==''){
+//        $redirect = wp_get_raw_referer();
+//    }
+    if (! $redirect){ 
+        $redirect = html_entity_decode("https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);         
+    }
+    
+    //get the link for inkston
+    $ink_login_uri = '';
+    if (is_woocommerce_activated() ){
+        $ink_login_uri = wc_get_page_permalink( 'myaccount' );
+    } else {
+        $locale = get_locale();
+        switch($locale){
+            case 'fr_FR':
+                $ink_login_uri = 'https://www.inkston.com/fr/mon-compte/';
+                break;
+            case 'es_ES':
+                $ink_login_uri = 'https://www.inkston.com/es/mi-cuenta/';
+                break;
+            default: 
+                $ink_login_uri = 'https://www.inkston.com/my-account/';
+        }        
+    }    
+    //if we have a new link, recompose the parameters
+    if ($ink_login_uri != ''){
+        $login_url =  $ink_login_uri;      
+        $login_url = add_query_arg('redirect', urlencode($redirect), $login_url);
+
+        if ( $force_reauth ){
+            $login_url = add_query_arg('reauth', '1', $login_url);
+        }
+    }
+    return $login_url;
+}
+add_filter( 'login_url', 'ink_login_url', 10, 3);

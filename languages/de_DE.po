@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoline Inkston\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-23 10:27+0000\n"
-"PO-Revision-Date: 2017-11-10 07:00+0000\n"
+"POT-Creation-Date: 2017-11-27 15:10+0000\n"
+"PO-Revision-Date: 2017-11-27 15:11+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: German\n"
 "Language: de-DE\n"
@@ -53,21 +53,9 @@ msgstr ""
 msgid "https://www.inkston.com/deu/kontaktieren-sie-uns/"
 msgstr ""
 
-#: comments.php:57 comments.php:60
-msgid "Contact"
-msgstr "Kontakt"
-
-#: comments.php:59
-msgid "https://www.inkston.com/inkston/contact-us/"
-msgstr "https://www.inkston.com/deu/kontaktieren-sie-uns/"
-
 #: comments.php:65
 msgid "Leave a Comment"
 msgstr ""
-
-#: comments.php:66
-msgid " or "
-msgstr "oder"
 
 #: comments.php:71
 msgid "Post Comment"
@@ -116,7 +104,7 @@ msgstr ""
 msgid "Choose"
 msgstr ""
 
-#: functions.php:275 functions.php:283 functions.php:284
+#: functions.php:275 functions.php:283 functions.php:284 functions.php:285
 #: inc/contextual-help.php:65
 msgid "Top Menu"
 msgstr ""
@@ -133,89 +121,75 @@ msgstr ""
 msgid "Social Menu"
 msgstr ""
 
-#: functions.php:318
+#: functions.php:319
 msgid "Sidebar Posts"
 msgstr ""
 
-#: functions.php:326
+#: functions.php:327
 msgid "Sidebar Pages"
 msgstr ""
 
-#: functions.php:334
+#: functions.php:335
 msgid "Footer1"
 msgstr ""
 
-#: functions.php:335
+#: functions.php:336
 msgid "Located in the footer left."
 msgstr ""
 
-#: functions.php:343
+#: functions.php:344
 msgid "Footer2"
 msgstr ""
 
-#: functions.php:344
+#: functions.php:345
 msgid "Located in the footer center."
 msgstr ""
 
-#: functions.php:352
+#: functions.php:353
 msgid "Footer3"
 msgstr ""
 
-#: functions.php:353
+#: functions.php:354
 msgid "Located in the footer right."
 msgstr ""
 
-#: functions.php:790
+#: functions.php:803
 msgid "Store Sidebar"
 msgstr ""
 
-#: functions.php:791
+#: functions.php:804
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
 
-#: functions.php:941 functions.php:983
-msgid "Recent discussions in: "
-msgstr "Jüngste Diskussionen in:"
+#: functions.php:1195 functions.php:1210
+msgid "Login or Register with email, Facebook, Google or LinkedIn account"
+msgstr "Anmelden oder registrieren mit Facebook, LinkedIn, Google, Email"
 
-#: functions.php:1212
-#, php-format
-msgid ""
-"If you do not have an account <a target=\"_blank\" href=\"%s\">please "
-"register</a> (will open in new window)"
-msgstr ""
-"Wenn Sie kein Konto <a target=\"_blank\" href=\"%s\"> haben, registrieren "
-"Sie sich </a> (wird in einem neuen Fenster geöffnet)"
-
-#: functions.php:1213
-#, php-format
-msgid " and then <a href=\"#comment\" onclick=\"%s\" \">click here</a>."
-msgstr "Klicken Sie <a href=\"#comment\" onclick=\"%s\"> hier </a>."
-
-#: functions.php:1500 functions.php:1623
+#: functions.php:1512 functions.php:1635
 msgid "ASIN"
 msgstr ""
 
-#: functions.php:1514 functions.php:1635
+#: functions.php:1526 functions.php:1647
 msgid "UPC"
 msgstr ""
 
-#: functions.php:1518
+#: functions.php:1530
 msgid "12 digits international standard Universal Product Code."
 msgstr ""
 
-#: functions.php:1539 functions.php:1657
+#: functions.php:1551 functions.php:1669
 msgid "Product weight"
 msgstr ""
 
-#: functions.php:1541 functions.php:1544 functions.php:1659 functions.php:1662
+#: functions.php:1553 functions.php:1556 functions.php:1671 functions.php:1674
 msgid "Unpacked net product weight."
 msgstr ""
 
-#: functions.php:1570 functions.php:1678
+#: functions.php:1582 functions.php:1690
 msgid "Product size "
 msgstr ""
 
-#: functions.php:1578 functions.php:1638 functions.php:1682
+#: functions.php:1590 functions.php:1650 functions.php:1694
 msgid "Unpacked product size LxWxH in decimal form"
 msgstr ""
 
@@ -246,10 +220,6 @@ msgstr ""
 msgid "Add %s more to your order to qualify for free shipping!"
 msgstr ""
 
-#: functions2.php:689 no-results.php:18
-msgid "Search Inkston."
-msgstr "Suchen Sie Inkston."
-
 #: functions2.php:693
 msgid "results"
 msgstr ""
@@ -267,185 +237,51 @@ msgid ""
 "with us later."
 msgstr ""
 
-#: functions2.php:1013
-msgid "Login or register with Facebook, LinkedIn, Google"
-msgstr "Anmelden oder registrieren mit Facebook, LinkedIn, Google"
-
-#: functions2.php:1015
-msgid "Or use your Inkston login:"
-msgstr "Oder verwenden Sie Ihr Inkston-Login:"
-
-#: functions2.php:1046
+#: functions2.php:1054
 msgid "Name"
 msgstr ""
 
-#: functions2.php:1047
-msgid "Country"
-msgstr "Land"
-
-#: functions2.php:1048
-msgid "Contact Email"
-msgstr "Kontakt E-mail"
-
-#: functions2.php:1049
-msgid "Location"
-msgstr "Ort"
-
-#: functions2.php:1050
-msgid "About"
-msgstr "(umgangssprachlich)\tüber "
-
-#: functions2.php:1051
-msgid "Summary"
-msgstr "Zusammenfassung"
-
-#: functions2.php:1052
-msgid "Website"
-msgstr "Webseite"
-
-#: functions2.php:1056
-msgid "Artist or studio name "
-msgstr "Künstler oder Ateliername"
-
-#: functions2.php:1057
-msgid "Main country "
-msgstr "Hauptland"
-
-#: functions2.php:1058
-msgid "Please enter town or region to help visitors find you "
-msgstr ""
-"Bitte geben Sie die Stadt oder Region an, damit Besucher Sie finden können"
-
-#: functions2.php:1059
-msgid ""
-"To avoid spam, Email address will never be shown, instead a contact form "
-"will be provided which is only available to genuine logged-on users. "
-msgstr ""
-"Um Spam zu vermeiden, wird die E-Mail-Adresse nicht angezeigt. Stattdessen "
-"wird ein Kontaktformular bereitgestellt, das nur für echte angemeldete "
-"Benutzer verfügbar ist."
-
-#: functions2.php:1060
-msgid ""
-"How did you start with Oriental arts? What are your favourite techniques?  "
-"Do you sell your artwork, do you accept commissions?  Do you teach or can "
-"you recommend teachers? "
-msgstr ""
-"Wie hast du mit orientalischen Künsten angefangen? Was sind deine "
-"Lieblingstechniken? Verkaufst du deine Kunstwerke, akzeptierst du "
-"Provisionen? Lehrst du oder kannst du Lehrer empfehlen?"
-
-#: functions2.php:1061
-msgid ""
-"Here you can make a special short summary for search engines and search "
-"results.  Leave blank for an automatic summary. "
-msgstr ""
-"Hier können Sie eine spezielle kurze Zusammenfassung für Suchmaschinen und "
-"Suchergebnisse erstellen. Leer lassen für eine automatische Zusammenfassung."
-
-#: functions2.php:1062
-msgid ""
-"Main website (can be any link including Facebook page if that is your main "
-"page) "
-msgstr ""
-"Haupt-Website (kann jeder Link sein, einschließlich Facebook-Seite, falls "
-"dies Ihre Hauptseite ist)"
-
-#: functions2.php:1063
-msgid ""
-"add optional tags separated by commas, to allow more classifications than "
-"available under categories "
-msgstr ""
-"Fügen Sie optionale Tags hinzu, die durch Kommas getrennt werden, um mehr "
-"Klassifizierungen als unter Kategorien verfügbar zu machen"
-
-#: functions2.php:1123
-#, php-format
-msgid "New post in Forum \"%1$s\", Topic \"%2$s\"."
-msgstr "Neuer Beitrag im Forum \"%1$s\", Thema \"%2$s\"."
-
-#: functions2.php:1128
-#, php-format
-msgid "Or visit your profile page to review all your subscriptions: %1$s"
-msgstr ""
-"Oder besuchen Sie Ihre Profilseite, um alle Ihre Abonnements zu überprüfen: "
-"%1$s"
-
-#: functions2.php:1131 functions2.php:1436
-msgid "Thankyou for participating in Inkston Community"
-msgstr "Vielen Dank für die Teilnahme an Inkston Community"
-
-#: functions2.php:1139
+#: functions2.php:1149
 msgid "forum-subscribers@inkston.com"
 msgstr ""
 
-#: functions2.php:1171 functions2.php:1526
-msgid "No badges yet"
-msgstr "Noch keine Badges"
-
-#: functions2.php:1190
+#: functions2.php:1200
 msgid "level"
 msgstr ""
 
-#: functions2.php:1224
+#: functions2.php:1234
 msgid "Current level: "
 msgstr ""
 
-#: functions2.php:1226
+#: functions2.php:1236
 msgid "level "
 msgstr ""
 
-#: functions2.php:1228
+#: functions2.php:1238
 #, php-format
 msgid "Current score: %1$s points."
 msgstr ""
 
-#: functions2.php:1377
-msgid "Congratulations you have been awarded:"
-msgstr "Herzlichen Glückwunsch, dass Sie vergeben wurden:"
-
-#: functions2.php:1424
-msgid "your contribution has unlocked an award"
-msgstr "Ihr Beitrag hat einen Preis freigeschaltet"
-
-#: functions2.php:1427
-#, php-format
-msgid ""
-"Visit <a href=\"%1$s\">your profile page</a> to see details of your awards "
-"and turn these notifications on or off."
-msgstr ""
-"Besuchen Sie <a href=\"%1$s\"> Ihre Profilseite </a>, um Details zu Ihren "
-"Auszeichnungen anzuzeigen und diese Benachrichtigungen ein- oder "
-"auszuschalten."
-
-#: functions2.php:1431
-msgid "You were awarded this badge for making contributions to "
-msgstr "Sie wurden mit diesem Abzeichen für Beiträge zu"
-
-#: functions2.php:1432
+#: functions2.php:1442
 msgid "Inkston Oriental Art Comunity"
 msgstr ""
 
-#: functions2.php:1439
+#: functions2.php:1449
 msgid "rewards@inkston.com"
 msgstr ""
 
-#: functions2.php:1635
-msgid "If you like this, please share: "
-msgstr "Wenn Sie das mögen, teilen Sie es bitte mit:"
-
-#: functions2.php:1671
+#: functions2.php:1681
 #, php-format
 msgid ""
 "The coupon %s will give you a discount of %s when your basket value reaches "
 "%s or more."
 msgstr ""
 
-#: functions2.php:1730
+#: functions2.php:1740
 msgid "click here to manage your subscription"
 msgstr ""
 
-#: header.php:109
+#: header.php:114
 msgid "Menu"
 msgstr ""
 
@@ -462,43 +298,6 @@ msgstr ""
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
-
-#: no-results.php:21
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
-msgstr ""
-"Entschuldigung, aber nichts entsprach Ihren Suchbegriffen. Bitte versuchen "
-"Sie es erneut mit einigen anderen Keywords."
-
-#: no-results.php:28
-msgid ""
-"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
-"searching can help."
-msgstr ""
-"Es scheint, wir können nicht finden, was Sie suchen. Vielleicht kann Suchen "
-"helfen."
-
-#: searchBAD.php:57
-msgid "Nothing Found"
-msgstr "Nichts gefunden"
-
-#: searchform.php:20
-msgid "Showing results for:"
-msgstr "Zeige Ergebnisse für:"
-
-#: searchform.php:22
-msgid "Search for:"
-msgstr "Suchen nach: "
-
-#: searchform.php:25
-msgctxt "label"
-msgid "Search for:"
-msgstr "Suchen nach:"
-
-#: searchform.php:26
-msgid "Search"
-msgstr "Suchen nach"
 
 #: searchform.php:31
 #, php-format
@@ -628,32 +427,32 @@ msgstr ""
 msgid "My Forum Subscriptions"
 msgstr ""
 
-#: bbpress/user-profile.php:17
+#: bbpress/user-profile.php:16
 #, php-format
 msgid "%s's Profile"
 msgstr ""
 
-#: bbpress/user-profile.php:32
+#: bbpress/user-profile.php:31
 msgid "This user has not yet edited their profile."
 msgstr ""
 
-#: bbpress/user-profile.php:34
+#: bbpress/user-profile.php:33
 msgid "Edit your profile"
 msgstr ""
 
-#: bbpress/user-profile.php:35
+#: bbpress/user-profile.php:34
 msgid "to add content to this section."
 msgstr ""
 
-#: bbpress/user-profile.php:41
+#: bbpress/user-profile.php:40
 msgid "Forum Contributions"
 msgstr ""
 
-#: bbpress/user-profile.php:54
+#: bbpress/user-profile.php:53
 msgid "Contributor badges"
 msgstr ""
 
-#: bbpress/user-profile.php:59
+#: bbpress/user-profile.php:58
 msgid ""
 "Points are awarded for making community contributions, as you earn more "
 "points you can win badges which get you prize coupons redeemable at the shop."
@@ -1033,16 +832,8 @@ msgstr ""
 msgid "design %s"
 msgstr ""
 
-#: inc/template-tags.php:381
-msgid "View Cart"
-msgstr ""
-
-#: inc/template-tags.php:390
+#: inc/template-tags.php:412
 msgid "Checkout"
-msgstr ""
-
-#: inc/template-tags.php:426
-msgid "Cart"
 msgstr ""
 
 #: inc/welcome.php:34
@@ -1263,3 +1054,194 @@ msgstr ""
 #. Author URI of the theme
 msgid "https://jonmoblog.wordpress.com/"
 msgstr ""
+
+#: comments.php:57 comments.php:60
+msgid "Contact"
+msgstr "Kontakt"
+
+#: comments.php:59
+msgid "https://www.inkston.com/inkston/contact-us/"
+msgstr "https://www.inkston.com/deu/kontaktieren-sie-uns/"
+
+#: comments.php:66
+msgid " or "
+msgstr "oder"
+
+#: functions.php:952 functions.php:994
+msgid "Recent discussions in: "
+msgstr "Jüngste Diskussionen in:"
+
+#: functions2.php:689 no-results.php:18
+msgid "Search Inkston."
+msgstr "Suchen Sie Inkston."
+
+#: functions2.php:1021
+msgid "Login or register with Facebook, LinkedIn, Google"
+msgstr "Anmelden oder registrieren mit Facebook, LinkedIn, Google"
+
+#: functions2.php:1023
+msgid "Or use your Inkston login:"
+msgstr "Oder verwenden Sie Ihr Inkston-Login:"
+
+#: functions2.php:1055
+msgid "Country"
+msgstr "Land"
+
+#: functions2.php:1056
+msgid "Contact Email"
+msgstr "Kontakt E-mail"
+
+#: functions2.php:1057
+msgid "Location"
+msgstr "Ort"
+
+#: functions2.php:1058
+msgid "About"
+msgstr "(umgangssprachlich)\tüber "
+
+#: functions2.php:1059
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: functions2.php:1060
+msgid "Website"
+msgstr "Webseite"
+
+#: functions2.php:1064
+msgid "Artist or studio name "
+msgstr "Künstler oder Ateliername"
+
+#: functions2.php:1065
+msgid "Main country "
+msgstr "Hauptland"
+
+#: functions2.php:1066
+msgid "Please enter town or region to help visitors find you "
+msgstr ""
+"Bitte geben Sie die Stadt oder Region an, damit Besucher Sie finden können"
+
+#: functions2.php:1067
+msgid ""
+"To avoid spam, Email address will never be shown, instead a contact form "
+"will be provided which is only available to genuine logged-on users. "
+msgstr ""
+"Um Spam zu vermeiden, wird die E-Mail-Adresse nicht angezeigt. Stattdessen "
+"wird ein Kontaktformular bereitgestellt, das nur für echte angemeldete "
+"Benutzer verfügbar ist."
+
+#: functions2.php:1068
+msgid ""
+"How did you start with Oriental arts? What are your favourite techniques?  "
+"Do you sell your artwork, do you accept commissions?  Do you teach or can "
+"you recommend teachers? "
+msgstr ""
+"Wie hast du mit orientalischen Künsten angefangen? Was sind deine "
+"Lieblingstechniken? Verkaufst du deine Kunstwerke, akzeptierst du "
+"Provisionen? Lehrst du oder kannst du Lehrer empfehlen?"
+
+#: functions2.php:1069
+msgid ""
+"Here you can make a special short summary for search engines and search "
+"results.  Leave blank for an automatic summary. "
+msgstr ""
+"Hier können Sie eine spezielle kurze Zusammenfassung für Suchmaschinen und "
+"Suchergebnisse erstellen. Leer lassen für eine automatische Zusammenfassung."
+
+#: functions2.php:1070
+msgid ""
+"Main website (can be any link including Facebook page if that is your main "
+"page) "
+msgstr ""
+"Haupt-Website (kann jeder Link sein, einschließlich Facebook-Seite, falls "
+"dies Ihre Hauptseite ist)"
+
+#: functions2.php:1071
+msgid ""
+"add optional tags separated by commas, to allow more classifications than "
+"available under categories "
+msgstr ""
+"Fügen Sie optionale Tags hinzu, die durch Kommas getrennt werden, um mehr "
+"Klassifizierungen als unter Kategorien verfügbar zu machen"
+
+#: functions2.php:1133
+#, php-format
+msgid "New post in Forum \"%1$s\", Topic \"%2$s\"."
+msgstr "Neuer Beitrag im Forum \"%1$s\", Thema \"%2$s\"."
+
+#: functions2.php:1138
+#, php-format
+msgid "Or visit your profile page to review all your subscriptions: %1$s"
+msgstr ""
+"Oder besuchen Sie Ihre Profilseite, um alle Ihre Abonnements zu überprüfen: "
+"%1$s"
+
+#: functions2.php:1141 functions2.php:1446
+msgid "Thankyou for participating in Inkston Community"
+msgstr "Vielen Dank für die Teilnahme an Inkston Community"
+
+#: functions2.php:1181 functions2.php:1536
+msgid "No badges yet"
+msgstr "Noch keine Badges"
+
+#: functions2.php:1387
+msgid "Congratulations you have been awarded:"
+msgstr "Herzlichen Glückwunsch, dass Sie vergeben wurden:"
+
+#: functions2.php:1434
+msgid "your contribution has unlocked an award"
+msgstr "Ihr Beitrag hat einen Preis freigeschaltet"
+
+#: functions2.php:1437
+#, php-format
+msgid ""
+"Visit <a href=\"%1$s\">your profile page</a> to see details of your awards "
+"and turn these notifications on or off."
+msgstr ""
+"Besuchen Sie <a href=\"%1$s\"> Ihre Profilseite </a>, um Details zu Ihren "
+"Auszeichnungen anzuzeigen und diese Benachrichtigungen ein- oder "
+"auszuschalten."
+
+#: functions2.php:1441
+msgid "You were awarded this badge for making contributions to "
+msgstr "Sie wurden mit diesem Abzeichen für Beiträge zu"
+
+#: functions2.php:1645
+msgid "If you like this, please share: "
+msgstr "Wenn Sie das mögen, teilen Sie es bitte mit:"
+
+#: no-results.php:21
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Entschuldigung, aber nichts entsprach Ihren Suchbegriffen. Bitte versuchen "
+"Sie es erneut mit einigen anderen Keywords."
+
+#: no-results.php:28
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+"Es scheint, wir können nicht finden, was Sie suchen. Vielleicht kann Suchen "
+"helfen."
+
+#: searchBAD.php:57
+msgid "Nothing Found"
+msgstr "Nichts gefunden"
+
+#: searchform.php:20
+msgid "Showing results for:"
+msgstr "Zeige Ergebnisse für:"
+
+#: searchform.php:22
+msgid "Search for:"
+msgstr "Suchen nach: "
+
+#: searchform.php:25
+msgctxt "label"
+msgid "Search for:"
+msgstr "Suchen nach:"
+
+#: searchform.php:26
+msgid "Search"
+msgstr "Suchen nach"

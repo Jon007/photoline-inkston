@@ -1191,8 +1191,8 @@ function ink_new_reply_login()
 
         ?>
         <div style="line-height:3em">
-          <a href="<?php echo wp_login_url(get_permalink()); ?>" title="Login">Login</a> - 
-          <a href="<?php echo wp_registration_url(); ?>" target="_blank" >Register</a>
+            <a class="bbp-login-prompt" href="<?php echo wp_login_url(get_permalink()); ?>" title="Login"><?php 
+            _e('Login or Register with email, Facebook, Google or LinkedIn account', 'photoline-inkston') ?></a>
         </div>
         <?php
     }
@@ -1206,8 +1206,8 @@ function ink_new_topic_login()
 
         ?>
         <div style="line-height:3em">
-          <a href="<?php echo wp_login_url(get_permalink()); ?>" title="Login">Login</a> &nbsp; 
-          <a href="<?php echo wp_registration_url(); ?>" target="_blank">Register</a>
+            <a class="bbp-login-prompt" href="<?php echo wp_login_url(get_permalink()); ?>" title="Login"><?php 
+            _e('Login or Register with email, Facebook, Google or LinkedIn account', 'photoline-inkston') ?></a>
         </div>
         <?php
     }
@@ -1220,8 +1220,9 @@ function ink_comment_form_defaults($defaults)
     $must_login = '<p class="must-log-in">' . sprintf(
             __('You must be <a href="%s">logged in</a> to post a comment.'), wp_login_url(apply_filters('the_permalink', get_permalink() . '#comment'))
         ) . ' ' .
-        sprintf(__('If you do not have an account <a target="_blank" href="%s">please register</a> (will open in new window)', 'photoline-inkston'), wp_registration_url()) .
-        sprintf(__(' and then <a href="#comment" onclick="%s" ">click here</a>.', 'photoline-inkston'), "javascript:window.location.hash = '#comment';window.location.reload(true);") .
+//login is now simplified so no need for this complex process...        
+//        sprintf(__('If you do not have an account <a target="_blank" href="%s">please register</a> (will open in new window)', 'photoline-inkston'), wp_registration_url()) .
+//        sprintf(__(' and then <a href="#comment" onclick="%s" ">click here</a>.', 'photoline-inkston'), "javascript:window.location.hash = '#comment';window.location.reload(true);") .
         '</p>';
 
     $defaults['must_log_in'] = $must_login;
