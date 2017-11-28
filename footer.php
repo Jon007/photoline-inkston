@@ -39,6 +39,7 @@
     $blogid = get_current_blog_id();
     $about = 'https://www.inkston.com/inkston-oriental-arts-materials/about/';
     $manage_subscription = "https://www.inkston.com/manage-subscriptions/";
+    $wishlist = "https://www.inkston.com/wishlist/";
     switch ($blogid){
         case 1:
             $page_id = inkGetPageID(17);
@@ -48,6 +49,10 @@
             $page_id = inkGetPageID(15010);
             if ($page_id){
                 $manage_subscription = get_page_link($page_id);
+            }
+            $page_id = inkGetPageID(16780);
+            if ($page_id){
+                $wishlist = get_page_link($page_id);
             }
             break;
         case 2:
@@ -68,7 +73,11 @@
       <div class="footer-subscribe">
         <a class="button" href="<?php echo($manage_subscription); ?>"><i class="fa fa-newspaper-o" aria-hidden="true"></i> subscribe</a></div>
     </div>
-    <div class="col social"><?php 
+    <div class="col social">
+      <span class="wishlist_products_counter" title="<?php _e('View saved wishlist items', 'photoline-inkston')
+          ?>"><a href="<?php echo($wishlist); 
+      ?>"><i class="fa fa-heart-o"></i><span class="wishlist_products_counter_number"></span></a></span>
+        <?php 
         if ( has_nav_menu( 'social' ) ) {
             wp_nav_menu(array(
                 'theme_location'  => 'social',

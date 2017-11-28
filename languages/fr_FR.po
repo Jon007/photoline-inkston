@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Photoline Inkston\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-27 15:09+0000\n"
-"PO-Revision-Date: 2017-11-27 15:09+0000\n"
+"POT-Creation-Date: 2017-11-28 16:22+0000\n"
+"PO-Revision-Date: 2017-11-28 16:23+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -45,6 +45,10 @@ msgstr ""
 #: content.php:18
 msgid "Pages:"
 msgstr ""
+
+#: footer.php:79
+msgid "View saved wishlist items"
+msgstr "Voir la liste de souhaits"
 
 #: functions.php:275 functions.php:283 functions.php:284 functions.php:285
 #: inc/contextual-help.php:65
@@ -102,11 +106,6 @@ msgstr ""
 #: functions.php:804
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
-
-#: functions.php:1195 functions.php:1210
-msgid "Login or Register with email, Facebook, Google or LinkedIn account"
-msgstr ""
-"Connectez-vous ou inscrivez-vous sur Facebook, LinkedIn, Google ou Email"
 
 #: functions.php:1512 functions.php:1635
 msgid "ASIN"
@@ -678,6 +677,11 @@ msgstr "Choisir"
 #: functions.php:952 functions.php:994
 msgid "Recent discussions in: "
 msgstr "Discussions récentes dans:"
+
+#: functions.php:1195 functions.php:1210
+msgid "Login or Register with email, Facebook, Google or LinkedIn account"
+msgstr ""
+"Connectez-vous ou inscrivez-vous sur Facebook, LinkedIn, Google ou Email"
 
 #: functions.php:1530
 msgid "12 digits international standard Universal Product Code."

@@ -90,5 +90,19 @@ jQuery(document).ready(function($) {
 		 return false;
 	});
 	
+	function ink_get_cookie(name) {
+		var matches = document.cookie.match(new RegExp(
+				"(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+				));
+		return matches ? decodeURIComponent(matches[1]) : '';
+	}
+	
+	/*note: dependent on cookie improvements, set in topwishlistclass.php in update_fragments*/
+	var wishlist_count = ink_get_cookie('wpc');
+	if (wishlist_count){
+		$('.wishlist_products_counter_number').html(wishlist_count);
+		$('.wishlist_products_counter').toggleClass('wishlist-counter-with-products', '0' != $('.wishlist_products_counter_number').html() );
+	}			
+   
 });
 	

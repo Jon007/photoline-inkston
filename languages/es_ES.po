@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: inkston\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2017-11-27 15:06+0000\n"
-"PO-Revision-Date: 2017-11-27 15:07+0000\n"
+"POT-Creation-Date: 2017-11-28 16:20+0000\n"
+"PO-Revision-Date: 2017-11-28 16:22+0000\n"
 "Last-Translator: moqiao <moqiao@inkston.com>\n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es-ES\n"
@@ -40,6 +40,10 @@ msgstr ""
 #: comments.php:56
 msgid "https://www.inkston.com/deu/kontaktieren-sie-uns/"
 msgstr ""
+
+#: footer.php:79
+msgid "View saved wishlist items"
+msgstr "Ver su lista de deseos guardados"
 
 #: functions.php:276
 msgid "Hamburger Menu"
@@ -84,11 +88,6 @@ msgstr ""
 #: functions.php:804
 msgid "Located in the sidebar woocommerce page."
 msgstr ""
-
-#: functions.php:1195 functions.php:1210
-msgid "Login or Register with email, Facebook, Google or LinkedIn account"
-msgstr ""
-"Inicie sesión o regístrese mediante Facebook, LinkedIn, Google o correo"
 
 #: functions.php:1512 functions.php:1635
 msgid "ASIN"
@@ -621,6 +620,11 @@ msgstr "Menu Social"
 #: functions.php:952 functions.php:994
 msgid "Recent discussions in: "
 msgstr "Discusiones recientes en:"
+
+#: functions.php:1195 functions.php:1210
+msgid "Login or Register with email, Facebook, Google or LinkedIn account"
+msgstr ""
+"Inicie sesión o regístrese mediante Facebook, LinkedIn, Google o correo"
 
 #: functions.php:1530
 msgid "12 digits international standard Universal Product Code."

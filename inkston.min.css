@@ -1132,3 +1132,19 @@ body:not(.single-product) .breadcrumb_last{font-size:larger;font-weight:bolder}
 .top-menu .header-cart span.cart-content * {font-size:12px;}
 #header-thumbnail ins{background:transparent;}
 .bbp-login-prompt{font-size:larger;}
+div.the_champ_outer_login_container {
+	border: 1px solid #d3ced2;
+  padding: 10px 20px 50px 20px;
+  margin: 0 0 2em 0;
+	text-align: left;
+	border-radius: 5px;
+}
+.woocommerce form.login, .woocommerce form.register{margin:0;}
+.site-footer .wishlist_products_counter a .fa{color:#AF3632;font-size:16px;}
+.site-footer .wishlist_products_counter a .wishlist_products_counter_number{color:#AF3632;font-size:14px;}
+.wishlist_products_counter.wishlist-counter-with-products .fa-heart-o:before {
+  content: "\f004";
+}
+.wishlist_products_counter{margin-right:1em;}
+.wishlist_products_counter .wishlist_products_counter_number{display:none;}
+.wishlist_products_counter.wishlist-counter-with-products .wishlist_products_counter_number{display:inline-block;}
