@@ -1079,7 +1079,7 @@ div.footer-subscribe a.button:hover,div.footer-subscribe a.button:active{color:#
 .col .search-footer{margin-left:12px}
 .col.social{float:right}
 .site-info .col{margin:0}
-div.col.subscribe{width:45%}
+div.col.subscribe{width:40%}
 div.col.subscribe a{text-decoration:none;font-weight:700}
 @media (max-width:650px) {
 .site-footer{padding:0 5px}
@@ -1148,3 +1148,16 @@ div.the_champ_outer_login_container {
 .wishlist_products_counter{margin-right:1em;}
 .wishlist_products_counter .wishlist_products_counter_number{display:none;}
 .wishlist_products_counter.wishlist-counter-with-products .wishlist_products_counter_number{display:inline-block;}
+.user-alert{color:#fa7c0b;font-weight:bold;}
+.user-alert p{margin-bottom:0.5em;}
+
+body.home footer.entry-meta,
+body.home .widget-area{display:none;}
+@media (max-height:900px){
+body.home #logo img{width:210px;height:80px;margin-bottom:0;}
+}
+@media (max-height:900px) and (min-width:800px){
+body.home #content .n2-ss-control-bullet{line-height:10px;display:none!important;} 
+body.home .hentry{margin-bottom:0px;}
+body.home div.site-info{margin-top:10px;}
+}
