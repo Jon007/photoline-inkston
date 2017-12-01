@@ -68,7 +68,7 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
         }
         if ( ( is_feed() ) || ( stripos($_SERVER['REQUEST_URI'], '/feed') ) ) 
         {
-            $excerpt .= ink_wp_hashtags($post);
+            $excerpt .= ink_wp_hashtags(strip_shortcodes( $post ) );
         }
         return $excerpt;
     }
