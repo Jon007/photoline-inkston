@@ -1738,6 +1738,12 @@ function ink_default_wishlist_name($wl){
 }
 add_filter( 'tinvwl_wishlist_get', 'ink_default_wishlist_name', 10, 1);
 
+function ink_suppress_wishlist_bundle_details($form){
+    unset($form['woosb_ids']);
+    return $form;
+}
+add_filter( 'tinvwl_addtowishlist_add_form', 'ink_suppress_wishlist_bundle_details', 10, 1 );
+
 function ink_sharing(){
     if (is_admin()|| is_feed() ){
         return;
