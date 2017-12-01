@@ -47,7 +47,7 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
             if ($post->post_type =='wpbdp_listing'){
                 $output = $post->post_content;
             } else {
-                $output = get_the_content( $id ) ;
+                $output = get_the_content() ;
             }
             $output = wp_trim_words( strip_shortcodes( $output ), $length);
         }
@@ -57,6 +57,22 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
         }
         return $output;
     }
+    function inkston_filter_excerpt($excerpt, $post){
+        if (!$excerpt){
+            if ($post->post_type =='wpbdp_listing'){
+                $excerpt = $post->post_content;
+            } else {
+                $excerpt = get_the_content() ;
+            }
+            $excerpt = wp_trim_words( strip_shortcodes( $excerpt ), inkston_excerpt_length(36));
+        }
+        if ( ( is_feed() ) || ( stripos($_SERVER['REQUEST_URI'], '/feed') ) ) 
+        {
+            $excerpt .= ink_wp_hashtags($post);
+        }
+        return $excerpt;
+    }
+    add_filter( 'get_the_excerpt', 'inkston_filter_excerpt', 10, 2);
 }
 
 
@@ -65,7 +81,6 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
 */
 if ( !function_exists( 'inkston_excerpt_more' ) ) {
 	function inkston_excerpt_more($more) {
-		global $post;
 		return '...';
 	}
 }

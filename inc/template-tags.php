@@ -373,8 +373,11 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
         $cart_ccy = $woocs_current_currency = 'USD';
         $display_value = $result = '';
         
-        if (isset($_COOKIE['woocommerce_items_in_cart'])){
-            $woocommerce_items_in_cart = $_COOKIE['woocommerce_items_in_cart'];        
+        //err on the side of never showing cart when woocommerce hasn't set the cart cooke
+        if ( isset($_COOKIE['woocommerce_cart_hash']) && 
+             isset($_COOKIE['woocommerce_items_in_cart']) && 
+             1==$_COOKIE['woocommerce_items_in_cart']  ){
+            $woocommerce_items_in_cart = $_COOKIE['wc_items'];        
         }
         if ($woocommerce_items_in_cart){
             if ( ! defined( 'DONOTCACHEPAGE' ) ) {define( "DONOTCACHEPAGE", true );}
@@ -411,6 +414,9 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
                 $button_url = esc_url(wc_get_checkout_url());
                 $button_title = __( 'Checkout', 'photoline-inkston' );
                 $button_text = '<span class="cart-content">' . $button_title . '</span>';
+            } elseif (is_checkout() ) {
+                //no link on checkout screen, fewer distractions
+                return;
         } else {
                 $button_url=esc_url(wc_get_cart_url());            
             } 

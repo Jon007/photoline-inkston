@@ -843,7 +843,7 @@ if (is_woocommerce_activated()) {
 
     function woocommerce_header_add_to_cart_fragment($fragments)
     {
-        if (!is_cart()) {
+        if (!is_cart() && (!is_checkout()) ) {
             $fragments['span.cart-content'] = inkston_cart_fragment();
         }
         return $fragments;

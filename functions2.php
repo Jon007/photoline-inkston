@@ -1269,21 +1269,130 @@ function ink_user_id(){
 }
 
 /*
- * allow shortcodes in forum posts
+ * allow shortcodes in forum posts (or not?)
  */
 function pw_bbp_shortcodes( $content, $reply_id ) {
 	if ( (! is_feed() ) && ( stripos($_SERVER['REQUEST_URI'], '/feed')===FALSE ) ) 
 	{
+        //this blanket allows shortcodes on the front end
         //$reply_author = bbp_get_reply_author_id( $reply_id );
         //if( user_can( $reply_author, pw_bbp_parse_capability() ) ){
               return do_shortcode( $content );
         //}
     } 
-    return strip_shortcodes($content);
+    return strip_shortcodes($content) . ink_bbp_hashtags($reply_id) ;
 }
 add_filter('bbp_get_reply_content', 'pw_bbp_shortcodes', 10, 2);
 add_filter('bbp_get_topic_content', 'pw_bbp_shortcodes', 10, 2);
 
+/*
+ * get hashtags for current bbp item tags
+ * @param int    $topic_or_reply_id    id of current .
+ */
+function ink_bbp_hashtags($topic_or_reply_id){
+	if ( ! $post = get_post( $topic_or_reply_id ) )
+		return false;
+    
+    if ($post->post_type!='topic'){
+        $topic_or_reply_id = bbp_get_reply_topic_id();
+    }
+    
+    $terms = get_the_terms($topic_or_reply_id, bbp_get_topic_tag_tax_id());
+    $hashtags = '';
+    if (is_array($terms)){
+        $hashtags = wp_list_pluck($terms, 'name');
+        $hashtags = ink_hashtag_implode (' #', $hashtags);
+        
+    }
+    return $hashtags;
+}
+
+/*
+ * get hashtags for current post, eg used by feed
+ * @param int|WP_Post $post 
+ */
+function ink_wp_hashtags($post){
+	$post = get_post( $post );
+	if ( empty( $post ) ) {
+		return '';
+	}
+    
+    //depending on the post type, get the taxonomies to use for hashtags
+    $tax_ids = [];
+    switch ($post->post_type){
+        case 'post':
+            //$tax_ids[]= 'category';
+            $tax_ids[]= 'post_tag';
+            break;
+        case 'product':
+            $tax_ids[]= 'product_cat';
+            $tax_ids[]= 'product_tag';
+            $tax_ids[]= 'pa_suitable-for';
+            //$tax_ids[]= 'pa_brand';
+            break;
+        case 'topic':
+            break;
+        case 'reply':
+            break;
+        case 'wpbdp_listing':
+            $tax_ids[]= 'wpbdp_tag';
+            break;
+        default;
+    }
+    
+    $hashtags = '';
+    $hashtaglist = [];
+    foreach ($tax_ids as $tax_id){
+        $terms = get_the_terms($post, $tax_id);
+
+        //in our systems display name is quite descriptive, for short hashtag we prefer the slug
+        //$tagfield = ($tax_id=='product_category') ? 'slug' : 'name';
+        $tagfield = 'slug';
+        if (is_array($terms)){            
+            $hashtaglist = array_merge($hashtaglist, wp_list_pluck($terms, $tagfield, $tagfield));
+        }        
+    }
+    //implode all the tags from all terms 
+    return ink_hashtag_implode (' #', $hashtaglist);
+}
+/*
+ * return correctly formatted hashtags, matching function signature of php implode
+ * 
+ * @param array $hashtaglist simple array of strings eg tag names
+ * @param string $glue  Defaults to # hash.
+ * @param array $hashtaglist The array of hashtags to implode.
+* 
+ * @return string formatted hashtag list
+ */
+function ink_hashtag_implode($separator=' #', $hashtaglist=[]){
+    $output = '';
+    $finaltags = [];
+    foreach ($hashtaglist as $hashtag){
+        //turn hyphenated-tags to spaced words
+        $hashtag = str_replace('-', ' ', $hashtag);
+            
+        //Capitalise Every Word
+        $hashtag = ucwords($hashtag);
+        
+        //Remove Spaces to leave CamelCase string
+        $hashtag = str_replace(' ', '', $hashtag);  
+        
+        //ignore tags which are 2 characters or less after removing spaces
+        if (strlen($hashtag)>2){
+            $finaltags[$hashtag] = $hashtag;
+        }
+    }
+    //add prefixed with hash and space
+    $output = implode($separator, $finaltags);
+    if ($output == ''){
+        return $output;
+    } else {
+        return $separator . $output;
+    }
+}
+/*
+ * 
+ */
 function pw_bbp_parse_capability() {
 	return apply_filters( 'pw_bbp_parse_shortcodes_cap', 'publish_forums' );
 }
