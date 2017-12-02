@@ -36,19 +36,20 @@ if ( !function_exists( 'inkston_excerpt' ) ) {
 if ( !function_exists( 'inkston_get_excerpt' ) ) {
     function inkston_get_excerpt($length=25, $readmore=false ) {
         global $post;
+        $output = '';
         if (is_search() && 13==$length){$length=36;}
         $id = $post->ID;
         if ( has_excerpt( $id ) ) {
-            // $post->post_excerpt
-            $output = wp_trim_words( strip_shortcodes( get_the_excerpt( $id ) ), $length);
-            //$output = wp_trim_words( strip_shortcodes( get_the_excerpt( $id ) ), 20) . "\r\n";
-            //$output .= wp_trim_words( strip_shortcodes( get_the_content( $id ) ), $length);
-        } else {
+            $output = get_the_excerpt( $id );
+        } 
+        if ($output == '') {
             if ($post->post_type =='wpbdp_listing'){
                 $output = $post->post_content;
             } else {
                 $output = get_the_content() ;
             }
+        }
+        if ($output && $output!=''){
             $output = wp_trim_words( strip_shortcodes( $output ), $length);
         }
         if ( (! is_search()) && ($post->post_type=='product') ){
@@ -68,7 +69,7 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
         }
         if ( ( is_feed() ) || ( stripos($_SERVER['REQUEST_URI'], '/feed') ) ) 
         {
-            $excerpt .= ink_wp_hashtags(strip_shortcodes( $post ) );
+            $excerpt .= ink_wp_hashtags(strip_shortcodes( $excerpt ) );
         }
         return $excerpt;
     }

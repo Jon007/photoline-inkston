@@ -377,7 +377,9 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
         if ( isset($_COOKIE['woocommerce_cart_hash']) && 
              isset($_COOKIE['woocommerce_items_in_cart']) && 
              1==$_COOKIE['woocommerce_items_in_cart']  ){
-            $woocommerce_items_in_cart = $_COOKIE['wc_items'];        
+            if (isset($_COOKIE['wc_items'])){
+              $woocommerce_items_in_cart = $_COOKIE['wc_items'];        
+            }
         }
         if ($woocommerce_items_in_cart){
             if ( ! defined( 'DONOTCACHEPAGE' ) ) {define( "DONOTCACHEPAGE", true );}
