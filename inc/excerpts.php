@@ -58,14 +58,17 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
         }
         return $output;
     }
-    function inkston_filter_excerpt($excerpt, $post){
+    function inkston_filter_excerpt($excerpt){        
         if (!$excerpt){
-            if ($post->post_type =='wpbdp_listing'){
-                $excerpt = $post->post_content;
-            } else {
-                $excerpt = get_the_content() ;
+            global $post;
+            if ($post){
+                if ($post->post_type =='wpbdp_listing'){
+                    $excerpt = $post->post_content;
+                } else {
+                    $excerpt = get_the_content() ;
+                }
+                $excerpt = wp_trim_words( strip_shortcodes( $excerpt ), inkston_excerpt_length(36));
             }
-            $excerpt = wp_trim_words( strip_shortcodes( $excerpt ), inkston_excerpt_length(36));
         }
         if ( ( is_feed() ) || ( stripos($_SERVER['REQUEST_URI'], '/feed') ) ) 
         {
@@ -73,7 +76,7 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
         }
         return $excerpt;
     }
-    add_filter( 'get_the_excerpt', 'inkston_filter_excerpt', 10, 2);
+    add_filter( 'get_the_excerpt', 'inkston_filter_excerpt', 10, 1);
 }
 
 
