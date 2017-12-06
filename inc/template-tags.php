@@ -417,8 +417,8 @@ if ( ! function_exists( 'inkston_cart_link' ) ) {
                 $button_title = __( 'Checkout', 'photoline-inkston' );
                 $button_text = '<span class="cart-content">' . $button_title . '</span>';
             } elseif (is_checkout() ) {
-                //no link on checkout screen, fewer distractions
-                return;
+                $button_url = esc_url(wc_get_cart_url());
+                $button_text = '<span class="cart-content"> </span>';
         } else {
                 $button_url=esc_url(wc_get_cart_url());            
             } 
