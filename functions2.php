@@ -1784,6 +1784,7 @@ function ink_gift_coupon_rules($coupon_meta, $id, $coupon_code){
     
     $coupon_meta['exclude_product_categories'] = array(5278, 5273);
     $coupon_val = $coupon_meta['coupon_amount'];
+    $coupon_meta['minimum_amount'] = $coupon_val;
     /*  too clever, doesn't quite work..
     if (isWoocs()) {
         global $WOOCS;        
