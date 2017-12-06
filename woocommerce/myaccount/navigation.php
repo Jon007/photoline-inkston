@@ -50,10 +50,10 @@ do_action( 'woocommerce_before_account_navigation' );
 <li class="community-menu">
 <a href="/community/my-listings"><?php echo(esc_html( __('My Listings', 'photoline-inkston') ));?></a>
 </li>
-<li class="community-menu"><a href="/community/forums/users/moqiao/topics/"><?php echo(esc_html( __('My Forum Topics', 'photoline-inkston') ));?></a></li>
-<li class="community-menu"><a href="/community/forums/users/moqiao/replies/"><?php echo(esc_html( __('My Forum Replies', 'photoline-inkston') ));?></a></li>
-<li class="community-menu"><a href="/community/forums/users/moqiao/favorites/"><?php echo(esc_html( __('My Favourite Forum Posts', 'photoline-inkston') ));?></a></li>
-<li class="community-menu"><a href="/community/forums/users/moqiao/subcriptions/"><?php echo(esc_html( __('My Forum Subscriptions', 'photoline-inkston') ));?></a></li>
+<li class="community-menu"><a href="<?php echo($profileurl) ?>/topics/"><?php echo(esc_html( __('My Forum Topics', 'photoline-inkston') ));?></a></li>
+<li class="community-menu"><a href="<?php echo($profileurl) ?>/replies/"><?php echo(esc_html( __('My Forum Replies', 'photoline-inkston') ));?></a></li>
+<li class="community-menu"><a href="<?php echo($profileurl) ?>/favorites/"><?php echo(esc_html( __('My Favourite Forum Posts', 'photoline-inkston') ));?></a></li>
+<li class="community-menu"><a href="<?php echo($profileurl) ?>/subscriptions/"><?php echo(esc_html( __('My Forum Subscriptions', 'photoline-inkston') ));?></a></li>
 <?php 
 $page_id = inkGetPageID('comments');  // get Comments page in the current language
 if ($page_id){
