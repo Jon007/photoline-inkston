@@ -1036,14 +1036,15 @@ add_filter( 'login_form_top', 'ink_login_form_add_socializer', 10, 2 );
 function custom_post_author_archive($query) {
     if ($query->is_author)
     {
-        switch ($query->query_vars['post_type']) {
-            case 'topic':
-            case 'reply':
-                break;
-            default:
-                $query->set( 'post_type', array('wpbdp_listing', 'post') );
-                remove_action( 'pre_get_posts', 'custom_post_author_archive' );
+        if (isset($query->query_vars['post_type'])){
+          switch ($query->query_vars['post_type']) {
+              case 'topic':
+              case 'reply':
+                      return;
+              }
         }
+        $query->set( 'post_type', array('wpbdp_listing', 'post') );
+        remove_action( 'pre_get_posts', 'custom_post_author_archive' );
     }
 }
 add_action('pre_get_posts', 'custom_post_author_archive', 1, 1);
@@ -2007,3 +2008,11 @@ function ink_login_url($login_url, $redirect, $force_reauth){
     return $login_url;
 }
 add_filter( 'login_url', 'ink_login_url', 10, 3);
+
+function ink_gift_message_input($gift_message_input, $gift_message){
+    return wp_editor($gift_message , 'wcs_gift_message', array(
+        'default_editor'    => 'TinyMCE',
+        'teeny'             => false,
+    ) );    
+}
+add_filter('wcs_gift_message_input', 'ink_gift_message_input', 10, 2);

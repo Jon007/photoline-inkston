@@ -138,7 +138,15 @@ if (is_woocommerce_activated()){
 
             //localize position and hide_cents where possible
             $locale = (function_exists('pll_current_language')) ? pll_current_language('locale'): get_locale(); 
+            
+            //added this because WP-CLI threw a wobbly over the NumberFormatter and 
+            //refused to perfom any operations, even completely unrelated to theme..
+            $formatter = NULL;
+            try {
+                if (class_exists('\NumberFormatter')){
             $formatter = new \NumberFormatter($locale.'@currency='.$code,  \NumberFormatter::CURRENCY);
+                }
+            } catch(Exception $e) {}
             if ($formatter){
                 $symbol=$formatter->getTextAttribute(\NumberFormatter::CURRENCY_SYMBOL);
                 if ($symbol){
