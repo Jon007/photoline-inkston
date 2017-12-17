@@ -1161,3 +1161,6 @@ body.home #content .n2-ss-control-bullet{line-height:10px;display:none!important
 body.home .hentry{margin-bottom:0px;}
 body.home div.site-info{margin-top:10px;}
 }
+.wpbdp-plan-selection-wrapper{display:none;}
+.wpbdp-submit-listing-section-content .wpbdp-msg.tip{display:none;}
+.listing-actions a.button{background-image:none;}
