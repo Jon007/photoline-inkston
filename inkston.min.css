@@ -1164,3 +1164,13 @@ body.home div.site-info{margin-top:10px;}
 .wpbdp-plan-selection-wrapper{display:none;}
 .wpbdp-submit-listing-section-content .wpbdp-msg.tip{display:none;}
 .listing-actions a.button{background-image:none;}
+@media (max-width: 768px){
+.woocommerce table.shop_table_responsive tr td:not([data-title])::before, 
+.woocommerce-page table.shop_table_responsive tr td:not([data-title])::before {
+    content: "";
+}
+.woocommerce table.shop_table_responsive tr td:not([data-title]), 
+.woocommerce-page table.shop_table_responsive tr td:not([data-title]) {
+	text-align: left!important;
+}
+}
