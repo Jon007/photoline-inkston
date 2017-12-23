@@ -1369,14 +1369,7 @@ function ink_hashtag_implode($separator=' #', $hashtaglist=[]){
     $output = '';
     $finaltags = [];
     foreach ($hashtaglist as $hashtag){
-        //turn hyphenated-tags to spaced words
-        $hashtag = str_replace('-', ' ', $hashtag);
-            
-        //Capitalise Every Word
-        $hashtag = ucwords($hashtag);
-        
-        //Remove Spaces to leave CamelCase string
-        $hashtag = str_replace(' ', '', $hashtag);  
+        $hashtag = ink_valid_tag($hashtag);
         
         //ignore tags which are 2 characters or less after removing spaces
         if (strlen($hashtag)>2){
@@ -1391,6 +1384,24 @@ function ink_hashtag_implode($separator=' #', $hashtaglist=[]){
         return $separator . $output;
     }
 }
+
+function ink_valid_tag($tag){
+    //turn hyphenated-tags to spaced words
+    $hashtag = str_replace('-', ' ', $tag);
+
+    //turn hyphenated-tags to spaced words
+    $hashtag = str_replace('_', ' ', $hashtag);
+
+    //Capitalise Every Word
+    $hashtag = ucwords($hashtag);
+
+    //Remove Spaces to leave CamelCase string
+    $hashtag = str_replace(' ', '', $hashtag);  
+    
+    return $hashtag;
+}
+add_filter( 'wpseo_og_article_tag', 'ink_valid_tag', 10, 1);
+
 /*
  * 
  */
@@ -1757,7 +1768,7 @@ function ink_sharing(){
             return;
         }
     }
-    ?><div class="entry-content saleflash menu-share-container" style="text-align:center;"><?php 
+    ?><div class="entry-content saleflash ink-share-container" style="text-align:center;"><?php 
     _e('If you like this, please share: ', 'photoline-inkston');
     $current_url="https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
     $encoded_url=urlencode($current_url);
