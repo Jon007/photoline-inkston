@@ -1106,24 +1106,126 @@ function merge_comment_count($count, $post_ID)
 add_filter('comments_array', 'merge_comments', 100, 2);
 add_filter('get_comments_number', 'merge_comment_count', 100, 2);
 
+function og_product_namespace( $input ) {
+    if ( is_singular( 'product' ) ) {
+        $input = preg_replace( '/prefix="([^"]+)"/', 'prefix="$1 product: http://ogp.me/ns/product#"', $input );
+    }
+
+    return $input;
+}
+add_filter( 'language_attributes', 'og_product_namespace', 11 );
+
 
 function inkston_product_meta()
 {
     if (is_woocommerce_activated()) {
         if (is_product()) {
             global $product;
-            echo ('<meta property="og:type" content="product" />' . "\r\n");
-            echo ('<meta property="og:brand" content="Inkston" />' . "\r\n");
+            //configure fb app_id in yoast
+            //echo ('<meta property="fb:app_id" content="278896005827382" />'); 
+            
+            //already output by Yoast, should not be repeated
+            //echo ('<meta property="og:type"   content="product" />' . "\r\n"); 
+            
+            //echo ('<meta property="og:brand" content="Inkston" />' . "\r\n");
+            //og:brand reported not valid for og type product
+            //ink_tag_from_tax('og:brand', 'pa_brand', $product);
+            ink_tag_from_tax('product:brand', 'pa_brand', $product);
             echo ('<meta property="product:price:amount" content="' . esc_attr($product->get_price()) . '"/>' . "\r\n");
             echo ('<meta property="product:price:currency" content="USD" />' . "\r\n");
+            ink_tag_from_tax('product:category', 'product_cat', $product);
+            ink_tag_from_tax('product:material', 'pa_materials', $product);
+            
+            ink_tag_from_meta('product:retailer', 'inkston', $product);
+            ink_tag_from_meta('product:retailer_part_no', '_sku', $product);
+            ink_tag_from_meta('product:upc', 'upc', $product);
+            
+            echo ('<meta property="product:is_product_shareable" content="1" />' . "\r\n");
+            echo ('<meta property="product:age_group" content="adult" />' . "\r\n");
             if ($product->is_in_stock()) {
                 echo ('<meta property="product:availability" content="instock" />' . "\r\n");
             }
+            ink_tag_dimensions($product);
         }
     }
 }
 //add_action( 'wp_head', 'inkston_product_meta' );
 add_action('wpseo_opengraph', 'inkston_product_meta', 40);
+function ink_tag_dimensions($product){
+    $net_weight = get_post_meta($product->get_id(), 'net_weight', false);
+    if ($net_weight){
+        if ( is_array($net_weight) ){
+            $net_weight = recursive_filter_implode(', ', $net_weight);        
+        }
+    } elseif ( $product->has_weight() ){
+        $net_weight = $product->get_weight();
+    }
+    if ($net_weight){
+        echo ('<meta property="product:weight:units" content="g" />' . "\r\n");
+        echo ('<meta property="product:weight:value" content="' . $net_weight . '" />' . "\r\n");
+    }
+    
+
+    $net_size = get_post_meta($product->get_id(), 'net_size', true);
+    if ($net_size){
+        $net_size = esc_html( wc_format_dimensions( $net_size ));
+        if ($net_size==__( 'N/A', 'woocommerce' )){
+                $net_size='';
+        }
+    } elseif ( $product->has_dimensions() ){
+        $net_size = esc_html( wc_format_dimensions( $product->get_dimensions( false ) ) );
+    }    
+    
+    if ($net_size){
+        echo ('<meta property="product:size" content="' . $net_size . '" />' . "\r\n");
+    }
+}
+function ink_tag_from_meta($tag, $meta, $post){
+    $post_id = ($post->post_type == 'product') ? $post->get_id() : $post->id;
+    $values = get_post_meta( $post_id, $meta);
+    if (is_array($values)){
+        foreach ( $values as $value ) {
+            echo ('<meta property="' . $tag . 
+                '" content="' . esc_attr($value) . '"/>' . "\r\n");
+        }        
+        /*
+    } else {
+        //default values
+        $defaultvalue = '';
+        switch($meta){
+            case 'pa_brand':
+                $defaultvalue = 'inkston';
+            default:
+        }
+        if ($defaultvalue){
+            echo ('<meta property="' . $tag . 
+                '" content="' . esc_attr($defaultvalue) . '"/>' . "\r\n");
+        }
+         */
+    }
+}
+function ink_tag_from_tax($tag, $tax, $post){
+    $post_id = ($post->post_type == 'product') ? $post->get_id() : $post->id;
+    $values = get_the_terms($post_id, $tax);
+    if (is_array($values)){
+        foreach ( $values as $value ) {
+            echo ('<meta property="' . $tag . 
+                '" content="' . esc_attr($value->name) . '"/>' . "\r\n");
+        }        
+    } else {
+        //default values
+        $defaultvalue = '';
+        switch($tax){
+            case 'pa_brand':
+                $defaultvalue = 'inkston';
+            default:
+        }
+        if ($defaultvalue){
+            echo ('<meta property="' . $tag . 
+                '" content="' . esc_attr($defaultvalue) . '"/>' . "\r\n");
+        }
+    }
+}
 
 function inkston_type_product($type)
 {

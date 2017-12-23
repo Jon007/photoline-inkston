@@ -1402,6 +1402,40 @@ function ink_valid_tag($tag){
 }
 add_filter( 'wpseo_og_article_tag', 'ink_valid_tag', 10, 1);
 
+function ink_addhashtags($input){
+    global $post;
+    return $input . ink_wp_hashtags($post);
+}
+add_filter( 'wpseo_og_og_description', 'ink_addhashtags', 10, 1);
+
+function ink_hashtag_keywords($keywords){
+    global $post;
+    $ink_keywords = ink_wp_hashtags($post);
+    if ($ink_keywords){
+        return str_replace('#', '', str_replace(' ', ',', trim($ink_keywords)));
+    } else {
+        return $keywords;
+    }
+}
+add_filter( 'wpseo_metakeywords', 'ink_hashtag_keywords' ); 
+
+
+/**
+ * Filter: 'wpseo_include_rss_footer' - Allow the RSS footer to be dynamically shown/hidden.
+ * this does autop even for excerpts even if no before/aftar  configured so this removes it
+ * @api boolean $show_embed Indicates if the RSS footer should be shown or not.
+ * @param string $context The context of the RSS content - 'full' or 'excerpt'.
+ */
+//function ink_wpseo_suppress_footer_productfeed($show_embed, $context){
+//    global $post;
+//    if ($context=='excerpt' && $post->post_type == 'product'){
+//        return false;
+//    } else {
+//        return $show_embed;
+//    }
+//}
+//add_filter( 'wpseo_include_rss_footer', 'ink_wpseo_suppress_footer_productfeed', 10, 2 );
+
 /*
  * 
  */
