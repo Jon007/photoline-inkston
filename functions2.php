@@ -1332,8 +1332,12 @@ function ink_wp_hashtags($post){
             //$tax_ids[]= 'pa_brand';
             break;
         case 'topic':
-            break;
         case 'reply':
+            if (function_exists('bbp_get_topic_tag_tax_id')){
+            $tax_ids[]= bbp_get_topic_tag_tax_id();
+            } else {
+                $tax_ids[]= 'topic-tag';
+            }
             break;
         case 'wpbdp_listing':
             $tax_ids[]= 'wpbdp_tag';
@@ -1353,6 +1357,7 @@ function ink_wp_hashtags($post){
             $hashtaglist = array_merge($hashtaglist, wp_list_pluck($terms, $tagfield, $tagfield));
         }        
     }
+    $hashtaglist = array_unique($hashtaglist);
     //implode all the tags from all terms 
     return ink_hashtag_implode (' #', $hashtaglist);
 }
