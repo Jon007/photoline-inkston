@@ -1185,6 +1185,7 @@ function ink_tag_from_meta($tag, $meta, $post){
     $values = get_post_meta( $post_id, $meta);
     if (is_array($values)){
         foreach ( $values as $value ) {
+            if (is_array($value)){ $value = implode(',', array_diff($value, array(''))); }
             echo ('<meta property="' . $tag . 
                 '" content="' . esc_attr($value) . '"/>' . "\r\n");
         }        
@@ -1209,6 +1210,7 @@ function ink_tag_from_tax($tag, $tax, $post){
     $values = get_the_terms($post_id, $tax);
     if (is_array($values)){
         foreach ( $values as $value ) {
+            if (is_array($value)){ $value = implode(',', array_diff($value, array(''))); }
             echo ('<meta property="' . $tag . 
                 '" content="' . esc_attr($value->name) . '"/>' . "\r\n");
         }        

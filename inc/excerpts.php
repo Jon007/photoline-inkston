@@ -53,13 +53,19 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
             $output = wp_trim_words( strip_shortcodes( $output ), $length);
         }
         if ( (! is_search()) && ($post->post_type=='product') ){
+            if (is_woocommerce_activated()){
             $product = wc_get_product($post);
-            $output .= $product->get_price_html();
+                //quick check for product with no description
+                if ($output==''){
+                   $output= $product->get_name(); 
+                }
+                $output .= $product->get_price_html();
+            }
         }
         return $output;
     }
     function inkston_filter_excerpt($excerpt){        
-        if (!$excerpt){
+        if (!$excerpt || $excerpt=='Spread the love'){  //bogus excerpt creeping in from SuperSocializer
             global $post;
             if ($post){
                 if ($post->post_type =='wpbdp_listing'){
@@ -68,6 +74,14 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
                     $excerpt = get_the_content() ;
                 }
                 $excerpt = wp_trim_words( strip_shortcodes( $excerpt ), inkston_excerpt_length(36));
+                if ( ($excerpt=='') && ($post->post_type=='product') ){
+                    if (is_woocommerce_activated()){
+                        $product = wc_get_product($post);
+                        //quick check for product with no description
+                        $excerpt= $product->get_name(); 
+                        $excerpt .= ' ' . $product->get_price_html();
+                    }
+                }
             }
         }
         if ( ( is_feed() ) || ( stripos($_SERVER['REQUEST_URI'], '/feed') ) ) 
