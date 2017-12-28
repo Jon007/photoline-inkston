@@ -26,7 +26,7 @@ get_template_part( 'template-parts/posts', 'wrap-start-small' );
     endwhile;
 		$cat = get_category( get_query_var( 'cat' ) );
 		$category = $cat->slug;
-		echo do_shortcode('[ajax_load_more preloaded="true" preloaded_amount="23" category="'.$category.'" posts_per_page="12"  offset="12" max_pages="0" button_label="More.." button_loading_label="More .. .. .." transition="fade" ]');
+		echo do_shortcode('[ajax_load_more preloaded="true" preloaded_amount="48" category="'.$category.'" posts_per_page="12"  offset="12" max_pages="100" progress_bar="true" progress_bar_color="39aa39" button_label="More.." button_loading_label="More .. .. .." transition="fade" scroll_distance="50"]');
 		//echo do_shortcode('[ajax_load_more category="'.$category.'" posts_per_page="12"  offset="12" max_pages="0" button_label="More.." button_loading_label="More .. .. .." transition="fade" pause="true" pause_override="true"]');
 
     ?></div>

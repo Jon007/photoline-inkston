@@ -990,8 +990,19 @@ function get_featured_posts()
             );    
             $recentproduct_list = new WP_Query( $query_args );      
 
-            //$final_posts = array_merge( $recent_list->posts, $product_list->posts, $sale_list->posts, $recentproduct_list->posts  );
-            $final_posts = array_merge( $recent_list->posts, $product_list->posts, $recentproduct_list->posts  );
+            //TOP POPULAR NON-FEATURED PRODUCTS 
+            $query_args = array(
+                'post_type' => 'product',
+                'posts_per_page' => 25,
+                'showposts'   =>  25,
+                'post_status' => 'publish',
+                'post__not_in' => array_merge( array( 8476, 8486, 13865 ), wc_get_product_ids_on_sale(), wc_get_featured_product_ids() ),
+                'meta_key' => 'total_sales',
+                'orderby' => 'meta_value_num',
+                'order'       =>  'DESC',
+            );            
+            $popularproduct_list = new WP_Query( $query_args );      
+            $final_posts = array_merge( $recent_list->posts, $product_list->posts, $recentproduct_list->posts, $popularproduct_list->posts);
             set_transient($tKey, $final_posts, 3600);
         } else {
             $final_posts = $recent_list->posts;
@@ -1412,6 +1423,7 @@ function ink_addhashtags($input){
     return $input . ink_wp_hashtags($post);
 }
 add_filter( 'wpseo_og_og_description', 'ink_addhashtags', 10, 1);
+add_filter( 'wpseo_twitter_description', 'ink_addhashtags', 10, 1);
 
 function ink_hashtag_keywords($keywords){
     global $post;
