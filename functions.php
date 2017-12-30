@@ -275,7 +275,8 @@ if (!function_exists('inkston_setup')) :
          */
         add_theme_support('post-thumbnails');
         set_post_thumbnail_size(300, 300, true);
-
+        //medium large is built in size 768*unconstrained
+        //add_image_size('medium_large', 600, 600, false);
         /**
          * This theme uses wp_nav_menu() in one location.
          */
@@ -317,6 +318,14 @@ if (!function_exists('inkston_setup')) :
     }
 endif; // inkston_setup
 add_action('after_setup_theme', 'inkston_setup');
+
+// Register image sizes for use in Add Media modal
+add_filter( 'image_size_names_choose', 'ink_custom_sizes' );
+function ink_custom_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'medium_large' => __( 'Medium large' ),
+    ) );
+}
 
 /**
  * Register widgetized area and update sidebar with default widgets

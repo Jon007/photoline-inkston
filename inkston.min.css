@@ -1004,11 +1004,17 @@ body.bbpress #content h1{font-size:24px}
 .mailpoet_form_widget .mailpoet_paragraph{display:inline-block}
 .mailpoet_form_widget .mailpoet_paragraph input[type="submit"]{text-transform:none}
 .woocommerce-message a.button.wc-forward{margin:2px;min-width:143px;text-align:center}
+#content a.button:hover, .site-content a.button:hover{
+color: white;
+background-color: #4d914d;	
+}
 #bbpress-forums .button.acomment-translate{padding:3px 9px}
 #commentform .comment-form-mailpoet,#commentform .comment-form-subscriptions,#commentform .form-submit{margin:0}
 #bbpress-forums div.bbp-forum-content,#bbpress-forums div.bbp-topic-content,#bbpress-forums div.bbp-reply-content{margin-left:0}
+#bbpress-forums .favorite-toggle,
 #bbpress-forums .subscription-toggle{padding:5px 15px;font-size:larger;background-color:#4d914d;color:#fff;text-decoration:none;float:right;border-radius:5px}
 #bbpress-forums .bbp-reply-content .subscription-toggle{font-size:100%;color:#39aa39;text-decoration:underline}
+#bbpress-forums .favorite-toggle:hover,
 #bbpress-forums .subscription-toggle:hover{background-color:#4d914d;color:#fff}
 #bbpress-forums div.bbp-forum-content{font-size:larger;font-weight:bolder}
 #bbpress-forums .bbp-forum-info div.bbp-forum-content{font-size:14px;font-weight:400}

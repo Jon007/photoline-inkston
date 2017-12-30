@@ -4164,6 +4164,10 @@ margin: 2px;
 min-width: 143px;
 text-align: center;
 }
+#content a.button:hover, .site-content a.button:hover{
+  color: white;
+	background-color: #4d914d;	
+}
 #bbpress-forums .button.acomment-translate{padding: 3px 9px;}
 #commentform .comment-form-mailpoet, 
 #commentform .comment-form-subscriptions, 
@@ -4176,10 +4180,11 @@ text-align: center;
 #bbpress-forums div.bbp-reply-content {
     margin-left: 0;
 }
+#bbpress-forums .favorite-toggle,
 #bbpress-forums .subscription-toggle{
 padding: 5px 15px;
 font-size: larger;
-background-color: #4d914d;
+background-color: #39aa39;
 color: white;
 text-decoration: none;
 float: right;
@@ -4190,6 +4195,7 @@ font-size: 100%;
 color: #39aa39;
 text-decoration: underline;
 }
+#bbpress-forums .favorite-toggle:hover,
 #bbpress-forums .subscription-toggle:hover{
 background-color: #4d914d;
 color: white;
