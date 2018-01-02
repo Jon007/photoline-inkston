@@ -40,7 +40,6 @@ a.button.wc-forward,a.button.checkout.wc-forward,a.button.wc-backward{color:#1a1
 .woocommerce #respond input#submit.alt.disabled,.woocommerce a.button.alt.disabled,.woocommerce button.button.alt.disabled,.woocommerce input.button.alt.disabled,.woocommerce #respond input#submit.alt.disabled:hover,.woocommerce a.button.alt.disabled:hover,.woocommerce button.button.alt.disabled:hover,.woocommerce input.button.alt.disabled:hover{background-color:rgba(26,25,25,0.5)}
 .woocommerce #respond input#submit.alt,.woocommerce a.button.alt,.woocommerce button.button.alt,.woocommerce input.button.alt,.single_add_to_cart_button.button.alt{background-color:#39aa39}
 .woocommerce #respond input#submit.alt:hover,.woocommerce a.button.alt:hover,.woocommerce button.button.alt:hover,.woocommerce input.button.alt:hover{background-color:#4d914d}
-.term-description{float:left}
 .woocommerce-message{border-top-color:#39aa39}
 .woocommerce-message:before{content:"\e015";color:#39aa39}
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{border:0;font-family:inherit;font-size:100%;font-style:inherit;font-weight:inherit;outline:0;vertical-align:baseline;margin:0;padding:0}
@@ -1180,3 +1179,6 @@ body.home div.site-info{margin-top:10px;}
 	text-align: left!important;
 }
 }
+.amazon-link a{margin:5px;white-space:nowrap;}
+body:not(.single-product) .menu-share-container{text-align:center;}
+.reviews{font-weight:bold;color:#fa7c0b;}

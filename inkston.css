@@ -100,9 +100,11 @@ a.button.wc-forward, a.button.checkout.wc-forward, a.button.wc-backward {color:#
     */
 }
 /* sadly aligning category description and images not as simple as this: */
+/* removed - conflict with woocommerce message display which then sits on top of entire area
 .term-description {
     float:left;
 }
+*/
 /*change woocommerce default message colours to inkston green*/
 .woocommerce-message{border-top-color:#39aa39}.woocommerce-message:before{content:"\e015";color:#39aa39}
 
@@ -4600,3 +4602,8 @@ body.home div.site-info{margin-top:10px;}
 	text-align: left!important;
 }
 }
+/* add spacing between amazon links */
+.amazon-link a{margin:5px;white-space:nowrap;}
+/*center share container except on products */
+body:not(.single-product) .menu-share-container{text-align:center;}
+.reviews{font-weight:bold;color:#fa7c0b;}

@@ -109,6 +109,7 @@
 		form.$product.find( '.product_weight' ).wc_reset_content();
 		form.$product.find( '.product_dimensions' ).wc_reset_content();
 		form.$product.find( '.woocommerce-variation-custom-asin' ).wc_reset_content();
+		form.$product.find( '.woocommerce-variation-custom-asinusa' ).wc_reset_content();
 		form.$product.find( '.woocommerce-variation-custom-_sku' ).wc_reset_content();
 		form.$product.find( '.woocommerce-variation-custom-upc' ).wc_reset_content();		
     form.$product.find( '.woocommerce-variation-custom-net_weight' ).wc_reset_content();
@@ -189,6 +190,7 @@
 			$weight        = form.$product.find( '.product_weight' ),
 			$dimensions    = form.$product.find( '.product_dimensions' ),
 			$asin					 = form.$product.find( '.woocommerce-variation-custom-asin' ),
+			$asinusa					 = form.$product.find( '.woocommerce-variation-custom-asinusa' ),
 			$skud					 = form.$product.find( '.woocommerce-variation-custom-_sku' ),
 			$upc					 = form.$product.find( '.woocommerce-variation-custom-upc' ),	
 			$netweight		 = form.$product.find( '.woocommerce-variation-custom-net_weight' ),	
@@ -238,10 +240,16 @@
 			$asin.wc_reset_content();
 		}
 
+		if ( variation.asinusa ) {
+			$asinusa.wc_set_content( variation.asinusa );
+		} else {
+			$asinusa.wc_reset_content();
+		}
+		
 		if ( variation.upc ) {
 			$upc.wc_set_content( variation.upc );
 		} else {
-			$asin.wc_reset_content();
+			$upc.wc_reset_content();
 		}
 
 

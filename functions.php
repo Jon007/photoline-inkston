@@ -137,14 +137,14 @@ if (is_woocommerce_activated()){
             }
 
             //localize position and hide_cents where possible
-            $locale = (function_exists('pll_current_language')) ? pll_current_language('locale'): get_locale(); 
+            $locale = (function_exists('pll_current_language')) ? pll_current_language('locale'): get_locale();
             
             //added this because WP-CLI threw a wobbly over the NumberFormatter and 
             //refused to perfom any operations, even completely unrelated to theme..
             $formatter = NULL;
             try {
                 if (class_exists('\NumberFormatter')){
-            $formatter = new \NumberFormatter($locale.'@currency='.$code,  \NumberFormatter::CURRENCY);
+                    $formatter = new \NumberFormatter($locale.'@currency='.$code,  \NumberFormatter::CURRENCY);
                 }
             } catch(Exception $e) {}
             if ($formatter){
@@ -252,7 +252,7 @@ if (!function_exists('inkston_setup')) :
 
         /* Enable support for Excerpt on Pages. See http://codex.wordpress.org/Excerpt */
         add_post_type_support('page', 'excerpt');
-
+        
         //allow forums to have featured images
         add_post_type_support('forum', array('thumbnail'));
         add_post_type_support('topic', array('thumbnail'));
@@ -422,7 +422,7 @@ function inkston_scripts()
             wp_dequeue_style('stripe_apple_pay');            
             
         }
-        }
+    }
     
     ?><script type="text/javascript">window.loginurl = '<?php echo(wp_login_url()) ?>';</script><?php
 }
@@ -519,34 +519,34 @@ function inkston_featured_img_tag($content, $returntag){
     }
     
     if ($content){
-    try {
-        $doc = new DOMDocument();
+        try {
+            $doc = new DOMDocument();
             libxml_use_internal_errors(true);            
-        $doc->loadHTML($content);    
-        $imageTags = $doc->getElementsByTagName('img');
+            $doc->loadHTML($content);    
+            $imageTags = $doc->getElementsByTagName('img');
             libxml_clear_errors();
 
-        /*
-         * NOTE: this gets the image sized as on the page, size not guaranteed,
-         * may also get an external image so no guarantee thumbnail is available  */
-        foreach ($imageTags as $imgtag) {
-            $url=($returntag) ? $imgtag->ownerDocument->saveXML($imgtag) : $imgtag->getAttribute('src');            
-            //$url = $imgtag->getAttribute('src');
-            if ( (strpos($url, 'cat-generator-avatars') === false) && (strpos($url, 'badge') === false) 
-                  && (strpos($url, 'avatar') === false) ) {
-                $first_img = $url;
-                //for forums, continue to last image, otherwise get first non-avatar image
-                if (! $forum_id){break;}
-            } else {
-                $last_avatar = $url;
+            /*
+             * NOTE: this gets the image sized as on the page, size not guaranteed,
+             * may also get an external image so no guarantee thumbnail is available  */
+            foreach ($imageTags as $imgtag) {
+                $url=($returntag) ? $imgtag->ownerDocument->saveXML($imgtag) : $imgtag->getAttribute('src');            
+                //$url = $imgtag->getAttribute('src');
+                if ( (strpos($url, 'cat-generator-avatars') === false) && (strpos($url, 'badge') === false) 
+                      && (strpos($url, 'avatar') === false) ) {
+                    $first_img = $url;
+                    //for forums, continue to last image, otherwise get first non-avatar image
+                    if (! $forum_id){break;}
+                } else {
+                    $last_avatar = $url;
+                }
+            }        
+        } catch (Exception $e) {
+            //if the input isn't fully valid html, try regex
+            if ($first_img='' && $last_avatar='') {
+                return inkston_featured_img_tag_regex($content, $returntag);  
             }
-        }        
-    } catch (Exception $e) {
-        //if the input isn't fully valid html, try regex
-        if ($first_img='' && $last_avatar='') {
-            return inkston_featured_img_tag_regex($content, $returntag);  
         }
-    }
     }
     
     if (empty($first_img)) {
@@ -606,7 +606,7 @@ function inkston_featured_img_tag_regex($content, $tag){
         }
         foreach ($urls as $url) {
             if ( (strpos($url, 'cat-generator-avatars') === false) && (strpos($url, 'badge') === false) 
-                  && (strpos($url, 'avatar') === false)  ) {
+                  && (strpos($url, 'avatar') === false) ) {
                 $first_img = $url;
                 //for forums, continue to last image, otherwise get first image
                 if (! $forum_id){break;}
@@ -624,7 +624,7 @@ function inkston_featured_img_tag_regex($content, $tag){
             $thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id($forum_id), 'medium');
             if ($thumbnail) {
                 $first_img = $thumbnail[0];
-            }
+            }            
             if (empty($first_img)) {
                 $first_img = get_template_directory_uri() . '/img/no-image.jpg';
             }
@@ -686,7 +686,7 @@ function inkston_body_class_filter($classes)
            $classes[] = 'home';
        }
     }
-        
+    
     
     return $classes;
 }
@@ -706,7 +706,7 @@ function inkston_excerpt_length($length)
     } elseif (is_page()) {
         $length = 30;
     } else {
-        $length = 30;
+            $length = 30;
     }
     return $length;
 }
@@ -1630,7 +1630,7 @@ if (is_woocommerce_activated()){
         woocommerce_wp_text_input( 
             array( 
                 'id'          => 'asin', 
-                'label'       => __( 'ASIN', 'photoline-inkston' ), 
+                'label'       => __( 'ASIN EU', 'photoline-inkston' ), 
                 'placeholder' => 'A01MA02ZON',
                 'desc_tip'    => 'true',
                 'value'       => $value,
@@ -1638,6 +1638,21 @@ if (is_woocommerce_activated()){
             )
         );
 
+        $value = get_post_meta( $thepostid, 'asinusa', true );
+        if (is_array($value)){
+            $value=reset($value);
+        }
+        woocommerce_wp_text_input( 
+            array( 
+                'id'          => 'asinusa', 
+                'label'       => __( 'ASIN USA', 'photoline-inkston' ), 
+                'placeholder' => 'A01MA02ZON',
+                'desc_tip'    => 'true',
+                'value'       => $value,
+                'description' => __( 'Amazon USA code if different from EU code. Use NONE if not available in USA.', 'woocommerce' ) 
+            )
+        );
+        
         $value = get_post_meta( $thepostid, 'upc', true );
         if (is_array($value)){$value=implode(', ', $value);}
 
@@ -1659,6 +1674,67 @@ if (is_woocommerce_activated()){
         );
     }
     add_action('woocommerce_product_options_sku', 'inkston_add_asin_upc');
+    
+    /*
+     * Format ASIN as an Amazon Link
+     * 
+     * @param string  $asin    Amazon product id
+     * @param bool    $isEU    set to return EU formatted link for locale, otherwise Amazon USA
+     * @param bool    $isReview set to output review link, otherwise outputs product link
+     * @return string formatted output
+     */    
+    function ink_amazon_link($asin, $isEU, $isReview){
+        if (!$asin){return;}
+        if (!is_array($asin) && strpos($asin, ',')){
+            $asin = explode(',', $asin);
+        }
+        if (is_array($asin)){
+            $output = '';
+            foreach ($asin as $variation){
+                if ($variation){
+                    $output .= _ink_amazon_link($variation, $isEU, $isReview, true) . ' ';               
+                }
+            }
+            return $output;
+        } else {
+            return _ink_amazon_link($asin, $isEU, $isReview, false);
+        }
+    }
+    function _ink_amazon_link($asin, $isEU, $isReview, $isVariation){
+        if (!$asin || $asin=='' || $asin=='NONE'){return;}
+        $amazon_domain = '.com';
+        $amazon_verb = ($isReview) ? __('Review', 'photoline-inkston') : __('View', 'photoline-inkston');
+        $amazon_site = '';
+        if ($isEU){
+            $locale = get_locale();
+            switch ($locale) {
+                case 'fr_FR':
+                    $amazon_site = 'Amazon France';
+                    $amazon_domain = '.fr';
+                    break;
+                case 'es_ES':
+                    $amazon_site = 'Amazon España';
+                    $amazon_domain = '.es';
+                    break;
+                default:
+                    $amazon_site = 'Amazon UK';
+                    $amazon_domain = '.co.uk';
+            }
+        } else {
+            $amazon_site = __('Amazon USA', 'photoline-inkston');
+        }
+        $amazon_title = $amazon_verb . ' ' . $asin . ' ' . __('on', 'photoline-inkston') . ' ' . $amazon_site;
+        $amazonurl = ($isReview) ? 'https://www.amazon' . $amazon_domain . 
+            '/review/create-review/ref=cm_cr_dp_d_wr_but_btm?ie=UTF8&asin=' . $asin . '#'
+            : 'https://www.amazon' . $amazon_domain . '/dp/' . $asin . '/';
+        
+        return '<span class="amazon-link"><a title="' . $amazon_title . '" href="' . 
+            $amazonurl . '" target="_blank">' . 
+            ( ($isVariation) ? $asin . ' ' . __('on', 'photoline-inkston') . ' ' : '')
+            . $amazon_site . '</a></span>';
+    }
+    
+    
     function inkston_net_dimensions(){
         global $thepostid, $post;
         $thepostid              = empty( $thepostid ) ? $post->ID : $thepostid;
@@ -1721,6 +1797,7 @@ if (is_woocommerce_activated()){
     function inkston_meta_save( $post_id, $post )
     {
         inkston_meta_save_item($post_id, 'asin', null);
+        inkston_meta_save_item($post_id, 'asinusa', null);
         inkston_meta_save_item($post_id, 'upc', null);
         inkston_meta_save_item($post_id, 'net_weight', null);
         $netsize = array( esc_attr( $_POST['_netlength'] ), esc_attr( $_POST['_netwidth'] ), esc_attr( $_POST['_netheight'] )  );
@@ -1752,8 +1829,8 @@ if (is_woocommerce_activated()){
         $value = get_post_meta( $variation->ID, 'asin', true );
         woocommerce_wp_text_input( 
             array( 
-                'id'          => 'asin[' . $variation->ID . ']', 
-                'label'       => __( 'ASIN', 'photoline-inkston' ), 
+                'id'          => 'asin[' . $loop . ']', 
+                'label'       => __( 'ASIN EU', 'photoline-inkston' ), 
                 'placeholder' => 'A01MA02ZON',
                 'desc_tip'    => 'true',
                 'description' => __( 'Amazon alphanumeric 10 character inventory code.', 'woocommerce' ), 
@@ -1762,9 +1839,22 @@ if (is_woocommerce_activated()){
             )
         );
 
+        $value = get_post_meta( $variation->ID, 'asinusa', true );
         woocommerce_wp_text_input( 
             array( 
-                'id'                => 'upc[' . $variation->ID . ']', 
+                'id'          => 'asinusa[' . $loop . ']', 
+                'label'       => __( 'ASIN USA', 'photoline-inkston' ), 
+                'placeholder' => 'A01MA02ZON',
+                'desc_tip'    => 'true',
+                'description' => __( 'Amazon USA code if different from EU code..', 'woocommerce' ), 
+                'value'       => get_post_meta( $variation->ID, 'asinusa', true ),
+                'wrapper_class'       => 'form-row form-row-first'
+            )
+        );
+        
+        woocommerce_wp_text_input( 
+            array( 
+                'id'                => 'upc[' . $loop . ']', 
                 'label'             => __( 'UPC', 'photoline-inkston' ), 
                 'placeholder'       => '012345678901', 
                 'desc_tip'    => 'true',
@@ -1786,7 +1876,7 @@ if (is_woocommerce_activated()){
         $value = get_post_meta( $variation->ID, 'net_weight', true );
         woocommerce_wp_text_input( 
             array( 
-                'id'          => 'net_weight[' . $variation->ID . ']', 
+                'id'          => 'net_weight[' . $loop . ']', 
                 'label'             => __( 'Product weight', 'photoline-inkston' ) . 
                                         ' (' . get_option( 'woocommerce_weight_unit' ) . ')', 
                 'placeholder'       => __( 'Unpacked net product weight.', 
@@ -1807,7 +1897,7 @@ if (is_woocommerce_activated()){
         $value = get_post_meta( $variation->ID, 'net_size', true );
         woocommerce_wp_text_input( 
             array( 
-                'id'                => 'net_size[' . $variation->ID . ']', 
+                'id'                => 'net_size[' . $loop . ']', 
                 'label'             => __( 'Product size ', 'photoline-inkston' ) . 
                                         ' (' . get_option( 'woocommerce_dimension_unit' ) . ')', 
                 'placeholder'       => '0x0x0', 
@@ -1821,31 +1911,31 @@ if (is_woocommerce_activated()){
     add_action('woocommerce_variation_options_dimensions', 'inkston_variation_net_dimensions', 10, 3 );
 
     // Save Variation Settings
-    function inkston_save_variation_meta( $post_id ) {
-        inkston_variation_meta_save_item($post_id, 'asin');
-        inkston_variation_meta_save_item($post_id, 'upc');
-        inkston_variation_meta_save_item($post_id, 'net_weight');
-        inkston_variation_meta_save_item($post_id, 'net_size');
+    function inkston_save_variation_meta( $variation_id, $i ) {
+        inkston_variation_meta_save_item($variation_id, $i, 'asin');
+        inkston_variation_meta_save_item($variation_id, $i, 'asinusa');
+        inkston_variation_meta_save_item($variation_id, $i, 'upc');
+        inkston_variation_meta_save_item($variation_id, $i, 'net_weight');
+        inkston_variation_meta_save_item($variation_id, $i, 'net_size');
     }
-    add_action( 'woocommerce_save_product_variation', 'inkston_save_variation_meta', 10, 1 );
+    add_action( 'woocommerce_save_product_variation', 'inkston_save_variation_meta', 10, 2 );
+
     /*
      * Save individual custom field
      * 
      * @param int   $post_id    product id
      * @param object $key       parameter name
      */
-    function inkston_variation_meta_save_item($post_id, $key, $value=null)
+    function inkston_variation_meta_save_item($variation_id, $key, $fieldname)
     {
-        if (! ($value) ){
-            if (isset($_POST[$key][ $post_id ])){
-                $value = $_POST[$key][ $post_id ];
-            }
-        }
-        if( ! ( $value ) ){
-            update_post_meta( $post_id, $key, $value);
+        $value = null;
+        if (isset($_POST[$fieldname][ $key ])){
+            $value = $_POST[$fieldname][ $key ];
+            update_post_meta( $variation_id, $fieldname, $value);
+        } else {
+            delete_post_meta( $variation_id, $fieldname);
         }
     }
-    add_action( 'woocommerce_process_product_meta', 'inkston_meta_save', 10, 3 );
 
 
     /**
@@ -1856,6 +1946,7 @@ if (is_woocommerce_activated()){
 
         // duplicate the line for each field
         $variations['asin'] = get_post_meta( $variations[ 'variation_id' ], 'asin', true );
+        $variations['asinusa'] = get_post_meta( $variations[ 'variation_id' ], 'asinusa', true );
         $variations['upc'] = get_post_meta( $variations[ 'variation_id' ], 'upc', true );
         $variations['net_weight'] = get_post_meta( $variations[ 'variation_id' ], 'net_weight', true );
         $variations['net_size'] = get_post_meta( $variations[ 'variation_id' ], 'net_size', true );
