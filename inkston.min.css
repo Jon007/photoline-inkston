@@ -999,7 +999,6 @@ body.bbpress #content h1{font-size:24px}
 @media (max-width: 1000px) {
 .wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-42px}
 }
-.wpbdp-listing-single .listing-title{display:none}
 .mailpoet_form_widget .mailpoet_paragraph{display:inline-block}
 .mailpoet_form_widget .mailpoet_paragraph input[type="submit"]{text-transform:none}
 .woocommerce-message a.button.wc-forward{margin:2px;min-width:143px;text-align:center}
@@ -1168,7 +1167,8 @@ body.home div.site-info{margin-top:10px;}
 }
 .wpbdp-plan-selection-wrapper{display:none;}
 .wpbdp-submit-listing-section-content .wpbdp-msg.tip{display:none;}
-.listing-actions a.button{background-image:none;}
+.listing-actions a.button,
+.listing-actions a.button:hover {background-image:none;}
 @media (max-width: 768px){
 .woocommerce table.shop_table_responsive tr td:not([data-title])::before, 
 .woocommerce-page table.shop_table_responsive tr td:not([data-title])::before {

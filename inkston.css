@@ -4158,7 +4158,9 @@ body.bbpress #content h1{font-size: 24px;}
 @media (max-width: 1000px){
 .wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-42px;}
 }
+/* why was this hiding the title??
 .wpbdp-listing-single .listing-title{display:none;}
+*/
 .mailpoet_form_widget .mailpoet_paragraph{display:inline-block;}
 .mailpoet_form_widget .mailpoet_paragraph input[type="submit"]{text-transform:none;}
 .woocommerce-message a.button.wc-forward {
@@ -4589,7 +4591,8 @@ body.home div.site-info{margin-top:10px;}
 /* Business Directory 5 hide free plan selector */
 .wpbdp-plan-selection-wrapper{display:none;}
 .wpbdp-submit-listing-section-content .wpbdp-msg.tip{display:none;}
-.listing-actions a.button{background-image:none;}
+.listing-actions a.button,
+.listing-actions a.button:hover{background-image:none;}
 
 /* stop WooCommerce reformatting additional message rows with no data-title */
 @media (max-width: 768px){
