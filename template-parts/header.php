@@ -131,8 +131,10 @@ if ( is_woocommerce_activated() ) {
     $feature_posts = get_featured_posts();
     $i = 0;
     if ($feature_posts){
-      foreach ( $feature_posts as $key => $post ) {	
-      setup_postdata( $post ); 
+        foreach ( $feature_posts as $post_id ) {
+            global $post;
+            $post = get_post($post_id);
+            setup_postdata( $post ); 
           get_template_part( 'content', 'tile-thumb' );
           $i++;
           if ($i>7){break;}

@@ -196,6 +196,7 @@ function inkston_categorized_blog() {
  * Flush out the transients used in inkston_categorized_blog
  */
 function inkston_category_transient_flusher() {
+    //TODO: delete correct transients for woo categories etc
 	// Like, beat it. Dig?
 	delete_transient( 'all_the_cool_cats' );
 }

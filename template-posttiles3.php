@@ -15,8 +15,10 @@ get_header(); ?>
   //get_template_part( 'template-parts/posts', 'wrap-start-small-fix' );
 ?><div class="fixbox"><?php
     $final_posts = get_featured_posts();
-    foreach ( $final_posts as $key => $post ) {	
-		setup_postdata( $post ); 
+    foreach ( $final_posts as $post_id ) {	
+        global $post;
+        $post = get_post($post_id);
+    		setup_postdata( $post );         
         get_template_part( 'content', 'tile-thumb' );
     }
 

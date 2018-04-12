@@ -1182,3 +1182,4 @@ body.home div.site-info{margin-top:10px;}
 .amazon-link a{margin:5px;white-space:nowrap;}
 body:not(.single-product) .menu-share-container{text-align:center;}
 .reviews{font-weight:bold;color:#fa7c0b;}
+#wpbdp-submit-listing .wpbdp-submit-listing-form-actions input[type="submit"] {float: none;}

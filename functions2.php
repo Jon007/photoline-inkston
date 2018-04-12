@@ -975,9 +975,10 @@ function get_featured_posts()
             'orderby' => 'modified',
             'posts_per_page' => 50,
             'showposts' => 50,
-            'order' => 'DESC'
+            'order' => 'DESC',
+            'fields' => 'ids',
         );
-        $recent_list = new WP_Query($query_args);
+        $recent_list = get_posts($query_args);
 
         //FEATURED PRODUCTS 
         if (is_woocommerce_activated()) {
@@ -989,8 +990,9 @@ function get_featured_posts()
                 'post__in' => array_merge(array(0), wc_get_featured_product_ids(), wc_get_product_ids_on_sale()),
                 'orderby' => 'modified',
                 'order' => 'DESC',
+                'fields' => 'ids',
             );
-            $product_list = new WP_Query($query_args);
+            $product_list = get_posts($query_args);
             //SALE PRODUCTS 
             /*
               $query_args = array(
@@ -1014,8 +1016,9 @@ function get_featured_posts()
                 'post__not_in' => array_merge(array(0), wc_get_product_ids_on_sale(), wc_get_featured_product_ids()),
                 'orderby' => 'modified',
                 'order' => 'DESC',
+                'fields' => 'ids',
             );
-            $recentproduct_list = new WP_Query($query_args);
+            $recentproduct_list = get_posts($query_args);
 
             //TOP POPULAR NON-FEATURED PRODUCTS 
             $query_args = array(
@@ -1027,12 +1030,13 @@ function get_featured_posts()
                 'meta_key' => 'total_sales',
                 'orderby' => 'meta_value_num',
                 'order' => 'DESC',
+                'fields' => 'ids',
             );
-            $popularproduct_list = new WP_Query($query_args);
-            $final_posts = array_merge($recent_list->posts, $product_list->posts, $recentproduct_list->posts, $popularproduct_list->posts);
+            $popularproduct_list = get_posts($query_args);
+            $final_posts = array_merge($recent_list, $product_list, $recentproduct_list, $popularproduct_list);
             set_transient($tKey, $final_posts, 3600);
         } else {
-            $final_posts = $recent_list->posts;
+            $final_posts = $recent_list;
         }
     }
 
@@ -1471,7 +1475,8 @@ function ink_hashtag_keywords($keywords)
         return $keywords;
     }
 }
-add_filter('wpseo_metakeywords', 'ink_hashtag_keywords');
+//filter and all meta keywords functionality removed in wpseo 6.3
+//add_filter('wpseo_metakeywords', 'ink_hashtag_keywords');
 
 /**
  * Filter: 'wpseo_include_rss_footer' - Allow the RSS footer to be dynamically shown/hidden.
@@ -1896,25 +1901,34 @@ add_action('woocommerce_share', 'ink_sharing');
 
 function ink_output_please_leave_reviews(){
     if (is_woocommerce_activated() && is_product()) {
-        ?><div class="reviews"><?php _e('Please leave your reviews!', 'photoline-inkston');
-          echo (' ');
           global $product;
           if ($product){
+              $amazonEuLink = $amazonUsLink = '';
               $productid = $product->get_id();
               $asin = get_post_meta($productid, 'asin', true);
               if ($asin){
-                echo (ink_amazon_link($asin, true, true));
+                $amazonEuLink = ink_amazon_link($asin, true, true);
               }
               $asinusa = get_post_meta($productid, 'asinusa', true);
               if ( !$asinusa && $asin) {
                   $asinusa = $asin;
               } 
               if ($asinusa && $asinusa!='NONE'){
+                $amazonUsLink = ink_amazon_link($asinusa, false, true);
+              }
+              if ($amazonEuLink || $amazonUsLink) {
+?><div class="reviews"><?php _e('Please leave your reviews!', 'photoline-inkston');
                 echo (' ');
-                echo (ink_amazon_link($asinusa, false, true));
+?></div><?php
+                if ($amazonEuLink){
+                    //TODO: UNCOMMENT temp comment while Amazon EU disabled
+                    //echo $amazonEuLink . ' ';
+                }
+                if ($amazonUsLink){
+                    echo $amazonUsLink;
+                }
               }
           }
-        ?></div><?php
     }    
 }
 /**

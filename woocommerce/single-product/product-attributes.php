@@ -244,14 +244,30 @@ foreach ($idkeys as $key) {
         $idfields[$key] = $value;
     }
 }
-if (!isset($idfields['asinusa'])) {
+if (isset($idfields['asin']) && is_array($idfields['asin'])){
+    $idfields['asin'] = array_filter($idfields['asin']);
+    if (implode('', $idfields['asin']) == ''){
+        unset($idfields['asin']);
+    }
+}
+if (!isset($idfields['asinusa']) || !($idfields['asinusa'])) {
     if ( isset($idfields['asin'])) {
         $idfields['asinusa'] = $idfields['asin'];
     }
-} elseif ($idfields['asinusa']=='NONE'){
-    unset($idfields['asinusa']);
+} 
+if (isset($idfields['asinusa'])){
+    if (is_array($idfields['asinusa'])){
+        $idfields['asinusa'] = array_filter($idfields['asinusa']);
+        if (implode('', $idfields['asinusa']) == ''){
+            unset($idfields['asinusa']);
+        }
+    } elseif  ( ($idfields['asinusa']=='NONE')  || !($idfields['asinusa']) ){
+        unset($idfields['asinusa']);
+    }
 }
-asort($idfields);
+//TODO: TEMP LINE WHILE AMAZON EU ISSUE
+unset($idfields['asin']);
+ksort($idfields);
 
 ?>
 <table class="shop_attributes">

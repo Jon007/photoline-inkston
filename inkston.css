@@ -4593,6 +4593,8 @@ body.home div.site-info{margin-top:10px;}
 .wpbdp-submit-listing-section-content .wpbdp-msg.tip{display:none;}
 .listing-actions a.button,
 .listing-actions a.button:hover{background-image:none;}
+/* Business directory don't float right submit button */
+#wpbdp-submit-listing .wpbdp-submit-listing-form-actions input[type="submit"] {float: none;}
 
 /* stop WooCommerce reformatting additional message rows with no data-title */
 @media (max-width: 768px){

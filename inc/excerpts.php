@@ -54,7 +54,7 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
         }
         if ( (! is_search()) && ($post->post_type=='product') ){
             if (is_woocommerce_activated()){
-            $product = wc_get_product($post);
+                $product = wc_get_product($post);
                 //quick check for product with no description
                 if ($output==''){
                    $output= $product->get_name(); 
@@ -65,30 +65,36 @@ if ( !function_exists( 'inkston_get_excerpt' ) ) {
         return $output;
     }
     function inkston_filter_excerpt($excerpt){        
-        if (!$excerpt || $excerpt=='Spread the love'){  //bogus excerpt creeping in from SuperSocializer
-            global $post;
-            if ($post){
+        global $post;
+        if ($post){
+            if (!$excerpt || $excerpt=='Spread the love'){  //bogus excerpt creeping in from SuperSocializer
                 if ($post->post_type =='wpbdp_listing'){
                     $excerpt = $post->post_content;
                 } else {
                     $excerpt = get_the_content() ;
                 }
                 $excerpt = wp_trim_words( strip_shortcodes( $excerpt ), inkston_excerpt_length(36));
-                if ( ($excerpt=='') && ($post->post_type=='product') ){
-                    if (is_woocommerce_activated()){
-                        $product = wc_get_product($post);
-                        //quick check for product with no description
+            }
+
+            //if a woocommerce product always add price and buy link to excerpt
+            if (($post->post_type=='product') && (is_woocommerce_activated())) {
+                $product = wc_get_product($post);
+                if ($product){
+                    //quick check for product with no description
+                    if ($excerpt==''){
                         $excerpt= $product->get_name(); 
                         $excerpt .= ' ' . $product->get_price_html();
                     }
                 }
             }
-        }
+        } 
+        
         if ( ( is_feed() ) || ( stripos($_SERVER['REQUEST_URI'], '/feed') ) ) 
         {
-            global $post;
             $excerpt = strip_shortcodes( $excerpt );
-            $excerpt .= ink_wp_hashtags($post);
+            if ($post){
+                $excerpt .= ink_wp_hashtags($post);
+            }
         }
         return $excerpt;
     }
@@ -105,3 +111,40 @@ if ( !function_exists( 'inkston_excerpt_more' ) ) {
 	}
 }
 add_filter( 'excerpt_more', 'inkston_excerpt_more' );
+
+/*
+ * Yoast enable product price parameter
+ */
+function register_replacements(){
+    wpseo_register_var_replacement(
+        'wc_price', 'get_product_price', 'basic', 'The product\'s price.'
+    );
+    wpseo_register_var_replacement(
+        'home', 'get_home_url', 'basic', 'The current language home page.'
+    );
+}
+add_action( 'wpseo_register_extra_replacements',  'register_replacements' );
+function get_seo_home(){
+    return get_site_url(1);
+    //return get_home_url(1, '', 'https');
+}
+function get_product_price()
+{
+    global $post;
+    if (!$post){return;}
+    
+    //if a woocommerce product always add price and buy link to excerpt
+    if (($post->post_type=='product') && (is_woocommerce_activated())) {
+        $product = wc_get_product($post);
+        if ($product){
+            if (method_exists($product, 'get_price')) {
+                $price_string = $product->get_price('edit');
+                if ($product->is_on_sale()){
+                    $price_string = __( 'Sale!', 'woocommerce' ) . $price_string;                
+                }
+                return wp_strip_all_tags(wc_price($product->get_price()), true);
+            }
+        }
+    }
+    return '';
+}
