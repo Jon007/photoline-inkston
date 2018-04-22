@@ -10,7 +10,7 @@ get_header();
 ?>
 	<div id="primary" class="content-area<?php if ( !is_active_sidebar( 'sidebar-2' ) ) { ?> no-sidebar<?php } ?>">
 		<main id="main" class="site-main" role="main"><?php
-      $user_id = $_GET['u'];
+      $user_id = (isset($_GET['u'])) ? $_GET['u'] : '';
       if (!is_numeric ($user_id)){
         if ( is_user_logged_in() ) {
           $user_id = get_current_user_id();
