@@ -11,7 +11,7 @@
  * the readme will list any important changes.
  *
  * @see 	https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
+ * @author  WooThemes mod J.Moore added shop link to header image
  * @package WooCommerce/Templates/Emails
  * @version 2.4.0
  */

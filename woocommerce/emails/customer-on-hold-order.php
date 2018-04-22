@@ -11,7 +11,7 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
+ * @author 		WooThemes mod J.Moore add payment link if not paid
  * @package 	WooCommerce/Templates/Emails
  * @version     2.5.0
  */
@@ -27,13 +27,12 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <p><?php _e( "Your order is on-hold until we confirm payment has been received. Your order details are shown below for your reference:", 'woocommerce' ); ?></p>
 
-<?php if (! $order->is_paid() ) : ?>
-	<p><?php printf( __( 'You may also : %2$s', 'woocommerce' ), get_bloginfo( 'name', 'display' ), '<a href="' . esc_url( $order->get_checkout_payment_url() ) . '">' . __( 'pay for this order online', 'photoline-inkston' ) . '</a>' ); ?></p>
-<?php endif; ?>
-
 <?php
-
-
+//INKSTON: add payment link
+if (! $order->is_paid() ) : ?>
+	<p><?php printf( __( 'You may also : %2$s', 'woocommerce' ), get_bloginfo( 'name', 'display' ), '<a href="' . esc_url( $order->get_checkout_payment_url() ) . '">' . __( 'pay for this order online', 'photoline-inkston' ) . '</a>' ); ?></p>
+<?php endif;
+//END INKSTON
 
 
 /**

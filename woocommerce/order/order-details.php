@@ -11,9 +11,9 @@
  * the readme will list any important changes.
  *
  * @see 	https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
+ * @author  WooThemes mod J.Moore
  * @package WooCommerce/Templates
- * @version 3.2.0
+ * @version 3.3.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -29,6 +29,7 @@ $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_cu
 $downloads             = false; //$order->get_downloadable_items();
 $show_downloads        = false;  //$order->has_downloadable_item() && $order->is_download_permitted();
 
+//INKSTON: if purchase is completed, allow review link
 if ($show_purchase_note) {
     ?><p><span class="saleflash"><?php  
     _e('Please help us to help you by reviewing your products!', 'photoline-inkston');
@@ -36,12 +37,15 @@ if ($show_purchase_note) {
     _e('  All reviews earn points in inkston <a href="https://www.inkston.com/community/my-awards/">reward scheme</a>.  Your experience is highly valuable in helping us improve and helping others choose the most suitable products.', 'photoline-inkston');
 ?></p><?php
 }
+//INKSTON: END
 
 if ( $show_downloads ) {
 	wc_get_template( 'order/order-downloads.php', array( 'downloads' => $downloads, 'show_title' => true ) );
 }
 ?>
 <section class="woocommerce-order-details">
+	<?php do_action( 'woocommerce_order_details_before_order_table', $order ); ?>
+
 	<h2 class="woocommerce-order-details__title"><?php _e( 'Order details', 'woocommerce' ); ?></h2>
 
 	<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
@@ -55,8 +59,10 @@ if ( $show_downloads ) {
 
 		<tbody>
 			<?php
+			do_action( 'woocommerce_order_details_before_order_table_items', $order );
+
 				foreach ( $order_items as $item_id => $item ) {
-					$product = apply_filters( 'woocommerce_order_item_product', $item->get_product(), $item );
+				$product = $item->get_product();
 
 					wc_get_template( 'order/order-details-item.php', array(
 						'order'			     => $order,
@@ -67,8 +73,9 @@ if ( $show_downloads ) {
 						'product'	         => $product,
 					) );
 				}
+
+			do_action( 'woocommerce_order_details_after_order_table_items', $order );
 			?>
-			<?php do_action( 'woocommerce_order_items_table', $order ); ?>
 		</tbody>
 
 		<tfoot>

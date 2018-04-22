@@ -11,9 +11,9 @@
  * the readme will list any important changes.
  *
  * @see 	    https://docs.woocommerce.com/document/template-structure/
- * @author 		WooThemes
+ * @author 		WooThemes mod J.Moore - add product links
  * @package 	WooCommerce/Templates/Emails
- * @version     3.0.0
+ * @version     3.2.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -23,8 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 $text_align = is_rtl() ? 'right' : 'left';
 
 foreach ( $items as $item_id => $item ) :
-	if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 		$product = $item->get_product();
+	if ( apply_filters( 'woocommerce_order_item_visible', true, $item ) ) {
 		?>
 		<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_order_item_class', 'order_item', $item, $order ) ); ?>">
 			<td class="td" style="text-align:<?php echo $text_align; ?>; vertical-align:middle; border: 1px solid #eee; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif; word-wrap:break-word;"><?php
@@ -34,7 +34,7 @@ foreach ( $items as $item_id => $item ) :
 					echo apply_filters( 'woocommerce_order_item_thumbnail', '<div style="margin-bottom: 5px"><img src="' . ( $product->get_image_id() ? current( wp_get_attachment_image_src( $product->get_image_id(), 'thumbnail' ) ) : wc_placeholder_img_src() ) . '" alt="' . esc_attr__( 'Product image', 'woocommerce' ) . '" height="' . esc_attr( $image_size[1] ) . '" width="' . esc_attr( $image_size[0] ) . '" style="vertical-align:middle; margin-' . ( is_rtl() ? 'left' : 'right' ) . ': 10px;" /></div>', $item );
 				}
 
-                //get the link for the product
+                //INKSTON: add the link for the product
                 $_product = wc_get_product( $item['variation_id'] ? $item['variation_id'] : $item['product_id'] );
                 $link =  $_product->get_permalink();
                 
@@ -44,10 +44,10 @@ foreach ( $items as $item_id => $item ) :
                 }
                 
                 echo ('<a href="' . $link . '">');
-                
 				// Product name
 				echo apply_filters( 'woocommerce_order_item_name', $item->get_name(), $item, false );
                 echo ('</a>');
+                //INKSTON: END
 
 				// SKU
 				if ( $show_sku && is_object( $product ) && $product->get_sku() ) {
