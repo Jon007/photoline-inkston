@@ -70,15 +70,7 @@ do_action( 'woocommerce_before_account_orders', $has_orders ); ?>
 								<?php
 								$actions = wc_get_account_orders_actions( $order );
 								
-									if ( ! $order->needs_payment() ) {
-										unset( $actions['pay'] );
-									}
-
-									if ( ! in_array( $order->get_status(), apply_filters( 'woocommerce_valid_order_statuses_for_cancel', array( 'pending', 'failed' ), $order ) ) ) {
-										unset( $actions['cancel'] );
-									}
-								
-									if ( $actions = apply_filters( 'woocommerce_my_account_my_orders_actions', $actions, $order ) ) {
+								if ( ! empty( $actions ) ) {
 									foreach ( $actions as $key => $action ) {
 										echo '<a href="' . esc_url( $action['url'] ) . '" class="woocommerce-button button ' . sanitize_html_class( $key ) . '">' . esc_html( $action['name'] ) . '</a>';
 									}

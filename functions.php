@@ -415,18 +415,21 @@ function inkston_scripts()
             //no longer used, retest if re-enable
             //wp_dequeue_style('angelleye-express-checkout-css');
             //wp_dequeue_script('angelleye_frontend');
-            
+/*          replaced by wc_stripe_hide_payment_request_on_product_page     
             wp_dequeue_script('stripe');
             wp_dequeue_script('woocommerce_stripe');
             wp_dequeue_script('woocommerce_stripe_apple_pay_single');
             wp_dequeue_style('stripe_apple_pay');            
-            
+*/            
         }
     }
     
     ?><script type="text/javascript">window.loginurl = '<?php echo(wp_login_url()) ?>';</script><?php
 }
 add_action('wp_enqueue_scripts', 'inkston_scripts', 1000);
+
+/* stripe on product pages causes error which breaks page for users from unsuppported countries */
+add_filter( 'wc_stripe_hide_payment_request_on_product_page', '__return_true' );
 
 function inkston_dequeue_script() {
     
