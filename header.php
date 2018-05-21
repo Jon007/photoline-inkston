@@ -48,6 +48,8 @@
 }
 
     $topmenu = 'top' ;  
+    /* this code handles non-Polylang subsite allowing different language menus */
+    if ( ! function_exists( 'pll_the_languages' ) ) {
     $locale = get_locale();
     switch ($locale){
         case 'fr_FR':
@@ -66,7 +68,7 @@
             }            
             break;
     }
-
+    }
     if ( has_nav_menu( $topmenu ) ) { ?>
 	<div class="top-menu">
 		<?php

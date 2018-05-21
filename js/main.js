@@ -61,6 +61,9 @@ jQuery(document).ready(function($) {
 			$(this).toggleClass('active');
 			$("#search-footer-bar").slideDown("slow");
 			$("#search-footer-bar .search-field").focus();
+			setTimeout(function(){
+				document.getElementById("footer-copyright").scrollIntoView({behavior:'smooth'})
+			}, 500)
 		}
     else{
       if ($("#search-field").val()==''){

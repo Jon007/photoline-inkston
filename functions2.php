@@ -1091,66 +1091,6 @@ function custom_post_author_archive($query)
 }
 add_action('pre_get_posts', 'custom_post_author_archive', 1, 1);
 
-function get_directory_labels()
-{
-    static $tr_directory_label;
-    $tr_directory_label['Name'] = __('Name', 'photoline-inkston');
-    $tr_directory_label['Country'] = __('Country', 'photoline-inkston');
-    $tr_directory_label['Contact Email'] = __('Contact Email', 'photoline-inkston');
-    $tr_directory_label['Location'] = __('Location', 'photoline-inkston');
-    $tr_directory_label['About'] = __('About', 'photoline-inkston');
-    $tr_directory_label['Summary'] = __('Summary', 'photoline-inkston');
-    $tr_directory_label['Website'] = __('Website', 'photoline-inkston');
-    return $tr_directory_label;
-}
-
-function get_directory_descriptions()
-{
-    $tr_directory_description['Artist or studio name'] = __('Artist or studio name ', 'photoline-inkston');
-    $tr_directory_description['Main country'] = __('Main country ', 'photoline-inkston');
-    $tr_directory_description['Please enter town or region to help visitors find you'] = __('Please enter town or region to help visitors find you ', 'photoline-inkston');
-    $tr_directory_description['To avoid spam, Email address will never be shown, instead a contact form will be provided which is only available to genuine logged-on users.'] = __('To avoid spam, Email address will never be shown, instead a contact form will be provided which is only available to genuine logged-on users. ', 'photoline-inkston');
-    $tr_directory_description['How did you start with Oriental arts? What are your favourite techniques?  Do you sell your artwork, do you accept commissions?  Do you teach or can you recommend teachers?'] = __('How did you start with Oriental arts? What are your favourite techniques?  Do you sell your artwork, do you accept commissions?  Do you teach or can you recommend teachers? ', 'photoline-inkston');
-    $tr_directory_description['Here you can make a special short summary for search engines and search results.  Leave blank for an automatic summary.'] = __('Here you can make a special short summary for search engines and search results.  Leave blank for an automatic summary. ', 'photoline-inkston');
-    $tr_directory_description['Main website (can be any link including Facebook page if that is your main page)'] = __('Main website (can be any link including Facebook page if that is your main page) ', 'photoline-inkston');
-    $tr_directory_description['add optional tags separated by commas, to allow more classifications than available under categories '] = __('add optional tags separated by commas, to allow more classifications than available under categories ', 'photoline-inkston');
-    return $tr_directory_description;
-}
-
-function ink_wpbdp_field_label($label)
-{
-    $locale = get_locale();
-    $tr_directory_label = get_directory_labels();
-    switch ($locale) {
-        case 'fr_FR':
-        case 'de_DE':
-        case 'es_ES':
-            if (isset($tr_directory_label[$label])) {
-                $label = $tr_directory_label[$label];
-            }
-            break;
-    }
-    return $label;
-}
-add_filter('wpbdp_render_field_label', 'ink_wpbdp_field_label', 10, 1);
-
-function ink_wpbdp_field_description($description)
-{
-    $locale = get_locale();
-    $tr_directory_description = get_directory_descriptions();
-    switch ($locale) {
-        case 'fr_FR':
-        case 'de_DE':
-        case 'es_ES':
-            if (isset($tr_directory_description[trim($description)])) {
-                $description = $tr_directory_description[trim($description)];
-            }
-            break;
-    }
-    return $description;
-}
-add_filter('wpbdp_render_field_description', 'ink_wpbdp_field_description', 10, 1);
-
 //filter to add description after forums titles on forum index
 function rw_singleforum_description()
 {
@@ -2089,97 +2029,7 @@ add_filter('wpseo_canonical', 'ink_bbp_canonical', 10, 1);
 
 //		$url = apply_filters( 'wpseo_opengraph_url', WPSEO_Frontend::get_instance()->canonical( false ) );
 
-/*
- * Add redirect fields to login/registration forms
- */
-function ink_redirect_field()
-{
-    $referer = '';
-    if (isset($_POST['redirect'])) {
-        $referer = $_POST['redirect'];
-    }
-    if (isset($_REQUEST['redirect'])) {
-        $referer = $_REQUEST['redirect'];
-    }
-//    if ($referer == ''){
-//        $referer = wp_get_raw_referer();
-//    }
 
-    ?><input type="hidden" name="redirect" value="<?php
-    echo ($referer);
-
-    ?>" /><?php
-}
-add_action('woocommerce_login_form_end', 'ink_redirect_field');
-add_action('woocommerce_register_form_end', 'ink_redirect_field');
-
-/*
- * Allow redirect to previous page after registration
- * @param string $redirect     this is the registration screen itself.
- * @param string $account_page ie My Account.
- * 
- */
-
-function ink_redirect_registration($referer)
-{
-    if (isset($_POST['redirect'])) {
-        $referer = $_POST['redirect'];
-    }
-    if (isset($_REQUEST['redirect'])) {
-        $referer = $_REQUEST['redirect'];
-    }
-    return $referer;
-}
-add_filter('woocommerce_registration_redirect', 'ink_redirect_registration', 10, 1);
-/*
- * rewrite the standard login url to use the main woo account form..
- * @param string $redirect     Path to redirect to on log in.
- * @param bool   $force_reauth Whether to force reauthorization
- * @return string The login URL. Not HTML-encoded.
- */
-
-function ink_login_url($login_url, $redirect, $force_reauth)
-{
-
-    if (isset($_POST['redirect'])) {
-        $referer = $_POST['redirect'];
-    }
-//    if (! $redirect || $redirect==''){
-//        $redirect = wp_get_raw_referer();
-//    }
-    if (!$redirect) {
-        $redirect = html_entity_decode("https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
-    }
-
-    //get the link for inkston
-    $ink_login_uri = '';
-    if (is_woocommerce_activated()) {
-        $ink_login_uri = wc_get_page_permalink('myaccount');
-    } else {
-        $locale = get_locale();
-        switch ($locale) {
-            case 'fr_FR':
-                $ink_login_uri = 'https://www.inkston.com/fr/mon-compte/';
-                break;
-            case 'es_ES':
-                $ink_login_uri = 'https://www.inkston.com/es/mi-cuenta/';
-                break;
-            default:
-                $ink_login_uri = 'https://www.inkston.com/my-account/';
-        }
-    }
-    //if we have a new link, recompose the parameters
-    if ($ink_login_uri != '') {
-        $login_url = $ink_login_uri;
-        $login_url = add_query_arg('redirect', urlencode($redirect), $login_url);
-
-        if ($force_reauth) {
-            $login_url = add_query_arg('reauth', '1', $login_url);
-        }
-    }
-    return $login_url;
-}
-add_filter('login_url', 'ink_login_url', 10, 3);
 
 function ink_gift_message_input($gift_message_input, $gift_message)
 {
@@ -2189,3 +2039,7 @@ function ink_gift_message_input($gift_message_input, $gift_message)
         ));
 }
 add_filter('wcs_gift_message_input', 'ink_gift_message_input', 10, 2);
+
+
+
+include_once( 'ink-business-directory.php' );

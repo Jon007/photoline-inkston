@@ -285,13 +285,17 @@ if (!function_exists('inkston_setup')) :
             'hamburger' => __('Hamburger Menu', 'photoline-inkston'),
             'primary' => __('Primary Menu', 'photoline-inkston'),
             'social' => __('Social Menu', 'photoline-inkston'),
+            'footer' => __('Footer Menu', 'photoline-inkston'),
         ));
-
+        /* this code handles non-Polylang subsite allowing different language menus */
         if ( ! function_exists( 'pll_the_languages' ) ) {
             register_nav_menus(array(
                 'topfr_FR' => __('Top Menu', 'photoline-inkston') . ' Français',
                 'topes_ES' => __('Top Menu', 'photoline-inkston') . ' Español',
                 'topde_DE' => __('Top Menu', 'photoline-inkston') . ' Deutsche',
+                'footerfr_FR' => __('Footer Menu', 'photoline-inkston') . ' Français',
+                'footeres_ES' => __('Footer Menu', 'photoline-inkston') . ' Español',
+                'footerde_DE' => __('Footer Menu', 'photoline-inkston') . ' Deutsche',
             ));
         }
         /**
@@ -424,7 +428,9 @@ function inkston_scripts()
         }
     }
     
-    ?><script type="text/javascript">window.loginurl = '<?php echo(wp_login_url()) ?>';</script><?php
+    ?><script type="text/javascript">window.loginurl = '<?php 
+        echo(wp_login_url()) 
+    ?>';</script><?php
 }
 add_action('wp_enqueue_scripts', 'inkston_scripts', 1000);
 
@@ -690,6 +696,11 @@ function inkston_body_class_filter($classes)
        }
     }
     
+    $cookie_name = 'pll_language';
+    if(isset($_COOKIE[$cookie_name])) {
+        $classes[] = 'lang';
+        $classes[] = $_COOKIE[$cookie_name];
+    }    
     
     return $classes;
 }
@@ -1419,53 +1430,6 @@ function getCommentUserURL($url, $comment_ID, $comment)
 //return apply_filters( 'get_comment_author_url', $url, $id, $comment );
 add_filter('get_comment_author_url', 'getCommentUserURL', 10, 3);
 
-/**
- * gets the page id from id or slug, translated if polylang available
- *
- * @param string     $page        id or slug of page to find
- * 
-* @return int page id or false if no page found
-*/
-function inkGetPageID($page)
-{
-    //get the page it, if $page is not already numeric
-    if (!(is_numeric($page))){
-        if (is_string($page)){
-            //$page = get_page($page);
-            //if (! $page){return false;}
-            $args = array(
-              'name'        => $page,
-              'post_type'   => 'page',
-              'post_status' => 'publish',
-              'numberposts' => 1
-            );
-            $my_posts = get_posts($args);
-            if ( $my_posts ){
-                 $page = $my_posts[0]->ID;
-            } else {
-                return false;
-            }
-        } else {
-            $page = get_post($page);
-            if ($page){
-                $page = $page->ID;
-            }else{
-                return false;
-            }
-        }
-    }
-    
-    //if polylang enabled, get page in right language
-    if (function_exists('pll_get_post')){
-        $page = pll_get_post($page); // translate the About page in the current language        
-    } else {
-        $pageobj = get_page($page);
-        if (!$pageobj){
-            return false;
-        }
-    }
-    return $page; // returns the link
-}
 
 /**
  * Polylang meta filter, if true meta item will not be synchronized.
@@ -2011,3 +1975,4 @@ return $urls;
 }
 
 include_once( 'functions2.php' );
+include_once( 'ink-links.php' );

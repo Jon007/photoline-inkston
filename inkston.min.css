@@ -1183,3 +1183,9 @@ body.home div.site-info{margin-top:10px;}
 body:not(.single-product) .menu-share-container{text-align:center;}
 .reviews{font-weight:bold;color:#fa7c0b;}
 #wpbdp-submit-listing .wpbdp-submit-listing-form-actions input[type="submit"] {float: none;}
+div.footer-menu div{display:inline-block;}
+body.lang .lang{display:none;}
+body.lang.en .lang.en,
+body.lang.fr .lang.fr,
+body.lang.es .lang.es,
+body.lang.de .lang.de{display:initial;}

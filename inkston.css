@@ -4612,3 +4612,11 @@ body.home div.site-info{margin-top:10px;}
 /*center share container except on products */
 body:not(.single-product) .menu-share-container{text-align:center;}
 .reviews{font-weight:bold;color:#fa7c0b;}
+/*show footer menu inline with copyright text*/
+div.footer-menu div{display:inline-block;}
+/*allow language specific content by adding lang and code to the class of any element */
+body.lang .lang{display:none;}
+body.lang.en .lang.en,
+body.lang.fr .lang.fr,
+body.lang.es .lang.es,
+body.lang.de .lang.de{display:initial;}
