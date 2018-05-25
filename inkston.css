@@ -4413,7 +4413,7 @@ div.footer-subscribe a.button:active{
 .col .search-footer{margin-left:12px;}
 .col.social{float:right;}
 .site-info .col{margin:0;}
-div.col.subscribe{width:40%;}
+div.col.subscribe{width:30%;}
 div.col.subscribe a{text-decoration:none;font-weight:bold;}
 @media (max-width:650px){
 .site-footer{padding:0 5px;}
@@ -4619,4 +4619,13 @@ body.lang .lang{display:none;}
 body.lang.en .lang.en,
 body.lang.fr .lang.fr,
 body.lang.es .lang.es,
-body.lang.de .lang.de{display:initial;}
+body.lang.de .lang.de{display:initial;}/* hide subscribe checkboxes if user is already logged in 
+  (they don't show the subscription status and the user must have been asked already) */
+body.logged-in .mailpoet-subscription-section,
+body.logged-in .wpcf7-mailpoetsignup {display:none;}
+/* allow checkbox options to show as a vertical list */
+.mailpoet_segment_label{float:left;}
+.mailpoet_paragraph .mailpoet_checkbox_label{display:block;margin-left:150px;}
+.mailpoet_submit{margin-left:150px;}
+/*if it's a pseudo login from mailpoet, also hide text for anonymous users'*/
+body.mailpoet_router .hide-if-logged-in{display:none!important;}

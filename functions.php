@@ -429,7 +429,8 @@ function inkston_scripts()
     }
     
     ?><script type="text/javascript">window.loginurl = '<?php 
-        echo(wp_login_url()) 
+        $referer = (isset($_SERVER['REQUEST_URI'])?$_SERVER['REQUEST_URI']:''); 
+        echo(wp_login_url($referer)) 
     ?>';</script><?php
 }
 add_action('wp_enqueue_scripts', 'inkston_scripts', 1000);
@@ -701,6 +702,10 @@ function inkston_body_class_filter($classes)
         $classes[] = 'lang';
         $classes[] = $_COOKIE[$cookie_name];
     }    
+    
+    if (isset($_GET['mailpoet_router'])){
+        $classes[] = 'mailpoet_router';
+    }
     
     return $classes;
 }
