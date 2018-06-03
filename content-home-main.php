@@ -85,19 +85,19 @@ if( get_option( 'sticky_posts' ) ) {
 <?php } // get_option( 'sticky_posts' ) ?>
 
 <?php
-	if ( get_theme_mod('inkston_category_set') != '' ) {
+	if ( get_theme_mod( 'inkston_category_set') != '' ) {
 ?>
 
 <section id="home-recent-posts">
 	<div class="home-section">
 <?php
-	$catID = get_theme_mod('inkston_category_set');
-    	$limit_num = get_theme_mod('number_homeposts');
-    	$recent_posts_title = get_theme_mod('number_homeposts');
+	$catID = get_theme_mod( 'inkston_category_set');
+    	$limit_num = get_theme_mod( 'number_homeposts');
+    	$recent_posts_title = get_theme_mod( 'number_homeposts');
 
 $args = array(
 	'posts_per_page' => $limit_num,
-	'post__not_in' => get_option('sticky_posts'),
+	'post__not_in' => get_option( 'sticky_posts'),
 	'cat' => $catID,
 	'post_status' => 'publish'
 );
@@ -123,4 +123,4 @@ $args = array(
 	</div><!-- .home-section -->
 </section><!-- home-recent-posts -->
 
-<?php } // if ( false === get_theme_mod('inkston_recent_posts') ) ?>
+<?php } // if ( false === get_theme_mod( 'inkston_recent_posts') ) ?>

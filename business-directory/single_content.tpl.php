@@ -20,7 +20,7 @@
     foreach ( $images->extra as $img ){
        $imageids[] = $img->id;
     }
-    echo(do_shortcode('[gallery link="file" size="medium_large" ids="' . implode(',', $imageids) . '"]'));
+    echo(do_shortcode( '[gallery link="file" size="medium_large" ids="' . implode( ',', $imageids) . '"]'));
 }
 ?>
 </div>

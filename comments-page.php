@@ -22,7 +22,7 @@ get_header();
           'user_id' => $user_id
       );
       $comments = get_comments($args);
-      wp_list_comments(array('short_ping'        => true,), $comments);
+      wp_list_comments(array( 'short_ping'        => true,), $comments);
       /*
       foreach($comments as $comment) {
           echo '<p>'; 

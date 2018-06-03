@@ -17,7 +17,7 @@
 <?php
     $user_url = bbp_get_displayed_user_field( 'user_url' );
     if ($user_url){
-        echo ('<div class="ink-profile-link">');
+        echo ( '<div class="ink-profile-link">');
         echo ( '<a href="' . esc_attr($user_url) . '">' . $user_url . '</a>');
         echo ("</div>");
     }
@@ -28,10 +28,10 @@ if ( bbp_get_displayed_user_field( 'description' ) ){
     bbp_displayed_user_field( 'description' ); 
 } else {
     if ( bbp_get_displayed_user_id() != get_current_user_id() ){
-        _e('This user has not yet edited their profile.', 'photoline-inkston');
+        _e( 'This user has not yet edited their profile.', 'photoline-inkston');
     } else {
         ?><a href="<?php bbp_user_profile_edit_url(); ?>"><?php _e( 'Edit your profile', 'photoline-inkston' ); ?></a> <?php
-        _e('to add content to this section.', 'photoline-inkston');
+        _e( 'to add content to this section.', 'photoline-inkston');
     }
 }
 ?></div>
@@ -46,13 +46,13 @@ if ( bbp_get_displayed_user_field( 'description' ) ){
 
 <?php 
 if ( (bbp_get_displayed_user_id() == get_current_user_id() ) || 
-     ( function_exists('badgeos_get_manager_capability') && current_user_can( badgeos_get_manager_capability() ) ) ) {    
+     ( function_exists( 'badgeos_get_manager_capability') && current_user_can( badgeos_get_manager_capability() ) ) ) {    
 ?>
 &nbsp;
 <hr />
 <h2 class="section-title"><?php _e( 'Contributor badges', 'photoline-inkston' ); ?></h2>
 <p><?php 
-    echo (get_user_level(array('style'=>'score')));
+    echo (get_user_level(array( 'style'=>'score')));
 //printf( __( 'Current score: %1$s points.', 'photoline-inkston' ), get_user_points() );
 ?></p>
 <p><?php _e( 'Points are awarded for making community contributions, as you earn more points you can win badges which get you prize coupons redeemable at the shop.  <a href="https://www.inkston.com/community/my-awards/">Click here</a> to see the levels and points scheme.', 'photoline-inkston' ); ?></p>

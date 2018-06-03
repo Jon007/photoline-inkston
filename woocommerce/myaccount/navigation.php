@@ -88,12 +88,13 @@ if ($wp_subscribe_reloaded ){
 /**
  * show mailpoet link
  */
+if (function_exists('ink_get_newsletter_subscribe_url')){
 $mailpoet_link = ink_get_newsletter_subscribe_url();
 if ($mailpoet_link) {
     ?><li class=""><a href="<?php echo($mailpoet_link); ?>"><?php echo(esc_html( 
         __('Newsletter subscriptions', 'photoline-inkston') ));?></a></li><?php 
 } 
-
+}
 ?>
     </ul>
 </nav>

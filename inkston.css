@@ -1235,113 +1235,6 @@ ul#sidemenu,
     display: block;
 }
 
-/*=Social menu
----------------------------------*/
-#menu-social {
-    text-align: right;
-}
-
-#menu-social li {
-    display: inline-block;
-    padding-left: 5px;
-}
-#menu-share, ul.menu-social, ul.menu-social li  {
-    display: inline-block;
-    padding-left: 5px;
-		margin:0;
-}
-
-ul.menu-social li a::before,
-#menu-social li a::before {
-    color: #1a1919;
-    content: none;
-    font-family: "FontAwesome";
-    display: inline-block;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 1em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-#menu-share li a:hover::before,
-#menu-share li a:active::before
-{
-	color:#fa7c0b;
-}
-ul.menu-social li a[href*="wordpress.org"]::before,
-ul.menu-social li a[href*="wordpress.com"]::before {
-    content: '\f19a'!important;
-}
-
-ul.menu-social li a[href*="amazon"]::before {
-    content: '\f270'!important;
-}
-
-ul.menu-social li a[href*="mailto"]::before {
-    content: '\f0e0'!important;
-}
-
-ul.menu-social li a[href*="facebook.com"]::before {
-    content: '\f082'!important;
-}
-
-ul.menu-social li a[href*="twitter.com"]::before {
-    content: '\f099'!important;
-}
-
-ul.menu-social li a[href*="plus.google.com"]::before {
-    content: '\f0d5'!important;
-}
-
-ul.menu-social li a[href*="pinterest.com"]::before {
-    content: '\f0d2'!important;
-}
-
-ul.menu-social li a[href*="dribbble.com"]::before {
-    content: '\f17d'!important;
-}
-
-ul.menu-social li a[href*="github.com"]::before {
-    content: '\f09b'!important;
-}
-
-ul.menu-social li a[href*="tumblr.com"]::before {
-    content: '\f173'!important;
-}
-
-ul.menu-social li a[href*="youtube.com"]::before {
-    content: '\f167'!important;
-}
-
-ul.menu-social li a[href*="flickr.com"]::before {
-    content: '\f16e'!important;
-}
-
-ul.menu-social li a[href*="vimeo.com"]::before {
-    content: '\f194'!important;
-}
-
-ul.menu-social li a[href*="instagram.com"]::before {
-    content: '\f16d'!important;
-}
-
-ul.menu-social li a[href*="linkedin.com"]::before {
-    content: '\f08c'!important;
-}
-
-ul.menu-social li a[href*="soundcloud.com"]::before {
-    content: '\f1be'!important;
-}
-
-ul.menu-social li a[href*="vk.com"]::before {
-    content: '\f189'!important;
-}
-
-ul.menu-social li a[href*="feeds.feedburner.com"]::before {
-    content: '\f09e'!important;
-}
-
 /*---for widget---*/
 
 #secondary #menu-social {
@@ -3165,7 +3058,6 @@ body.psgal{opacity:1;}
 /*now psgal is on the body but don't let it change the behaviour of all a tags*/
 body.psgal a{display:inline}
 body.psgal .pswp__share-tooltip a{display:block;} 
-
 div.pswp__zoom-wrap img{max-width: none;}
 
 /*override to give .photoswipe lightbox higher z-index than shareaholic since shareholic doesn't know about sharing the ccurrent image */
@@ -3236,8 +3128,9 @@ ul.header-cart {list-style:none;margin:0;}
 .header-cart li a:hover, .header-cart li a:active, .header-cart li a:focus  {background-color: #4d914d;}
 
 /*floating total items in cart*/
-.page-header span.cart-total {position:relative;float:left;left:22px;top:0px;margin-top:-2px;}
-.top-menu span.cart-total {position:relative;float:left;left:20px;top:-1px;font-size:10px;}
+.page-header span.cart-total {position:relative;float:left;left:12px;top:0px;margin-top:-4px;font-size:14px}
+.top-menu span.cart-total {position:relative;float:left;left:10px;top:-1px;font-size:10px;}
+.page-header .header-cart .woocommerce-Price-amount{font-size:14px;}
 .page-header .header-cart li a:before {
     content: '\f447';  /* this is the cart symbol */
     display: inline-block;
@@ -3253,6 +3146,7 @@ ul.header-cart {list-style:none;margin:0;}
     -webkit-font-smoothing: antialiased;
     font: normal 12px/1 'Genericons';
     vertical-align:bottom;padding-bottom:0px;
+    margin-bottom: -2px;
 }
 /*override top menu color */
 .top-menu .header-cart span {color:#fff;}
@@ -4057,94 +3951,6 @@ div#header-thumbnail.fixbox{
 }
 /* take off distracting outline */
 #logo a:hover, #logo a:active{outline:none;}
-
-/*
- *  Business Directory customisations here:
- */
-.wpbdp-listing a:not(.wpbdp-button) {
-    color: #39aa39;
-}
-.wpbdp-listing .listing-title a, .wpbdp-listing .listing-title h2 {
-    color: #1a1919;
-}
-#wpbdp-listing-form-fields input.intextbox{
-    min-width: 300px;
-    width: 90%;
-}
-#wpbdp-listing-form-fields .wpbdp-form-field-type-url input.intextbox{
-		display:inline-block;
-		width: 30%;
-}
-#wpbdp-listing-form-fields .wpbdp-form-field-type-url input.intextbox.inselect{
-		display:inline-block;
-		width: 50%;
-}
-#wpbdp-listing-form-fields  .wpbdp-form-field .field-description {
-    float:none;
-    margin-left: 20px;
-}
-.wpbdp-listing .listing-details{
-	margin-left: 0px;
-}
-/*
-.wpbdp-listing .listing-details a:not(.wpbdp-button)
-*/
-.wpbdp-listing .listing-details div.field-value.wpbdp-field-meta,
-.wpbdp-listing .listing-details div.field-value.wpbdp-field-association-category{
-	    display:inline-block;
-			width:auto;
-			margin-right: 10px;
-} 
-.wpbdp-listing .social-fields {
-    margin:0;
-}
-.wpbdp-listing .social-fields a, .wpbdp-listing .social-fields .social-field{
-		float:right;
-}
-.wpbdp-listing .social-fields a{
-    margin-right: 5px;
-    margin-top: 4px;	
-}
-.wpbdp-listing-single .extra-images ul li img {
-    max-width:min-content;
-}
-.wpbdp-form-field .field-description,
-.wpbdp-listing label, .wpbdp-form-field-label label{
-	color: #686464;
-}
-.wpbdp-form-field-type-checkbox div.wpbdmcheckboxclass, 
-select.required{
-	color: #1a1919;
-}
-.address-info br { 
-    display: inline;
-    clear:none;
-    content: ', ';
-}
-.address-info br:after { 
-    content: ', ';
-}
-.wpbdp-listing .address-info label{
-	display:inline-block;	
-}
-.address-info label:after{
-    content: ': ';
-}	
-.excerpt-content .listing-thumbnail img{max-width: 200px;}
-.excerpt-content{line-height:normal}
-body.wpbdp-view-show_listing #wrap-content {margin-top:45px;}
-body.wpbdp-view-show_listing #wrap-header {display:none}
-body.wpbdp-view-show_listing header.page-header {display:none}
-@media (min-height: 900px){
-body.wpbdp-view-show_listing #wrap-content {margin-top:45px;}
-body.wpbdp-view-show_listing #wrap-header{display:none}
-body.wpbdp-view-show_listing header.page-header {display:none}
-}		
-.wpbdp-listing .listing-thumbnail{margin-right:1.5em;}
-.wpbdp-listing-single .main-image {
-float:left;
-margin-left:0px;
-}
 /*
  *  bbPress forums customisations here:
  */
@@ -4154,15 +3960,6 @@ margin-left:0px;
 #bbpress-forums .bbp-forum-info .bbp-forum-content,
 body.bbpress .bbp-reply-content{font-size:15px;line-height:150%;}
 body.bbpress #content h1{font-size: 24px;}
-.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-60px;float:right;}
-@media (max-width: 1000px){
-.wpbdp-listing-single input.wpbdp-button.back-to-dir{margin-top:-42px;}
-}
-/* why was this hiding the title??
-.wpbdp-listing-single .listing-title{display:none;}
-*/
-.mailpoet_form_widget .mailpoet_paragraph{display:inline-block;}
-.mailpoet_form_widget .mailpoet_paragraph input[type="submit"]{text-transform:none;}
 .woocommerce-message a.button.wc-forward {
 margin: 2px;
 min-width: 143px;
@@ -4344,34 +4141,12 @@ details details summary {text-decoration:underline;font-weight:normal;font-size:
 .site-content .entry-content details p{margin-bottom:5px; line-height:1.3em;}
 .site-content .entry-content details li{margin-bottom:5px; line-height:1.3em;}
 
-/* terms and conditions link for directory */
-.wpbdp-form-field.terms-and-conditions a{display:block;}
 /* gift coupon field display */
 div.wcs-data{margin-top:5em;}
-/* wishlist sharing buttons */
-.tinv-wishlist .social-buttons {border:2px solid green;border-radius:5px;padding-left:10px;padding-right:10px;margin-right:15px;}
-.tinv-wishlist .social-buttons ul {margin-bottom: 0px;}
-/* product add to wishlist button */
-#content .tinvwl_add_to_wishlist_button.button{
-text-transform: uppercase;
-font-weight: 600;
-letter-spacing: 1px;
--webkit-font-smoothing: antialiased;
-font-size: 14px;
-line-height: 16px;
-margin-top:0;
-margin-bottom: 5px;
-float: right;
-position: relative;
-margin-right: 50%;
-}
-#content div.product-type-woosb .tinvwl_add_to_wishlist_button.button{
-margin-top: 5px;
-}
+
 /* fix amazon grid layout not flowing properly due to oversize sale items*/
 .aalb-pa-ad-unit.pull-left {max-height:259px;border:1px solid white;}
 .shop_table.order_details th{width:50%;}
-body.tinvwl-theme-style .menu-share-container{display:none;} 
 /* gift coupon input format */
 .wcs-data input{width:100%}
 
@@ -4382,15 +4157,9 @@ body.tinvwl-theme-style .menu-share-container{display:none;}
 .product-type-gift_coupon .single_add_to_cart_button.button.alt{margin-left:0px;margin-bottom:8px;}
 }
 /* mailpoet forms and other mysteriously grey areas */
-.site-content label strong, .site-content .mailpoet_checkbox_label{
+.site-content label strong {
 	color:#1a1919;
 }
-.mailpoet_paragraph{margin-bottom:1em;}
-.mailpoet_paragraph label{min-width:150px;}
-.mailpoet_paragraph label, 
-.mailpoet_paragraph input{
-	display:inline-block;
-} 
 div.about, div.footer-subscribe{
 	display: inline-block;
 	float: left;
@@ -4561,15 +4330,6 @@ div.the_champ_outer_login_container {
 /*
 .the_champ_social_login_title{font-weight:bold;}
 */
-/* format wishlist heart link footer */
-.site-footer .wishlist_products_counter a .fa{color:#AF3632;font-size:16px;}
-.site-footer .wishlist_products_counter a .wishlist_products_counter_number{color:#AF3632;font-size:14px;}
-.wishlist_products_counter.wishlist-counter-with-products .fa-heart-o:before {
-  content: "\f004";
-}
-.wishlist_products_counter{margin-right:1em;}
-.wishlist_products_counter .wishlist_products_counter_number{display:none;}
-.wishlist_products_counter.wishlist-counter-with-products .wishlist_products_counter_number{display:inline-block;}
 
 /* special notices formatting */
 .user-alert{color:#fa7c0b;font-weight:bold;}
@@ -4588,13 +4348,6 @@ body.home #content .n2-ss-control-bullet{line-height:10px;display:none!important
 body.home .hentry{margin-bottom:0px;}
 body.home div.site-info{margin-top:10px;}
 }
-/* Business Directory 5 hide free plan selector */
-.wpbdp-plan-selection-wrapper{display:none;}
-.wpbdp-submit-listing-section-content .wpbdp-msg.tip{display:none;}
-.listing-actions a.button,
-.listing-actions a.button:hover{background-image:none;}
-/* Business directory don't float right submit button */
-#wpbdp-submit-listing .wpbdp-submit-listing-form-actions input[type="submit"] {float: none;}
 
 /* stop WooCommerce reformatting additional message rows with no data-title */
 @media (max-width: 768px){
@@ -4614,18 +4367,7 @@ body:not(.single-product) .menu-share-container{text-align:center;}
 .reviews{font-weight:bold;color:#fa7c0b;}
 /*show footer menu inline with copyright text*/
 div.footer-menu div{display:inline-block;}
-/*allow language specific content by adding lang and code to the class of any element */
-body.lang .lang{display:none;}
-body.lang.en .lang.en,
-body.lang.fr .lang.fr,
-body.lang.es .lang.es,
-body.lang.de .lang.de{display:initial;}/* hide subscribe checkboxes if user is already logged in 
-  (they don't show the subscription status and the user must have been asked already) */
-body.logged-in .mailpoet-subscription-section,
-body.logged-in .wpcf7-mailpoetsignup {display:none;}
-/* allow checkbox options to show as a vertical list */
-.mailpoet_segment_label{float:left;}
-.mailpoet_paragraph .mailpoet_checkbox_label{display:block;margin-left:150px;}
-.mailpoet_submit{margin-left:150px;}
-/*if it's a pseudo login from mailpoet, also hide text for anonymous users'*/
-body.mailpoet_router .hide-if-logged-in{display:none!important;}
+
+/* fix for new layout sequence */
+.woocommerce-product-details__short-description{clear:right;}
+.top-menu .woocommerce-currency-switcher{display:none;}

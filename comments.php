@@ -13,7 +13,7 @@ if ( post_password_required() )
 
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">
-<?php _e('Comments: ', 'photoline-inkston'); ?> <?php comments_number(__('0', 'photoline-inkston'), __('1', 'photoline-inkston'), __('%', 'photoline-inkston') );?>
+<?php _e( 'Comments: ', 'photoline-inkston'); ?> <?php comments_number(__( '0', 'photoline-inkston'), __( '1', 'photoline-inkston'), __( '%', 'photoline-inkston') );?>
 		</h2>
 
 		<?php if ( get_comment_pages_count() > 1 && get_option( 'page_comments' ) ) : // are there comments to navigate through ?>
@@ -48,10 +48,10 @@ if ( post_password_required() )
 		<p class="no-comments"><?php _e( 'Comments Closed', 'photoline-inkston' ); ?></p>
 	<?php endif; ?>
 <?php
-  $page_id = inkGetPageID(2756);  // get Contact page in the current language
+    $page_id = inkGetPageID(2756);  // get Contact page in the current language
     if ($page_id){
-      $contact_link = get_page_link($page_id); 
-      $contact_title = get_the_title( $page_id );
+        $contact_link = get_page_link($page_id); 
+        $contact_title = get_the_title( $page_id );
     } elseif (get_locale()=='de_DE') {
         $contact_link = __( 'https://www.inkston.com/deu/kontaktieren-sie-uns/', 'photoline-inkston' ); 
         $contact_title = __( 'Contact', 'photoline-inkston' ); 
@@ -63,9 +63,9 @@ if ( post_password_required() )
         //    'id="comment" ' . 
         'name="comment">' . 
         __( 'Leave a Comment', 'photoline-inkston' ) . '</a> ' . 
-           __(' or ', 'photoline-inkston' ) . 
+        __( ' or ', 'photoline-inkston' ) . 
           ' <a href="' . $contact_link . '" onclick="javascript:return true;">' . $contact_title . '</a>';
-	$args = array(
+    $args = array(
 		//'title_reply' => __( 'Leave a Comment or <a href="https://www.inkston.com/inkston/contact-us/">Contact Us</a>', 'photoline-inkston' ),
     'title_reply' => $comment_title, 
 		'label_submit' => __( 'Post Comment', 'photoline-inkston' )

@@ -7,7 +7,7 @@
  * @version     2.5.1
  */
 
-defined('ABSPATH') or die();
+defined( 'ABSPATH') or die();
 
 /**************************************************************************
 
@@ -131,7 +131,7 @@ $totalizer_id = $id_prefix . '_total_qty';
             echo '<input type="radio"    id="' . $field_id . '" name="' . $name_prefix . '[selected_product]" value="" ' . ( ($free_item_selected ) ? '' : ' checked="checked"' ) . ' />';
             
     ?>
-            <label for="<?php echo $field_id; ?>"><?php _e('None', 'photoline-inkston') ?></label><br>
+            <label for="<?php echo $field_id; ?>"><?php _e( 'None', 'photoline-inkston') ?></label><br>
         <?php } ?>
     </ul>
     <p>

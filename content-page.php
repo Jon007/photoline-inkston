@@ -35,7 +35,7 @@ if (!(function_exists('inkston_title'))) {
 		) );
 		?>
 	</div><!-- .entry-content -->
-<?php    ink_sharing(); ?>
+		<?php do_action( 'storefront_before_footer' ); ?>
 
 	<footer class="entry-meta<?php if ( !is_active_sidebar( 'sidebar-1' ) ) { ?> no-sidebar<?php } ?>">
 

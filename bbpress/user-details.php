@@ -7,7 +7,7 @@
  * @subpackage Theme
  */
 $is_current_user = (bbp_get_displayed_user_id() == get_current_user_id());
-$my_caption = ($is_current_user) ? __('My', 'photoline-inkston') . ' ' : '';
+$my_caption = ($is_current_user) ? __( 'My', 'photoline-inkston') . ' ' : '';
 
 do_action( 'bbp_template_before_user_details' ); ?>
 
@@ -20,32 +20,32 @@ do_action( 'bbp_template_before_user_details' ); ?>
 if ($is_current_user){
 ?>
     <li><span class="bbp-user-edit-link"><a href="<?php 
-        _e('/my-account/', 'photoline-inkston');?>" title="<?php 
+        _e( '/my-account/', 'photoline-inkston');?>" title="<?php 
         _e( "Shop Account", 'photoline-inkston' ); ?>"><?php 
         _e( "Dashboard", 'woocommerce' ); ?></a></span></li>  
     <li><span class="bbp-user-edit-link"><a href="<?php 
-        _e('/my-account/orders/', 'photoline-inkston');?>" title="<?php 
+        _e( '/my-account/orders/', 'photoline-inkston');?>" title="<?php 
         _e( "Check your order status and shipment tracking codes,", 'photoline-inkston' ); ?>"><?php 
         _e( "Orders", 'woocommerce' ); ?></a></span></li>              
     <li><span class="bbp-user-edit-link"><a href="<?php 
-        _e('/my-account/edit-address/', 'photoline-inkston');?>" title="<?php 
+        _e( '/my-account/edit-address/', 'photoline-inkston');?>" title="<?php 
         _e( "Edit shipping/billing addresses for inkston shop", 'photoline-inkston' ); ?>"><?php 
         _e( "Addresses", 'woocommerce' ); ?></a></span></li>  
     <li><span class="bbp-user-edit-link"><a href="<?php 
-        _e('/my-account/edit-account/', 'photoline-inkston');?>" title="<?php 
+        _e( '/my-account/edit-account/', 'photoline-inkston');?>" title="<?php 
         _e( "Update account name/email address/password", 'photoline-inkston' ); ?>"><?php 
         _e( "Account details", 'woocommerce' ); ?></a></span></li>  
     <li><span class="bbp-user-edit-link"><a href="<?php 
-        _e('/my-account/customer-logout/', 'photoline-inkston');?>" title="<?php 
+        _e( '/my-account/customer-logout/', 'photoline-inkston');?>" title="<?php 
         _e( "Log out from inkston.com", 'photoline-inkston' ); ?>"><?php 
         _e( "Logout", 'woocommerce' ); ?></a></span></li>  
 <?php
 } ?><li class="<?php if ( bbp_is_single_user_profile() ) :?>current<?php endif; ?>"><span class="vcard bbp-user-profile-link">
         <a class="url fn n <?php 
-        if ( bbp_is_user_home() || current_user_can( 'edit_users' ) ) { echo(' inline');}?>" href="<?php 
+        if ( bbp_is_user_home() || current_user_can( 'edit_users' ) ) { echo( ' inline');}?>" href="<?php 
             bbp_user_profile_url(); ?>" title="<?php 
             if ($is_current_user){
-                _e('My Profile', 'photoline-inkston');
+                _e( 'My Profile', 'photoline-inkston');
             } else {
                 printf( esc_attr__( "%s's Profile", 'bbpress' ), bbp_get_displayed_user_field( 'display_name' ) ); 
             } ?>" rel="me"><?php 
@@ -69,7 +69,7 @@ $listings_link = ($is_current_user) ? ( network_site_url() . 'community/my-listi
     _e( 'Artist Listings', 'photoline-inkston' ); ?></a></span></li>
 
 <?php 
-  $page_id = inkGetPageID('comments');  // get Comments page in the current language
+  $page_id = inkGetPageID( 'comments');  // get Comments page in the current language
   if ($page_id){
     $comment_link = get_page_link($page_id) . '?u=' . bbp_get_displayed_user_id(); 
     $comment_title = get_the_title( $page_id );    
